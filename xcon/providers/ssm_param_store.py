@@ -1,8 +1,10 @@
+# python
 from __future__ import annotations
 
 from typing import Optional, Mapping
 
 from xboto import boto_clients
+from botocore.exceptions import ClientError
 
 from ..random_backup import RandomBackoff
 
@@ -51,8 +53,8 @@ class SsmParamStoreProvider(AwsProvider):
         items = []
         try:
             # Retry paginator iteration with RandomBackoff.
-            # Configure for 3 total attempts: initial try + 2 retries -> max_attempts=2
-            backoff = RandomBackoff(max_attempts=2)
+            # Configure for multiple attempts via RandomBackoff.
+            backoff = RandomBackoff(max_attempts=4)
             pages = []
             last_exception: Exception | None = None
 
@@ -67,12 +69,31 @@ class SsmParamStoreProvider(AwsProvider):
                     pages = list(pages_iter)
                     last_exception = None
                     break
-                except Exception as e:
+                except ClientError as e:
+                    # Only retry on throttling-related error codes.
+                    error_code = ''
+                    try:
+                        error_code = e.response.get('Error', {}).get('Code', '')
+                    except Exception:
+                        pass
+
+                    if error_code in (
+                        'ThrottlingException',
+                        'ThrottledException',
+                    ):
+                        last_exception = e
+                        # loop will call backoff.wait() again (which sleeps) or exit when exhausted
+                        continue
+                    # Non-throttle ClientError: do not retry
                     last_exception = e
-                    # loop will call backoff.wait() again (which sleeps) or exit when exhausted
+                    break
+                except Exception as e:
+                    # Non-ClientError exceptions: do not retry
+                    last_exception = e
+                    break
 
             if last_exception is not None and not pages:
-                # Retries exhausted -> delegate to existing handler
+                # Retries exhausted or non-throttle error -> delegate to existing handler
                 handle_aws_exception(last_exception, self, directory)
                 pages = []
 
