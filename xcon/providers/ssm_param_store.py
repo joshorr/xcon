@@ -4,6 +4,8 @@ from typing import Optional, Mapping
 
 from xboto import boto_clients
 
+from ..random_backup import RandomBackoff
+
 from xcon.provider import AwsProvider, ProviderChain
 
 from .common import handle_aws_exception
@@ -48,12 +50,31 @@ class SsmParamStoreProvider(AwsProvider):
 
         items = []
         try:
-            # We need to lookup the directory listing from Secrets Manager.
-            pages = self._get_params_paginator.paginate(
-                Path=directory.path,
-                Recursive=False,
-                WithDecryption=True,
-            )
+            # Retry paginator iteration with RandomBackoff.
+            # Configure for 3 total attempts: initial try + 2 retries -> max_attempts=2
+            backoff = RandomBackoff(max_attempts=2)
+            pages = []
+            last_exception: Exception | None = None
+
+            while backoff.wait():
+                try:
+                    pages_iter = self._get_params_paginator.paginate(
+                        Path=directory.path,
+                        Recursive=False,
+                        WithDecryption=True,
+                    )
+                    # materialize to surface iterator/network errors (where throttles occur)
+                    pages = list(pages_iter)
+                    last_exception = None
+                    break
+                except Exception as e:
+                    last_exception = e
+                    # loop will call backoff.wait() again (which sleeps) or exit when exhausted
+
+            if last_exception is not None and not pages:
+                # Retries exhausted -> delegate to existing handler
+                handle_aws_exception(last_exception, self, directory)
+                pages = []
 
             for p in pages:
                 for item_info in p['Parameters']:
@@ -65,9 +86,9 @@ class SsmParamStoreProvider(AwsProvider):
                         source=self.name
                     )
                     items.append(item)
+
         except Exception as e:
-            # This will either re-raise error....
-            # or handle it and we will continue/ignore the error.
+            # Fallback to existing handler for any unexpected error
             handle_aws_exception(e, self, directory)
 
         # If we got an error, `items` will be empty.
