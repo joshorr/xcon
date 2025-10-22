@@ -9,14 +9,16 @@ class RandomBackoff:
     _first_wait_called = False
     _already_reached_max_attempts = False
 
-    def __init__(self, base_delay=0.35, max_delay=7, jitter_factor=0.5, *, max_attempts: int | None = None):
+    def __init__(self, base_delay=0.35, max_delay=7, jitter_factor=0.5, *,
+                 max_attempts: int | None = None):
         self.base_delay = base_delay
         self.max_delay = max_delay
         self.jitter_factor = jitter_factor
         self.max_attempts = max_attempts
 
     def wait(self):
-        # Don't wait for the first try, that way `wait` can be called at the start of a loop before anything happens.
+        # Don't wait for the first try, that way `wait` can be called at the start of a loop
+        # before anything happens.
         if not self._first_wait_called:
             self._first_wait_called = True
             return True
@@ -34,7 +36,8 @@ class RandomBackoff:
         return True
 
     def reset(self):
-        """ Reset attempt/try, including how by default we will not wait for first `wait()` call if it was
+        """ Reset attempt/try, including how by default we will not wait for first `wait()`
+        call if it was
             originally configured that way (it's on by default).
         """
         self._first_wait_called = False
