@@ -87,15 +87,12 @@ class SsmParamStoreProvider(AwsProvider):
                     # Non-throttle ClientError: do not retry
                     last_exception = e
                     break
-                except Exception as e:
-                    # Non-ClientError exceptions: do not retry
-                    last_exception = e
-                    break
+                except Exception:
+                    raise
 
             if last_exception is not None and not pages:
                 # Retries exhausted or non-throttle error -> delegate to existing handler
-                handle_aws_exception(last_exception, self, directory)
-                pages = []
+                raise last_exception from None
 
             for p in pages:
                 for item_info in p['Parameters']:
