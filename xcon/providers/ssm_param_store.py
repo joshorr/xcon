@@ -1,8 +1,12 @@
+# python
 from __future__ import annotations
 
 from typing import Optional, Mapping
 
 from xboto import boto_clients
+from botocore.exceptions import ClientError
+
+from ..random_backup import RandomBackoff
 
 from xcon.provider import AwsProvider, ProviderChain
 
@@ -48,12 +52,40 @@ class SsmParamStoreProvider(AwsProvider):
 
         items = []
         try:
-            # We need to lookup the directory listing from Secrets Manager.
-            pages = self._get_params_paginator.paginate(
-                Path=directory.path,
-                Recursive=False,
-                WithDecryption=True,
-            )
+            # Retry paginator iteration with RandomBackoff.
+            # Configure for multiple attempts via RandomBackoff.
+            backoff = RandomBackoff(max_attempts=4)
+            pages = []
+            last_exception: Exception | None = None
+
+            while backoff.wait():
+                try:
+                    pages_iter = self._get_params_paginator.paginate(
+                        Path=directory.path,
+                        Recursive=False,
+                        WithDecryption=True,
+                    )
+                    # materialize to surface iterator/network errors (where throttles occur)
+                    pages = list(pages_iter)
+                    last_exception = None
+                    break
+                except ClientError as e:
+                    # Only retry on throttling-related error codes.
+                    error_code = ''
+                    try:
+                        error_code = e.response.get('Error', {}).get('Code', '')
+                    except Exception:
+                        pass
+
+                    if error_code in (
+                        'ThrottlingException',
+                        'ThrottledException',
+                    ):
+                        raise
+
+            if last_exception is not None and not pages:
+                # Retries exhausted or non-throttle error -> delegate to existing handler
+                raise last_exception from None
 
             for p in pages:
                 for item_info in p['Parameters']:
@@ -65,9 +97,9 @@ class SsmParamStoreProvider(AwsProvider):
                         source=self.name
                     )
                     items.append(item)
+
         except Exception as e:
-            # This will either re-raise error....
-            # or handle it and we will continue/ignore the error.
+            # Fallback to existing handler for any unexpected error
             handle_aws_exception(e, self, directory)
 
         # If we got an error, `items` will be empty.
