@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "xcon"
-version = "0.8.0"
+version = "1.0.0"
 description = "Dynamic configuration retreiver."
 authors = ["Josh Orr <josh@orr.blue>"]
 packages = [{include = "xcon"}]
@@ -26,18 +26,18 @@ ciso8601 = "^2.3.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest-ordering = "^0.6"
-tomlkit = "^0.11.6"
+tomlkit = "^0"
 pdoc3 = "*"
 black = {version = "*", allow-prereleases = true}
 moto = {version = "*", extras = ["dynamodb2", "ssm", "secretsmanager"] }
 boto3-stubs = { extras = ["essential"], version = "*" }
 mkdocstrings = { extras = ["python"], version = "^0" }
-mkdocs-autorefs = "^0"
+mkdocs-autorefs = "^1"
 mkdocs-git-revision-date-plugin = "^0"
 mkdocs = "^1.4.2"
 mkdocs-material = "^9.0.12"
-pytest = "^7.2.1"
-mike = "^1.1.2"
+pytest = "^8"
+mike = "^2"
 pytest-mock = "^3.10.0"
 pytest-order = "^1.0.1"
 pytest-pycodestyle = "^2.3.1"
