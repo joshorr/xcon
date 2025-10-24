@@ -5,7 +5,7 @@ on:
 name: Push Main
 jobs:
   reusable:
-    uses: xyngular/reusable-github-workflows/.github/workflows/py-push-main.yml@main
+    uses: joshorr/workflows/.github/workflows/py-push-main.yml@main
     with:
       real-publish: true
     secrets: inherit
