@@ -81,14 +81,7 @@ class SsmParamStoreProvider(AwsProvider):
                         'ThrottlingException',
                         'ThrottledException',
                     ):
-                        last_exception = e
-                        # loop will call backoff.wait() again (which sleeps) or exit when exhausted
-                        continue
-                    # Non-throttle ClientError: do not retry
-                    last_exception = e
-                    break
-                except Exception:
-                    raise
+                        raise
 
             if last_exception is not None and not pages:
                 # Retries exhausted or non-throttle error -> delegate to existing handler
