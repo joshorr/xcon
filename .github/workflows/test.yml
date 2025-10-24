@@ -2,5 +2,5 @@ name: test-local
 on: pull_request
 jobs:
   reusable:
-    uses: xyngular/reusable-github-workflows/.github/workflows/py-test.yml@main
+    uses: joshorr/workflows/.github/workflows/py-test.yml@main
     secrets: inherit

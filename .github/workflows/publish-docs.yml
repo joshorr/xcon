@@ -2,5 +2,5 @@ on: workflow_dispatch
 name: Publish Docs
 jobs:
   reusable:
-    uses: xyngular/reusable-github-workflows/.github/workflows/py-publish-docs.yml@main
+    uses: joshorr/workflows/.github/workflows/py-publish-docs.yml@main
     secrets: inherit
