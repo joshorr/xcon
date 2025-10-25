@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.5.0](https://github.com/joshorr/xcon/compare/v0.4.0...v0.5.0) (2025-10-24)
+
+
+### Features
+
+* project uses plain dicts as ordered sets (for now), keep old xloop behavior; upgrade python to 3.11+. ([fedaaf0](https://github.com/joshorr/xcon/commit/fedaaf01efaac5185601ea8781cc4cebf4b86e3d))
+* support easily injectable dynamodb resource to use for caching. ([534bf00](https://github.com/joshorr/xcon/commit/534bf00f6e57365c3bf084734e6525f140c09ee0))
+* update documentation and readme. ([c9fec02](https://github.com/joshorr/xcon/commit/c9fec023477ef2878a0e1be22d12b94cfab85fa9))
+* update table of contents for readme. ([7cf59f5](https://github.com/joshorr/xcon/commit/7cf59f527773754e803f9f5d086c7060dc9b26aa))
+
+
+### Bug Fixes
+
+* docs ([3d5dae9](https://github.com/joshorr/xcon/commit/3d5dae9cd21770370f6661df7901f8d74477247e))
+* documentation links. ([69f6a3a](https://github.com/joshorr/xcon/commit/69f6a3ab29f2a04851e34645ea6147eb40f6d4e6))
+* if throttling, wait for a moment, try again (3 attempts maximum) ([4eb29d9](https://github.com/joshorr/xcon/commit/4eb29d924b4666d0d7834af42ad974fb484ee99d))
+* if throttling, wait for a moment, try again (3 attempts maximum) ([b567488](https://github.com/joshorr/xcon/commit/b567488d9998f69395e845dceebda17339e7896a))
+* if throttling, wait for a moment, try again (3 attempts maximum) ([f73c090](https://github.com/joshorr/xcon/commit/f73c090ad88695d7d1e9648e11a3989e2823dec1))
+* if throttling, wait for a moment, try again (3 attempts maximum) ([a40794f](https://github.com/joshorr/xcon/commit/a40794f3f1cde74ee98ae1e61f2aebc1abb64ed7))
+* if throttling, wait for a moment, try again (3 attempts maximum) ([2c8343b](https://github.com/joshorr/xcon/commit/2c8343bd7b9fc3863d95df00faba23b514cec3bc))
+* pypi license reference. ([7d11803](https://github.com/joshorr/xcon/commit/7d11803b82df183b0402fb064dd5efb2f3ede783))
+* serverless permission file examples. ([435ea6f](https://github.com/joshorr/xcon/commit/435ea6feffdf260dd6e2163fe6f4bbf6a20d6529))
+
 ## [0.8.0](https://github.com/xyngular/py-xcon/compare/v0.7.0...v0.8.0) (2024-01-03)
 
 
