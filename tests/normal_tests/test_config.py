@@ -8,7 +8,6 @@ from xcon import xcon_settings
 from xcon.providers.common import AwsProvider
 
 from xboto import boto_clients
-import moto
 import pytest
 from xsentinels import Default
 from xloop import xloop
@@ -103,9 +102,6 @@ def test_env_provider():
     assert config.get_value("some_other_non_existent_env_var") is None
 
 
-@moto.mock_dynamodb
-@moto.mock_ssm
-@moto.mock_secretsmanager
 def test_config_disable_via_env_var():
     # Re-enable the cacher by default, so we can test cacher-related features
     # (it's set to None by default for unit tests)
@@ -128,9 +124,6 @@ def test_config_disable_via_env_var():
             assert isinstance(config.resolved_cacher, DynamoCacher)
 
 
-@moto.mock_dynamodb
-@moto.mock_ssm
-@moto.mock_secretsmanager
 @config_with_env_dyn_ssm_secrets_providers
 def test_direct_class_access(directory: Directory):
     config['TEST_NAME'] = "myTestValue"

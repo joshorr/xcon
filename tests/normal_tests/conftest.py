@@ -31,10 +31,8 @@ def directory():
 
 @pytest.fixture(autouse=True)
 def start_moto():
-    with moto.mock_dynamodb():
-        with moto.mock_ssm():
-            with moto.mock_secretsmanager():
-                yield 'a'
+    with moto.mock_aws():
+        yield
 
 
 @pytest.fixture(autouse=True)
