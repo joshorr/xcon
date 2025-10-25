@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xsettings API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>xsettings</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="xsettings.default_converters" href="default_converters.html">xsettings.default_converters</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="xsettings.env_settings" href="env_settings.html">xsettings.env_settings</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="xsettings.errors" href="errors.html">xsettings.errors</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="xsettings.fields" href="fields.html">xsettings.fields</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="xsettings.retreivers" href="retreivers.html">xsettings.retreivers</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="xsettings.settings" href="settings.html">xsettings.settings</a></code></dt>
+<dd>
+<div class="desc"><p>See doc-comments for <code><a title="xsettings.BaseSettings" href="#xsettings.BaseSettings">BaseSettings</a></code> below.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xsettings.BaseSettings"><code class="flex name class">
+<span>class <span class="ident">Settings</span></span>
+<span>(</span><span>retrievers: Optional[Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol]] = None,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseSettings(
+    Dependency,
+    metaclass=_SettingsMeta,
+    default_retrievers=[],
+
+    # BaseSettings has no fields, it&#39;s a special abstract-type of class skip field generation.
+    # You should never use this option in a BaseSettings subclass.
+    skip_field_generation=True
+):
+    &#34;&#34;&#34;
+    Base Settings class. For all class properties defined there will be a corresponding
+    _settings_field[&#34;name&#34;] = SettingsField created value that will control how this value is
+    read and manipulated.
+
+    The purpose of the Settings class is to allow a library or project/service to define a
+    number of settings that are needed in order to function. You define a number of Settings
+    propertiess to indicate what settings are available to use in the project.
+
+    You define a Settings and properties very similar to how you define a dataclass. You specify
+    a property name, type_hint, and default_value.
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...    name: type_hint = default_value
+
+    A default `SettingsField` will be configured using the name, type_hint, and default_value as
+    follows -- `SettingsField(name=name, type_hint=type_hint, converter=type_hint,
+    default_value=default_value, resolver=default_resolver)`
+
+    This functionality can be overridden by setting the default_value to a custom `SettingsField`.
+    The custom `SettingsField` will be merged with the default `SettingsField` overriding any
+    fields that were defined in the custom SettingsField.
+
+    It&#39;s important to note that while we are setting these attributes on the class they will not
+    remain as attributes on the class. The _SettingsMeta will take each attribute and convert
+    them to a SettingsField and then place them in the class&#39;s _setting_fields attribute.
+
+    Example of various ways to allocate a SettingsField on a Settings subclass:
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...     setting_1: int
+    Allocates
+    &gt;&gt;&gt; SettingsField(name=&#34;setting_1&#34;, type_hint=int, resolver=SettingsResolver)
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...     setting_1: int = 3
+    Allocates
+    &gt;&gt;&gt; SettingsField(name=&#34;setting_1&#34;, type_hint=int, resolver=SettingsResolver, default_value=3)
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...     setting_1 = 3
+    Allocates
+    &gt;&gt;&gt; SettingsField(name=&#34;setting_1&#34;, type_hint=int, resolver=SettingsResolver, default_value=3)
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...     setting_1: int = SettingsField(name=&#34;other&#34;, required=False)
+    Allocates
+    &gt;&gt;&gt; SettingsField(name=&#34;other&#34;, type_hint=int, resolver=SettingsResolver, required=False)
+
+    ## Accessing Class (not instance) Attributes = Lazy Property Reference
+
+    You can do lazy forward-refrences by simply asking the Settings class (not instance) for a
+    attribute. Doing so will return a `SettingsClassProperty` that is a forward reference to the
+    singleton instance class attribute.
+
+    Examples of how you might use this
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...    my_url_setting: str
+    &gt;&gt;&gt; class MySubSettings(BaseSettings):
+    ...    my_field: str
+    &gt;&gt;&gt; class SomeClass:
+    ...    some_attr = MySettings.my_url_setting
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; MySettings.grab().my_url_setting = &#34;my-url&#34;
+    &gt;&gt;&gt; MySubSettings.grab().my_field = MySettings.my_url_setting
+    &gt;&gt;&gt;
+    &gt;&gt;&gt; assert SomeClass.some_attr == &#34;my-url&#34;
+    &gt;&gt;&gt; assert MySubSettings.grab().some_attr == &#34;my-url&#34;
+    &gt;&gt;&gt; assert MySettings.grab().some_attr == &#34;my-url&#34;
+
+    ## Setting public Class Attributes after creation time not allowed
+    Attempting to set a public class level attribute will result in an Error being raised.
+
+    ## Settings Attribute (Property) Inheritance not allowed
+    To keep things as simple as possible we don&#39;t allow SettingsClass attribute inheritance. You
+    can however create a parent class that defines methods / @properties that can be inherited.
+    Trying to set a regular (non-method/non-property/public) attribute will raise an error.
+
+    ## Accessing Instance Properties = Get Value and Convert
+    When calling MySettings.grab().my_setting the Settings class will attempt to retrieve and
+    convert the corresponding value. Getting the the source value and converting the value is
+    controlled by the SettingsField. Here is how it works.
+
+    Start by attempting to retrieve a property from the class instance
+    &gt;&gt;&gt; MyClass.grab().my_setting
+
+    The Settings class will do the following
+    1. Attempt to retrieve a value.
+       a. Lookup value from self via `object.__getattribute__(self, key)`
+       b. If an AttributeError is thrown then lookup the value from the corresponding field
+       via `self._settings_field[name].get_value()`
+    2. Convert the retrieved value by calling `self._settings_field[name].convert_value(value)`
+
+    .. todo:: We don&#39;t support property setters/deleters at the moment.
+              We would need to implement a `__setattr__` here, where it would check
+              for a property setter/getter on field object.
+              (Consider a explicit `fget` and `fset` attribute on SettingsField at that point)
+    &#34;&#34;&#34;
+
+    _instance_retrievers: &#39;List[SettingsRetrieverProtocol]&#39;
+
+    def __init__(
+            self,
+            retrievers: (
+                    &#39;Optional[Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol]]&#39;
+            ) = None,
+            **kwargs
+    ):
+        &#34;&#34;&#34;
+        Set attributes to values that are passed via key-word arguments, these are the initial
+        values for the settings instance your creating; they are set directly on the instance
+        as if you did this:
+
+        ```python
+        # These two statements do the same thing:
+        obj = SomeSettings(some_keyword_arg=&#34;hello&#34;)
+
+        obj = SomeSettings()
+        obj.some_keyword_arg=&#34;hello&#34;
+        ```
+        Args:
+            retrievers: can be used to populate new instance&#39;s retrievers,
+            see `BaseSettings.settings__instance_retrievers`.
+
+        &#34;&#34;&#34;
+        self._instance_retrievers = list(xloop(retrievers))
+
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
+    def add_instance_retrievers(
+            self, retrievers: &#39;Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol]&#39;
+    ):
+        from warnings import warn
+        warn(
+            f&#34;BaseSettings.add_instance_retrievers is now deprecated, &#34;
+            f&#34;was used on subclass ({type(self)}); &#34;
+            f&#34;use property `settings__instance_retrievers` and call &#39;append&#39; on result; &#34;
+            f&#34;ie: `my_settings.settings__instance_retrievers.append(retriever)&#34;
+        )
+        self.settings__instance_retrievers.extend(xloop(retrievers))
+
+    @property
+    def settings__instance_retrievers(self) -&gt; &#39;List[SettingsRetrieverProtocol]&#39;:
+        &#34;&#34;&#34;
+        You can add one or more retrievers to this `instance` of settings
+        (won&#39;t modify default_retrievers for the entire class, only modifies this specific
+        instance).
+
+        You can add or modify the list of instance-retrievers via
+        `BaseSettings.settings__instance_retrievers`. It&#39;s a list that you can directly modify;
+        ie: `my_settings.settings__instance_retrievers.append(my_retriever)`.
+
+        ## Background
+
+        Below is a quick summary, you can see more detailed information in main docs under the
+        `&#34;How Setting Field Values Are Resolved&#34;` heading.
+
+        Directly set values (ie: `self.some_settings = &#39;some-value&#39;`)
+        are first checked for in self, and next in `xinject.context.XContext.dependency_chain`
+        (looking at each instance currently in the dependency-chain, see link for details).
+
+        If value can&#39;t be found set on self or in dependency chain,
+        the retrievers are checked next.
+
+        First the field&#39;s individual retriever is checked (directly on field object,
+        this includes any `@property` fields too as the property getter method is stored on
+        field&#39;s individual retriever).
+
+        After the individual field retrievers are consulted, instance retrievers are checked next
+        before finally checking the default-retrievers for the entire class.
+
+        They are checked in the order added.
+
+        Child dependencies (of the same exactly class/type) in the
+        `xinject.context.XContext.dependency_chain` will also check these instance-retrievers.
+
+        The dependency chain is checked in the expected order of first consulting self,
+         then the chain in most recent parent first order.
+
+        For more details on how parent/child dependencies work see
+        `xinject.context.XContext.dependency_chain`.
+
+        After the dependency-chain is checked, the default-retrievers are checked
+        in python&#39;s `mro` (method-resolution-order), checking its own class first
+        before checking any super-classes for default-retrievers.
+
+        Returns:
+            A list of instance-retrievers you can examine and/or modify as needed.
+        &#34;&#34;&#34;
+        return self._instance_retrievers
+
+    def __getattribute__(self, key):
+        # Anything that starts with `_` or starts with `settings__`
+        # is handled like a normal python attribute.
+        if key.startswith(&#34;_&#34;) or key.startswith(&#34;settings__&#34;):
+            return object.__getattribute__(self, key)
+
+        attr_error = None
+        value = None
+        already_retrieved_normal_value = False
+        cls = type(self)
+        field: Optional[SettingsField] = None
+
+        for c in cls._setting_subclasses_in_mro:
+            c: _SettingsMeta
+            # todo: use isinstance?
+            if c is BaseSettings:
+                # We got to the &#39;BaseSettings&#39; base-class it&#39;s self, no need to go any further.
+                break
+            if field := c._setting_fields.get(key):
+                # Found the field, break out of loop.
+                break
+
+        def get_normal_value(obj: BaseSettings = self):
+            nonlocal value
+            nonlocal attr_error
+
+            # Keep track that we already attempted to get normal value.
+            nonlocal already_retrieved_normal_value
+            if obj is self:
+                already_retrieved_normal_value = True
+
+            try:
+                # Look for an attribute on self first.
+                value = object.__getattribute__(obj, key)
+                if hasattr(value, &#34;__get__&#34;):
+                    value = value.__get__(obj, cls)
+                attr_error = None
+            except AttributeError as error:
+                attr_error = error
+
+        # We don&#39;t want to grab the value like normal if we are a field
+        # and DON&#39;T have a locally/instance value defined for attribute.
+        # This helps Setting classes that are subclasses of Plain classes
+        # attempt to retrieve the value via the field retriever/mechanism
+        # before using that plain-classes, class attribute.
+        #
+        # Otherwise, the plain-class attribute would ALWAYS be used over the field,
+        # making the subclasses field definition somewhat useless.
+        if not self._there_is_plain_superclass or not field or key in self.__dict__:
+            get_normal_value()
+
+        if not already_retrieved_normal_value or value is None:
+            # See if any parent-setting-instances (not super/base classes)
+            for parent_settings in XContext.grab().dependency_chain(cls):
+                if key in parent_settings.__dict__:
+                    get_normal_value(parent_settings)
+
+                if value is not None:
+                    break
+        try:
+            if field:
+                return _resolve_field_value(settings=self, field=field, key=key, value=value)
+        except SettingsValueError as e:
+            # todo: Do some sort of refactoring/splitting this out of this method
+            #       (starting to get too large).
+
+            # We had a field and could not retrieve the value, if we have not already attempted
+            # to get the &#39;normal&#39; value via our base-classes attributes , then attempt that;
+            # If there is a plain class in are superclass/base-classes (ie: non-Setting)
+            # This will check for a value in that class as well.
+            if already_retrieved_normal_value:
+                # Just continue the original exception
+                raise
+
+            get_normal_value()
+            if attr_error:
+                # Could not get the normal value from superclass, raise original exception.
+                # todo: for Python 3.11, we can raise both exceptions (e + attr_error)
+                #       we actually have two separate trees of exceptions here!
+                #       For now we are prioritizing field value retrieval exception
+                #       as the &#39;from&#39; exception and putting the plain-class attribute error
+                #       inside this exception.,
+                raise SettingsValueError(
+                    f&#34;After attempting to get field value &#34;
+                    f&#34;(the &#39;from&#39; exception with message [{e}]); &#34;
+                    f&#34;I tried to get value from plain superclass and that was also unsuccessful &#34;
+                    f&#34;and produced exception/error: ({attr_error}); &#34;
+                    f&#34;for field ({field}).&#34;
+                ) from e
+
+            if value is None and field.required:
+                raise SettingsValueError(
+                    f&#34;After attempting to get field value I next tried to get it from the plain &#34;
+                    f&#34;superclass but got None (details: via &#39;from&#39; exception with message {e}); &#34;
+                    f&#34;for field ({field}).&#34;
+                ) from e
+
+            value = field.convert_value(value)
+            if value is None and field.required:
+                raise SettingsValueError(
+                    f&#34;After attempting to get field value I next tried to get it from the plain &#34;
+                    f&#34;superclass, it came back with a value. But after running the `converter` on &#34;
+                    f&#34;the retrieved value a None was the result and this field is required; &#34;
+                    f&#34;for field ({field}).&#34;
+                ) from e
+            return value
+
+        if attr_error:
+            raise AttributeError(
+                f&#34;Unable to retrieve settings attribute ({key}) from ({self}), &#34;
+                f&#34;there was no defined class-level settings field and no value set for &#34;
+                f&#34;attribute on object, see original exception for more details.&#34;
+            ) from attr_error
+
+        return value</code></pre>
+</details>
+<div class="desc"><p>Base Settings class. For all class properties defined there will be a corresponding
+_settings_field["name"] = SettingsField created value that will control how this value is
+read and manipulated.</p>
+<p>The purpose of the Settings class is to allow a library or project/service to define a
+number of settings that are needed in order to function. You define a number of Settings
+propertiess to indicate what settings are available to use in the project.</p>
+<p>You define a Settings and properties very similar to how you define a dataclass. You specify
+a property name, type_hint, and default_value.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...    name: type_hint = default_value
+</code></pre>
+<p>A default <code>SettingsField</code> will be configured using the name, type_hint, and default_value as
+follows &ndash; <code>SettingsField(name=name, type_hint=type_hint, converter=type_hint,
+default_value=default_value, resolver=default_resolver)</code></p>
+<p>This functionality can be overridden by setting the default_value to a custom <code>SettingsField</code>.
+The custom <code>SettingsField</code> will be merged with the default <code>SettingsField</code> overriding any
+fields that were defined in the custom SettingsField.</p>
+<p>It's important to note that while we are setting these attributes on the class they will not
+remain as attributes on the class. The _SettingsMeta will take each attribute and convert
+them to a SettingsField and then place them in the class's _setting_fields attribute.</p>
+<p>Example of various ways to allocate a SettingsField on a Settings subclass:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int = 3
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver, default_value=3)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1 = 3
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver, default_value=3)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int = SettingsField(name=&quot;other&quot;, required=False)
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;other&quot;, type_hint=int, resolver=SettingsResolver, required=False)
+</code></pre>
+<h2 id="accessing-class-not-instance-attributes-lazy-property-reference">Accessing Class (not instance) Attributes = Lazy Property Reference</h2>
+<p>You can do lazy forward-refrences by simply asking the Settings class (not instance) for a
+attribute. Doing so will return a <code>SettingsClassProperty</code> that is a forward reference to the
+singleton instance class attribute.</p>
+<p>Examples of how you might use this</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...    my_url_setting: str
+&gt;&gt;&gt; class MySubSettings(BaseSettings):
+...    my_field: str
+&gt;&gt;&gt; class SomeClass:
+...    some_attr = MySettings.my_url_setting
+&gt;&gt;&gt;
+&gt;&gt;&gt; MySettings.grab().my_url_setting = &quot;my-url&quot;
+&gt;&gt;&gt; MySubSettings.grab().my_field = MySettings.my_url_setting
+&gt;&gt;&gt;
+&gt;&gt;&gt; assert SomeClass.some_attr == &quot;my-url&quot;
+&gt;&gt;&gt; assert MySubSettings.grab().some_attr == &quot;my-url&quot;
+&gt;&gt;&gt; assert MySettings.grab().some_attr == &quot;my-url&quot;
+</code></pre>
+<h2 id="setting-public-class-attributes-after-creation-time-not-allowed">Setting public Class Attributes after creation time not allowed</h2>
+<p>Attempting to set a public class level attribute will result in an Error being raised.</p>
+<h2 id="settings-attribute-property-inheritance-not-allowed">Settings Attribute (Property) Inheritance not allowed</h2>
+<p>To keep things as simple as possible we don't allow SettingsClass attribute inheritance. You
+can however create a parent class that defines methods / @properties that can be inherited.
+Trying to set a regular (non-method/non-property/public) attribute will raise an error.</p>
+<h2 id="accessing-instance-properties-get-value-and-convert">Accessing Instance Properties = Get Value and Convert</h2>
+<p>When calling MySettings.grab().my_setting the Settings class will attempt to retrieve and
+convert the corresponding value. Getting the the source value and converting the value is
+controlled by the SettingsField. Here is how it works.</p>
+<p>Start by attempting to retrieve a property from the class instance</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; MyClass.grab().my_setting
+</code></pre>
+<p>The Settings class will do the following
+1. Attempt to retrieve a value.
+a. Lookup value from self via <code>object.__getattribute__(self, key)</code>
+b. If an AttributeError is thrown then lookup the value from the corresponding field
+via <code>self._settings_field[name].get_value()</code>
+2. Convert the retrieved value by calling <code>self._settings_field[name].convert_value(value)</code></p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>We don't support property setters/deleters at the moment.
+We would need to implement a <code>__setattr__</code> here, where it would check
+for a property setter/getter on field object.
+(Consider a explicit <code>fget</code> and <code>fset</code> attribute on SettingsField at that point)</p>
+</div>
+<p>Set attributes to values that are passed via key-word arguments, these are the initial
+values for the settings instance your creating; they are set directly on the instance
+as if you did this:</p>
+<pre><code class="language-python"># These two statements do the same thing:
+obj = SomeSettings(some_keyword_arg=&quot;hello&quot;)
+
+obj = SomeSettings()
+obj.some_keyword_arg=&quot;hello&quot;
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>retrievers</code></strong></dt>
+<dd>can be used to populate new instance's retrievers,</dd>
+</dl>
+<p>see <code><a title="xsettings.BaseSettings.settings__instance_retrievers" href="#xsettings.BaseSettings.settings__instance_retrievers">BaseSettings.settings__instance_retrievers</a></code>.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xcon.conf.XconSettings" href="../xcon/conf.html#xcon.conf.XconSettings">XconSettings</a></li>
+<li><a title="xcon.config.ConfigSettings" href="../xcon/config.html#xcon.config.ConfigSettings">ConfigSettings</a></li>
+<li><a title="xsettings.env_settings.EnvVarSettings" href="env_settings.html#xsettings.env_settings.EnvVarSettings">EnvVarSettings</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="xsettings.BaseSettings.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xsettings.BaseSettings.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xsettings.BaseSettings.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xsettings.BaseSettings.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xsettings.BaseSettings.obj"><code class="name">var <span class="ident">obj</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+<dt id="xsettings.BaseSettings.settings__instance_retrievers"><code class="name">prop <span class="ident">settings__instance_retrievers</span> : List[SettingsRetrieverProtocol]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def settings__instance_retrievers(self) -&gt; &#39;List[SettingsRetrieverProtocol]&#39;:
+    &#34;&#34;&#34;
+    You can add one or more retrievers to this `instance` of settings
+    (won&#39;t modify default_retrievers for the entire class, only modifies this specific
+    instance).
+
+    You can add or modify the list of instance-retrievers via
+    `BaseSettings.settings__instance_retrievers`. It&#39;s a list that you can directly modify;
+    ie: `my_settings.settings__instance_retrievers.append(my_retriever)`.
+
+    ## Background
+
+    Below is a quick summary, you can see more detailed information in main docs under the
+    `&#34;How Setting Field Values Are Resolved&#34;` heading.
+
+    Directly set values (ie: `self.some_settings = &#39;some-value&#39;`)
+    are first checked for in self, and next in `xinject.context.XContext.dependency_chain`
+    (looking at each instance currently in the dependency-chain, see link for details).
+
+    If value can&#39;t be found set on self or in dependency chain,
+    the retrievers are checked next.
+
+    First the field&#39;s individual retriever is checked (directly on field object,
+    this includes any `@property` fields too as the property getter method is stored on
+    field&#39;s individual retriever).
+
+    After the individual field retrievers are consulted, instance retrievers are checked next
+    before finally checking the default-retrievers for the entire class.
+
+    They are checked in the order added.
+
+    Child dependencies (of the same exactly class/type) in the
+    `xinject.context.XContext.dependency_chain` will also check these instance-retrievers.
+
+    The dependency chain is checked in the expected order of first consulting self,
+     then the chain in most recent parent first order.
+
+    For more details on how parent/child dependencies work see
+    `xinject.context.XContext.dependency_chain`.
+
+    After the dependency-chain is checked, the default-retrievers are checked
+    in python&#39;s `mro` (method-resolution-order), checking its own class first
+    before checking any super-classes for default-retrievers.
+
+    Returns:
+        A list of instance-retrievers you can examine and/or modify as needed.
+    &#34;&#34;&#34;
+    return self._instance_retrievers</code></pre>
+</details>
+<div class="desc"><p>You can add one or more retrievers to this <code>instance</code> of settings
+(won't modify default_retrievers for the entire class, only modifies this specific
+instance).</p>
+<p>You can add or modify the list of instance-retrievers via
+<code><a title="xsettings.BaseSettings.settings__instance_retrievers" href="#xsettings.BaseSettings.settings__instance_retrievers">BaseSettings.settings__instance_retrievers</a></code>. It's a list that you can directly modify;
+ie: <code>my_settings.settings__instance_retrievers.append(my_retriever)</code>.</p>
+<h2 id="background">Background</h2>
+<p>Below is a quick summary, you can see more detailed information in main docs under the
+<code>"How Setting Field Values Are Resolved"</code> heading.</p>
+<p>Directly set values (ie: <code>self.some_settings = 'some-value'</code>)
+are first checked for in self, and next in <code><a title="xinject.context.XContext.dependency_chain" href="../xinject/context.html#xinject.context.XContext.dependency_chain">XContext.dependency_chain()</a></code>
+(looking at each instance currently in the dependency-chain, see link for details).</p>
+<p>If value can't be found set on self or in dependency chain,
+the retrievers are checked next.</p>
+<p>First the field's individual retriever is checked (directly on field object,
+this includes any <code>@property</code> fields too as the property getter method is stored on
+field's individual retriever).</p>
+<p>After the individual field retrievers are consulted, instance retrievers are checked next
+before finally checking the default-retrievers for the entire class.</p>
+<p>They are checked in the order added.</p>
+<p>Child dependencies (of the same exactly class/type) in the
+<code><a title="xinject.context.XContext.dependency_chain" href="../xinject/context.html#xinject.context.XContext.dependency_chain">XContext.dependency_chain()</a></code> will also check these instance-retrievers.</p>
+<p>The dependency chain is checked in the expected order of first consulting self,
+then the chain in most recent parent first order.</p>
+<p>For more details on how parent/child dependencies work see
+<code><a title="xinject.context.XContext.dependency_chain" href="../xinject/context.html#xinject.context.XContext.dependency_chain">XContext.dependency_chain()</a></code>.</p>
+<p>After the dependency-chain is checked, the default-retrievers are checked
+in python's <code>mro</code> (method-resolution-order), checking its own class first
+before checking any super-classes for default-retrievers.</p>
+<h2 id="returns">Returns</h2>
+<p>A list of instance-retrievers you can examine and/or modify as needed.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xsettings.BaseSettings.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xsettings.BaseSettings.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xsettings.BaseSettings.add_instance_retrievers"><code class="name flex">
+<span>def <span class="ident">add_instance_retrievers</span></span>(<span>self,<br>retrievers: Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_instance_retrievers(
+        self, retrievers: &#39;Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol]&#39;
+):
+    from warnings import warn
+    warn(
+        f&#34;BaseSettings.add_instance_retrievers is now deprecated, &#34;
+        f&#34;was used on subclass ({type(self)}); &#34;
+        f&#34;use property `settings__instance_retrievers` and call &#39;append&#39; on result; &#34;
+        f&#34;ie: `my_settings.settings__instance_retrievers.append(retriever)&#34;
+    )
+    self.settings__instance_retrievers.extend(xloop(retrievers))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="xsettings.default_converters" href="default_converters.html">xsettings.default_converters</a></code></li>
+<li><code><a title="xsettings.env_settings" href="env_settings.html">xsettings.env_settings</a></code></li>
+<li><code><a title="xsettings.errors" href="errors.html">xsettings.errors</a></code></li>
+<li><code><a title="xsettings.fields" href="fields.html">xsettings.fields</a></code></li>
+<li><code><a title="xsettings.retreivers" href="retreivers.html">xsettings.retreivers</a></code></li>
+<li><code><a title="xsettings.settings" href="settings.html">xsettings.settings</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xsettings.BaseSettings" href="#xsettings.BaseSettings">BaseSettings</a></code></h4>
+<ul class="">
+<li><code><a title="xsettings.BaseSettings.__call__" href="../xinject/dependency.html#xsettings.BaseSettings.__call__">__call__</a></code></li>
+<li><code><a title="xsettings.BaseSettings.__copy__" href="../xinject/dependency.html#xsettings.BaseSettings.__copy__">__copy__</a></code></li>
+<li><code><a title="xsettings.BaseSettings.__init_subclass__" href="../xinject/dependency.html#xsettings.BaseSettings.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xsettings.BaseSettings.add_instance_retrievers" href="#xsettings.BaseSettings.add_instance_retrievers">add_instance_retrievers</a></code></li>
+<li><code><a title="xsettings.BaseSettings.grab" href="../xinject/dependency.html#xsettings.BaseSettings.grab">grab</a></code></li>
+<li><code><a title="xsettings.BaseSettings.obj" href="../xinject/dependency.html#xsettings.BaseSettings.obj">obj</a></code></li>
+<li><code><a title="xsettings.BaseSettings.proxy" href="../xinject/dependency.html#xsettings.BaseSettings.proxy">proxy</a></code></li>
+<li><code><a title="xsettings.BaseSettings.proxy_attribute" href="../xinject/dependency.html#xsettings.BaseSettings.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xsettings.BaseSettings.settings__instance_retrievers" href="#xsettings.BaseSettings.settings__instance_retrievers">settings__instance_retrievers</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
