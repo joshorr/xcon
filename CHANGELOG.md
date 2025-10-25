@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0](https://github.com/joshorr/xcon/compare/v0.5.0...v1.0.0) (2025-10-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to version 1.0.0.
+
+### Features
+
+* bump to version 1.0.0. ([009cc69](https://github.com/joshorr/xcon/commit/009cc69917ba986e81f7786e20685d05db093d04))
+* will retry ssm provider with throttled + correct changelog. ([5fbdc49](https://github.com/joshorr/xcon/commit/5fbdc495157a9dd0a19baf1e114e5c1cb1508fa4))
+
+
+### Bug Fixes
+
+* doc generator, update build dependencies, fix unit tests. ([52e8a35](https://github.com/joshorr/xcon/commit/52e8a35d7d0e5123856c03d1c87f8874c3e2a64e))
+
 ## [0.8.0](https://github.com/xyngular/py-xcon/compare/v0.7.0...v0.8.0) (2024-01-03)
 
 
