@@ -162,18 +162,19 @@ class Provider(Dependency):
         names = [v.cache_range_key or v.name for v in items]
         provider_class = self.__class__.__name__
         thread_name = threading.current_thread().name
+        extra = dict(
+            msg_prefix=msg_prefix,
+            provider=self.name,
+            provider_class=provider_class,
+            names=names,
+            path=path,
+            thread_name=thread_name,
+        )
 
         log.info(
             f"{msg_prefix} values via provider ({self.name}/{provider_class}) "
-            f"for path ({path}), for thread ({thread_name}), for names ({names}).",
-            extra=dict(
-                msg_prefix=msg_prefix,
-                provider=self.name,
-                provider_class=provider_class,
-                names=names,
-                path=path,
-                thread_name=thread_name,
-            )
+            f"for path ({path}), for thread ({thread_name}); see log extra's for list of all names retrieved.",
+            extra=extra
         )
 
     def mark_errored_directory(self, directory: Directory):
