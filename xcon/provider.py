@@ -159,7 +159,7 @@ class Provider(Dependency):
 
         # Use cache_range_key if it exists, otherwise use name.
         # cache_range_key has the name + other uniquely identifying information.
-        names = [v.cache_range_key or v.name for v in items]
+        names = {f'{v.directory.path}/{v.name}' or v.name for v in items}
         provider_class = self.__class__.__name__
         thread_name = threading.current_thread().name
         extra = dict(
@@ -173,7 +173,7 @@ class Provider(Dependency):
 
         log.info(
             f"{msg_prefix} values via provider ({self.name}/{provider_class}) "
-            f"for path ({path}), for thread ({thread_name}); see log extra's for list of all names retrieved.",
+            f"for path ({path}), for thread ({thread_name}); see log extra's for list of all path/names retrieved.",
             extra=extra
         )
 
