@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xcon.providers.dynamo API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xcon.providers.dynamo</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoCacher"><code class="flex name class">
+<span>class <span class="ident">DynamoCacher</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DynamoCacher(ProviderCacher):
+    &#34;&#34;&#34; Uses a Dynamo table called `global-all-configCache`.
+
+        Generally caches what configuration values we lookup into a dynamo table.
+        A good summary would be in the [Config Overview - Caching](../config.html#caching)
+
+        More details about the table struvture its self follows.
+
+        The table has two keys:
+
+        1. Hash key: Is the `environ` method parameter that gets passed to the methods on me.
+           It&#39;s normally a string in this format: `/{APP_NAME}/{APP_ENV}`.
+           Also, normally apps/services are only given access to one specific hash-key.
+           This hash-key should represent the app and its current environment.
+        2. Range/Sort key: Contains the variable name, providers and directory paths used
+           to lookup value. This makes it so the app can do various queries using various
+           different providers/directories and the cacher can cache those results correctly
+           and uniquely based on the var-name, providers and directories originally
+           used to get the value.
+
+        You don&#39;t need to parse the rage/sort-key.
+        All of its components are also separate attributes in the table on the row.
+
+        ## Dependency Details
+
+        Right now the `DynamoCacher` is a `xinject.dependency.Dependency`
+        resource, you can grab the current one by calling `DynamoCacher.grab()`.
+
+        More specifically: we are a `xinject.dependency.Dependency`, which means that there is
+        normally only one of us around. See xinject library for more details.
+    &#34;&#34;&#34;
+    name = &#34;cacher&#34;
+    _ttl: dt.datetime
+
+    def retrieved_items_map(self, directory: DirectoryOrPath) -&gt; Mapping[str, DirectoryItem]:
+        &#34;&#34;&#34; This is mostly useful for getting this to cache, so I am not going to implement it
+            in the cacher (if we ever do, the `xcon.provider.ProviderChain` will have to
+            figure out how to skip us).
+
+        &#34;&#34;&#34;
+        return {}
+
+    @property
+    def _table(self) -&gt; _ConfigDynamoTable:
+        # todo: make table name configurable
+        table = _ConfigDynamoTable(table_name=&#39;global-all-configCache&#39;, cache_table=True)
+        table.append_source = &#34; - via cacher&#34;
+        return table
+
+    @dataclasses.dataclass
+    class _LocalCache:
+        listings: Dict[Directory, Dict[str, Dict[str, DirectoryListing]]] = dataclasses.field(
+            default_factory=(
+                lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(DirectoryListing)))
+            )
+        )
+        environ_to_items: Dict[Directory, Tuple[DirectoryItem]] = dataclasses.field(
+            default_factory=lambda: {}
+        )
+
+    @property
+    def local_cache(self) -&gt; _LocalCache:
+        # Using default dict, so I don&#39;t have to worry about allocating the dict&#39;s my self later.
+        maker = lambda c: DynamoCacher._LocalCache()
+        cacher = InternalLocalProviderCache.grab()
+        return cacher.get_cache_for_provider(provider=self, cache_constructor=maker)
+
+    def __init__(self):
+        &#34;&#34;&#34;
+        ## How to Clear Cache
+
+        If you need to change the config and have it propagate asap, you can easily
+        just delete all items in the dynamo cache table for cache_key for the service/env.
+
+        So for now, I am giving a long-life to the cached-items, since config changes to
+        existing items are rare [if we need a new item and it&#39;s not in cache it will be looked
+        up immediately and then cached].
+
+        I use a random number to try to help ensure we try not to have synchronous times on when
+        various things expire between various different services, to help spread load between
+        param store and secrets manager aws api&#39;s.
+
+        12 hours in the future with a random +/- 1500 seconds added on is what we currently do.
+        Thinking about making it a shorter period of time [a couple of hours].
+        &#34;&#34;&#34;
+        self._table.append_source = &#34; - via cacher&#34;
+
+        super().__init__()
+        self._ttl = dt.datetime.now(dt.timezone.utc) + dt.timedelta(
+            hours=12, seconds=random.randint(-1500, 1500)
+        )
+
+    def cache_items(
+            self,
+            items: Iterable[DirectoryItem],
+            provider_chain: ProviderChain,
+            directory_chain: DirectoryChain,
+            environ: Directory
+    ):
+        &#34;&#34;&#34; Cache&#39;s passed in item, using the other params to create the proper range and hash
+            keys that we use in Dynamo to uniquely identify the item.
+
+            See `DynamoCacher.get_item` for more details on what the Args mean. It uses many of
+            the same ones.
+
+            For and overview of the caching process, see
+            [Config Overview - Caching](../config.html#caching)
+
+        &#34;&#34;&#34;
+        environ = self._get_environ_to_use(environ)
+        listing = self._get_listing(
+            directory_chain=directory_chain,
+            provider_chain=provider_chain,
+            environ=environ
+        )
+        items_to_send = []
+        for new_item in listing.get_items_with_different_value(items):
+            if new_item.cacheable:
+                ttl = self._ttl
+                # If the item has a ttl, we want to use that. It means it&#39;s a temporary value
+                # that should be looked up again after the expiration date.
+                if new_item.ttl:
+                    # We should never get a ttl less then the current time; but if we do we will
+                    # insert an item into cacher that will never be read by other processes
+                    # [since the cacher will filter them out via a dynamo query-filter].
+                    ttl = new_item.ttl
+
+                concat_dir_paths = directory_chain.concatenated_directory_paths
+                concat_provider_names = provider_chain.concatenated_provider_names
+
+                item_to_cache = DirectoryItem(
+                    directory=new_item.directory,
+                    name=new_item.name,
+                    value=new_item.value,
+                    source=f&#34;{new_item.source} - {new_item.directory.path}&#34;,
+                    ttl=ttl,
+                    # DirectoryItem will calculate a cache_range_key for us with these two values:
+                    cache_concat_directory_paths=concat_dir_paths,
+                    cache_concat_provider_names=concat_provider_names,
+                    cache_hash_key=environ.path,
+                )
+                items_to_send.append(item_to_cache)
+                listing.add_item(item_to_cache)
+
+        if not items_to_send:
+            return
+
+        self.log_about_items(
+            items=items_to_send,
+            path=environ.path,
+            msg_prefix=&#34;Sending to cache&#34;
+        )
+
+        if self.directory_has_error(environ):
+            log.debug(
+                f&#34;Not saving cached items to {environ}, it had an error reading/writing &#34;
+                f&#34;previously. See previous log messages [whenever the error happened for first &#34;
+                f&#34;time] for more details.&#34;
+            )
+            return
+
+        try:
+            self._table.put_items(items_to_send)
+        except Exception as e:
+            # Will either re-raise the exception or handle it for us.
+            # It will also communicate to us via marking the directory as error&#39;d on us if needed.
+            handle_aws_exception(exception=e, provider=self, directory=environ)
+
+    def get_item(
+            self,
+            name: str,
+            directory: Optional[DirectoryOrPath],
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Optional[Directory]
+    ) -&gt; Optional[DirectoryItem]:
+        &#34;&#34;&#34;
+        Returns item out of the cache. Cache-key is constructed using directory_chain,
+        provider_chain, environ and name.
+
+        For and overview of the caching process, see
+        [Config Overview - Caching](../config.html#caching)
+
+        Args:
+            name: Name of the config value, ie: `XYNAPI_BASE_URL`.
+            directory: Directory to lookup value in, this is not really used right now by
+                cacher. But it&#39;s used by the other providers. This cacher acts just like
+                a provider and so accepts the parameter.
+            directory_chain: Current directory chain that is being used to lookup value.
+                Used as part of the rang-key in the Dynamo table.
+            provider_chain (xcon.provider.ProviderChain): Current provider chain
+                that is being used to lookup value. Used as part of the rang-key in the Dynamo
+                table.
+            environ:
+                This is the directory the cacher uses for the hash-key. It&#39;s supposed to have
+                the full service and environment name.
+
+                Example Directory Path: `/hubspot/testing`
+
+        Returns:
+            xcon.directory.DirectoryItem: If we have a cached item, this is it.
+            None: Otherwise we return None indicating nothing has been cached.
+        &#34;&#34;&#34;
+        # Cache needs all of this stuff to do proper caching.
+        environ = self._get_environ_to_use(environ)
+        if not directory_chain or not environ:
+            return None
+
+        return self._get_listing(
+            directory_chain=directory_chain,
+            provider_chain=provider_chain,
+            environ=environ,
+        ).get_item(name)
+
+    def _get_listing(
+            self,
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Directory
+    ) -&gt; DirectoryListing:
+        dir_paths = directory_chain.concatenated_directory_paths
+        provider_names = provider_chain.concatenated_provider_names
+
+        # defaultdict will provide default versions of all the objects as-needed.
+        listing = self.local_cache.listings[environ][dir_paths][provider_names]
+
+        # If we have a directory assigned to object [defaults to None], then we know we
+        # have retrieved it in the past at some point, return it.
+        if listing.directory is not None:
+            return listing
+
+        listing.directory = environ
+        items = self._get_items_for_environ(environ=environ)
+        concat_directory_paths = directory_chain.concatenated_directory_paths
+        concat_provider_names = provider_chain.concatenated_provider_names
+        for item in items:
+            # find all items in the environ items that match my directory/provider lists.
+            # IF they do match, then it&#39;s safe to use the cached value.
+            if item.cache_concat_directory_paths != concat_directory_paths:
+                continue
+            if item.cache_concat_provider_names != concat_provider_names:
+                continue
+            listing.add_item(item)
+        return listing
+
+    def _get_items_for_environ(self, environ: Directory) -&gt; Iterable[DirectoryItem]:
+        items = self.local_cache.environ_to_items.get(environ)
+        if items is not None:
+            return items
+
+        now = dt.datetime.now(dt.timezone.utc)
+        expire_time = now + dt.timedelta(seconds=random.randint(0, 60 * 60 * 2))
+        try:
+            items = self._table.get_items_for_directory(directory=environ, expire_time=expire_time)
+
+            # Ensure we have a list, and not a generator.
+            items = tuple(xloop(items, default_not_iterate=[str]))
+
+            # Log about stuff we retrieved from the cache table.
+            self.log_about_items(items=items, path=environ.path)
+        except Exception as e:
+            # Will either re-raise the exception or handle it for us.
+            handle_aws_exception(exception=e, directory=environ, provider=self)
+            items = tuple()
+
+        self.local_cache.environ_to_items[environ] = items
+        if not items:
+            return items
+
+        # ttl per-environ?
+        item_ttl = items[0]
+        if not item_ttl:
+            return items
+
+        # We want to try and have the cache expire at around the same time if possible;
+        # check item for it&#39;s ttl and use that.
+        item_ttl = item_ttl.ttl
+        current_ttl = self._ttl
+        future_limit = current_ttl + dt.timedelta(days=2)
+        now_limit = current_ttl + dt.timedelta(minutes=1)
+        if item_ttl and now_limit &lt;= item_ttl &lt;= future_limit:
+            self._ttl = item_ttl
+
+        return items
+
+    def _get_environ_to_use(
+        self, passed_in_environ: Optional[Directory] = None
+    ) -&gt; Optional[Directory]:
+        &#34;&#34;&#34;
+        Looks at environmental vars SERVICE_NAME and APP_ENV,
+        if they both exist and are not blank we will use that and return those
+        values inside an environ Directory object.
+
+        Otherwise, we will return the passed_in_environ, which should be the one
+        that came from Config and is based on that Config&#39;s Config.APP_ENV and Config.SERVICE_NAME.
+        &#34;&#34;&#34;
+        from xcon import xcon_settings
+        e_service = xcon_settings.service
+        e_env = xcon_settings.environment
+
+        if not e_service or not e_env:
+            return passed_in_environ
+
+        return Directory(service=e_service, env=e_env)</code></pre>
+</details>
+<div class="desc"><p>Uses a Dynamo table called <code>global-all-configCache</code>.</p>
+<p>Generally caches what configuration values we lookup into a dynamo table.
+A good summary would be in the <a href="../config.html#caching">Config Overview - Caching</a></p>
+<p>More details about the table struvture its self follows.</p>
+<p>The table has two keys:</p>
+<ol>
+<li>Hash key: Is the <code>environ</code> method parameter that gets passed to the methods on me.
+It's normally a string in this format: <code>/{APP_NAME}/{APP_ENV}</code>.
+Also, normally apps/services are only given access to one specific hash-key.
+This hash-key should represent the app and its current environment.</li>
+<li>Range/Sort key: Contains the variable name, providers and directory paths used
+to lookup value. This makes it so the app can do various queries using various
+different providers/directories and the cacher can cache those results correctly
+and uniquely based on the var-name, providers and directories originally
+used to get the value.</li>
+</ol>
+<p>You don't need to parse the rage/sort-key.
+All of its components are also separate attributes in the table on the row.</p>
+<h2 id="dependency-details">Dependency Details</h2>
+<p>Right now the <code><a title="xcon.providers.dynamo.DynamoCacher" href="#xcon.providers.dynamo.DynamoCacher">DynamoCacher</a></code> is a <code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>
+resource, you can grab the current one by calling <code><a title="xcon.providers.dynamo.DynamoCacher.grab" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.grab">Dependency.grab()</a></code>.</p>
+<p>More specifically: we are a <code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>, which means that there is
+normally only one of us around. See xinject library for more details.</p>
+<h2 id="how-to-clear-cache">How to Clear Cache</h2>
+<p>If you need to change the config and have it propagate asap, you can easily
+just delete all items in the dynamo cache table for cache_key for the service/env.</p>
+<p>So for now, I am giving a long-life to the cached-items, since config changes to
+existing items are rare [if we need a new item and it's not in cache it will be looked
+up immediately and then cached].</p>
+<p>I use a random number to try to help ensure we try not to have synchronous times on when
+various things expire between various different services, to help spread load between
+param store and secrets manager aws api's.</p>
+<p>12 hours in the future with a random +/- 1500 seconds added on is what we currently do.
+Thinking about making it a shorter period of time [a couple of hours].</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></li>
+<li><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></li>
+<li><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></li>
+<li><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoCacher.botocore_error_ignored_exception"><code class="name">var <span class="ident">botocore_error_ignored_exception</span> : botocore.exceptions.BotoCoreError</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.botocore_error_ignored_exception" href="../provider.html#xcon.provider.ProviderCacher.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code>
+</p>
+<div class="desc inherited"><p>This means that any attempt to communicat with aws service will probably fail;
+probable due to a corrupted or missing aws credentials.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.is_cacher" href="../provider.html#xcon.provider.ProviderCacher.is_cacher">is_cacher</a></code>
+</p>
+<div class="desc inherited"><p>This is set to True by default for ProviderCacher's.
+See <code>Provider.is_cacher</code>.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.name" href="../provider.html#xcon.provider.ProviderCacher.name">name</a></code>
+</p>
+<div class="desc inherited"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="../directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.needs_directory" href="../provider.html#xcon.provider.ProviderCacher.needs_directory">needs_directory</a></code>
+</p>
+<div class="desc inherited"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.query_before_cache_if_possible" href="../provider.html#xcon.provider.ProviderCacher.query_before_cache_if_possible">query_before_cache_if_possible</a></code>
+</p>
+<div class="desc inherited"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll …</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoCacher.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.__init_subclass__" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.grab" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.proxy" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.proxy_attribute" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoCacher.local_cache"><code class="name">prop <span class="ident">local_cache</span> : _LocalCache</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def local_cache(self) -&gt; _LocalCache:
+    # Using default dict, so I don&#39;t have to worry about allocating the dict&#39;s my self later.
+    maker = lambda c: DynamoCacher._LocalCache()
+    cacher = InternalLocalProviderCache.grab()
+    return cacher.get_cache_for_provider(provider=self, cache_constructor=maker)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.obj" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoCacher.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.__call__" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.__copy__" href="../../xinject/dependency.html#xcon.provider.ProviderCacher.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.cache_items"><code class="name flex">
+<span>def <span class="ident">cache_items</span></span>(<span>self,<br>items: Iterable[DirectoryItem],<br>provider_chain: ProviderChain,<br>directory_chain: DirectoryChain,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cache_items(
+        self,
+        items: Iterable[DirectoryItem],
+        provider_chain: ProviderChain,
+        directory_chain: DirectoryChain,
+        environ: Directory
+):
+    &#34;&#34;&#34; Cache&#39;s passed in item, using the other params to create the proper range and hash
+        keys that we use in Dynamo to uniquely identify the item.
+
+        See `DynamoCacher.get_item` for more details on what the Args mean. It uses many of
+        the same ones.
+
+        For and overview of the caching process, see
+        [Config Overview - Caching](../config.html#caching)
+
+    &#34;&#34;&#34;
+    environ = self._get_environ_to_use(environ)
+    listing = self._get_listing(
+        directory_chain=directory_chain,
+        provider_chain=provider_chain,
+        environ=environ
+    )
+    items_to_send = []
+    for new_item in listing.get_items_with_different_value(items):
+        if new_item.cacheable:
+            ttl = self._ttl
+            # If the item has a ttl, we want to use that. It means it&#39;s a temporary value
+            # that should be looked up again after the expiration date.
+            if new_item.ttl:
+                # We should never get a ttl less then the current time; but if we do we will
+                # insert an item into cacher that will never be read by other processes
+                # [since the cacher will filter them out via a dynamo query-filter].
+                ttl = new_item.ttl
+
+            concat_dir_paths = directory_chain.concatenated_directory_paths
+            concat_provider_names = provider_chain.concatenated_provider_names
+
+            item_to_cache = DirectoryItem(
+                directory=new_item.directory,
+                name=new_item.name,
+                value=new_item.value,
+                source=f&#34;{new_item.source} - {new_item.directory.path}&#34;,
+                ttl=ttl,
+                # DirectoryItem will calculate a cache_range_key for us with these two values:
+                cache_concat_directory_paths=concat_dir_paths,
+                cache_concat_provider_names=concat_provider_names,
+                cache_hash_key=environ.path,
+            )
+            items_to_send.append(item_to_cache)
+            listing.add_item(item_to_cache)
+
+    if not items_to_send:
+        return
+
+    self.log_about_items(
+        items=items_to_send,
+        path=environ.path,
+        msg_prefix=&#34;Sending to cache&#34;
+    )
+
+    if self.directory_has_error(environ):
+        log.debug(
+            f&#34;Not saving cached items to {environ}, it had an error reading/writing &#34;
+            f&#34;previously. See previous log messages [whenever the error happened for first &#34;
+            f&#34;time] for more details.&#34;
+        )
+        return
+
+    try:
+        self._table.put_items(items_to_send)
+    except Exception as e:
+        # Will either re-raise the exception or handle it for us.
+        # It will also communicate to us via marking the directory as error&#39;d on us if needed.
+        handle_aws_exception(exception=e, provider=self, directory=environ)</code></pre>
+</details>
+<div class="desc"><p>Cache's passed in item, using the other params to create the proper range and hash
+keys that we use in Dynamo to uniquely identify the item.</p>
+<p>See <code><a title="xcon.providers.dynamo.DynamoCacher.get_item" href="#xcon.providers.dynamo.DynamoCacher.get_item">DynamoCacher.get_item()</a></code> for more details on what the Args mean. It uses many of
+the same ones.</p>
+<p>For and overview of the caching process, see
+<a href="../config.html#caching">Config Overview - Caching</a></p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.directory_has_error" href="../provider.html#xcon.provider.ProviderCacher.directory_has_error">directory_has_error</a></code>
+</p>
+<div class="desc inherited"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: ProviderChain,<br>environ: Optional[Directory]) ‑> <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(
+        self,
+        name: str,
+        directory: Optional[DirectoryOrPath],
+        directory_chain: DirectoryChain,
+        provider_chain: ProviderChain,
+        environ: Optional[Directory]
+) -&gt; Optional[DirectoryItem]:
+    &#34;&#34;&#34;
+    Returns item out of the cache. Cache-key is constructed using directory_chain,
+    provider_chain, environ and name.
+
+    For and overview of the caching process, see
+    [Config Overview - Caching](../config.html#caching)
+
+    Args:
+        name: Name of the config value, ie: `XYNAPI_BASE_URL`.
+        directory: Directory to lookup value in, this is not really used right now by
+            cacher. But it&#39;s used by the other providers. This cacher acts just like
+            a provider and so accepts the parameter.
+        directory_chain: Current directory chain that is being used to lookup value.
+            Used as part of the rang-key in the Dynamo table.
+        provider_chain (xcon.provider.ProviderChain): Current provider chain
+            that is being used to lookup value. Used as part of the rang-key in the Dynamo
+            table.
+        environ:
+            This is the directory the cacher uses for the hash-key. It&#39;s supposed to have
+            the full service and environment name.
+
+            Example Directory Path: `/hubspot/testing`
+
+    Returns:
+        xcon.directory.DirectoryItem: If we have a cached item, this is it.
+        None: Otherwise we return None indicating nothing has been cached.
+    &#34;&#34;&#34;
+    # Cache needs all of this stuff to do proper caching.
+    environ = self._get_environ_to_use(environ)
+    if not directory_chain or not environ:
+        return None
+
+    return self._get_listing(
+        directory_chain=directory_chain,
+        provider_chain=provider_chain,
+        environ=environ,
+    ).get_item(name)</code></pre>
+</details>
+<div class="desc"><p>Returns item out of the cache. Cache-key is constructed using directory_chain,
+provider_chain, environ and name.</p>
+<p>For and overview of the caching process, see
+<a href="../config.html#caching">Config Overview - Caching</a></p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the config value, ie: <code>XYNAPI_BASE_URL</code>.</dd>
+<dt><strong><code>directory</code></strong></dt>
+<dd>Directory to lookup value in, this is not really used right now by
+cacher. But it's used by the other providers. This cacher acts just like
+a provider and so accepts the parameter.</dd>
+<dt><strong><code>directory_chain</code></strong></dt>
+<dd>Current directory chain that is being used to lookup value.
+Used as part of the rang-key in the Dynamo table.</dd>
+<dt><strong><code>provider_chain</code></strong> :&ensp;<code><a title="xcon.provider.ProviderChain" href="../provider.html#xcon.provider.ProviderChain">ProviderChain</a></code></dt>
+<dd>Current provider chain
+that is being used to lookup value. Used as part of the rang-key in the Dynamo
+table.</dd>
+</dl>
+<p>environ:
+This is the directory the cacher uses for the hash-key. It's supposed to have
+the full service and environment name.</p>
+<pre><code>Example Directory Path: `/hubspot/testing`
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a></code></dt>
+<dd>If we have a cached item, this is it.</dd>
+<dt><code>None</code></dt>
+<dd>Otherwise we return None indicating nothing has been cached.</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="../provider.html#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.get_value" href="../provider.html#xcon.provider.ProviderCacher.get_value">get_value</a></code>
+</p>
+<div class="desc inherited"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.ProviderCacher" href="../provider.html#xcon.provider.ProviderCacher">ProviderCacher</a></code>.<code><a title="xcon.provider.ProviderCacher.mark_errored_directory" href="../provider.html#xcon.provider.ProviderCacher.mark_errored_directory">mark_errored_directory</a></code>
+</p>
+<div class="desc inherited"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoCacher.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieved_items_map(self, directory: DirectoryOrPath) -&gt; Mapping[str, DirectoryItem]:
+    &#34;&#34;&#34; This is mostly useful for getting this to cache, so I am not going to implement it
+        in the cacher (if we ever do, the `xcon.provider.ProviderChain` will have to
+        figure out how to skip us).
+
+    &#34;&#34;&#34;
+    return {}</code></pre>
+</details>
+<div class="desc"><p>This is mostly useful for getting this to cache, so I am not going to implement it
+in the cacher (if we ever do, the <code><a title="xcon.provider.ProviderChain" href="../provider.html#xcon.provider.ProviderChain">ProviderChain</a></code> will have to
+figure out how to skip us).</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource"><code class="flex name class">
+<span>class <span class="ident">DynamoDBResource</span></span>
+<span>(</span><span>dynamodb_xboto_resource: BotoResources.DynamoDB | DefaultType = Default)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DynamoDBResource(Dependency):
+    dynamodb_xboto_resource: BotoResources.DynamoDB | DefaultType = Default
+    _table_name_to_boto_resource: dict[str, Any]
+
+    def __init__(self, dynamodb_xboto_resource: BotoResources.DynamoDB | DefaultType = Default):
+        self.dynamodb_xboto_resource = dynamodb_xboto_resource
+        self._table_name_to_boto_resource = {}
+
+    def table_resource(self, table_name):
+        if resource := self._table_name_to_boto_resource.get(table_name):
+            return resource
+
+        if self.dynamodb_xboto_resource is Default:
+            dynamodb = BotoResources.grab().dynamodb
+        else:
+            dynamodb = self.dynamodb_xboto_resource.boto_resource
+
+        resource = dynamodb.Table(table_name)
+        self._table_name_to_boto_resource[table_name] = resource
+        return resource</code></pre>
+</details>
+<div class="desc"><p>If you have not already done so, you should also read the xinject project's
+<a href="https://github.com/xyngular/py-xinject#documentation">README.md</a> for an overview
+of the library before diving into the below text, that's more of like reference material.</p>
+<h2 id="summary">Summary</h2>
+<p>Allows you to create subclasses that act as sharable dependencies.
+Things that should stick around and should be created lazily.</p>
+<p>Also allows code to temporarily create, customize and activate a dependency if you don't want
+the customization to stick around permanently.
+You can do it without your or other code needing to be aware of each other.</p>
+<p>This helps promote code decoupling, since it's so easy to make a Resource activate it
+as the 'current' version to use.</p>
+<p>The only coupling that takes place is to the Resource sub-class it's self.</p>
+<p>You can also easily have each thread lazily create seperate instance of your Resource,
+by inheriting from <code>PerThreadResource</code>.</p>
+<p>Each separate piece of code that uses a particular Resource subclass can be completely
+unaware of each other, and yet each one can take advantage of the shared dependency.</p>
+<p>This means that Resource can help cover dependency-injection use-cases.</p>
+<h2 id="overview">Overview</h2>
+<p>A <code>Resource</code> represents an object in a <code><a title="xinject.context.XContext" href="../../xinject/context.html#xinject.context.XContext">XContext</a></code>.
+Generally, dependencies that are added/created inside a <code>XContext</code> inherit from this abstract
+base <code>Resource</code> class, but are not required too. <code>Resource</code> just adds some class-level
+conveince methods and configuratino options. Inheriting from Resource also helps
+self-document that it's a Resource.</p>
+<p>See <a href="#dependencies">Resources</a> at top of this module for a general overview of how dependencies
+and <code>XContext</code>'s work. You should also read the xinject project's
+<a href="https://github.com/xyngular/py-xinject#documentation">README.md</a> for a high-level
+overview.
+The text below is more like plain refrence matrial.</p>
+<p>Get the current dependency via <code>Resource.dependency</code>, you can call it on sub-class/concreate
+dependency type, like so:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from xinject import Dependency
+&gt;&gt;&gt; class MyConfig(Dependency):
+...     some_setting: str = &quot;default-setting-string&quot;
+&gt;&gt;&gt;
+&gt;&gt;&gt; MyConfig.grab().some_setting
+</code></pre>
+<p>By default, Resource's act like a singletons; in that child contexs will simply get the same
+instance of the dependency that the parent context has.</p>
+<p>If you inherit from this class, when you have <code>Resource.dependency</code> called on you,
+we will do our best to ensure that the same object instance is returned every time
+(there are two exceptions, keep reading).</p>
+<p>These dependencies are stored in the current <code>XContext</code>'s parent.
+What happens is:</p>
+<p>If the current <code>XContext</code> and none of their parents have this object and it's asked for
+(like what happens when <code>Resource.dependency</code> is called on it),
+it will be created in the deepest/oldest parent XContext.</p>
+<p>This is the first parent <code><a title="xinject.context.XContext" href="../../xinject/context.html#xinject.context.XContext">XContext</a></code> who's <code>XContext.parent</code> is None.
+That way it should be visible to everyone on the current thread since it will normally be
+created in the app-root <code><a title="xinject.context.XContext" href="../../xinject/context.html#xinject.context.XContext">XContext</a></code>.</p>
+<p>If the Dependency can't be shared between multiple threads, creation would normally happen
+at the thread-root XContext instead of the app-root one.</p>
+<p>If we don't already exist in any parent, then we must be created the first time we are asked
+for. Normally it will simply be a direct call the dependency-type being requested,
+this is the normal way to create objects in python:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MyResource(Dependency):
+&gt;&gt;&gt;     pass
+&gt;&gt;&gt;
+&gt;&gt;&gt; MyResource.grab()
+</code></pre>
+<p>When that last line is executed, and the current or any parent context has a <code>MyResource</code>
+dependency; <code>XContext</code> will simply create one via calling the dependency type:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; MyResource()
+</code></pre>
+<p>You can allocate the dependency yourself with custom options and add it to the XContext your
+self.</p>
+<p>Here are the various ways to do that, via:</p>
+<ul>
+<li>
+<p><code>XContext.add</code>
+Adds dependency to a specific XContext that already exists
+(or replaces if one has already been directly added in the past to that specific Context).
+When/While XContext is active, these added dependencies will be the <code>current</code> ones.</p>
+</li>
+<li>
+<p>Decorator, ie: <code>@MyResource()</code></p>
+<pre><code>&gt;&gt;&gt; from xny_config import Config, config
+&gt;&gt;&gt;
+&gt;&gt;&gt; @DependencySubclass(service="override-service-name")
+&gt;&gt;&gt; def my_method():
+&gt;&gt;&gt;    assert config.service == "override-service-name"
+</code></pre>
+</li>
+<li>
+<p>via a with statement.</p>
+<pre><code>&gt;&gt;&gt; def my_method():
+&gt;&gt;&gt;    with @DependencySubclass(service="override-service-name")
+&gt;&gt;&gt;         assert config.service == "override-service-name"
+</code></pre>
+</li>
+<li>
+<p>multiple in single statement by making your own XContext directly:</p>
+<pre><code>&gt;&gt;&gt; def my_method():
+&gt;&gt;&gt;     with @XContext([
+&gt;&gt;&gt;         DependencySubclass(service="override-service-name"),
+&gt;&gt;&gt;         SomeOtherDep(name='new-name')
+&gt;&gt;&gt;     ]):
+&gt;&gt;&gt;         assert config.service == "override-service-name"
+</code></pre>
+</li>
+</ul>
+<h2 id="background-on-unit-testing">Background on Unit Testing</h2>
+<p>By default, unit tests always create a new blank <code>XContext</code> with <code>parent=None</code>.
+THis is done by an autouse fixture (<code><a title="xinject.pytest_plugin.xinject_test_context" href="../../xinject/pytest_plugin.html#xinject.pytest_plugin.xinject_test_context">xinject_test_context()</a></code>)
+THis forces every unit test run to create new dependencies when they are asked for (lazily).</p>
+<p>This fixture is used automatically for each unit test, it clears the app-root XContext,
+removes all current thread-root XContext's and their children from being <code>active</code>.
+just beofre each run of a unit test.</p>
+<p>That way it will recreate any shared dependency each time and a unit test can't leak
+dependencies it added or changed into the next run.</p>
+<p>One example of why this is good is for <code>moto</code> when mocking dynamodb in boto3 client.
+Can use dependency to ensure that we get a new dynamodb shared dependency for <code>boto</code> each time
+a unit test executes
+(which helps with <code>moto</code>, it needs to be active when a dependency is allocated/used).</p>
+<p>This is exactly what we want for each unit test run, to have a blank-slate for all the
+vairous dependencies.</p>
+<p>If a particulre set of unit-tests need to have specific dependcies, you can use fixtures to
+modify/add various dependcies as needed for each indivirual unit-test function run.</p>
+<p>When the application runs for real though, we do generally want to use the dependencies in a
+shared fashion.
+So normally we only allocate a new blank-root <code>@XContext(parent=None)</code>
+either at the start of a normal application run, or during a unit-test.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoDBResource.dynamodb_xboto_resource"><code class="name">var <span class="ident">dynamodb_xboto_resource</span> : xboto.dependencies.DynamodbResource | <a title="xsentinels.default.DefaultType" href="../../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoDBResource.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoDBResource.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoDBResource.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoDBResource.table_resource"><code class="name flex">
+<span>def <span class="ident">table_resource</span></span>(<span>self, table_name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def table_resource(self, table_name):
+    if resource := self._table_name_to_boto_resource.get(table_name):
+        return resource
+
+    if self.dynamodb_xboto_resource is Default:
+        dynamodb = BotoResources.grab().dynamodb
+    else:
+        dynamodb = self.dynamodb_xboto_resource.boto_resource
+
+    resource = dynamodb.Table(table_name)
+    self._table_name_to_boto_resource[table_name] = resource
+    return resource</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider"><code class="flex name class">
+<span>class <span class="ident">DynamoProvider</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DynamoProvider(AwsProvider):
+    &#34;&#34;&#34;
+    Access a dynamo tabled called `global-all-config` when searching for a config value.
+    This provider allows one to have a structured list or dictionary. It supports JSON
+    and will parse/decode it when it gets it from Dynamo into a real Python dict/list/str/etc!
+    &#34;&#34;&#34;
+    name = &#34;dynamo&#34;
+    _directories: Dict[Directory, DirectoryListing]
+
+    @property
+    def _table(self) -&gt; _ConfigDynamoTable:
+        # todo: make table name configurable
+        return _ConfigDynamoTable(table_name=&#39;global-all-config&#39;)
+
+    def get_item(
+            self,
+            name: str,
+            directory: Optional[DirectoryOrPath],
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Directory
+    ) -&gt; Optional[DirectoryItem]:
+        if directory is None:
+            return None
+
+        directory = Directory.from_path(directory)
+        listing = self.local_cache.get(directory)
+        if listing:
+            return listing.get_item(name)
+
+        # We need to look up the directory listing from Dynamo.
+        items = []
+
+        try:
+            if self.botocore_error_ignored_exception:
+                # Raise same error we previously had, and handle it the same way
+                # for this new directory.
+                log.info(
+                    f&#34;We&#39;ve already previously had a botocore error. Botocore error&#39;s [vs client&#34;
+                    f&#34;errors] are generally related to something that will keep failing. &#34;
+                    f&#34;Assuming we can&#39;t do anything with the service so bailing out early via &#34;
+                    f&#34;the same previous exception; for directory {directory}.&#34;
+                )
+                raise self.botocore_error_ignored_exception from None
+
+            items = list(self._table.get_items_for_directory(directory=directory))
+            self.log_about_items(items=items, path=directory.path)
+        except Exception as e:
+            # Will either re-raise the exception or handle it for us.
+            handle_aws_exception(exception=e, provider=self, directory=directory)
+
+        listing = DirectoryListing(directory=directory, items=items)
+        self.local_cache[directory] = listing
+        return listing.get_item(name)
+
+    def retrieved_items_map(
+            self, directory: DirectoryOrPath
+    ) -&gt; Optional[Mapping[str, DirectoryItem]]:
+        directory = Directory.from_path(directory)
+        listing = self.local_cache.get(directory)
+        if listing is None:
+            return None
+        return listing.item_mapping()</code></pre>
+</details>
+<div class="desc"><p>Access a dynamo tabled called <code>global-all-config</code> when searching for a config value.
+This provider allows one to have a structured list or dictionary. It supports JSON
+and will parse/decode it when it gets it from Dynamo into a real Python dict/list/str/etc!</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></li>
+<li><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></li>
+<li><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoProvider.botocore_error_ignored_exception"><code class="name">var <span class="ident">botocore_error_ignored_exception</span> : botocore.exceptions.BotoCoreError</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.botocore_error_ignored_exception" href="../provider.html#xcon.provider.AwsProvider.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code>
+</p>
+<div class="desc inherited"><p>This means that any attempt to communicat with aws service will probably fail;
+probable due to a corrupted or missing aws credentials.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.is_cacher" href="../provider.html#xcon.provider.AwsProvider.is_cacher">is_cacher</a></code>
+</p>
+<div class="desc inherited"><p>Easy way to figure out if a provider is a <code>ProviderCacher</code> or just a normal provider.
+Should be set to <code>True</code> for provider subclasses that are …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.name" href="../provider.html#xcon.provider.AwsProvider.name">name</a></code>
+</p>
+<div class="desc inherited"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="../directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.needs_directory" href="../provider.html#xcon.provider.AwsProvider.needs_directory">needs_directory</a></code>
+</p>
+<div class="desc inherited"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.query_before_cache_if_possible" href="../provider.html#xcon.provider.AwsProvider.query_before_cache_if_possible">query_before_cache_if_possible</a></code>
+</p>
+<div class="desc inherited"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll …</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoProvider.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__init_subclass__" href="../../xinject/dependency.html#xcon.provider.AwsProvider.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.grab" href="../../xinject/dependency.html#xcon.provider.AwsProvider.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.proxy" href="../../xinject/dependency.html#xcon.provider.AwsProvider.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.proxy_attribute" href="../../xinject/dependency.html#xcon.provider.AwsProvider.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoProvider.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.obj" href="../../xinject/dependency.html#xcon.provider.AwsProvider.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.providers.dynamo.DynamoProvider.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__call__" href="../../xinject/dependency.html#xcon.provider.AwsProvider.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__copy__" href="../../xinject/dependency.html#xcon.provider.AwsProvider.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.directory_has_error" href="../provider.html#xcon.provider.AwsProvider.directory_has_error">directory_has_error</a></code>
+</p>
+<div class="desc inherited"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: ProviderChain,<br>environ: Directory) ‑> <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.get_item" href="../provider.html#xcon.provider.AwsProvider.get_item">get_item</a></code>
+</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(
+        self,
+        name: str,
+        directory: Optional[DirectoryOrPath],
+        directory_chain: DirectoryChain,
+        provider_chain: ProviderChain,
+        environ: Directory
+) -&gt; Optional[DirectoryItem]:
+    if directory is None:
+        return None
+
+    directory = Directory.from_path(directory)
+    listing = self.local_cache.get(directory)
+    if listing:
+        return listing.get_item(name)
+
+    # We need to look up the directory listing from Dynamo.
+    items = []
+
+    try:
+        if self.botocore_error_ignored_exception:
+            # Raise same error we previously had, and handle it the same way
+            # for this new directory.
+            log.info(
+                f&#34;We&#39;ve already previously had a botocore error. Botocore error&#39;s [vs client&#34;
+                f&#34;errors] are generally related to something that will keep failing. &#34;
+                f&#34;Assuming we can&#39;t do anything with the service so bailing out early via &#34;
+                f&#34;the same previous exception; for directory {directory}.&#34;
+            )
+            raise self.botocore_error_ignored_exception from None
+
+        items = list(self._table.get_items_for_directory(directory=directory))
+        self.log_about_items(items=items, path=directory.path)
+    except Exception as e:
+        # Will either re-raise the exception or handle it for us.
+        handle_aws_exception(exception=e, provider=self, directory=directory)
+
+    listing = DirectoryListing(directory=directory, items=items)
+    self.local_cache[directory] = listing
+    return listing.get_item(name)</code></pre>
+</details>
+<div class="desc inherited"><p>Grabs a config value for name in directory …</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="../provider.html#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.get_value" href="../provider.html#xcon.provider.AwsProvider.get_value">get_value</a></code>
+</p>
+<div class="desc inherited"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.mark_errored_directory" href="../provider.html#xcon.provider.AwsProvider.mark_errored_directory">mark_errored_directory</a></code>
+</p>
+<div class="desc inherited"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.dynamo.DynamoProvider.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>] | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="../provider.html#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.retrieved_items_map" href="../provider.html#xcon.provider.AwsProvider.retrieved_items_map">retrieved_items_map</a></code>
+</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieved_items_map(
+        self, directory: DirectoryOrPath
+) -&gt; Optional[Mapping[str, DirectoryItem]]:
+    directory = Directory.from_path(directory)
+    listing = self.local_cache.get(directory)
+    if listing is None:
+        return None
+    return listing.item_mapping()</code></pre>
+</details>
+<div class="desc inherited"><p>Should return a read-only lower-case item name TO item mapping.
+You can easily get one of these from a DirectoryList object's <code>item_mapping()</code> …</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xcon.providers" href="index.html">xcon.providers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xcon.providers.dynamo.DynamoCacher" href="#xcon.providers.dynamo.DynamoCacher">DynamoCacher</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.__call__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.__call__">__call__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.__copy__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.__init_subclass__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.botocore_error_ignored_exception" href="../provider.html#xcon.providers.dynamo.DynamoCacher.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.cache_items" href="#xcon.providers.dynamo.DynamoCacher.cache_items">cache_items</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.directory_has_error" href="../provider.html#xcon.providers.dynamo.DynamoCacher.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.get_item" href="#xcon.providers.dynamo.DynamoCacher.get_item">get_item</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.get_value" href="../provider.html#xcon.providers.dynamo.DynamoCacher.get_value">get_value</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.grab" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.grab">grab</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.is_cacher" href="../provider.html#xcon.providers.dynamo.DynamoCacher.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.local_cache" href="#xcon.providers.dynamo.DynamoCacher.local_cache">local_cache</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.mark_errored_directory" href="../provider.html#xcon.providers.dynamo.DynamoCacher.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.name" href="#xcon.providers.dynamo.DynamoCacher.name">name</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.needs_directory" href="../provider.html#xcon.providers.dynamo.DynamoCacher.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.obj" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.obj">obj</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.proxy" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.proxy">proxy</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.proxy_attribute" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoCacher.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.query_before_cache_if_possible" href="../provider.html#xcon.providers.dynamo.DynamoCacher.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoCacher.retrieved_items_map" href="#xcon.providers.dynamo.DynamoCacher.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.providers.dynamo.DynamoDBResource" href="#xcon.providers.dynamo.DynamoDBResource">DynamoDBResource</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.__call__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.__call__">__call__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.__copy__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.__init_subclass__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.dynamodb_xboto_resource" href="#xcon.providers.dynamo.DynamoDBResource.dynamodb_xboto_resource">dynamodb_xboto_resource</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.grab" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.grab">grab</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.obj" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.obj">obj</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.proxy" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.proxy">proxy</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.proxy_attribute" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoDBResource.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoDBResource.table_resource" href="#xcon.providers.dynamo.DynamoDBResource.table_resource">table_resource</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.providers.dynamo.DynamoProvider" href="#xcon.providers.dynamo.DynamoProvider">DynamoProvider</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.__call__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.__call__">__call__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.__copy__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.__init_subclass__" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.botocore_error_ignored_exception" href="../provider.html#xcon.providers.dynamo.DynamoProvider.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.directory_has_error" href="../provider.html#xcon.providers.dynamo.DynamoProvider.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.get_item" href="#xcon.providers.dynamo.DynamoProvider.get_item">get_item</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.get_value" href="../provider.html#xcon.providers.dynamo.DynamoProvider.get_value">get_value</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.grab" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.grab">grab</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.is_cacher" href="../provider.html#xcon.providers.dynamo.DynamoProvider.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.mark_errored_directory" href="../provider.html#xcon.providers.dynamo.DynamoProvider.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.name" href="#xcon.providers.dynamo.DynamoProvider.name">name</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.needs_directory" href="../provider.html#xcon.providers.dynamo.DynamoProvider.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.obj" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.obj">obj</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.proxy" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.proxy">proxy</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.proxy_attribute" href="../../xinject/dependency.html#xcon.providers.dynamo.DynamoProvider.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.query_before_cache_if_possible" href="../provider.html#xcon.providers.dynamo.DynamoProvider.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.providers.dynamo.DynamoProvider.retrieved_items_map" href="#xcon.providers.dynamo.DynamoProvider.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

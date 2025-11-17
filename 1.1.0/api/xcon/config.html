@@ -1,0 +1,3228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xcon.config API documentation</title>
+<meta name="description" content="Main config module. Key pieces such as `xcon.config.Config` and
+`xcon.config.config` are imported directly into &#34;xcon&#34; …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xcon.config</code></h1>
+</header>
+<section id="section-intro">
+<p>Main config module. Key pieces such as <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> and
+<code><a title="xcon.config.config" href="#xcon.config.config">config</a></code> are imported directly into "xcon".</p>
+<p>Very quick example, this will grab <code>SOME_CONFIG_ATTR</code> for you:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from xcon.config import config
+&gt;&gt;&gt; config.SOME_CONFIG_ATTR
+</code></pre>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Link to the readme.md docs</p>
+</div>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="xcon.config.config"><code class="name">var <span class="ident">config</span></code></dt>
+<dd>
+<div class="desc"><p>This will be an alias for the current Config object. Every time you ask it for something,
+it looks up the current Config object and gets it from that. This means you can use this
+directly as-if it's a <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object. Anytime you use it, it will lookup the current config
+object and use that to get the attribute/method you want.</p>
+<p>Example use case:</p>
+<pre><code class="language-python">    from xcon import config
+    value = config.SOME_VAR
+</code></pre></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xcon.config.Config"><code class="flex name class">
+<span>class <span class="ident">Config</span></span>
+<span>(</span><span>*,<br>directories: Iterable[<a title="xcon.directory.Directory" href="directory.html#xcon.directory.Directory">Directory</a> | str] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> = Default,<br>providers: Iterable[Type[<a title="xcon.provider.Provider" href="provider.html#xcon.provider.Provider">Provider</a>]] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> = Default,<br>cacher: Type[<a title="xcon.providers.dynamo.DynamoCacher" href="providers/dynamo.html#xcon.providers.dynamo.DynamoCacher">DynamoCacher</a>] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> | None = Default,<br>use_parent: bool = True,<br>defaults: <a title="xcon.directory.DirectoryListing" href="directory.html#xcon.directory.DirectoryListing">DirectoryListing</a> | Dict[str, Any] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> = Default,<br>service: str = Default,<br>environment: str = Default)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Config(Dependency):
+    &#34;&#34;&#34;
+    Lets you easily get configuration values from various sources.
+
+    You should read [Config Class Overview](#config-class-overview) first because it&#39;s a
+    high-level overview of Config. Also, read the associated [Quick Start](#quick-start) that&#39;s
+    there too. What you&#39;ll find below are implementation details that go into more depth on how
+    Config works in various scenarios.
+
+    .. todo::
+        At some point in the future I would like to implement __getitem__ to have the Config class
+        act sort of like a dictionary. If I did that, I would like the ability to iterate
+        over all the current configuration key/values that the Config object knows about.
+        Doing this would be a bit involved, so for now I am leaving dict/mapping like
+        access non-implemented.
+    &#34;&#34;&#34;
+
+    # These are guaranteed to be here after __init__
+    # These contain the name/value pairs for our overrides and defaults.
+    _override: DirectoryListing
+    _defaults: DirectoryListing
+
+    # Set in __init__, used to know if user wants us to user parent-chain or not.
+    _use_parent: bool = True
+
+    # These are here to store info from __init__, for lazy allocation when needed;
+    # and to know what the user actually wanted [ie: Default, Blank list, None, Etc].
+    _cacher: Union[DefaultType, None] = Default
+
+    # These are also from __init__ [see last comment above _cacher]
+    _providers: OrderedDefaultSet[Type[Provider]]
+    _directories: OrderedDefaultSet[Directory]
+    _exports: OrderedDefaultSet[Directory]
+
+    @classmethod
+    def current(cls):
+        &#34;&#34;&#34; Calls &#39;cls.grab()&#39;, just am alternative name for the same thing, may make things
+            a bit more self-documenting, since `Config` could be used in a lot of places.
+
+        &#34;&#34;&#34;
+        return cls.grab()
+
+    def __init__(
+            self, *,
+            directories: Union[Iterable[DirectoryOrPath], DefaultType] = Default,
+            providers: Union[Iterable[Type[Provider]], DefaultType] = Default,
+            cacher: Union[Type[DynamoCacher], DefaultType, None] = Default,
+            use_parent: bool = True,
+            defaults: Union[DirectoryListing, Dict[str, Any], DefaultType] = Default,
+            service: str = Default,
+            environment: str = Default
+    ):
+        &#34;&#34;&#34;
+        Create a new Config object. Normally you would just leave everything at their Default
+        values. You can change any of them if needed. If you pass a None for any parameter
+        that defaults to Default, that aspect will be disabled/not used. For example, if you
+        pass a None for directories/providers, no directories/providers will be searched.
+
+        Parameters
+        ---------
+        directories: Union[Iterable[xcon.directory.DirectoryOrPath], xsentinels.Default]
+            List of directories/paths to search when querying for a name.
+            
+            If `xsentinels.Default`: Uses the first one from [Parent Chain](#parent-chain).
+            
+            If everyone in the parent chain is set to `Default`,
+            uses `xcon.conf.XconSettings.directories`.
+
+            Various ways to change what directories to use:
+
+            &gt;&gt;&gt; from xsentinels import Default
+            &gt;&gt;&gt; 
+            &gt;&gt;&gt; with Config(directories=[&#39;/some/other/path&#39;, Default]):
+            ...     # Will first look in `/some/other/path`,
+            ...     # if not found next looks at default paths/directories.
+            ...     assert config[&#39;some_var&#39;] == &#39;expected-value&#39;
+
+            .. note:: This will also preserves the current service name
+                As your just changing the directories used, and not the service name.
+                This means the cache-path is not changed, so you don&#39;t have to add permissions
+                to read/write other cache-path
+
+            If you want to lookup the standard/default ones first, you can do this too:
+
+            &gt;&gt;&gt; my_directories = [
+            ...     Default,
+            ...     # Directory objects support `{environment}` and `{service}`
+            ...     # placeholders in their path.
+            ...     Directory(service=&#39;other_app&#39;, env=&#39;{environment}&#39;),
+            ...     Directory(service=&#39;other_app/all&#39;),  
+            ... ]
+            &gt;&gt;&gt; with Config(directories=my_directories):
+            ...     assert config.get(&#39;some_var&#39;) == &#39;expected-value&#39;
+
+            When `Default` is resolved, after the ones your inserting your self,
+            it will use the standard app service/env.
+
+            This means it will first look for the two directiores first from other_app,
+            and then if it still can&#39;t find the var it will next look at the current
+            app/service for the var.
+
+        providers: Union[Iterable[Type[xcon.provider.Provider]], xsentinels.DefaultType]
+            List of provider types to use. If set to `Default`, uses the first one from
+            [Parent Chain](#parent-chain). If everyone in the parent chain is set to `Default`,
+            uses `xcon.conf.XconSettings.providers`.
+
+        cacher: Type[xcon.provider.ProviderCacher]
+            In the future, I may allow other cachers to be passed in via this param, but right
+            now only the DynamoCacher is used and the only values you can use are:
+
+            - If `None`:
+                - No flattened high-level caching will be used. The individual
+                  providers will still cache things internally per-directory/provider.
+
+            - If left as `xsentinels.Default`:
+                - Must have a service/enviroment we can use
+                  (ie: APP_ENV / APP_NAME;
+                      `xcon.conf.XconSettings.environment` / `xcon.conf.XconSettings.service`
+                  ).
+                  If so, we will attempt to read/write to a special Dynamo table that has
+                  a flattened list of name/value pairs that are tied to the current service,
+                  enviroment, directory-chain, provider-chain at the time the value is asked for.
+
+            The cacher-path will use current service/environment
+            (`APP_ENV` / `APP_NAME`;
+            `xcon.conf.XconSettings.environment` / `xcon.conf.XconSettings.service`
+            ).
+
+            If you want change where you lookup variables without effecting the cacher-path,
+            you can change the directories that Config uses.
+
+            See below on `service` and `directories` paramters for examples/details.
+
+        use_parent: bool
+            [Parent Chain](#parent-chain) is used to find:
+
+               - Overridden config values; these are values that set directly
+                 on the Config object; ie: `xcon.config.config`.CONFIG_NAME = &#34;Some Value to Override With&#34;
+
+               - Default values; these are used when config can find no other value for a
+                 particular .CONFIG_NAME. See `set_default`
+
+               - Default directories: Use parent directories by default.
+
+               - Default providers: Use parent providers by default.
+
+            The overridden/defaults/directory/providers &#39;inherit&#39; up the config&#39;s
+            [Parent Chain](#parent-chain).
+
+            This makes it easy to override values in some parent... perhaps in a unit-test, or
+            while a documentation generator is running, or if some library your calling
+            wants to use a different set of providers, etc....
+
+            If you pass a `use_parent=False`, no parent will be used or consulted. If anyone
+            in the [Parent Chain](#parent-chain) has `use_parent==false`, the parent-chain
+            will stop there.
+
+            By `xsentinels.Default`:
+               We lookup the parent by getting the current Config via current XContext;
+               If that&#39;s ourselves, then we grab the parent context&#39;s Config resource.
+               This lookup occurs every time we are asked for a .CONFIG_NAME to see if
+               there is an override for it, etc. [see `parent is used to find` section above].
+               That means the Config&#39;s parent can change depending on the current context the
+               time the .CONFIG_NAME is asked for.
+
+        defaults: Union[xcon.directory.DirectoryListing, Dict[str, Any], xsentinels.Default]
+            If `defaults` are provided, these values will be used when Config is asked for
+            something that does not exist anywhere else. ie: Has not been overridden [by directly
+            setting value on Config or a parent Config], and also not in any provider.
+
+            Basically, if Config can&#39;t find a value anywhere else, it will as a last-resort
+            check these defaults. If a value in defaults is present for the configuration
+            name/key in question, the value in defaults will be returned.
+            This default value is NOT cached via the DynamoCacher [in-fact, the DynamoCacher will
+            cache the fact that the config var in question does not exist]. If the cacher reports
+            that a particular var does not exist [reminder: the cache entries eventually expire]
+            we skip checking the providers and just check the defaults.
+
+            See the Config class doc, and the &#39;Search Order&#39; section.
+
+        environment: Dict[str, Default]
+            Used to easily override the `APP_ENV` / `xcon.conf.XconSettings.environment`.
+            Infact, `__init__` will simply do this if you provide a value for `environment`:
+
+            &gt;&gt;&gt; self.environment = environment
+
+            Can be used when APP_ENV is needed mainly for constructing default directory paths
+            (ie: `/{APP_NAME}/{APP_ENV}/...`) but not effect the cacher&#39;s hash-key at the same
+            time.
+            
+            The cacher always uses `xcon.conf.XconSettings.environment` for it&#39;s dynamo table
+            hash-key.  That way whatever xcon_settings are looked up from alternet environment/service
+            names; it won&#39;t try to write them into that apps service/enviroment cached values.
+            
+            It will keep the newley cached values into the `xcon.conf.XconSettings.service`
+            and `xcon.conf.XconSettings.enviroment` hash-value.
+            
+            It will still keep track of the values in the overriden service/enviroment
+            via the dynamo tables range-key, so things will still be properly/sepeatly
+            cached correctly.
+
+
+        service: Dict[str, Default]
+            Used to easily override the `APP_NAME` / `xcon.conf.XconSettings.service`.
+            Infact, `__init__` will simply do this if you provide a value for `service`:
+
+            &gt;&gt;&gt; self.service = service
+
+            Can be used when APP_ENV is needed mainly for constructing default directory paths
+            (ie: `/{APP_NAME}/{APP_ENV}/...`) but not effect the cacher&#39;s hash-key at the same
+            time.
+            
+            The cacher always uses `xcon.conf.XconSettings.environment` for it&#39;s dynamo table
+            hash-key.  That way whatever xcon_settings are looked up from alternet environment/service
+            names; it won&#39;t try to write them into that apps service/enviroment cached values.
+            
+            It will keep the newley cached values into the `xcon.conf.XconSettings.service`
+            and `xcon.conf.XconSettings.enviroment` hash-value.
+            
+            It will still keep track of the values in the overriden service/enviroment
+            via the dynamo tables range-key, so things will still be properly/sepeatly
+            cached correctly.
+        &#34;&#34;&#34;  # noqa
+        super().__init__()
+
+        self._override = DirectoryListing()
+        self._defaults = DirectoryListing()
+
+        # By default, we grab the ones from the parent chain and use them.
+        self._exports: Dict[Union[DefaultType, str], None] = {Default: None}
+
+        self._use_parent = use_parent
+
+        # We lazy-lookup directories if it&#39;s `Default`, this is so you can directly override
+        # xcon_settings.service and/or xcon_settings.environment if you want to easily change
+        # the defaults.
+        # See &#39;self.directories&#39; property.
+        self.directories = directories
+
+        # This property will lazily be used to create self.provider_chain when the chain
+        # is requested for the first time.
+        self._providers = {x: None for x in xloop(providers, default_not_iterate=[str])}
+
+        # We lazy-lookup cacher if it&#39;s Default or a Type.
+        # See &#39;self.cacher&#39; property.
+        _check_proper_cacher_or_raise_error(cacher)
+        self._cacher = cacher
+
+        if isinstance(defaults, dict):
+            for name, value in defaults.items():
+                self.set_default(name, value)
+
+        self._service = service
+        self._environment = environment
+
+    @property
+    def providers(self) -&gt; Union[DefaultType, Iterable[Union[Type[Provider], DefaultType]]]:
+        &#34;&#34;&#34; Lets you see providers set directly on this config object.
+
+            If set to Default, it  means we look to our [Parent Chain](#parent-chain) first,
+            and if one of them don&#39;t have any set to then use sensible defaults.
+
+            Otherwise it&#39;s a list of `xcon.provider.Provider` types and/or Default.
+        &#34;&#34;&#34;
+        return self._providers.keys()
+
+    @property
+    def directories(self) -&gt; Union[DefaultType, Iterable[Union[Directory, DefaultType]]]:
+        &#34;&#34;&#34; Lets you see directories set directly on this config object.
+
+            If set to Default, it  means we look to our [Parent Chain](#parent-chain) first,
+            and if one of them don&#39;t have any set to then use sensible defaults.
+
+            Otherwise it&#39;s a list of `xcon.directory.Directory` and/or Default.
+        &#34;&#34;&#34;
+        return self._directories.keys()
+
+    @directories.setter
+    def directories(
+            self,
+            value: Union[Iterable[Union[DefaultType, DirectoryOrPath]], DefaultType]
+    ):
+        &#34;&#34;&#34; List of all directories set on self, by default it&#39;s just `[Default]`.
+            This DOES NOT resolve the `Default` if it&#39;s in the list.  That&#39;s resolved
+            when you ask for the `Config.directory_chain`.
+        &#34;&#34;&#34;
+        # make an ordered-set out of this.
+        dirs: OrderedDefaultSet = {}
+        for x in xloop(value, default_not_iterate=[str]):
+            if x is not Default:
+                x = Directory.from_path(x)
+            dirs[x] = None
+
+        self._directories = dirs
+
+    @providers.setter
+    def providers(self, value: Union[DefaultType, Iterable[Union[DefaultType, Type[Provider]]]]):
+        &#34;&#34;&#34; List of all providers set on self, by default it&#39;s just `[Default]`.
+            This DOES NOT resolve the `Default` if it&#39;s in the list.  That&#39;s resolved
+            when you ask for the `Config.provider_chain`.
+        &#34;&#34;&#34;
+        # make an ordered-set out of this.
+        self._providers = {x: None for x in xloop(value, default_not_iterate=[str])}
+
+    def add_provider(self, provider: Type[Provider]):
+        &#34;&#34;&#34; Adds a provider type to end of my provider type list [you can see what it is for
+            myself via `Config.providers`].  By default, a Config object starts off with
+            a provider list of just `[Default]`. By adding to the end of this, we still
+            pick up the parent/default providers. This method simply appends to whatever
+            we currently have.  If provider is already in list, nothing changes
+            [ie: existing order will not change].
+        &#34;&#34;&#34;
+        # If we already have it, no need to do anything else.
+        if provider in self._providers:
+            return
+
+        # Add Provider type; using dict as an &#39;ordered set&#39;; see xsentinels.OrderedSet.
+        self._providers[provider] = None
+
+    def add_directory(self, directory: Union[Directory, str, DefaultType]) -&gt; &#39;Config&#39;:
+        &#34;&#34;&#34; Adds a directory to end of my directory list [you can see what it is for
+            myself via `Config.directories`].  By default, a Config object starts off with
+            a directory list of just `[Default]`. By adding to the end of this, we still
+            pick up the parent/default directories.  If directory is already in list,
+            nothing changes [ie: existing order will not change].
+
+            Returns self, so you can chain it.
+        &#34;&#34;&#34;
+        # If we already have it, no need to do anything else.
+        if directory in self._directories:
+            return self
+
+        # Add Directory; using dict as an &#39;ordered set&#39;; see xsentinels.OrderedSet
+        self._directories[directory] = None
+        return self
+
+    def add_export(self, *, service: str):
+        &#34;&#34;&#34;
+        These are added to the `Config.directory_chain` after the normal directories from
+        `Config.directories`. The purpose of these are to see &#39;exported&#39; values from other
+        services.  We currently use the current `xcon.conf.XconSettings.environment` or
+        `Config.resolved_environment` when looking at the exported values for a service.
+
+        Directories that are created in the `Config.directory_chain` from these exports follow
+        this pattern:
+
+        &#34;/{service}/{environment}/export&#34;
+
+
+        By default, the export list is just this:
+
+        ( `xsentinels.Default`, )
+
+        When you add more exports via `Config.add_export`, it will append to the end of this list.
+        The `Default` export are any exports from the parent `Config` object.
+        That way we still add whatever exports are in parent and then we add the ones
+        from self.
+
+        If you want to remove the [Default] option, see `Config.set_exports`.
+
+        .. todo:: Someday in the future, we will probably add other parameters to override
+            what service to use.
+
+        Args:
+            service: Name of the service you want exported values from.
+                We currently use the environment that the Config object sees. At some point in
+                the future we may support also adding an explict environment here as well
+                (so you don&#39;t have to use the &#39;current&#39; environment name, ie: testing/prod/etc;
+                you could use whatever you want).
+        &#34;&#34;&#34;
+        # This is an OrderedDefaultSet, add in the service...
+        self._exports[service] = None
+
+    def set_exports(self, *, services: Iterable[Union[str, DefaultType]]):
+        &#34;&#34;&#34;
+        This allows you to set all the exports. Right now
+        we only support setting them by service [and not environment]. See `Config.add_export`
+        for more details.
+
+        This replaces all current services. By default, the export list is this:
+
+        ( `xsentinels.Default`, )
+
+        `Default` when resolved means we ask the parent chain for any exports.
+        If you set the exports without including this then the parent-chain won&#39;t be consulted.
+
+        See `Config.add_service` for a way to easily append to end of list and keeps what&#39;s
+        currently in it.
+
+        Args:
+            services (Iterable[Union[str, `xsentinels.Default`]]): List of exports you want
+                to add by service name. If you don&#39;t add the `xsentinels.Default` somewhere in
+                this list then we will NOT check the parent-chain
+        &#34;&#34;&#34;
+        self._exports = {x: None for x in xloop(services, default_not_iterate=[str])}
+
+    def get_exports_by_service(self):
+        &#34;&#34;&#34; List of services we currently check their export&#39;s for. This only lists the exports
+            directly assigned to self (not in the [Parent Chain](#parent-chain)). Allows you to
+            find out what this config object as set directly on it for which exports we
+            look for per-service.
+        &#34;&#34;&#34;
+        return self._exports.keys()
+
+    def set_override(self, name, value: [Any, Default]):
+        &#34;&#34;&#34;
+        Sets an override on self. When someone asks for this value, this will be returned
+        regardless of what any provider or environmental variable as set.
+
+        You can also set an override by setting a value for a config-name directly on `Config`
+        via this syntax:
+
+        &gt;&gt;&gt; from xcon.config import config
+        &gt;&gt;&gt; config[&#39;some_override_name&#39;] = &#34;my override value&#34;
+
+        For details see [Naming Rules](#naming-rules).
+
+        .. important:: This will also affect child config objects!
+            They will look for overrides set on a parent before looking at any providers.
+
+            For more details see [Parent Chain](#parent-chain) and [Overrides](#overrides) topics.
+
+        Args:
+            name: Name of the item to remove, case-insensitive.
+            value (Union[Any, xsentinels.Default]): Can be any value. If Default is used
+                we will instead call `Config.remove_override(name)` for you to remove the value.
+        &#34;&#34;&#34;
+        if value is Default:
+            self.remove_override(name)
+            return
+
+        # Checked for default already, from this point forward it&#39;s just `Any` type.
+        value: Any
+        override_item = DirectoryItem(
+            directory=&#34;/_override&#34;, name=name, value=value, source=f&#34;Config.set_override&#34;,
+            cacheable=False
+        )
+
+        xlog.info(f&#34;Setting Config override for item ({override_item}).&#34;)
+        self._override.add_item(
+            override_item
+        )
+
+    def get_override(self, name) -&gt; Union[Any, DefaultType, None]:
+        &#34;&#34;&#34;
+        Returns a value of override for `name` was directly set on this config object
+        in one of two ways:
+
+        - `config.set_override`
+        -  `config.SOME_VAR = &#34;a-value&#34;`
+
+        The returned value is `xsentinels.Default` if no override is found;
+        this is so you can distinguish between overriding to None or no override set at all
+        (`xsentinels.Default` evaluates to `False`, just like how `None` works).
+
+        .. warning:: Only returns a value if overrides was directly set on self!
+
+            (ie: **won&#39;t** consult the [Parent Chain](#parent-chain)).
+            The parent chain (parent configs) are consulted when looking up a config value
+            normally via `Config.get`. Overrides in self and then in parents are checked first.
+
+            `get_override` method is here so you can examine a specific `Config` object and
+            determine if there are any overrides set directly on it.
+
+        Attributes:
+            name (str): Name to use to get override [case-insensitive].
+
+        Returns:
+            Union[Any, xsentinels.Default]: The value, or `xsentinels.Default` if no value was
+                set for `name`. This allows you to distinguish between overriding a value to
+                `None` and no override being set in the first place
+                (`xsentinels.Default` evaluates to `False`, just like how `None` works).
+        &#34;&#34;&#34;
+        item = self._override.get_item(name)
+        if item:
+            return item.value
+        return Default
+
+    def remove_override(self, name):
+        &#34;&#34;&#34;
+        Remove override **ONLY** on self.
+        This will not remove overrides from a parent.
+
+        .. warning:: This WON&#39;T affect any override set on a parent!
+            see [Parent Chain](#parent-chain).
+
+        Someday we may make it easier to publicly go through the parents
+        (right now there are internal/private methods that do this).
+
+        If you don&#39;t like an override, you can override the override by setting an override
+        on a child/current `Config` object (see `Config.set_override`).
+
+        Probably should not mess with config objects from higher up that you don&#39;t know
+        anything about in any case.  That&#39;s why I&#39;ve hesitated about publicly exposing
+        the parent chain too much.
+
+
+        You can remove overrides in various ways, such as:
+
+        ```python
+        from xcon import config
+        from xsentinels import Default
+
+        # Alternate Method 1:
+        config.SOME_NAME = Default
+
+        # Alternate Method 2:
+        config.set_override(&#34;SOME_NAME&#34;, Default)
+        ```
+
+        At the moment these ways ^ will not remove an override from a parent.
+
+        If we do decide we want an ability  to &#34;white-out&#34; an override;
+        I would probably do it such that you could tell a child to not check parent(s)
+        overrides on a specific value
+        (ie: I would set the override value to `Default` on self internally, to indicate that).
+        &#34;&#34;&#34;
+        xlog.info(f&#34;Removing Config override for name ({name}).&#34;)
+        self._override.remove_item_with_name(name=name)
+
+    @property
+    def service(self) -&gt; Union[DefaultType, str]:
+        &#34;&#34;&#34;
+        Returns the value passed into __init__ for `service` or set on property `Config.service`.
+
+        ```python
+        # Ways to override service on a Config object.
+        config.service = &#34;some-service&#34;
+        config = Config(service=&#34;some-service&#34;)
+        ```
+
+        If it was not overridden, then returns `Default`. This is a placeholder that represents
+        the default value should be used. You can set the service via `config.service = Default`
+        to remove any overridden and return to having it lookup the service like normal
+        from any parent(s) or `xcon.conf.XconSettings.service`.
+
+        If your interested it knowing what it&#39;s current using as the service name, you could
+        use `Config.resolved_service`. It will return the currently resolved service name
+        that is currently being used for that config object.
+        &#34;&#34;&#34;
+        return self._service
+
+    @property
+    def environment(self) -&gt; Union[str, DefaultType]:
+        &#34;&#34;&#34;
+        Returns the value passed into __init__ for `environment` or set on property
+        `Config.environment`.
+
+        ```python
+        # Ways to override service on a Config object.
+        config.environment = &#34;some-env&#34;
+        config = Config(environment=&#34;some-env&#34;)
+        ```
+
+        If it was not overridden, then returns `Default`. This is a placeholder that represents
+        the default value should be used. You can set the service via
+        `config.environment = Default` to remove any overridden and return to having it lookup the
+        service like normal from any parent(s) or `xcon.conf.XconSettings.environment`.
+
+        If your interested it knowing what it&#39;s current using as the service name, you could
+        use `Config.resolved_environment`. It will return the currently resolved environment name
+        that is currently being used for that config object.
+        &#34;&#34;&#34;
+        return self._environment
+
+    @environment.setter
+    def environment(self, value):
+        &#34;&#34;&#34; See `Config.environment getter for details. &#34;&#34;&#34;
+        self._environment = value
+
+    @service.setter
+    def service(self, value):
+        &#34;&#34;&#34; See `Config.service getter for details. &#34;&#34;&#34;
+        self._service = value
+
+    @property
+    def resolved_service(self):
+        &#34;&#34;&#34;
+        Will check self (`Config.service`), the [Parent Chain](#parent-chain) and finally
+        `xcon.conf.XconSettings.service` for the current value this Config object should
+        use when resolving directory paths to lookup config values.
+        &#34;&#34;&#34;
+        return self._service_with_cursor(cursor=self._parent_chain().start_cursor())
+
+    @property
+    def resolved_environment(self):
+        &#34;&#34;&#34;
+        Will check self (`Config.environment`), the [Parent Chain](#parent-chain) and finally
+        `xcon.conf.XconSettings.environment` for the current value this Config object should
+        use when resolving directory paths to lookup config values.
+        &#34;&#34;&#34;
+        return self._environment_with_cursor(cursor=self._parent_chain().start_cursor())
+
+    @property
+    def cacher(self) -&gt; Optional[Union[Type[DynamoCacher], DefaultType]]:
+        &#34;&#34;&#34; Returns what was originally passed into __init__ for `cacher`.
+            It&#39;s here, so you can see how this Config object was originally configured.
+        &#34;&#34;&#34;
+        return self._cacher
+
+    @cacher.setter
+    def cacher(self, value: Union[Type[DynamoCacher], DefaultType, None]):
+        &#34;&#34;&#34; Returns what was originally passed into __init__ for `cacher`.
+            It&#39;s here so you can see how this Config object was originally configured.
+        &#34;&#34;&#34;
+        _check_proper_cacher_or_raise_error(value)
+        self._cacher = value
+
+    @property
+    def resolved_cacher(self) -&gt; Optional[ProviderCacher]:
+        &#34;&#34;&#34;
+        Returns the cacher object that is currently being used when config values are asked
+        for; at the time this is called.
+        This can change later if a config object or current context is changed.
+
+        If environmental variable CONFIG_ONLY_ENV is set to true (looked at via `os.environ` ONLY),
+        we will only ever return None for the resolved cacher to use no matter what
+        parent-config / self&#39;s `Config.cacher` have been set with.
+        &#34;&#34;&#34;
+        return self._cacher_with_cursor(cursor=self._parent_chain().start_cursor())
+
+    @property
+    def provider_chain(self) -&gt; ProviderChain:
+        &#34;&#34;&#34;
+        `xcon.provider.ProviderChain` we are currently using.
+        This is effected by what was passed into Config when it was created.
+        If it was left as `xsentinels.Default`, we will get the value via the
+        [Parent Chain](#parent-chain).
+
+        See `Config` for more details.
+
+        If environmental variable CONFIG_ONLY_ENV is set to true (looked at via `os.environ` ONLY),
+        we will only have the EnvironmentalProvider in the used/returned provider chain
+        no matter what parent-config / self&#39;s `Config.providers` have been set with.
+        &#34;&#34;&#34;
+        return self._provider_chain_with_cursor(cursor=self._parent_chain().start_cursor())
+
+    @property
+    def directory_chain(self) -&gt; DirectoryChain:
+        &#34;&#34;&#34;
+        `xcon.directory.DirectoryChain` we are currently using.
+        This is effected by what was passed into Config when it was created.
+        If it was left as `xsentinels.Default`, we will get the value via the
+        [Parent Chain](#parent-chain).
+
+        See `Config` for more details.
+        &#34;&#34;&#34;
+        return self._directory_chain_with_cursor(cursor=self._parent_chain().start_cursor())
+
+    @property
+    def use_parent(self) -&gt; bool:
+        &#34;&#34;&#34;
+        If `True`: we will use the [Parent Chain](#parent-chain) when looking up things such as the
+        `Config.provider_chain`. as an example; if it was left as `xsentinels.Default`
+        when `Config` object was created.
+
+        If `False`: the parent will not be consulted, and anything that was not set at creation
+        or added/set after creation will use the default values. See `Config` for details.
+
+        See [Parent Chain](#parent-chain) for more details about how config-parents works.
+        &#34;&#34;&#34;
+        return self._use_parent
+
+    def set_default(self, name: str, value: Optional[Any]):
+        &#34;&#34;&#34;
+        When someone tries to look up a config value [perhaps via `Config.get`] and if a value
+        is not found anywhere... But someone called this to define a default for it we return
+        the default value set here [or passed in via Config.__init__(defaults={...})].
+
+        For a few examples of how this can be used, see `Config`, Search Order section.
+        Also see Config.__init__(...) doc for &#39;defaults&#39; param.
+
+        Args:
+            name (str): Case-insensitive name for the default config.
+            value (Optional[Any]): Default value, can be anything [but are generally strings].
+                If you provide None for this value param, that will be stored and will be returned
+                if a default is needed for param [you can use this feature to override a
+                parent-config default to None if needed].
+
+        &#34;&#34;&#34;
+        if value is Default:
+            self.remove_default(name)
+            return
+
+        default_item = DirectoryItem(
+            directory=&#34;/_default/user-set&#34;, name=name, value=value, source=f&#34;config.set_default&#34;,
+            cacheable=False
+        )
+
+        xlog.info(
+            &#34;Setting Config default for item ({default_item}).&#34;,
+            extra=dict(default_item=default_item)
+        )
+        self._defaults.add_item(default_item)
+
+    def get_default(self, name: str) -&gt; Optional[Any]:
+        &#34;&#34;&#34;
+        Returns the default for &#39;name&#39; if it was set via `Config.set_default()`. It only returns
+        one if it was directly set on self. This means it **WON&#39;T** consult
+        the [Parent Chain](#parent-chain)). This is so you can more easily find/set defaults
+        in the parent-chain your self if you need to track something down or some such.
+
+        Most of the item you should just be able to use `Config.set_default` and not worry about
+        an existing default set on us or some other `Config` object.
+
+        Attributes:
+            name (str): Name to use to get default [case-insensitive].
+
+        Returns:
+            Union[Any, None, xsentinels.Default]: The value, or Default if no default
+                is set for name. This allows you to distinguish between defaulting a value to
+                None and no default being set in the first place (`xsentinels.Default`
+                looks like `False`, just like how `None` works).
+        &#34;&#34;&#34;
+        item = self._defaults.get_item(name)
+        if item:
+            return item.value
+        return Default
+
+    def remove_default(self, name):
+        &#34;&#34;&#34;
+        Remove default on self.
+
+        .. warning:: This WON&#39;T affect any default set on a parent,
+            see [Parent Chain](#parent-chain).
+
+        You can also call this other ways, such as:
+
+        ```python
+        from xcon import config
+        from xsentinels import Default
+
+        # Alternate Method 1:
+        config.set_default(&#34;SOME_NAME&#34;, Default)
+        ```
+        &#34;&#34;&#34;
+        xlog.info(f&#34;Removing Config default for name ({name}).&#34;)
+        self._defaults.remove_item_with_name(name=name)
+
+    def get(
+            self,
+            name: str,
+            default=None,
+            *,
+            skip_providers: bool = False,
+            skip_logging: bool = False,
+            ignore_local_caches: bool = False
+    ) -&gt; Optional[str]:
+        &#34;&#34;&#34;
+        Similar to dict.get(), provide name [case-insensitive] and we call `Config.get_item()`
+        and return the `xcon.directory.DirectoryItem.value` of the item returned,
+        or passed in `default=None` if no item was found.
+
+        See documentation for `Config.get_item()` for more details and to find out more
+        about the `skip_providers` option.
+
+        Attributes:
+            name (str): Name of the config value to lookup. Name can be of any case since
+                lookup is case-insensitive. But if you can keep it all lower case it could be
+                a bit more efficient, since it would not have to change it.
+
+            default: Value to return if we don&#39;t find a config value via the normal means.
+
+            skip_providers (bool): See self.get_items() for more details, suffice it to
+                say it only returns things directly set/overridden or defaulted on self or on
+                parent-chain [without consulting the providers and directories].
+
+            skip_logging (bool): Skips logging about where we got the config value.
+
+            ignore_local_caches (bool): allows you to ignore the local memory cache
+                (as a convenience option).
+
+                Right now it does this by resetting the entire cache for you before lookup.
+                But in the future if needed, it may be more precise about what it does and may just
+                retrieve that specific value from each provider until it finds the value
+                (vs resetting the entire cache and bulk retrieving everything all over again).
+
+                Mostly depends on how often we would really need to do this in the future.
+                I am guessing it would be rare so the current implementation should be good enough
+                for now.
+        &#34;&#34;&#34;
+        if ignore_local_caches:
+            InternalLocalProviderCache.grab().reset_cache()
+
+        item = self.get_item(name=name, skip_providers=skip_providers, skip_logging=skip_logging)
+        if item:
+            value = item.value
+            return value if value is not None else default
+        return default
+
+    def get_bool(self, name: str, default=False):
+        &#34;&#34;&#34;
+        Grabs config variable for `name` and does it&#39;s best to convert it to a boolean if possible.
+        If the value is:
+
+        - None: we return `default`.
+        - str: We run it though `distutils.util.strtobool` to convert it to a bool.
+        - Any: Anything else, we simply call `bool(value)` on it.
+        - If there is any ValueError while try to convert value, we return False.
+
+        Args:
+            name (str): Name of the config value, such as `DISABLE_DB`.
+            default: If we can&#39;t find a value, what should we use? By default, it&#39;s False.
+
+        Returns:
+            bool:  We found a bool value, or you provided a boolean `default` value.
+            default: This means that we could not find a config value, so return `default`;
+                which defaults to False
+        &#34;&#34;&#34;
+        value = self.get(name)
+        if value is None:
+            return default
+        return bool_value(value)
+
+    def get_value(self, *args, **kwargs) -&gt; Optional[str]:
+        &#34;&#34;&#34;
+        .. deprecated:: Deprecated in favor of using `Config.get()`.
+            Right now we simply call `Config.get()` with same arguments for you and return result.
+        &#34;&#34;&#34;
+        return self.get(*args, **kwargs)
+
+    def get_item(
+            self, name: str, *,
+            skip_providers: bool = False,
+            skip_logging: bool = False,
+    ) -&gt; Optional[DirectoryItem]:
+        &#34;&#34;&#34;
+        Gets a DirectoryItem for name. If the value does not exist, we will still return a
+        `xcon.directory.DirectoryItem` with a
+        `xcon.directory.DirectoryItem.value` == `None`. This is because we cache the
+        non-existence of items for performance reasons. This allows you to see
+        where the None value came from via the `xcon.directory.DirectoryItem.directory`
+        attribute.
+
+        Attributes:
+            name (str): Name to look for [will be used in a case-insensitive manner].
+
+            skip_providers (bool): If False [default], checks all sources for the config
+                values. If True, only checks for things overridden on self or a parent;
+                [ie: Things directory set on self or directly on a parent Config].
+                It will consult any defaults (`Config.get_default()`) if needed.
+
+            skip_logging (bool): Skips logging about where we got the config value.
+
+        Returns (Optional[DirectoryItem]):
+            If None [only happens when skip_providers is True]; then no override/default was found.
+
+            Otherwise, returns the item as a DirectoryItem. A DirectoryItem.value can be None.
+            This means that the value is None [either it could not find it or the value
+            was really set to a `None`].
+        &#34;&#34;&#34;
+        # todo: Someday, use a special str subclass that will indicate that it&#39;s already in
+        #       lower-case format and use that instead [therefore, we can skip lower-casing it
+        #       again and again as we pass the already lower-cased name along to other methods].
+        name = name.lower()
+
+        # Otherwise, we follow standard process.
+        return self._get_item(
+            name=name,
+            skip_providers=skip_providers,
+            cursor=self._parent_chain().start_cursor(),
+            skip_source_logging=skip_logging
+        )
+
+    def _providers_with_cursor(self, cursor: Optional[_ParentCursor]) -&gt; List[Provider]:
+        pass
+
+    def _resolve_providers_with_cursor(
+            self, cursor: Optional[_ParentCursor]
+    ) -&gt; OrderedSet[Type[Provider]]:
+        if _env_only_is_turned_on():
+            # We also disable cacher, see other place we call the `_env_only_is_turned_on` method.
+            return {EnvironmentalProvider: None}
+
+        return self._resolve_attr_values_with_cursor(
+            cursor=cursor,
+            attribute_name=&#34;_providers&#34;,
+            # Default to xcon_settings.providers if there are any,
+            # otherwise just the EnvironmentalProvider:
+            defaults_factory=lambda: xcon_settings.providers or [EnvironmentalProvider]
+        )
+
+    def _resolve_directories_with_cursor(
+            self,
+            cursor: Optional[_ParentCursor],
+            service: Union[str, DefaultType, None] = Default,
+            environment: Union[str, DefaultType, None] = Default
+    ) -&gt; OrderedSet[Directory]:
+        # Making it a callable to make it lazy.
+
+        def defaults_factory():
+            return self._standard_directories(
+                cursor=cursor,
+                service=service,
+                environment=environment
+            )
+
+        directories = self._resolve_attr_values_with_cursor(
+            cursor=cursor,
+            attribute_name=&#34;_directories&#34;,
+            defaults_factory=defaults_factory
+        )
+
+        exported = self._resolve_attr_values_with_cursor(
+            cursor=cursor,
+            attribute_name=&#34;_exports&#34;,
+            defaults_factory=tuple  # Fast, empty iterable
+        )
+
+        if service is Default:
+            service = self._service_with_cursor(cursor)
+        if environment is Default:
+            environment = self._environment_with_cursor(cursor)
+
+        if exported:
+            # Any new values will be added to end, nothing will happen to order of existing ones.
+            for x in exported:
+                directories[Directory(service=x, env=environment, is_export=True)] = None
+
+        directories = {
+            k.resolve(service=service, environment=environment): None for k in directories
+        }
+
+        return directories
+
+    def _resolve_attr_values_with_cursor(
+            self,
+            cursor: Optional[_ParentCursor],
+            attribute_name: str,
+            defaults_factory: Callable[[], Iterable[T]]
+    ) -&gt; OrderedSet[T]:
+        &#34;&#34;&#34; Internally, we are using a dict as an ordered-set, python 3.7 guarantees dicts
+            keep their insertion order.
+
+            This will return an ordered-dict, where the keys are the values. This function
+            will resolve any &#39;Default&#39; values encountered with their parent version.
+        &#34;&#34;&#34;
+        default = Default
+
+        values: OrderedDefaultSet[T] = getattr(self, attribute_name)
+        if default not in values:
+            # Ensure we don&#39;t accidentally modify this ordered set somewhere else.
+            return copy(values)
+
+        if cursor:
+            parent_values = cursor.parent._resolve_attr_values_with_cursor(
+                cursor=cursor.next_cursor(),
+                attribute_name=attribute_name,
+                defaults_factory=defaults_factory
+            )
+        else:
+            parent_values = {x: None for x in defaults_factory()}
+
+        # We have a default we need to &#39;insert&#39; our parent providers into....
+        # First we check to see if we only have &#39;Default&#39;...
+
+        if len(values) == 1:
+            # If we only have one value, it&#39;s only value is &#39;Default&#39;, so easy, just return
+            # what we have and move on.
+            return parent_values
+
+        # If we have more then just &#39;Default&#39;, we replace it with parent providers...
+        final_values: OrderedSet[T] = {}
+        for p in values:
+            if p is default:
+                final_values.update(parent_values)
+            else:
+                final_values[p] = None
+
+        return final_values
+
+    def _provider_chain_with_cursor(self, cursor: Optional[_ParentCursor]) -&gt; ProviderChain:
+        &#34;&#34;&#34;
+        I first check to see if I have/use a parent and our provider list is Default;
+        if that&#39;s the case we return the parent Config&#39;s provider_chain.
+
+        Otherwise we need to create a provider_chain and cache/return that now and in the future.
+        &#34;&#34;&#34;
+
+        # Note from Josh: Keep things simple for now, just create provider chain when needed.
+        #
+        # if we find creating/finding the provider chain takes to long, then we can cache
+        # the chains by provider values. We could also keep them around and reset them if
+        # any of our parent&#39;s providers are changed, etc. I decided that it&#39;s probably not
+        # expensive and so not to pre-optimize and just worry about it down the road if that&#39;s
+        # not the case anymore.
+
+        provider_types = self._resolve_providers_with_cursor(cursor=cursor)
+        return ProviderChain(providers=provider_types)
+
+    def _cacher_with_cursor(
+            self,
+            cursor: Optional[_ParentCursor]
+    ) -&gt; Optional[DynamoCacher]:
+        # if user set cacher to None, they don&#39;t want caching enabled, so return None.
+        cacher = self._cacher
+        if cacher is None:
+            return None
+
+        # if user wants to force only the environmental provider to be used, disable cacher too.
+        if _env_only_is_turned_on():
+            return None
+
+        # If we have a parent, and user wants the Default cacher, ask the parent for it.
+        if cursor and cacher is Default:
+            return cursor.parent._cacher_with_cursor(cursor=cursor.next_cursor())
+
+        # If cacher is Default, right now the only supported cacher type is DynamoCacher.
+        if cacher is Default:
+            # We don&#39;t check self, only an environmental variable for this.
+            # This is so you don&#39;t have to modify the code to disable cacher by default.
+            # If you want to disable cacher via code, do this instead:
+            #
+            #  with Config(cacher=None):
+            #      pass
+            #
+            # or
+            #
+            #  @Config(cacher=None)
+            #  def some_method():
+            #      pass
+            #
+            # BUT if someone passes `Config(cacher=DynamoCacher)` explicitly we will use that
+            # regardless of what `XCON_DISABLE_DEFAULT_CACHER` is set too.
+            #
+            # Lower-casing it because `EnvironmentalProvider` will do that for us when looking it
+            # up (it looks it up in a case-insensitive manner).
+            # Trying to make it a tiny bit more efficient since this is called a lot.
+            env_provider = EnvironmentalProvider.grab()
+            if xcon_settings.disable_default_cacher:
+                return None
+            cacher = DynamoCacher
+
+        # We only accept types at this point [we already handled None and Default cases above ^],
+        # the idea is to use it as a resource, so that we can have multiple config objects
+        # use the same &#39;cacher&#39; type.  Right now, only DynamoCacher is even supported,
+        # this is more of a sanity check. If we ever have other ProviderCacher subclasses in
+        # the future, we can update this to be more open [but should check for inspect.isclass
+        # in that future, we want only class types from the user at this point].
+        if cacher is not DynamoCacher:
+            raise ConfigError(
+                f&#34;Trying to get the cacher, but the type the user wants to use is not a &#34;
+                f&#34;DynamoCacher type: ({cacher})  In the future I may support other cacher &#34;
+                f&#34;types; but right now we only support either None, Default or &#34;
+                f&#34;xcon.providers.dynamo.DynamoCacher.&#34;
+            )
+
+        # Grab the current cacher resource, it&#39;s a ProviderCacher type of some sort and
+        # so is a xinject.dependency.Dependency
+        # (right now, cacher can only be a DynamoCacher type;
+        # although we can change that in the future if we decide to change how caching works)
+        return cacher.grab()
+
+    def _resolve_attr_with_cursor(
+            self,
+            cursor: Optional[_ParentCursor],
+            attribute_name: str,
+            defaults_factory: Callable[[], T]
+    ) -&gt; T:
+        # if user set cacher to None, they don&#39;t want caching enabled, so return None.
+        value = getattr(self, attribute_name)
+        if value is not Default:
+            return value
+
+        if not cursor:
+            # We don&#39;t have any more parents to check, get the default value via factory callable.
+            return defaults_factory()
+
+        # If we have a parent via the next-cursor, use that to see if we can find a value.
+        return cursor.parent._resolve_attr_with_cursor(
+            cursor=cursor.next_cursor(),
+            attribute_name=attribute_name,
+            defaults_factory=defaults_factory
+        )
+
+    def _get_item(
+            self, name: str, *,
+            skip_providers: bool = False,
+            skip_defaults: bool = False,
+            cursor: Optional[_ParentCursor],
+            skip_source_logging: bool = False,
+    ) -&gt; Optional[DirectoryItem]:
+
+        item = None
+        provider_chain = None
+        directory_chain = None
+        try:
+            item = self._override.get_item(name)
+            if not item and cursor:
+                item = cursor.parent._get_item(
+                    name=name,
+                    skip_providers=True,
+                    skip_defaults=True,
+                    cursor=cursor.next_cursor(),
+                    skip_source_logging=skip_source_logging
+                )
+
+            if item:
+                return item
+
+            # Check to see if we are skipping providers, this happens when we only want to look
+            # at overrides and/or default values to fulfill the request. This mostly only happens
+            # for &#39;app_env&#39; and &#39;service_name&#39; config vars.
+            if not skip_providers:
+                # We skip logging about this, since we normally don&#39;t care... Just a lot of extra
+                # useless log messages about where we keep getting the service or environment from.
+                service = self._service_with_cursor(cursor)
+                environment = self._environment_with_cursor(cursor)
+
+                cacher = None
+
+                # We will disable caching if we don&#39;t have a defined service (ie: &#39;global&#39; service)
+                if not service or service != &#34;global&#34;:
+                    cacher = self._cacher_with_cursor(cursor=cursor)
+
+                directory_chain = self._directory_chain_with_cursor(
+                    cursor=cursor,
+                    service=service,
+                    environment=environment
+                )
+                provider_chain = self._provider_chain_with_cursor(cursor=cursor)
+
+                cache_dir = None
+                use_cacher = bool(cacher and provider_chain.have_any_cachable_providers)
+                if use_cacher:
+                    # todo: Consider passing this into _directory_chain_with_cursor instead
+                    #   of the individual components.
+                    cache_dir = Directory.from_components(service=service, environment=environment)
+                else:
+                    cacher = None
+
+                item = provider_chain.get_item(
+                    name=name,
+                    directory_chain=directory_chain,
+                    cacher=cacher,
+                    environ=cache_dir
+                )
+
+            if skip_defaults:
+                # If they skip defaults then return None...
+                # with skip_defaults == False: We return a DirectoryItem with None as the value.
+                # todo: Double check to see if we want to return item vs None
+                #   [adjust comment just above to reflect decision].
+                return item
+
+            if not item or (item.value is None and item.directory.is_non_existent):
+                # Check for default values next...
+                default_item = self._get_default_item_with_cursor(name=name, cursor=cursor)
+                if default_item:
+                    item = default_item
+        finally:
+            # We normally only want to log about things the users actually requests,
+            # and not things used to fulfill the request.
+            if not skip_source_logging:
+                self._log_about_item_retrieval(name, item, directory_chain, provider_chain)
+
+        return item
+
+    # noinspection PyMethodMayBeStatic
+    def _log_about_item_retrieval(
+        self,
+        original_name: str,
+        item: DirectoryItem,
+        directory_chain: DirectoryChain = None,
+        provider_chain: ProviderChain = None
+    ):
+        env_only_enabled = _env_only_is_turned_on()
+
+        if item and not item.directory.is_non_existent:
+            # FYI: What&#39;s nice about doing it this way are these string formatting placeholders
+            # will only evaluated if log message is actually emitted.
+            # This logging message could be called a lot.
+            xlog.debug(
+                &#34;Config found ({config_var_name}); returned {config_item}; extra metadata {meta}; &#34;
+                f&#34;env_only_enabled({env_only_enabled}).&#34;,
+                extra=dict(
+                    config_var_name=original_name,
+                    config_item=item,
+                    meta=item.supplemental_metadata,
+                )
+            )
+        elif item:
+            directories = directory_chain.directories if directory_chain else []
+            providers = provider_chain.providers if provider_chain else []
+
+            supplemental_msg = &#34;&#34;
+            if item.from_cacher:
+                supplemental_msg = f&#34;non-existence entry was found in cacher; &#34;
+
+            xlog.debug(
+                &#34;Config not found ({config_var_name}); &#34;
+                f&#34;{supplemental_msg}&#34;
+                &#34;in directories ({directories}), &#34;
+                &#34;for providers ({providers}); extra metadata ({meta}); &#34;
+                f&#34;env_only_enabled({env_only_enabled}).&#34;,
+                extra=dict(
+                    config_var_name=original_name,
+                    directories=[d.path for d in directories],
+                    providers=[p.name for p in providers],
+                    source=item.source,
+                    meta=item.supplemental_metadata,
+                )
+            )
+
+    def _get_default_item_with_cursor(
+            self, name: str, cursor: Optional[_ParentCursor]
+    ) -&gt; Optional[DirectoryItem]:
+        item = self._defaults.get_item(name=name)
+        if item:
+            return item
+
+        if cursor:
+            return cursor.parent._get_default_item_with_cursor(
+                name=name,
+                cursor=cursor.next_cursor()
+            )
+
+        return None
+
+    def _parent_chain(self) -&gt; _ParentChain:
+        &#34;&#34;&#34;
+            See [Parent Chain](#parent-chain).
+
+            There is a concept of a parent-chain with Config if the Config object has
+            their `use_parent == True` [it defaults to True]. We use the current XContext to
+            construct this parent-chain. See [parent-chain].
+
+            The parent-chain starts with the config resource in the current XContext.
+            If that context has a parent context, we next grab the Config resource from
+            that parent context and check it&#39;s `Config.use_parent`. If True we keep doing
+            this until we reach a XContext without a parent or a `Config.use_parent` that is False.
+
+            We take out of the chain any config object that is myself. The only objects in
+            the chain are other Config object instances.
+
+            The parent chain is generally consulted when we encounter a `Default` value.
+            If when reaching the last parent in the chain, we still have a `Default` value,
+            sensible/default values are constructed [if they have not already been] and used.
+        &#34;&#34;&#34;
+        use_parent = self._use_parent
+        found_self = False
+        skip_adding_more_parents = False
+
+        chain = []
+        for config_resource in XContext.grab().dependency_chain(Config, create=True):
+            if config_resource is self:
+                found_self = True
+                if not use_parent:
+                    break
+                continue
+
+            if skip_adding_more_parents:
+                continue
+
+            chain.append(config_resource)
+            if not config_resource.use_parent:
+                skip_adding_more_parents = True
+                if use_parent:
+                    # We don&#39;t need to go any further, we want to use parents and
+                    # we found a parent that does not, just return what we have.
+                    break
+                # We keep going to see if we can find our selves, but we don&#39;t add
+                # anymore to the chain. If we can&#39;t find our selves as a resource
+                # in the current context parent-chain, we will return a blank chain.
+                continue
+
+        # If we did not find self and we don&#39;t want to use a parent, we return a blank parent
+        # chain. This is because we are not in the current config context hierarchy, and so are
+        # a &#39;separate&#39; island and are cut-off from all other config objects.
+        if not use_parent and not found_self:
+            return _BlankParentChain
+
+        return _ParentChain(parents=tuple(chain))
+
+    def _directory_chain_with_cursor(
+            self,
+            cursor: Optional[_ParentCursor],
+            service: Union[str, DefaultType, None] = Default,
+            environment: Union[str, DefaultType, None] = Default,
+    ) -&gt; Optional[DirectoryChain]:
+        directories = self._resolve_directories_with_cursor(
+            cursor=cursor,
+            service=service,
+            environment=environment
+        )
+
+        return DirectoryChain(directories=directories)
+
+    def _standard_directories(
+            self,
+            cursor: Optional[_ParentCursor],
+            service: Union[str, DefaultType, None] = Default,
+            environment: Union[str, DefaultType, None] = Default
+    ) -&gt; OrderedSet[Directory]:
+        if service is Default:
+            service = self._service_with_cursor(cursor)
+        if environment is Default:
+            environment = self._environment_with_cursor(cursor)
+
+        return {
+            d.resolve(service=service, environment=environment): None
+            for d in xloop(xcon_settings.directories, default_not_iterate=[str])
+        }
+
+    def _service_with_cursor(self, cursor: Optional[_ParentCursor]) -&gt; str:
+        return self._resolve_attr_with_cursor(
+            cursor=cursor,
+            attribute_name=&#39;_service&#39;,
+            defaults_factory=lambda: xcon_settings.service or &#39;global&#39;
+        )
+
+    def _environment_with_cursor(self, cursor: Optional[_ParentCursor]) -&gt; str:
+        return self._resolve_attr_with_cursor(
+            cursor=cursor,
+            attribute_name=&#39;_environment&#39;,
+            defaults_factory=lambda: xcon_settings.environment or &#39;all&#39;
+        )
+
+    def _get_special_non_provider_item_with_cursor(
+            self,
+            name: str,
+            hard_default: str,
+            cursor: Optional[_ParentCursor],
+            *,
+            skip_source_logging: bool = False,
+            as_item: bool = False
+    ) -&gt; Union[DirectoryItem, str]:
+        &#34;&#34;&#34;
+        Returns an item/value by searching for &#39;name&#39; without using providers.
+        If we can&#39;t find a value, or the value we find is false we use the provided hard_default.
+
+        Args:
+            name: Name to look for [case-insensitive]
+            hard_default: Default to use if we can&#39;t find a non-false like value.
+            cursor: Current cursor we are using, see `_ParentCursor` for more details.
+            skip_source_logging: Don&#39;t log where we got this from
+                (if this is used to get something else, limits excessive logging].
+            as_item: Return `DirectoryItem` if true, else we return just the value.
+        &#34;&#34;&#34;
+        # We need to use internal method to preserve the cursor.
+        item = self._get_item(
+            name,
+            skip_providers=True,
+            cursor=cursor,
+            skip_source_logging=skip_source_logging
+        )
+
+        if item and item.value:
+            if as_item:
+                return item
+            return item.value
+
+        item = EnvironmentalProvider.grab().get_item_without_environ(name)
+        if not item or not item.value:
+            item = DirectoryItem(
+                directory=&#34;/_default/hard-coded&#34;,
+                name=name,
+                value=hard_default,
+                source=f&#34;config.hard-coded-default={hard_default}&#34;,
+                cacheable=False
+            )
+
+        return item if as_item else item.value
+
+    def __getitem__(self, key):
+        &#34;&#34;&#34; Allows config to be used like a dictionary, in that you can look up config values
+            via the `config[&#39;some_key&#39;]` syntax.
+        &#34;&#34;&#34;
+        return self.get(key)
+
+    def __setitem__(self, key, value):
+        &#34;&#34;&#34;
+        Allows one to override values on config when used like a dictionary,
+        in that you can set override values on config values via the
+        `config[&#39;some_key&#39;] = &#39;override-with-value&#39;` syntax.
+
+        To remove an override you can either set the value to `Default`;
+         ie: `config[&#39;some_key&#39;] = Default`.
+
+        Or call `Config.remove_override`; ie: `config.remove_override(&#39;some_key&#39;)`.
+        &#34;&#34;&#34;
+        self.set_override(key, value)</code></pre>
+</details>
+<div class="desc"><p>Lets you easily get configuration values from various sources.</p>
+<p>You should read <a href="#config-class-overview">Config Class Overview</a> first because it's a
+high-level overview of Config. Also, read the associated <a href="#quick-start">Quick Start</a> that's
+there too. What you'll find below are implementation details that go into more depth on how
+Config works in various scenarios.</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>At some point in the future I would like to implement <strong>getitem</strong> to have the Config class
+act sort of like a dictionary. If I did that, I would like the ability to iterate
+over all the current configuration key/values that the Config object knows about.
+Doing this would be a bit involved, so for now I am leaving dict/mapping like
+access non-implemented.</p>
+</div>
+<p>Create a new Config object. Normally you would just leave everything at their Default
+values. You can change any of them if needed. If you pass a None for any parameter
+that defaults to Default, that aspect will be disabled/not used. For example, if you
+pass a None for directories/providers, no directories/providers will be searched.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directories</code></strong> :&ensp;<code>Union[Iterable[<a title="xcon.directory.DirectoryOrPath" href="directory.html#xcon.directory.DirectoryOrPath">DirectoryOrPath</a>], xsentinels.Default]</code></dt>
+<dd>
+<p>List of directories/paths to search when querying for a name.</p>
+<p>If <code>xsentinels.Default</code>: Uses the first one from <a href="#parent-chain">Parent Chain</a>.</p>
+<p>If everyone in the parent chain is set to <code>Default</code>,
+uses <code><a title="xcon.conf.XconSettings.directories" href="conf.html#xcon.conf.XconSettings.directories">XconSettings.directories</a></code>.</p>
+<p>Various ways to change what directories to use:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from xsentinels import Default</p>
+<p>with Config(directories=['/some/other/path', Default]):
+&hellip;
+# Will first look in <code>/some/other/path</code>,
+&hellip;
+# if not found next looks at default paths/directories.
+&hellip;
+assert config['some_var'] == 'expected-value'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;This will also preserves the current service name</p>
+<p>As your just changing the directories used, and not the service name.
+This means the cache-path is not changed, so you don't have to add permissions
+to read/write other cache-path</p>
+</div>
+<p>If you want to lookup the standard/default ones first, you can do this too:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>my_directories = [
+&hellip;
+Default,
+&hellip;
+# Directory objects support <code>{environment}</code> and <code>{service}</code>
+&hellip;
+# placeholders in their path.
+&hellip;
+Directory(service='other_app', env='{environment}'),
+&hellip;
+Directory(service='other_app/all'),<br>
+&hellip; ]
+with Config(directories=my_directories):
+&hellip;
+assert config.get('some_var') == 'expected-value'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>When <code>Default</code> is resolved, after the ones your inserting your self,
+it will use the standard app service/env.</p>
+<p>This means it will first look for the two directiores first from other_app,
+and then if it still can't find the var it will next look at the current
+app/service for the var.</p>
+</dd>
+<dt><strong><code>providers</code></strong> :&ensp;<code>Union[Iterable[Type[<a title="xcon.provider.Provider" href="provider.html#xcon.provider.Provider">Provider</a>]], xsentinels.DefaultType]</code></dt>
+<dd>List of provider types to use. If set to <code>Default</code>, uses the first one from
+<a href="#parent-chain">Parent Chain</a>. If everyone in the parent chain is set to <code>Default</code>,
+uses <code><a title="xcon.conf.XconSettings.providers" href="conf.html#xcon.conf.XconSettings.providers">XconSettings.providers</a></code>.</dd>
+<dt><strong><code>cacher</code></strong> :&ensp;<code>Type[<a title="xcon.provider.ProviderCacher" href="provider.html#xcon.provider.ProviderCacher">ProviderCacher</a>]</code></dt>
+<dd>
+<p>In the future, I may allow other cachers to be passed in via this param, but right
+now only the DynamoCacher is used and the only values you can use are:</p>
+<ul>
+<li>
+<p>If <code>None</code>:</p>
+<ul>
+<li>No flattened high-level caching will be used. The individual
+providers will still cache things internally per-directory/provider.</li>
+</ul>
+</li>
+<li>
+<p>If left as <code>xsentinels.Default</code>:</p>
+<ul>
+<li>Must have a service/enviroment we can use
+(ie: APP_ENV / APP_NAME;
+<code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> / <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>
+).
+If so, we will attempt to read/write to a special Dynamo table that has
+a flattened list of name/value pairs that are tied to the current service,
+enviroment, directory-chain, provider-chain at the time the value is asked for.</li>
+</ul>
+</li>
+</ul>
+<p>The cacher-path will use current service/environment
+(<code>APP_ENV</code> / <code>APP_NAME</code>;
+<code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> / <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>
+).</p>
+<p>If you want change where you lookup variables without effecting the cacher-path,
+you can change the directories that Config uses.</p>
+<p>See below on <code>service</code> and <code>directories</code> paramters for examples/details.</p>
+</dd>
+<dt><strong><code>use_parent</code></strong> :&ensp;<code>bool</code></dt>
+<dd>
+<p><a href="#parent-chain">Parent Chain</a> is used to find:</p>
+<ul>
+<li>
+<p>Overridden config values; these are values that set directly
+on the Config object; ie: <code><a title="xcon.config.config" href="#xcon.config.config">config</a></code>.CONFIG_NAME = "Some Value to Override With"</p>
+</li>
+<li>
+<p>Default values; these are used when config can find no other value for a
+particular .CONFIG_NAME. See <code>set_default</code></p>
+</li>
+<li>
+<p>Default directories: Use parent directories by default.</p>
+</li>
+<li>
+<p>Default providers: Use parent providers by default.</p>
+</li>
+</ul>
+<p>The overridden/defaults/directory/providers 'inherit' up the config's
+<a href="#parent-chain">Parent Chain</a>.</p>
+<p>This makes it easy to override values in some parent&hellip; perhaps in a unit-test, or
+while a documentation generator is running, or if some library your calling
+wants to use a different set of providers, etc....</p>
+<p>If you pass a <code>use_parent=False</code>, no parent will be used or consulted. If anyone
+in the <a href="#parent-chain">Parent Chain</a> has <code>use_parent==false</code>, the parent-chain
+will stop there.</p>
+<p>By <code>xsentinels.Default</code>:
+We lookup the parent by getting the current Config via current XContext;
+If that's ourselves, then we grab the parent context's Config resource.
+This lookup occurs every time we are asked for a .CONFIG_NAME to see if
+there is an override for it, etc. [see <code>parent is used to find</code> section above].
+That means the Config's parent can change depending on the current context the
+time the .CONFIG_NAME is asked for.</p>
+</dd>
+<dt><strong><code>defaults</code></strong> :&ensp;<code>Union[<a title="xcon.directory.DirectoryListing" href="directory.html#xcon.directory.DirectoryListing">DirectoryListing</a>, Dict[str, Any], xsentinels.Default]</code></dt>
+<dd>
+<p>If <code>defaults</code> are provided, these values will be used when Config is asked for
+something that does not exist anywhere else. ie: Has not been overridden [by directly
+setting value on Config or a parent Config], and also not in any provider.</p>
+<p>Basically, if Config can't find a value anywhere else, it will as a last-resort
+check these defaults. If a value in defaults is present for the configuration
+name/key in question, the value in defaults will be returned.
+This default value is NOT cached via the DynamoCacher [in-fact, the DynamoCacher will
+cache the fact that the config var in question does not exist]. If the cacher reports
+that a particular var does not exist [reminder: the cache entries eventually expire]
+we skip checking the providers and just check the defaults.</p>
+<p>See the Config class doc, and the 'Search Order' section.</p>
+</dd>
+<dt><strong><code>environment</code></strong> :&ensp;<code>Dict[str, Default]</code></dt>
+<dd>
+<p>Used to easily override the <code>APP_ENV</code> / <code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code>.
+Infact, <code>__init__</code> will simply do this if you provide a value for <code>environment</code>:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>self.environment = environment</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Can be used when APP_ENV is needed mainly for constructing default directory paths
+(ie: <code>/{APP_NAME}/{APP_ENV}/...</code>) but not effect the cacher's hash-key at the same
+time.</p>
+<p>The cacher always uses <code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> for it's dynamo table
+hash-key.
+That way whatever xcon_settings are looked up from alternet environment/service
+names; it won't try to write them into that apps service/enviroment cached values.</p>
+<p>It will keep the newley cached values into the <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>
+and <code>xcon.conf.XconSettings.enviroment</code> hash-value.</p>
+<p>It will still keep track of the values in the overriden service/enviroment
+via the dynamo tables range-key, so things will still be properly/sepeatly
+cached correctly.</p>
+</dd>
+<dt><strong><code>service</code></strong> :&ensp;<code>Dict[str, Default]</code></dt>
+<dd>
+<p>Used to easily override the <code>APP_NAME</code> / <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>.
+Infact, <code>__init__</code> will simply do this if you provide a value for <code>service</code>:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>self.service = service</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Can be used when APP_ENV is needed mainly for constructing default directory paths
+(ie: <code>/{APP_NAME}/{APP_ENV}/...</code>) but not effect the cacher's hash-key at the same
+time.</p>
+<p>The cacher always uses <code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> for it's dynamo table
+hash-key.
+That way whatever xcon_settings are looked up from alternet environment/service
+names; it won't try to write them into that apps service/enviroment cached values.</p>
+<p>It will keep the newley cached values into the <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>
+and <code>xcon.conf.XconSettings.enviroment</code> hash-value.</p>
+<p>It will still keep track of the values in the overriden service/enviroment
+via the dynamo tables range-key, so things will still be properly/sepeatly
+cached correctly.</p>
+</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.config.Config.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.current"><code class="name flex">
+<span>def <span class="ident">current</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calls 'cls.grab()', just am alternative name for the same thing, may make things
+a bit more self-documenting, since <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> could be used in a lot of places.</p></div>
+</dd>
+<dt id="xcon.config.Config.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.config.Config.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.config.Config.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.config.Config.cacher"><code class="name">prop <span class="ident">cacher</span> : Type[<a title="xcon.providers.dynamo.DynamoCacher" href="providers/dynamo.html#xcon.providers.dynamo.DynamoCacher">DynamoCacher</a>] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> | None</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def cacher(self) -&gt; Optional[Union[Type[DynamoCacher], DefaultType]]:
+    &#34;&#34;&#34; Returns what was originally passed into __init__ for `cacher`.
+        It&#39;s here, so you can see how this Config object was originally configured.
+    &#34;&#34;&#34;
+    return self._cacher</code></pre>
+</details>
+<div class="desc"><p>Returns what was originally passed into <strong>init</strong> for <code>cacher</code>.
+It's here, so you can see how this Config object was originally configured.</p></div>
+</dd>
+<dt id="xcon.config.Config.directories"><code class="name">prop <span class="ident">directories</span> : <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> | Iterable[<a title="xcon.directory.Directory" href="directory.html#xcon.directory.Directory">Directory</a> | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a>]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def directories(self) -&gt; Union[DefaultType, Iterable[Union[Directory, DefaultType]]]:
+    &#34;&#34;&#34; Lets you see directories set directly on this config object.
+
+        If set to Default, it  means we look to our [Parent Chain](#parent-chain) first,
+        and if one of them don&#39;t have any set to then use sensible defaults.
+
+        Otherwise it&#39;s a list of `xcon.directory.Directory` and/or Default.
+    &#34;&#34;&#34;
+    return self._directories.keys()</code></pre>
+</details>
+<div class="desc"><p>Lets you see directories set directly on this config object.</p>
+<p>If set to Default, it
+means we look to our <a href="#parent-chain">Parent Chain</a> first,
+and if one of them don't have any set to then use sensible defaults.</p>
+<p>Otherwise it's a list of <code><a title="xcon.directory.Directory" href="directory.html#xcon.directory.Directory">Directory</a></code> and/or Default.</p></div>
+</dd>
+<dt id="xcon.config.Config.directory_chain"><code class="name">prop <span class="ident">directory_chain</span> : <a title="xcon.directory.DirectoryChain" href="directory.html#xcon.directory.DirectoryChain">DirectoryChain</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def directory_chain(self) -&gt; DirectoryChain:
+    &#34;&#34;&#34;
+    `xcon.directory.DirectoryChain` we are currently using.
+    This is effected by what was passed into Config when it was created.
+    If it was left as `xsentinels.Default`, we will get the value via the
+    [Parent Chain](#parent-chain).
+
+    See `Config` for more details.
+    &#34;&#34;&#34;
+    return self._directory_chain_with_cursor(cursor=self._parent_chain().start_cursor())</code></pre>
+</details>
+<div class="desc"><p><code><a title="xcon.directory.DirectoryChain" href="directory.html#xcon.directory.DirectoryChain">DirectoryChain</a></code> we are currently using.
+This is effected by what was passed into Config when it was created.
+If it was left as <code>xsentinels.Default</code>, we will get the value via the
+<a href="#parent-chain">Parent Chain</a>.</p>
+<p>See <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> for more details.</p></div>
+</dd>
+<dt id="xcon.config.Config.environment"><code class="name">prop <span class="ident">environment</span> : str | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def environment(self) -&gt; Union[str, DefaultType]:
+    &#34;&#34;&#34;
+    Returns the value passed into __init__ for `environment` or set on property
+    `Config.environment`.
+
+    ```python
+    # Ways to override service on a Config object.
+    config.environment = &#34;some-env&#34;
+    config = Config(environment=&#34;some-env&#34;)
+    ```
+
+    If it was not overridden, then returns `Default`. This is a placeholder that represents
+    the default value should be used. You can set the service via
+    `config.environment = Default` to remove any overridden and return to having it lookup the
+    service like normal from any parent(s) or `xcon.conf.XconSettings.environment`.
+
+    If your interested it knowing what it&#39;s current using as the service name, you could
+    use `Config.resolved_environment`. It will return the currently resolved environment name
+    that is currently being used for that config object.
+    &#34;&#34;&#34;
+    return self._environment</code></pre>
+</details>
+<div class="desc"><p>Returns the value passed into <strong>init</strong> for <code>environment</code> or set on property
+<code><a title="xcon.config.Config.environment" href="#xcon.config.Config.environment">Config.environment</a></code>.</p>
+<pre><code class="language-python"># Ways to override service on a Config object.
+config.environment = &quot;some-env&quot;
+config = Config(environment=&quot;some-env&quot;)
+</code></pre>
+<p>If it was not overridden, then returns <code>Default</code>. This is a placeholder that represents
+the default value should be used. You can set the service via
+<code>config.environment = Default</code> to remove any overridden and return to having it lookup the
+service like normal from any parent(s) or <code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code>.</p>
+<p>If your interested it knowing what it's current using as the service name, you could
+use <code><a title="xcon.config.Config.resolved_environment" href="#xcon.config.Config.resolved_environment">Config.resolved_environment</a></code>. It will return the currently resolved environment name
+that is currently being used for that config object.</p></div>
+</dd>
+<dt id="xcon.config.Config.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+<dt id="xcon.config.Config.provider_chain"><code class="name">prop <span class="ident">provider_chain</span> : <a title="xcon.provider.ProviderChain" href="provider.html#xcon.provider.ProviderChain">ProviderChain</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def provider_chain(self) -&gt; ProviderChain:
+    &#34;&#34;&#34;
+    `xcon.provider.ProviderChain` we are currently using.
+    This is effected by what was passed into Config when it was created.
+    If it was left as `xsentinels.Default`, we will get the value via the
+    [Parent Chain](#parent-chain).
+
+    See `Config` for more details.
+
+    If environmental variable CONFIG_ONLY_ENV is set to true (looked at via `os.environ` ONLY),
+    we will only have the EnvironmentalProvider in the used/returned provider chain
+    no matter what parent-config / self&#39;s `Config.providers` have been set with.
+    &#34;&#34;&#34;
+    return self._provider_chain_with_cursor(cursor=self._parent_chain().start_cursor())</code></pre>
+</details>
+<div class="desc"><p><code><a title="xcon.provider.ProviderChain" href="provider.html#xcon.provider.ProviderChain">ProviderChain</a></code> we are currently using.
+This is effected by what was passed into Config when it was created.
+If it was left as <code>xsentinels.Default</code>, we will get the value via the
+<a href="#parent-chain">Parent Chain</a>.</p>
+<p>See <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> for more details.</p>
+<p>If environmental variable CONFIG_ONLY_ENV is set to true (looked at via <code>os.environ</code> ONLY),
+we will only have the EnvironmentalProvider in the used/returned provider chain
+no matter what parent-config / self's <code><a title="xcon.config.Config.providers" href="#xcon.config.Config.providers">Config.providers</a></code> have been set with.</p></div>
+</dd>
+<dt id="xcon.config.Config.providers"><code class="name">prop <span class="ident">providers</span> : <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> | Iterable[Type[<a title="xcon.provider.Provider" href="provider.html#xcon.provider.Provider">Provider</a>] | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a>]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def providers(self) -&gt; Union[DefaultType, Iterable[Union[Type[Provider], DefaultType]]]:
+    &#34;&#34;&#34; Lets you see providers set directly on this config object.
+
+        If set to Default, it  means we look to our [Parent Chain](#parent-chain) first,
+        and if one of them don&#39;t have any set to then use sensible defaults.
+
+        Otherwise it&#39;s a list of `xcon.provider.Provider` types and/or Default.
+    &#34;&#34;&#34;
+    return self._providers.keys()</code></pre>
+</details>
+<div class="desc"><p>Lets you see providers set directly on this config object.</p>
+<p>If set to Default, it
+means we look to our <a href="#parent-chain">Parent Chain</a> first,
+and if one of them don't have any set to then use sensible defaults.</p>
+<p>Otherwise it's a list of <code><a title="xcon.provider.Provider" href="provider.html#xcon.provider.Provider">Provider</a></code> types and/or Default.</p></div>
+</dd>
+<dt id="xcon.config.Config.resolved_cacher"><code class="name">prop <span class="ident">resolved_cacher</span> : <a title="xcon.provider.ProviderCacher" href="provider.html#xcon.provider.ProviderCacher">ProviderCacher</a> | None</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def resolved_cacher(self) -&gt; Optional[ProviderCacher]:
+    &#34;&#34;&#34;
+    Returns the cacher object that is currently being used when config values are asked
+    for; at the time this is called.
+    This can change later if a config object or current context is changed.
+
+    If environmental variable CONFIG_ONLY_ENV is set to true (looked at via `os.environ` ONLY),
+    we will only ever return None for the resolved cacher to use no matter what
+    parent-config / self&#39;s `Config.cacher` have been set with.
+    &#34;&#34;&#34;
+    return self._cacher_with_cursor(cursor=self._parent_chain().start_cursor())</code></pre>
+</details>
+<div class="desc"><p>Returns the cacher object that is currently being used when config values are asked
+for; at the time this is called.
+This can change later if a config object or current context is changed.</p>
+<p>If environmental variable CONFIG_ONLY_ENV is set to true (looked at via <code>os.environ</code> ONLY),
+we will only ever return None for the resolved cacher to use no matter what
+parent-config / self's <code><a title="xcon.config.Config.cacher" href="#xcon.config.Config.cacher">Config.cacher</a></code> have been set with.</p></div>
+</dd>
+<dt id="xcon.config.Config.resolved_environment"><code class="name">prop <span class="ident">resolved_environment</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def resolved_environment(self):
+    &#34;&#34;&#34;
+    Will check self (`Config.environment`), the [Parent Chain](#parent-chain) and finally
+    `xcon.conf.XconSettings.environment` for the current value this Config object should
+    use when resolving directory paths to lookup config values.
+    &#34;&#34;&#34;
+    return self._environment_with_cursor(cursor=self._parent_chain().start_cursor())</code></pre>
+</details>
+<div class="desc"><p>Will check self (<code><a title="xcon.config.Config.environment" href="#xcon.config.Config.environment">Config.environment</a></code>), the <a href="#parent-chain">Parent Chain</a> and finally
+<code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> for the current value this Config object should
+use when resolving directory paths to lookup config values.</p></div>
+</dd>
+<dt id="xcon.config.Config.resolved_service"><code class="name">prop <span class="ident">resolved_service</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def resolved_service(self):
+    &#34;&#34;&#34;
+    Will check self (`Config.service`), the [Parent Chain](#parent-chain) and finally
+    `xcon.conf.XconSettings.service` for the current value this Config object should
+    use when resolving directory paths to lookup config values.
+    &#34;&#34;&#34;
+    return self._service_with_cursor(cursor=self._parent_chain().start_cursor())</code></pre>
+</details>
+<div class="desc"><p>Will check self (<code><a title="xcon.config.Config.service" href="#xcon.config.Config.service">Config.service</a></code>), the <a href="#parent-chain">Parent Chain</a> and finally
+<code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code> for the current value this Config object should
+use when resolving directory paths to lookup config values.</p></div>
+</dd>
+<dt id="xcon.config.Config.service"><code class="name">prop <span class="ident">service</span> : str | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def service(self) -&gt; Union[DefaultType, str]:
+    &#34;&#34;&#34;
+    Returns the value passed into __init__ for `service` or set on property `Config.service`.
+
+    ```python
+    # Ways to override service on a Config object.
+    config.service = &#34;some-service&#34;
+    config = Config(service=&#34;some-service&#34;)
+    ```
+
+    If it was not overridden, then returns `Default`. This is a placeholder that represents
+    the default value should be used. You can set the service via `config.service = Default`
+    to remove any overridden and return to having it lookup the service like normal
+    from any parent(s) or `xcon.conf.XconSettings.service`.
+
+    If your interested it knowing what it&#39;s current using as the service name, you could
+    use `Config.resolved_service`. It will return the currently resolved service name
+    that is currently being used for that config object.
+    &#34;&#34;&#34;
+    return self._service</code></pre>
+</details>
+<div class="desc"><p>Returns the value passed into <strong>init</strong> for <code>service</code> or set on property <code><a title="xcon.config.Config.service" href="#xcon.config.Config.service">Config.service</a></code>.</p>
+<pre><code class="language-python"># Ways to override service on a Config object.
+config.service = &quot;some-service&quot;
+config = Config(service=&quot;some-service&quot;)
+</code></pre>
+<p>If it was not overridden, then returns <code>Default</code>. This is a placeholder that represents
+the default value should be used. You can set the service via <code>config.service = Default</code>
+to remove any overridden and return to having it lookup the service like normal
+from any parent(s) or <code><a title="xcon.conf.XconSettings.service" href="conf.html#xcon.conf.XconSettings.service">XconSettings.service</a></code>.</p>
+<p>If your interested it knowing what it's current using as the service name, you could
+use <code><a title="xcon.config.Config.resolved_service" href="#xcon.config.Config.resolved_service">Config.resolved_service</a></code>. It will return the currently resolved service name
+that is currently being used for that config object.</p></div>
+</dd>
+<dt id="xcon.config.Config.use_parent"><code class="name">prop <span class="ident">use_parent</span> : bool</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def use_parent(self) -&gt; bool:
+    &#34;&#34;&#34;
+    If `True`: we will use the [Parent Chain](#parent-chain) when looking up things such as the
+    `Config.provider_chain`. as an example; if it was left as `xsentinels.Default`
+    when `Config` object was created.
+
+    If `False`: the parent will not be consulted, and anything that was not set at creation
+    or added/set after creation will use the default values. See `Config` for details.
+
+    See [Parent Chain](#parent-chain) for more details about how config-parents works.
+    &#34;&#34;&#34;
+    return self._use_parent</code></pre>
+</details>
+<div class="desc"><p>If <code>True</code>: we will use the <a href="#parent-chain">Parent Chain</a> when looking up things such as the
+<code><a title="xcon.config.Config.provider_chain" href="#xcon.config.Config.provider_chain">Config.provider_chain</a></code>. as an example; if it was left as <code>xsentinels.Default</code>
+when <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object was created.</p>
+<p>If <code>False</code>: the parent will not be consulted, and anything that was not set at creation
+or added/set after creation will use the default values. See <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> for details.</p>
+<p>See <a href="#parent-chain">Parent Chain</a> for more details about how config-parents works.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.config.Config.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.config.Config.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.config.Config.add_directory"><code class="name flex">
+<span>def <span class="ident">add_directory</span></span>(<span>self,<br>directory: <a title="xcon.directory.Directory" href="directory.html#xcon.directory.Directory">Directory</a> | str | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a>) ‑> <a title="xcon.config.Config" href="#xcon.config.Config">Config</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_directory(self, directory: Union[Directory, str, DefaultType]) -&gt; &#39;Config&#39;:
+    &#34;&#34;&#34; Adds a directory to end of my directory list [you can see what it is for
+        myself via `Config.directories`].  By default, a Config object starts off with
+        a directory list of just `[Default]`. By adding to the end of this, we still
+        pick up the parent/default directories.  If directory is already in list,
+        nothing changes [ie: existing order will not change].
+
+        Returns self, so you can chain it.
+    &#34;&#34;&#34;
+    # If we already have it, no need to do anything else.
+    if directory in self._directories:
+        return self
+
+    # Add Directory; using dict as an &#39;ordered set&#39;; see xsentinels.OrderedSet
+    self._directories[directory] = None
+    return self</code></pre>
+</details>
+<div class="desc"><p>Adds a directory to end of my directory list [you can see what it is for
+myself via <code>Config.directories</code>].
+By default, a Config object starts off with
+a directory list of just <code>[Default]</code>. By adding to the end of this, we still
+pick up the parent/default directories.
+If directory is already in list,
+nothing changes [ie: existing order will not change].</p>
+<p>Returns self, so you can chain it.</p></div>
+</dd>
+<dt id="xcon.config.Config.add_export"><code class="name flex">
+<span>def <span class="ident">add_export</span></span>(<span>self, *, service: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_export(self, *, service: str):
+    &#34;&#34;&#34;
+    These are added to the `Config.directory_chain` after the normal directories from
+    `Config.directories`. The purpose of these are to see &#39;exported&#39; values from other
+    services.  We currently use the current `xcon.conf.XconSettings.environment` or
+    `Config.resolved_environment` when looking at the exported values for a service.
+
+    Directories that are created in the `Config.directory_chain` from these exports follow
+    this pattern:
+
+    &#34;/{service}/{environment}/export&#34;
+
+
+    By default, the export list is just this:
+
+    ( `xsentinels.Default`, )
+
+    When you add more exports via `Config.add_export`, it will append to the end of this list.
+    The `Default` export are any exports from the parent `Config` object.
+    That way we still add whatever exports are in parent and then we add the ones
+    from self.
+
+    If you want to remove the [Default] option, see `Config.set_exports`.
+
+    .. todo:: Someday in the future, we will probably add other parameters to override
+        what service to use.
+
+    Args:
+        service: Name of the service you want exported values from.
+            We currently use the environment that the Config object sees. At some point in
+            the future we may support also adding an explict environment here as well
+            (so you don&#39;t have to use the &#39;current&#39; environment name, ie: testing/prod/etc;
+            you could use whatever you want).
+    &#34;&#34;&#34;
+    # This is an OrderedDefaultSet, add in the service...
+    self._exports[service] = None</code></pre>
+</details>
+<div class="desc"><p>These are added to the <code><a title="xcon.config.Config.directory_chain" href="#xcon.config.Config.directory_chain">Config.directory_chain</a></code> after the normal directories from
+<code><a title="xcon.config.Config.directories" href="#xcon.config.Config.directories">Config.directories</a></code>. The purpose of these are to see 'exported' values from other
+services.
+We currently use the current <code><a title="xcon.conf.XconSettings.environment" href="conf.html#xcon.conf.XconSettings.environment">XconSettings.environment</a></code> or
+<code><a title="xcon.config.Config.resolved_environment" href="#xcon.config.Config.resolved_environment">Config.resolved_environment</a></code> when looking at the exported values for a service.</p>
+<p>Directories that are created in the <code><a title="xcon.config.Config.directory_chain" href="#xcon.config.Config.directory_chain">Config.directory_chain</a></code> from these exports follow
+this pattern:</p>
+<p>"/{service}/{environment}/export"</p>
+<p>By default, the export list is just this:</p>
+<p>( <code>xsentinels.Default</code>, )</p>
+<p>When you add more exports via <code><a title="xcon.config.Config.add_export" href="#xcon.config.Config.add_export">Config.add_export()</a></code>, it will append to the end of this list.
+The <code>Default</code> export are any exports from the parent <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object.
+That way we still add whatever exports are in parent and then we add the ones
+from self.</p>
+<p>If you want to remove the [Default] option, see <code><a title="xcon.config.Config.set_exports" href="#xcon.config.Config.set_exports">Config.set_exports()</a></code>.</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Someday in the future, we will probably add other parameters to override
+what service to use.</p>
+</div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>service</code></strong></dt>
+<dd>Name of the service you want exported values from.
+We currently use the environment that the Config object sees. At some point in
+the future we may support also adding an explict environment here as well
+(so you don't have to use the 'current' environment name, ie: testing/prod/etc;
+you could use whatever you want).</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.add_provider"><code class="name flex">
+<span>def <span class="ident">add_provider</span></span>(<span>self,<br>provider: Type[<a title="xcon.provider.Provider" href="provider.html#xcon.provider.Provider">Provider</a>])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_provider(self, provider: Type[Provider]):
+    &#34;&#34;&#34; Adds a provider type to end of my provider type list [you can see what it is for
+        myself via `Config.providers`].  By default, a Config object starts off with
+        a provider list of just `[Default]`. By adding to the end of this, we still
+        pick up the parent/default providers. This method simply appends to whatever
+        we currently have.  If provider is already in list, nothing changes
+        [ie: existing order will not change].
+    &#34;&#34;&#34;
+    # If we already have it, no need to do anything else.
+    if provider in self._providers:
+        return
+
+    # Add Provider type; using dict as an &#39;ordered set&#39;; see xsentinels.OrderedSet.
+    self._providers[provider] = None</code></pre>
+</details>
+<div class="desc"><p>Adds a provider type to end of my provider type list [you can see what it is for
+myself via <code>Config.providers</code>].
+By default, a Config object starts off with
+a provider list of just <code>[Default]</code>. By adding to the end of this, we still
+pick up the parent/default providers. This method simply appends to whatever
+we currently have.
+If provider is already in list, nothing changes
+[ie: existing order will not change].</p></div>
+</dd>
+<dt id="xcon.config.Config.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self,<br>name: str,<br>default=None,<br>*,<br>skip_providers: bool = False,<br>skip_logging: bool = False,<br>ignore_local_caches: bool = False) ‑> str | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(
+        self,
+        name: str,
+        default=None,
+        *,
+        skip_providers: bool = False,
+        skip_logging: bool = False,
+        ignore_local_caches: bool = False
+) -&gt; Optional[str]:
+    &#34;&#34;&#34;
+    Similar to dict.get(), provide name [case-insensitive] and we call `Config.get_item()`
+    and return the `xcon.directory.DirectoryItem.value` of the item returned,
+    or passed in `default=None` if no item was found.
+
+    See documentation for `Config.get_item()` for more details and to find out more
+    about the `skip_providers` option.
+
+    Attributes:
+        name (str): Name of the config value to lookup. Name can be of any case since
+            lookup is case-insensitive. But if you can keep it all lower case it could be
+            a bit more efficient, since it would not have to change it.
+
+        default: Value to return if we don&#39;t find a config value via the normal means.
+
+        skip_providers (bool): See self.get_items() for more details, suffice it to
+            say it only returns things directly set/overridden or defaulted on self or on
+            parent-chain [without consulting the providers and directories].
+
+        skip_logging (bool): Skips logging about where we got the config value.
+
+        ignore_local_caches (bool): allows you to ignore the local memory cache
+            (as a convenience option).
+
+            Right now it does this by resetting the entire cache for you before lookup.
+            But in the future if needed, it may be more precise about what it does and may just
+            retrieve that specific value from each provider until it finds the value
+            (vs resetting the entire cache and bulk retrieving everything all over again).
+
+            Mostly depends on how often we would really need to do this in the future.
+            I am guessing it would be rare so the current implementation should be good enough
+            for now.
+    &#34;&#34;&#34;
+    if ignore_local_caches:
+        InternalLocalProviderCache.grab().reset_cache()
+
+    item = self.get_item(name=name, skip_providers=skip_providers, skip_logging=skip_logging)
+    if item:
+        value = item.value
+        return value if value is not None else default
+    return default</code></pre>
+</details>
+<div class="desc"><p>Similar to dict.get(), provide name [case-insensitive] and we call <code><a title="xcon.config.Config.get_item" href="#xcon.config.Config.get_item">Config.get_item()</a></code>
+and return the <code><a title="xcon.directory.DirectoryItem.value" href="directory.html#xcon.directory.DirectoryItem.value">DirectoryItem.value</a></code> of the item returned,
+or passed in <code>default=None</code> if no item was found.</p>
+<p>See documentation for <code><a title="xcon.config.Config.get_item" href="#xcon.config.Config.get_item">Config.get_item()</a></code> for more details and to find out more
+about the <code>skip_providers</code> option.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the config value to lookup. Name can be of any case since
+lookup is case-insensitive. But if you can keep it all lower case it could be
+a bit more efficient, since it would not have to change it.</dd>
+<dt><strong><code>default</code></strong></dt>
+<dd>Value to return if we don't find a config value via the normal means.</dd>
+<dt><strong><code>skip_providers</code></strong> :&ensp;<code>bool</code></dt>
+<dd>See self.get_items() for more details, suffice it to
+say it only returns things directly set/overridden or defaulted on self or on
+parent-chain [without consulting the providers and directories].</dd>
+<dt><strong><code>skip_logging</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Skips logging about where we got the config value.</dd>
+<dt><strong><code>ignore_local_caches</code></strong> :&ensp;<code>bool</code></dt>
+<dd>
+<p>allows you to ignore the local memory cache
+(as a convenience option).</p>
+<p>Right now it does this by resetting the entire cache for you before lookup.
+But in the future if needed, it may be more precise about what it does and may just
+retrieve that specific value from each provider until it finds the value
+(vs resetting the entire cache and bulk retrieving everything all over again).</p>
+<p>Mostly depends on how often we would really need to do this in the future.
+I am guessing it would be rare so the current implementation should be good enough
+for now.</p>
+</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.get_bool"><code class="name flex">
+<span>def <span class="ident">get_bool</span></span>(<span>self, name: str, default=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_bool(self, name: str, default=False):
+    &#34;&#34;&#34;
+    Grabs config variable for `name` and does it&#39;s best to convert it to a boolean if possible.
+    If the value is:
+
+    - None: we return `default`.
+    - str: We run it though `distutils.util.strtobool` to convert it to a bool.
+    - Any: Anything else, we simply call `bool(value)` on it.
+    - If there is any ValueError while try to convert value, we return False.
+
+    Args:
+        name (str): Name of the config value, such as `DISABLE_DB`.
+        default: If we can&#39;t find a value, what should we use? By default, it&#39;s False.
+
+    Returns:
+        bool:  We found a bool value, or you provided a boolean `default` value.
+        default: This means that we could not find a config value, so return `default`;
+            which defaults to False
+    &#34;&#34;&#34;
+    value = self.get(name)
+    if value is None:
+        return default
+    return bool_value(value)</code></pre>
+</details>
+<div class="desc"><p>Grabs config variable for <code>name</code> and does it's best to convert it to a boolean if possible.
+If the value is:</p>
+<ul>
+<li>None: we return <code>default</code>.</li>
+<li>str: We run it though <code>distutils.util.strtobool</code> to convert it to a bool.</li>
+<li>Any: Anything else, we simply call <code>bool(value)</code> on it.</li>
+<li>If there is any ValueError while try to convert value, we return False.</li>
+</ul>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the config value, such as <code>DISABLE_DB</code>.</dd>
+<dt><strong><code>default</code></strong></dt>
+<dd>If we can't find a value, what should we use? By default, it's False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>We found a bool value, or you provided a boolean <code>default</code> value.</dd>
+<dt><code>default</code></dt>
+<dd>This means that we could not find a config value, so return <code>default</code>;
+which defaults to False</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.get_default"><code class="name flex">
+<span>def <span class="ident">get_default</span></span>(<span>self, name: str) ‑> Any | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_default(self, name: str) -&gt; Optional[Any]:
+    &#34;&#34;&#34;
+    Returns the default for &#39;name&#39; if it was set via `Config.set_default()`. It only returns
+    one if it was directly set on self. This means it **WON&#39;T** consult
+    the [Parent Chain](#parent-chain)). This is so you can more easily find/set defaults
+    in the parent-chain your self if you need to track something down or some such.
+
+    Most of the item you should just be able to use `Config.set_default` and not worry about
+    an existing default set on us or some other `Config` object.
+
+    Attributes:
+        name (str): Name to use to get default [case-insensitive].
+
+    Returns:
+        Union[Any, None, xsentinels.Default]: The value, or Default if no default
+            is set for name. This allows you to distinguish between defaulting a value to
+            None and no default being set in the first place (`xsentinels.Default`
+            looks like `False`, just like how `None` works).
+    &#34;&#34;&#34;
+    item = self._defaults.get_item(name)
+    if item:
+        return item.value
+    return Default</code></pre>
+</details>
+<div class="desc"><p>Returns the default for 'name' if it was set via <code><a title="xcon.config.Config.set_default" href="#xcon.config.Config.set_default">Config.set_default()</a></code>. It only returns
+one if it was directly set on self. This means it <strong>WON'T</strong> consult
+the <a href="#parent-chain">Parent Chain</a>). This is so you can more easily find/set defaults
+in the parent-chain your self if you need to track something down or some such.</p>
+<p>Most of the item you should just be able to use <code><a title="xcon.config.Config.set_default" href="#xcon.config.Config.set_default">Config.set_default()</a></code> and not worry about
+an existing default set on us or some other <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name to use to get default [case-insensitive].</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Union[Any, None, xsentinels.Default]</code></dt>
+<dd>The value, or Default if no default
+is set for name. This allows you to distinguish between defaulting a value to
+None and no default being set in the first place (<code>xsentinels.Default</code>
+looks like <code>False</code>, just like how <code>None</code> works).</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.get_exports_by_service"><code class="name flex">
+<span>def <span class="ident">get_exports_by_service</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_exports_by_service(self):
+    &#34;&#34;&#34; List of services we currently check their export&#39;s for. This only lists the exports
+        directly assigned to self (not in the [Parent Chain](#parent-chain)). Allows you to
+        find out what this config object as set directly on it for which exports we
+        look for per-service.
+    &#34;&#34;&#34;
+    return self._exports.keys()</code></pre>
+</details>
+<div class="desc"><p>List of services we currently check their export's for. This only lists the exports
+directly assigned to self (not in the <a href="#parent-chain">Parent Chain</a>). Allows you to
+find out what this config object as set directly on it for which exports we
+look for per-service.</p></div>
+</dd>
+<dt id="xcon.config.Config.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self, name: str, *, skip_providers: bool = False, skip_logging: bool = False) ‑> <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(
+        self, name: str, *,
+        skip_providers: bool = False,
+        skip_logging: bool = False,
+) -&gt; Optional[DirectoryItem]:
+    &#34;&#34;&#34;
+    Gets a DirectoryItem for name. If the value does not exist, we will still return a
+    `xcon.directory.DirectoryItem` with a
+    `xcon.directory.DirectoryItem.value` == `None`. This is because we cache the
+    non-existence of items for performance reasons. This allows you to see
+    where the None value came from via the `xcon.directory.DirectoryItem.directory`
+    attribute.
+
+    Attributes:
+        name (str): Name to look for [will be used in a case-insensitive manner].
+
+        skip_providers (bool): If False [default], checks all sources for the config
+            values. If True, only checks for things overridden on self or a parent;
+            [ie: Things directory set on self or directly on a parent Config].
+            It will consult any defaults (`Config.get_default()`) if needed.
+
+        skip_logging (bool): Skips logging about where we got the config value.
+
+    Returns (Optional[DirectoryItem]):
+        If None [only happens when skip_providers is True]; then no override/default was found.
+
+        Otherwise, returns the item as a DirectoryItem. A DirectoryItem.value can be None.
+        This means that the value is None [either it could not find it or the value
+        was really set to a `None`].
+    &#34;&#34;&#34;
+    # todo: Someday, use a special str subclass that will indicate that it&#39;s already in
+    #       lower-case format and use that instead [therefore, we can skip lower-casing it
+    #       again and again as we pass the already lower-cased name along to other methods].
+    name = name.lower()
+
+    # Otherwise, we follow standard process.
+    return self._get_item(
+        name=name,
+        skip_providers=skip_providers,
+        cursor=self._parent_chain().start_cursor(),
+        skip_source_logging=skip_logging
+    )</code></pre>
+</details>
+<div class="desc"><p>Gets a DirectoryItem for name. If the value does not exist, we will still return a
+<code><a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a></code> with a
+<code><a title="xcon.directory.DirectoryItem.value" href="directory.html#xcon.directory.DirectoryItem.value">DirectoryItem.value</a></code> == <code>None</code>. This is because we cache the
+non-existence of items for performance reasons. This allows you to see
+where the None value came from via the <code><a title="xcon.directory.DirectoryItem.directory" href="directory.html#xcon.directory.DirectoryItem.directory">DirectoryItem.directory</a></code>
+attribute.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name to look for [will be used in a case-insensitive manner].</dd>
+<dt><strong><code>skip_providers</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False [default], checks all sources for the config
+values. If True, only checks for things overridden on self or a parent;
+[ie: Things directory set on self or directly on a parent Config].
+It will consult any defaults (<code><a title="xcon.config.Config.get_default" href="#xcon.config.Config.get_default">Config.get_default()</a></code>) if needed.</dd>
+<dt><strong><code>skip_logging</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Skips logging about where we got the config value.</dd>
+</dl>
+<p>Returns (Optional[DirectoryItem]):
+If None [only happens when skip_providers is True]; then no override/default was found.</p>
+<pre><code>Otherwise, returns the item as a DirectoryItem. A DirectoryItem.value can be None.
+This means that the value is None [either it could not find it or the value
+was really set to a `None`].
+</code></pre></div>
+</dd>
+<dt id="xcon.config.Config.get_override"><code class="name flex">
+<span>def <span class="ident">get_override</span></span>(<span>self, name) ‑> Any | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_override(self, name) -&gt; Union[Any, DefaultType, None]:
+    &#34;&#34;&#34;
+    Returns a value of override for `name` was directly set on this config object
+    in one of two ways:
+
+    - `config.set_override`
+    -  `config.SOME_VAR = &#34;a-value&#34;`
+
+    The returned value is `xsentinels.Default` if no override is found;
+    this is so you can distinguish between overriding to None or no override set at all
+    (`xsentinels.Default` evaluates to `False`, just like how `None` works).
+
+    .. warning:: Only returns a value if overrides was directly set on self!
+
+        (ie: **won&#39;t** consult the [Parent Chain](#parent-chain)).
+        The parent chain (parent configs) are consulted when looking up a config value
+        normally via `Config.get`. Overrides in self and then in parents are checked first.
+
+        `get_override` method is here so you can examine a specific `Config` object and
+        determine if there are any overrides set directly on it.
+
+    Attributes:
+        name (str): Name to use to get override [case-insensitive].
+
+    Returns:
+        Union[Any, xsentinels.Default]: The value, or `xsentinels.Default` if no value was
+            set for `name`. This allows you to distinguish between overriding a value to
+            `None` and no override being set in the first place
+            (`xsentinels.Default` evaluates to `False`, just like how `None` works).
+    &#34;&#34;&#34;
+    item = self._override.get_item(name)
+    if item:
+        return item.value
+    return Default</code></pre>
+</details>
+<div class="desc"><p>Returns a value of override for <code>name</code> was directly set on this config object
+in one of two ways:</p>
+<ul>
+<li><code>config.set_override</code></li>
+<li><code>config.SOME_VAR = "a-value"</code></li>
+</ul>
+<p>The returned value is <code>xsentinels.Default</code> if no override is found;
+this is so you can distinguish between overriding to None or no override set at all
+(<code>xsentinels.Default</code> evaluates to <code>False</code>, just like how <code>None</code> works).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;Only returns a value if overrides was directly set on self!</p>
+<p>(ie: <strong>won't</strong> consult the <a href="#parent-chain">Parent Chain</a>).
+The parent chain (parent configs) are consulted when looking up a config value
+normally via <code><a title="xcon.config.Config.get" href="#xcon.config.Config.get">Config.get()</a></code>. Overrides in self and then in parents are checked first.</p>
+<p><code>get_override</code> method is here so you can examine a specific <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object and
+determine if there are any overrides set directly on it.</p>
+</div>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name to use to get override [case-insensitive].</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Union[Any, xsentinels.Default]</code></dt>
+<dd>The value, or <code>xsentinels.Default</code> if no value was
+set for <code>name</code>. This allows you to distinguish between overriding a value to
+<code>None</code> and no override being set in the first place
+(<code>xsentinels.Default</code> evaluates to <code>False</code>, just like how <code>None</code> works).</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self, *args, **kwargs) ‑> str | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_value(self, *args, **kwargs) -&gt; Optional[str]:
+    &#34;&#34;&#34;
+    .. deprecated:: Deprecated in favor of using `Config.get()`.
+        Right now we simply call `Config.get()` with same arguments for you and return result.
+    &#34;&#34;&#34;
+    return self.get(*args, **kwargs)</code></pre>
+</details>
+<div class="desc"><div class="admonition deprecated">
+<p class="admonition-title">Deprecated since version:&ensp;Deprecated in favor of using <code><a title="xcon.config.Config.get" href="#xcon.config.Config.get">Config.get()</a></code>.</p>
+<p>Right now we simply call <code><a title="xcon.config.Config.get" href="#xcon.config.Config.get">Config.get()</a></code> with same arguments for you and return result.</p>
+</div></div>
+</dd>
+<dt id="xcon.config.Config.remove_default"><code class="name flex">
+<span>def <span class="ident">remove_default</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_default(self, name):
+    &#34;&#34;&#34;
+    Remove default on self.
+
+    .. warning:: This WON&#39;T affect any default set on a parent,
+        see [Parent Chain](#parent-chain).
+
+    You can also call this other ways, such as:
+
+    ```python
+    from xcon import config
+    from xsentinels import Default
+
+    # Alternate Method 1:
+    config.set_default(&#34;SOME_NAME&#34;, Default)
+    ```
+    &#34;&#34;&#34;
+    xlog.info(f&#34;Removing Config default for name ({name}).&#34;)
+    self._defaults.remove_item_with_name(name=name)</code></pre>
+</details>
+<div class="desc"><p>Remove default on self.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This WON'T affect any default set on a parent,</p>
+<p>see <a href="#parent-chain">Parent Chain</a>.</p>
+</div>
+<p>You can also call this other ways, such as:</p>
+<pre><code class="language-python">from xcon import config
+from xsentinels import Default
+
+# Alternate Method 1:
+config.set_default(&quot;SOME_NAME&quot;, Default)
+</code></pre></div>
+</dd>
+<dt id="xcon.config.Config.remove_override"><code class="name flex">
+<span>def <span class="ident">remove_override</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_override(self, name):
+    &#34;&#34;&#34;
+    Remove override **ONLY** on self.
+    This will not remove overrides from a parent.
+
+    .. warning:: This WON&#39;T affect any override set on a parent!
+        see [Parent Chain](#parent-chain).
+
+    Someday we may make it easier to publicly go through the parents
+    (right now there are internal/private methods that do this).
+
+    If you don&#39;t like an override, you can override the override by setting an override
+    on a child/current `Config` object (see `Config.set_override`).
+
+    Probably should not mess with config objects from higher up that you don&#39;t know
+    anything about in any case.  That&#39;s why I&#39;ve hesitated about publicly exposing
+    the parent chain too much.
+
+
+    You can remove overrides in various ways, such as:
+
+    ```python
+    from xcon import config
+    from xsentinels import Default
+
+    # Alternate Method 1:
+    config.SOME_NAME = Default
+
+    # Alternate Method 2:
+    config.set_override(&#34;SOME_NAME&#34;, Default)
+    ```
+
+    At the moment these ways ^ will not remove an override from a parent.
+
+    If we do decide we want an ability  to &#34;white-out&#34; an override;
+    I would probably do it such that you could tell a child to not check parent(s)
+    overrides on a specific value
+    (ie: I would set the override value to `Default` on self internally, to indicate that).
+    &#34;&#34;&#34;
+    xlog.info(f&#34;Removing Config override for name ({name}).&#34;)
+    self._override.remove_item_with_name(name=name)</code></pre>
+</details>
+<div class="desc"><p>Remove override <strong>ONLY</strong> on self.
+This will not remove overrides from a parent.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning:&ensp;This WON'T affect any override set on a parent!</p>
+<p>see <a href="#parent-chain">Parent Chain</a>.</p>
+</div>
+<p>Someday we may make it easier to publicly go through the parents
+(right now there are internal/private methods that do this).</p>
+<p>If you don't like an override, you can override the override by setting an override
+on a child/current <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code> object (see <code><a title="xcon.config.Config.set_override" href="#xcon.config.Config.set_override">Config.set_override()</a></code>).</p>
+<p>Probably should not mess with config objects from higher up that you don't know
+anything about in any case.
+That's why I've hesitated about publicly exposing
+the parent chain too much.</p>
+<p>You can remove overrides in various ways, such as:</p>
+<pre><code class="language-python">from xcon import config
+from xsentinels import Default
+
+# Alternate Method 1:
+config.SOME_NAME = Default
+
+# Alternate Method 2:
+config.set_override(&quot;SOME_NAME&quot;, Default)
+</code></pre>
+<p>At the moment these ways ^ will not remove an override from a parent.</p>
+<p>If we do decide we want an ability
+to "white-out" an override;
+I would probably do it such that you could tell a child to not check parent(s)
+overrides on a specific value
+(ie: I would set the override value to <code>Default</code> on self internally, to indicate that).</p></div>
+</dd>
+<dt id="xcon.config.Config.set_default"><code class="name flex">
+<span>def <span class="ident">set_default</span></span>(<span>self, name: str, value: Any | None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_default(self, name: str, value: Optional[Any]):
+    &#34;&#34;&#34;
+    When someone tries to look up a config value [perhaps via `Config.get`] and if a value
+    is not found anywhere... But someone called this to define a default for it we return
+    the default value set here [or passed in via Config.__init__(defaults={...})].
+
+    For a few examples of how this can be used, see `Config`, Search Order section.
+    Also see Config.__init__(...) doc for &#39;defaults&#39; param.
+
+    Args:
+        name (str): Case-insensitive name for the default config.
+        value (Optional[Any]): Default value, can be anything [but are generally strings].
+            If you provide None for this value param, that will be stored and will be returned
+            if a default is needed for param [you can use this feature to override a
+            parent-config default to None if needed].
+
+    &#34;&#34;&#34;
+    if value is Default:
+        self.remove_default(name)
+        return
+
+    default_item = DirectoryItem(
+        directory=&#34;/_default/user-set&#34;, name=name, value=value, source=f&#34;config.set_default&#34;,
+        cacheable=False
+    )
+
+    xlog.info(
+        &#34;Setting Config default for item ({default_item}).&#34;,
+        extra=dict(default_item=default_item)
+    )
+    self._defaults.add_item(default_item)</code></pre>
+</details>
+<div class="desc"><p>When someone tries to look up a config value [perhaps via <code>Config.get</code>] and if a value
+is not found anywhere&hellip; But someone called this to define a default for it we return
+the default value set here [or passed in via Config.<strong>init</strong>(defaults={&hellip;})].</p>
+<p>For a few examples of how this can be used, see <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code>, Search Order section.
+Also see Config.<strong>init</strong>(&hellip;) doc for 'defaults' param.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Case-insensitive name for the default config.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>Optional[Any]</code></dt>
+<dd>Default value, can be anything [but are generally strings].
+If you provide None for this value param, that will be stored and will be returned
+if a default is needed for param [you can use this feature to override a
+parent-config default to None if needed].</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.Config.set_exports"><code class="name flex">
+<span>def <span class="ident">set_exports</span></span>(<span>self,<br>*,<br>services: Iterable[str | <a title="xsentinels.default.DefaultType" href="../xsentinels/default.html#xsentinels.default.DefaultType">DefaultType</a>])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_exports(self, *, services: Iterable[Union[str, DefaultType]]):
+    &#34;&#34;&#34;
+    This allows you to set all the exports. Right now
+    we only support setting them by service [and not environment]. See `Config.add_export`
+    for more details.
+
+    This replaces all current services. By default, the export list is this:
+
+    ( `xsentinels.Default`, )
+
+    `Default` when resolved means we ask the parent chain for any exports.
+    If you set the exports without including this then the parent-chain won&#39;t be consulted.
+
+    See `Config.add_service` for a way to easily append to end of list and keeps what&#39;s
+    currently in it.
+
+    Args:
+        services (Iterable[Union[str, `xsentinels.Default`]]): List of exports you want
+            to add by service name. If you don&#39;t add the `xsentinels.Default` somewhere in
+            this list then we will NOT check the parent-chain
+    &#34;&#34;&#34;
+    self._exports = {x: None for x in xloop(services, default_not_iterate=[str])}</code></pre>
+</details>
+<div class="desc"><p>This allows you to set all the exports. Right now
+we only support setting them by service [and not environment]. See <code><a title="xcon.config.Config.add_export" href="#xcon.config.Config.add_export">Config.add_export()</a></code>
+for more details.</p>
+<p>This replaces all current services. By default, the export list is this:</p>
+<p>( <code>xsentinels.Default</code>, )</p>
+<p><code>Default</code> when resolved means we ask the parent chain for any exports.
+If you set the exports without including this then the parent-chain won't be consulted.</p>
+<p>See <code>Config.add_service</code> for a way to easily append to end of list and keeps what's
+currently in it.</p>
+<h2 id="args">Args</h2>
+<p>services (Iterable[Union[str, <code>xsentinels.Default</code>]]): List of exports you want
+to add by service name. If you don't add the <code>xsentinels.Default</code> somewhere in
+this list then we will NOT check the parent-chain</p></div>
+</dd>
+<dt id="xcon.config.Config.set_override"><code class="name flex">
+<span>def <span class="ident">set_override</span></span>(<span>self, name, value: [typing.Any, Default])</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_override(self, name, value: [Any, Default]):
+    &#34;&#34;&#34;
+    Sets an override on self. When someone asks for this value, this will be returned
+    regardless of what any provider or environmental variable as set.
+
+    You can also set an override by setting a value for a config-name directly on `Config`
+    via this syntax:
+
+    &gt;&gt;&gt; from xcon.config import config
+    &gt;&gt;&gt; config[&#39;some_override_name&#39;] = &#34;my override value&#34;
+
+    For details see [Naming Rules](#naming-rules).
+
+    .. important:: This will also affect child config objects!
+        They will look for overrides set on a parent before looking at any providers.
+
+        For more details see [Parent Chain](#parent-chain) and [Overrides](#overrides) topics.
+
+    Args:
+        name: Name of the item to remove, case-insensitive.
+        value (Union[Any, xsentinels.Default]): Can be any value. If Default is used
+            we will instead call `Config.remove_override(name)` for you to remove the value.
+    &#34;&#34;&#34;
+    if value is Default:
+        self.remove_override(name)
+        return
+
+    # Checked for default already, from this point forward it&#39;s just `Any` type.
+    value: Any
+    override_item = DirectoryItem(
+        directory=&#34;/_override&#34;, name=name, value=value, source=f&#34;Config.set_override&#34;,
+        cacheable=False
+    )
+
+    xlog.info(f&#34;Setting Config override for item ({override_item}).&#34;)
+    self._override.add_item(
+        override_item
+    )</code></pre>
+</details>
+<div class="desc"><p>Sets an override on self. When someone asks for this value, this will be returned
+regardless of what any provider or environmental variable as set.</p>
+<p>You can also set an override by setting a value for a config-name directly on <code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code>
+via this syntax:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from xcon.config import config
+&gt;&gt;&gt; config['some_override_name'] = &quot;my override value&quot;
+</code></pre>
+<p>For details see <a href="#naming-rules">Naming Rules</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important:&ensp;This will also affect child config objects!</p>
+<p>They will look for overrides set on a parent before looking at any providers.</p>
+<p>For more details see <a href="#parent-chain">Parent Chain</a> and <a href="#overrides">Overrides</a> topics.</p>
+</div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the item to remove, case-insensitive.</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>Union[Any, xsentinels.Default]</code></dt>
+<dd>Can be any value. If Default is used
+we will instead call <code><a title="xcon.config.Config.remove_override" href="#xcon.config.Config.remove_override">Config.remove_override()</a>(name)</code> for you to remove the value.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.config.ConfigRetriever"><code class="flex name class">
+<span>class <span class="ident">ConfigRetriever</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ConfigRetriever(SettingsRetrieverProtocol):
+    &#34;&#34;&#34;Retrieving the setting from config&#34;&#34;&#34;
+    def __call__(self, *, field: SettingsField, settings: &#39;XconSettings&#39;) -&gt; Any:
+        return config.get(field.name)</code></pre>
+</details>
+<div class="desc"><p>Retrieving the setting from config</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xsettings.retreivers.SettingsRetrieverProtocol" href="../xsettings/retreivers.html#xsettings.retreivers.SettingsRetrieverProtocol">SettingsRetrieverProtocol</a></li>
+<li>typing.Protocol</li>
+<li>typing.Generic</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.config.ConfigRetriever.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self,<br>*,<br>field: <a title="xsettings.fields.SettingsField" href="../xsettings/fields.html#xsettings.fields.SettingsField">SettingsField</a>,<br>settings: <a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a>) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.retreivers.SettingsRetrieverProtocol" href="../xsettings/retreivers.html#xsettings.retreivers.SettingsRetrieverProtocol">SettingsRetrieverProtocol</a></code>.<code><a title="xsettings.retreivers.SettingsRetrieverProtocol.__call__" href="../xsettings/retreivers.html#xsettings.retreivers.SettingsRetrieverProtocol.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This is how the BaseSettings field, when retrieving its value, will call us.
+You must override this (or simply use a normal function with the same …</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.config.ConfigSettings"><code class="flex name class">
+<span>class <span class="ident">ConfigSettings</span></span>
+<span>(</span><span>retrievers: Optional[Union[List[SettingsRetrieverProtocol], SettingsRetrieverProtocol]] = None,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ConfigSettings(Settings, default_retrievers=[ConfigRetriever()]):
+    pass</code></pre>
+</details>
+<div class="desc"><p>Base Settings class. For all class properties defined there will be a corresponding
+_settings_field["name"] = SettingsField created value that will control how this value is
+read and manipulated.</p>
+<p>The purpose of the Settings class is to allow a library or project/service to define a
+number of settings that are needed in order to function. You define a number of Settings
+propertiess to indicate what settings are available to use in the project.</p>
+<p>You define a Settings and properties very similar to how you define a dataclass. You specify
+a property name, type_hint, and default_value.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...    name: type_hint = default_value
+</code></pre>
+<p>A default <code>SettingsField</code> will be configured using the name, type_hint, and default_value as
+follows &ndash; <code>SettingsField(name=name, type_hint=type_hint, converter=type_hint,
+default_value=default_value, resolver=default_resolver)</code></p>
+<p>This functionality can be overridden by setting the default_value to a custom <code>SettingsField</code>.
+The custom <code>SettingsField</code> will be merged with the default <code>SettingsField</code> overriding any
+fields that were defined in the custom SettingsField.</p>
+<p>It's important to note that while we are setting these attributes on the class they will not
+remain as attributes on the class. The _SettingsMeta will take each attribute and convert
+them to a SettingsField and then place them in the class's _setting_fields attribute.</p>
+<p>Example of various ways to allocate a SettingsField on a Settings subclass:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int = 3
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver, default_value=3)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1 = 3
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;setting_1&quot;, type_hint=int, resolver=SettingsResolver, default_value=3)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...     setting_1: int = SettingsField(name=&quot;other&quot;, required=False)
+Allocates
+&gt;&gt;&gt; SettingsField(name=&quot;other&quot;, type_hint=int, resolver=SettingsResolver, required=False)
+</code></pre>
+<h2 id="accessing-class-not-instance-attributes-lazy-property-reference">Accessing Class (not instance) Attributes = Lazy Property Reference</h2>
+<p>You can do lazy forward-refrences by simply asking the Settings class (not instance) for a
+attribute. Doing so will return a <code>SettingsClassProperty</code> that is a forward reference to the
+singleton instance class attribute.</p>
+<p>Examples of how you might use this</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...    my_url_setting: str
+&gt;&gt;&gt; class MySubSettings(BaseSettings):
+...    my_field: str
+&gt;&gt;&gt; class SomeClass:
+...    some_attr = MySettings.my_url_setting
+&gt;&gt;&gt;
+&gt;&gt;&gt; MySettings.grab().my_url_setting = &quot;my-url&quot;
+&gt;&gt;&gt; MySubSettings.grab().my_field = MySettings.my_url_setting
+&gt;&gt;&gt;
+&gt;&gt;&gt; assert SomeClass.some_attr == &quot;my-url&quot;
+&gt;&gt;&gt; assert MySubSettings.grab().some_attr == &quot;my-url&quot;
+&gt;&gt;&gt; assert MySettings.grab().some_attr == &quot;my-url&quot;
+</code></pre>
+<h2 id="setting-public-class-attributes-after-creation-time-not-allowed">Setting public Class Attributes after creation time not allowed</h2>
+<p>Attempting to set a public class level attribute will result in an Error being raised.</p>
+<h2 id="settings-attribute-property-inheritance-not-allowed">Settings Attribute (Property) Inheritance not allowed</h2>
+<p>To keep things as simple as possible we don't allow SettingsClass attribute inheritance. You
+can however create a parent class that defines methods / @properties that can be inherited.
+Trying to set a regular (non-method/non-property/public) attribute will raise an error.</p>
+<h2 id="accessing-instance-properties-get-value-and-convert">Accessing Instance Properties = Get Value and Convert</h2>
+<p>When calling MySettings.grab().my_setting the Settings class will attempt to retrieve and
+convert the corresponding value. Getting the the source value and converting the value is
+controlled by the SettingsField. Here is how it works.</p>
+<p>Start by attempting to retrieve a property from the class instance</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; MyClass.grab().my_setting
+</code></pre>
+<p>The Settings class will do the following
+1. Attempt to retrieve a value.
+a. Lookup value from self via <code>object.__getattribute__(self, key)</code>
+b. If an AttributeError is thrown then lookup the value from the corresponding field
+via <code>self._settings_field[name].get_value()</code>
+2. Convert the retrieved value by calling <code>self._settings_field[name].convert_value(value)</code></p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>We don't support property setters/deleters at the moment.
+We would need to implement a <code>__setattr__</code> here, where it would check
+for a property setter/getter on field object.
+(Consider a explicit <code>fget</code> and <code>fset</code> attribute on SettingsField at that point)</p>
+</div>
+<p>Set attributes to values that are passed via key-word arguments, these are the initial
+values for the settings instance your creating; they are set directly on the instance
+as if you did this:</p>
+<pre><code class="language-python"># These two statements do the same thing:
+obj = SomeSettings(some_keyword_arg=&quot;hello&quot;)
+
+obj = SomeSettings()
+obj.some_keyword_arg=&quot;hello&quot;
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>retrievers</code></strong></dt>
+<dd>can be used to populate new instance's retrievers,</dd>
+</dl>
+<p>see <code>BaseSettings.settings__instance_retrievers</code>.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></li>
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.config.ConfigSettings.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.__init_subclass__" href="../xinject/dependency.html#xsettings.settings.BaseSettings.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.config.ConfigSettings.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.grab" href="../xinject/dependency.html#xsettings.settings.BaseSettings.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.config.ConfigSettings.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.proxy" href="../xinject/dependency.html#xsettings.settings.BaseSettings.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.config.ConfigSettings.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.proxy_attribute" href="../xinject/dependency.html#xsettings.settings.BaseSettings.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.config.ConfigSettings.obj"><code class="name">var <span class="ident">obj</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.obj" href="../xinject/dependency.html#xsettings.settings.BaseSettings.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+<dt id="xcon.config.ConfigSettings.settings__instance_retrievers"><code class="name">prop <span class="ident">settings__instance_retrievers</span> : List[SettingsRetrieverProtocol]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.settings__instance_retrievers" href="../xsettings/settings.html#xsettings.settings.BaseSettings.settings__instance_retrievers">settings__instance_retrievers</a></code>
+</p>
+<div class="desc inherited"><p>You can add one or more retrievers to this <code>instance</code> of settings
+(won't modify default_retrievers for the entire class, only modifies this specific
+…</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.config.ConfigSettings.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.__call__" href="../xinject/dependency.html#xsettings.settings.BaseSettings.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.config.ConfigSettings.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xsettings.settings.BaseSettings" href="../xsettings/settings.html#xsettings.settings.BaseSettings">BaseSettings</a></code>.<code><a title="xsettings.settings.BaseSettings.__copy__" href="../xinject/dependency.html#xsettings.settings.BaseSettings.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xcon" href="index.html">xcon</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="xcon.config.config" href="#xcon.config.config">config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xcon.config.Config" href="#xcon.config.Config">Config</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.config.Config.__call__" href="../xinject/dependency.html#xcon.config.Config.__call__">__call__</a></code></li>
+<li><code><a title="xcon.config.Config.__copy__" href="../xinject/dependency.html#xcon.config.Config.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.config.Config.__init_subclass__" href="../xinject/dependency.html#xcon.config.Config.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.config.Config.add_directory" href="#xcon.config.Config.add_directory">add_directory</a></code></li>
+<li><code><a title="xcon.config.Config.add_export" href="#xcon.config.Config.add_export">add_export</a></code></li>
+<li><code><a title="xcon.config.Config.add_provider" href="#xcon.config.Config.add_provider">add_provider</a></code></li>
+<li><code><a title="xcon.config.Config.cacher" href="#xcon.config.Config.cacher">cacher</a></code></li>
+<li><code><a title="xcon.config.Config.current" href="#xcon.config.Config.current">current</a></code></li>
+<li><code><a title="xcon.config.Config.directories" href="#xcon.config.Config.directories">directories</a></code></li>
+<li><code><a title="xcon.config.Config.directory_chain" href="#xcon.config.Config.directory_chain">directory_chain</a></code></li>
+<li><code><a title="xcon.config.Config.environment" href="#xcon.config.Config.environment">environment</a></code></li>
+<li><code><a title="xcon.config.Config.get" href="#xcon.config.Config.get">get</a></code></li>
+<li><code><a title="xcon.config.Config.get_bool" href="#xcon.config.Config.get_bool">get_bool</a></code></li>
+<li><code><a title="xcon.config.Config.get_default" href="#xcon.config.Config.get_default">get_default</a></code></li>
+<li><code><a title="xcon.config.Config.get_exports_by_service" href="#xcon.config.Config.get_exports_by_service">get_exports_by_service</a></code></li>
+<li><code><a title="xcon.config.Config.get_item" href="#xcon.config.Config.get_item">get_item</a></code></li>
+<li><code><a title="xcon.config.Config.get_override" href="#xcon.config.Config.get_override">get_override</a></code></li>
+<li><code><a title="xcon.config.Config.get_value" href="#xcon.config.Config.get_value">get_value</a></code></li>
+<li><code><a title="xcon.config.Config.grab" href="../xinject/dependency.html#xcon.config.Config.grab">grab</a></code></li>
+<li><code><a title="xcon.config.Config.obj" href="../xinject/dependency.html#xcon.config.Config.obj">obj</a></code></li>
+<li><code><a title="xcon.config.Config.provider_chain" href="#xcon.config.Config.provider_chain">provider_chain</a></code></li>
+<li><code><a title="xcon.config.Config.providers" href="#xcon.config.Config.providers">providers</a></code></li>
+<li><code><a title="xcon.config.Config.proxy" href="../xinject/dependency.html#xcon.config.Config.proxy">proxy</a></code></li>
+<li><code><a title="xcon.config.Config.proxy_attribute" href="../xinject/dependency.html#xcon.config.Config.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.config.Config.remove_default" href="#xcon.config.Config.remove_default">remove_default</a></code></li>
+<li><code><a title="xcon.config.Config.remove_override" href="#xcon.config.Config.remove_override">remove_override</a></code></li>
+<li><code><a title="xcon.config.Config.resolved_cacher" href="#xcon.config.Config.resolved_cacher">resolved_cacher</a></code></li>
+<li><code><a title="xcon.config.Config.resolved_environment" href="#xcon.config.Config.resolved_environment">resolved_environment</a></code></li>
+<li><code><a title="xcon.config.Config.resolved_service" href="#xcon.config.Config.resolved_service">resolved_service</a></code></li>
+<li><code><a title="xcon.config.Config.service" href="#xcon.config.Config.service">service</a></code></li>
+<li><code><a title="xcon.config.Config.set_default" href="#xcon.config.Config.set_default">set_default</a></code></li>
+<li><code><a title="xcon.config.Config.set_exports" href="#xcon.config.Config.set_exports">set_exports</a></code></li>
+<li><code><a title="xcon.config.Config.set_override" href="#xcon.config.Config.set_override">set_override</a></code></li>
+<li><code><a title="xcon.config.Config.use_parent" href="#xcon.config.Config.use_parent">use_parent</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.config.ConfigRetriever" href="#xcon.config.ConfigRetriever">ConfigRetriever</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.config.ConfigRetriever.__call__" href="../xsettings/retreivers.html#xcon.config.ConfigRetriever.__call__">__call__</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.config.ConfigSettings" href="#xcon.config.ConfigSettings">ConfigSettings</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.config.ConfigSettings.__call__" href="../xinject/dependency.html#xcon.config.ConfigSettings.__call__">__call__</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.__copy__" href="../xinject/dependency.html#xcon.config.ConfigSettings.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.__init_subclass__" href="../xinject/dependency.html#xcon.config.ConfigSettings.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.grab" href="../xinject/dependency.html#xcon.config.ConfigSettings.grab">grab</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.obj" href="../xinject/dependency.html#xcon.config.ConfigSettings.obj">obj</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.proxy" href="../xinject/dependency.html#xcon.config.ConfigSettings.proxy">proxy</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.proxy_attribute" href="../xinject/dependency.html#xcon.config.ConfigSettings.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.config.ConfigSettings.settings__instance_retrievers" href="../xsettings/settings.html#xcon.config.ConfigSettings.settings__instance_retrievers">settings__instance_retrievers</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

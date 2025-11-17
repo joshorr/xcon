@@ -1,0 +1,1378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xcon.directory API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xcon.directory</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="xcon.directory.DirectoryItemValue"><code class="name">var <span class="ident">DirectoryItemValue</span></code></dt>
+<dd>
+<div class="desc"><p>A type indicating the of values a <code><a title="xcon.directory.DirectoryItem.value" href="#xcon.directory.DirectoryItem.value">DirectoryItem.value</a></code> could return.
+Generally, it's either a <code>xsentinels.JsonDict</code> or a <code>list</code>/<code>str</code>/<code>int</code>/<code>None</code>.
+Basically, the basic str/int in combination with what you generally could store in JSON.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryOrPath"><code class="name">var <span class="ident">DirectoryOrPath</span></code></dt>
+<dd>
+<div class="desc"><p>Type used to indicate a <code><a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></code> or a <code>str</code> object [can be either].</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xcon.directory.Directory"><code class="flex name class">
+<span>class <span class="ident">Directory</span></span>
+<span>(</span><span>path: str = None,<br>service: str = Default,<br>env: Optional[str] = None,<br>is_export: bool = False,<br>is_path_format: bool = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(eq=True, frozen=True)
+class Directory:
+    &#34;&#34;&#34;
+    Represents a path/directory to search in our various configuration service providers.
+    If no &#39;service&#39; is provided to the &#39;__init__&#39;, then we default to the &#39;global&#39; service.
+    If no &#39;env&#39; is provided, we won&#39;t include it in the directory/path.
+    &#34;&#34;&#34;
+
+    # Both Prepopulated in __post_init__(...):
+    #   We also use this for compare since it&#39;s a single obj and uniquely identifies the directory.
+    path: str = field(init=True, default=None, compare=True)
+    &#34;&#34;&#34; Directory path, this is the fundamental identity for a directory, and is what is used
+        to compare it&#39;s self to other directories.
+
+        If you provide a service and/or env as part of the init and not a path, we will produce
+        the path for you from the service and/or env components.
+
+        you either give an env/service or a path.  THe preferred and faster way to get a directory
+        from a path is via `Directory.from_path` class method.  This will lookup the path
+        in a cache and try to return a directory that&#39;s already in use if possible.
+
+        You can&#39;t pass a env/service + path at the same time when creating a Directory, ie:
+
+        &gt;&gt;&gt; Directory(path=&#34;/some/path&#34;, env=&#34;hello&#34;, service=&#34;there&#34;)
+        **Exception Raised**
+    &#34;&#34;&#34;
+
+    service: str = field(compare=False, default=Default)
+    &#34;&#34;&#34; Service part of the directory path. By Default, if no service or path is passed in
+        this is set to `global`.
+    &#34;&#34;&#34;
+
+    env: Optional[str] = field(compare=False, default=None)
+    &#34;&#34;&#34; Environmental part of the directory path, ie: `/some_service/{env}`. If this is None
+        (the default) we don&#39;t have the environment name in the resulting directory path.
+    &#34;&#34;&#34;
+
+    is_non_existent: bool = field(init=False, default=False, compare=False)
+    &#34;&#34;&#34; If this directory is the special non-existent directory we use to for non-existent values,
+        this will be True.
+    &#34;&#34;&#34;
+
+    is_export: bool = field(init=True, default=False, compare=False)
+    &#34;&#34;&#34; If this directory is for export values from another service, this is True.
+        Example Path:
+
+        /hubspot/export/testing/HUBSPOT_SOME_QUEUE_NAME
+    &#34;&#34;&#34;
+
+    # Setting `hash` to False, because it&#39;s very, very unlikely a formatted and unformatted
+    # Directory object would ever be in the same set/ordered-set/dict (ie: optimization).
+    is_path_format: bool = field(init=True, default=None, compare=True, hash=False)
+    &#34;&#34;&#34;
+    If `None` (default): WIll auto-discover if the path is formatted or not and set
+    `is_path_format` to True or False depending on what is discovered
+    (see if `True` / `False` below for details).
+
+    If `True` (default): Will look for formatting directives, the only two used/looked-for are
+    `service` and `environment`.
+
+    You can use them just like you would a normal `f` string; example:
+
+    `&#34;/{service}/{environment}&#34;`
+
+    Don&#39;t end the path in a slash.
+
+    When the directory path is resolved while `xcon.config.Config` is lookup up a config value,
+    it will format the path for you with the two variables provided.
+
+    You don&#39;t have to include both variables, you may only want one in a particular directory
+    path (ie: `&#34;/{service}&#34;`); they will simply be available for use as needed to format the
+    path.
+
+    If `False`: Won&#39;t look for formatting directives when resolving path,
+    will use the path `as-is`.
+    &#34;&#34;&#34;
+
+    def __post_init__(self):
+        if self.path:
+            assert not self.env, &#34;Can&#39;t provide a env + path simultaneously to Directory.&#34;
+            assert not self.service, &#34;Can&#39;t provide a service + path simultaneously to Directory.&#34;
+            service, env = _service_env_from_path(path=self.path)
+            object.__setattr__(self, &#34;service&#34;, service)
+            object.__setattr__(self, &#34;env&#34;, env)
+
+        if not self.service:
+            # Default service to &#34;global&#34;
+            object.__setattr__(self, &#34;service&#34;, &#34;global&#34;)
+
+        # Calculate the path one time, set it on path-var.
+        path = Directory._path_from_components(
+            service=self.service,
+            environment=self.env,
+            is_export=self.is_export
+        )
+        object.__setattr__(self, &#39;path&#39;, path)
+
+        if path == &#34;/_nonExistent&#34;:
+            object.__setattr__(self, &#34;is_non_existent&#34;, True)
+
+        if not self.is_export:
+            env = self.env
+            # If we have export in the start of environment name, we override is_export to True.
+            if env and (env.startswith(&#34;export&#34;) or env.startswith(&#34;/export&#34;)):
+                object.__setattr__(self, &#34;is_export&#34;, True)
+
+        is_path_format = self.is_path_format
+        if is_path_format is None or is_path_format:
+            format_keys = {t[1] for t in string.Formatter().parse(path) if t[1] is not None}
+            unknown_keys = format_keys - {&#39;service&#39;, &#39;environment&#39;}
+            if unknown_keys:
+                raise ConfigError(
+                    f&#34;Using unknown format keys ({unknown_keys}) for directory path ({path}).&#34;
+                )
+
+            object.__setattr__(self, &#34;is_path_format&#34;, bool(format_keys))
+
+        # init the resolve-cache with dict if we are a format-path:
+        object.__setattr__(self, &#34;_resolve_cache&#34;, dict() if self.is_path_format else None)
+
+        # Only cache it if it&#39;s not already present, we want to try to use a standard
+        # Directory object for a particular path as much as possible.
+        if path not in _path_to_directory_cache:
+            _path_to_directory_cache[path] = self
+
+    @classmethod
+    def from_non_existent(cls) -&gt; Directory:
+        &#34;&#34;&#34;
+        Gives you back the standard non-existent directory, the standard path used for this is:
+        &#39;/_nonExistent&#39;
+
+        The returned directory object will have it&#39;s `.is_non_existent` property set to True.
+        &#34;&#34;&#34;
+        return cls.from_path(&#34;/_nonExistent&#34;)
+
+    @classmethod
+    def _path_from_components(cls, service: str, environment: str, is_export: bool = False):
+        if not service:
+            service = &#39;global&#39;
+
+        path = f&#39;/{service}&#39;
+
+        if environment and environment.startswith(&#34;/&#34;):
+            # Remove starting slash if needed
+            environment = environment[1:]
+
+        # Add &#39;export&#39; to front if needed.
+        if is_export:
+            if not environment:
+                environment = &#34;export&#34;
+            elif not environment.startswith(&#34;export/&#34;):
+                environment = f&#34;export/{str(environment)}&#34;
+
+        if environment:
+            path = f&#34;{path}/{str(environment)}&#34;
+
+        return path
+
+    @classmethod
+    def from_components(cls, service: str, environment: str):
+        &#34;&#34;&#34; This will return a cached copy if we have one, otherwise we create and return it. &#34;&#34;&#34;
+        return cls.from_path(cls._path_from_components(service=service, environment=environment))
+
+    @classmethod
+    def from_path(cls, path: Union[DirectoryOrPath, None]) -&gt; Directory:
+        &#34;&#34;&#34; If path is a Directory:docs/conf.py:77:1
+                return passed in Directory object unaltered.
+            If path is a str:
+                If the Directory for path currently exists [cached], we will intern it to
+                that existing object and return it. Otherwise we return a new Directory for path.
+            If path is None:
+                return None
+        &#34;&#34;&#34;
+        if path is None:
+            # Python 3.9 will have the ability to say:
+            #    &#34;only if we get passed None, we will return None&#34;
+            #    for now, we type ourselves as non-optional return, since it&#39;s mostly true.
+            return None
+
+        if isinstance(path, Directory):
+            # Try to intern the value to a standard-version [just a bit more efficient].
+            directory = _path_to_directory_cache.get(path.path, path)
+            if path is not directory:
+                # If we don&#39;t have this Directory object in cache, put it in there.
+                _path_to_directory_cache[directory.path] = directory
+            return directory
+
+        existing_dir = _path_to_directory_cache.get(path)
+        if existing_dir:
+            return existing_dir
+
+        # elements[0] should be a blank string [it&#39;s the part before the first `/`].
+        components = _service_env_from_path(path=path)
+        return Directory(service=components[0], env=components[1])
+
+    _resolve_cache = None
+    &#34;&#34;&#34;
+    Used to cache `resolved` directory results based onfinal formatted service/environment values.
+    &#34;&#34;&#34;
+
+    def resolve(self, service: str, environment: str) -&gt; Directory:
+        if not self.is_path_format:
+            return self
+
+        if resolved_environs := self._resolve_cache.get(service):
+            if resolved := resolved_environs.get(environment):
+                return resolved
+
+        unformatted = self.path
+        formatted = unformatted.format_map({&#39;service&#39;: service, &#39;environment&#39;: environment})
+        if formatted == unformatted:
+            self._resolve_cache.setdefault(service, {})[environment] = self
+            return self
+
+        resolved = Directory(path=formatted, is_path_format=False)
+        self._resolve_cache.setdefault(service, {})[environment] = resolved
+        return resolved</code></pre>
+</details>
+<div class="desc"><p>Represents a path/directory to search in our various configuration service providers.
+If no 'service' is provided to the '<strong>init</strong>', then we default to the 'global' service.
+If no 'env' is provided, we won't include it in the directory/path.</p></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.directory.Directory.from_components"><code class="name flex">
+<span>def <span class="ident">from_components</span></span>(<span>service: str, environment: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This will return a cached copy if we have one, otherwise we create and return it.</p></div>
+</dd>
+<dt id="xcon.directory.Directory.from_non_existent"><code class="name flex">
+<span>def <span class="ident">from_non_existent</span></span>(<span>) ‑> <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gives you back the standard non-existent directory, the standard path used for this is:
+'/_nonExistent'</p>
+<p>The returned directory object will have it's <code>.is_non_existent</code> property set to True.</p></div>
+</dd>
+<dt id="xcon.directory.Directory.from_path"><code class="name flex">
+<span>def <span class="ident">from_path</span></span>(<span>path: Union[<a title="xcon.directory.DirectoryOrPath" href="#xcon.directory.DirectoryOrPath">DirectoryOrPath</a>, None]) ‑> <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>If path is a Directory:docs/conf.py:77:1
+return passed in Directory object unaltered.
+If path is a str:
+If the Directory for path currently exists [cached], we will intern it to
+that existing object and return it. Otherwise we return a new Directory for path.
+If path is None:
+return None</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.directory.Directory.env"><code class="name">var <span class="ident">env</span> : str | None</code></dt>
+<dd>
+<div class="desc"><p>Environmental part of the directory path, ie: <code>/some_service/{env}</code>. If this is None
+(the default) we don't have the environment name in the resulting directory path.</p></div>
+</dd>
+<dt id="xcon.directory.Directory.is_export"><code class="name">var <span class="ident">is_export</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If this directory is for export values from another service, this is True.
+Example Path:</p>
+<p>/hubspot/export/testing/HUBSPOT_SOME_QUEUE_NAME</p></div>
+</dd>
+<dt id="xcon.directory.Directory.is_non_existent"><code class="name">var <span class="ident">is_non_existent</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If this directory is the special non-existent directory we use to for non-existent values,
+this will be True.</p></div>
+</dd>
+<dt id="xcon.directory.Directory.is_path_format"><code class="name">var <span class="ident">is_path_format</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If <code>None</code> (default): WIll auto-discover if the path is formatted or not and set
+<code>is_path_format</code> to True or False depending on what is discovered
+(see if <code>True</code> / <code>False</code> below for details).</p>
+<p>If <code>True</code> (default): Will look for formatting directives, the only two used/looked-for are
+<code>service</code> and <code>environment</code>.</p>
+<p>You can use them just like you would a normal <code>f</code> string; example:</p>
+<p><code>"/{service}/{environment}"</code></p>
+<p>Don't end the path in a slash.</p>
+<p>When the directory path is resolved while <code><a title="xcon.config.Config" href="config.html#xcon.config.Config">Config</a></code> is lookup up a config value,
+it will format the path for you with the two variables provided.</p>
+<p>You don't have to include both variables, you may only want one in a particular directory
+path (ie: <code>"/{service}"</code>); they will simply be available for use as needed to format the
+path.</p>
+<p>If <code>False</code>: Won't look for formatting directives when resolving path,
+will use the path <code>as-is</code>.</p></div>
+</dd>
+<dt id="xcon.directory.Directory.path"><code class="name">var <span class="ident">path</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Directory path, this is the fundamental identity for a directory, and is what is used
+to compare it's self to other directories.</p>
+<p>If you provide a service and/or env as part of the init and not a path, we will produce
+the path for you from the service and/or env components.</p>
+<p>you either give an env/service or a path.
+THe preferred and faster way to get a directory
+from a path is via <code><a title="xcon.directory.Directory.from_path" href="#xcon.directory.Directory.from_path">Directory.from_path()</a></code> class method.
+This will lookup the path
+in a cache and try to return a directory that's already in use if possible.</p>
+<p>You can't pass a env/service + path at the same time when creating a Directory, ie:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Directory(path=&quot;/some/path&quot;, env=&quot;hello&quot;, service=&quot;there&quot;)
+**Exception Raised**
+</code></pre></div>
+</dd>
+<dt id="xcon.directory.Directory.service"><code class="name">var <span class="ident">service</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Service part of the directory path. By Default, if no service or path is passed in
+this is set to <code>global</code>.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.directory.Directory.resolve"><code class="name flex">
+<span>def <span class="ident">resolve</span></span>(<span>self, service: str, environment: str) ‑> <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resolve(self, service: str, environment: str) -&gt; Directory:
+    if not self.is_path_format:
+        return self
+
+    if resolved_environs := self._resolve_cache.get(service):
+        if resolved := resolved_environs.get(environment):
+            return resolved
+
+    unformatted = self.path
+    formatted = unformatted.format_map({&#39;service&#39;: service, &#39;environment&#39;: environment})
+    if formatted == unformatted:
+        self._resolve_cache.setdefault(service, {})[environment] = self
+        return self
+
+    resolved = Directory(path=formatted, is_path_format=False)
+    self._resolve_cache.setdefault(service, {})[environment] = resolved
+    return resolved</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.directory.DirectoryChain"><code class="flex name class">
+<span>class <span class="ident">DirectoryChain</span></span>
+<span>(</span><span>directories: Iterable[<a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a>] = &lt;factory&gt;)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(eq=True, frozen=True)
+class DirectoryChain:
+    &#34;&#34;&#34; Immutable list of directories, use to provide a hashing ability for list of directories.
+    &#34;&#34;&#34;
+    directories: Iterable[Directory] = field(default_factory=tuple, compare=False)
+    concatenated_directory_paths: str = field(init=False, compare=True)
+
+    def __post_init__(self):
+        # ensure what we get passed in are converted to a tuple of Directory&#39;s
+        # [in case there are strings, etc]. Ensures we don&#39;t have a mutable type
+        # in our object [like a list or OrderedSet/dict].
+        directories = tuple(Directory.from_path(x) for x in self.directories)
+        object.__setattr__(self, &#39;directories&#39;, directories)
+
+        # Pre-calculate a useful field, a concatenated list of the directory paths.
+        directory_key_names = []
+        for directory in directories:
+            directory_key_names.append(directory.path)
+        object.__setattr__(self, &#39;concatenated_directory_paths&#39;, &#39;|&#39;.join(directory_key_names))</code></pre>
+</details>
+<div class="desc"><p>Immutable list of directories, use to provide a hashing ability for list of directories.</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.directory.DirectoryChain.concatenated_directory_paths"><code class="name">var <span class="ident">concatenated_directory_paths</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryChain.directories"><code class="name">var <span class="ident">directories</span> : Iterable[<a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.directory.DirectoryItem"><code class="flex name class">
+<span>class <span class="ident">DirectoryItem</span></span>
+<span>(</span><span>directory: Optional[Union[<a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a>, str]] = None,<br>name: str = None,<br>value: <a title="xcon.directory.DirectoryItemValue" href="#xcon.directory.DirectoryItemValue">DirectoryItemValue</a> = None,<br>original_name: str = None,<br>source: str = None,<br>ttl: Union[dt.datetime, int] = None,<br>cacheable: bool = True,<br>created_at: Optional[dt.datetime] = &lt;factory&gt;,<br>cache_range_key: str = None,<br>cache_concat_directory_paths: str = None,<br>cache_concat_provider_names: str = None,<br>cache_hash_key: str = None,<br>from_cacher: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(frozen=True, eq=False)
+class DirectoryItem:
+    &#34;&#34;&#34;
+    An immutable directory item, which associates a name/value pair for a particular directory.
+    There is an optional ttl, mostly used with the Dynamo provider, but may be used in the
+    future if we decide to start expiring items inside the process [right now we keep any
+    values we get inside process for the life-time of the process].
+
+    Create a new director-item.
+
+    Args:
+        name: Will be converted to a str if needed, and lower-cased and then set on self.
+            Sets what self.name will return.
+
+        directory: .
+            If a string will lookup via `Directory.from_path(directory)` for you automatically.
+
+            If `directory` == None, will use `Directory.from_non_existent()` as the directory;
+            you can ask directory object if it&#39;s non-existent via `.is_non_existent` property.
+
+            Sets what self.directory will return.
+
+        value: Sets self.value to this.
+
+        source: Generally set to the name of the provider, the DynamoCacher sets this to the
+            original item&#39;s source + directory path.
+
+        ttl: Used mainly for dynamo. It might be used internally in the future if we
+            decide to start expiring DirectoryItem&#39;s internally while a process runs.
+            Right now, all DirectoryItem&#39;s stay valid the entire length of a process&#39;s life-cycle.
+
+            If you pass in an int, it will be converted into a datetime via `utcfromtimestamp()`;
+            this is how it&#39;s stored in dynamo.
+
+        cacheable:
+            This is not included or retrieved from JSON. This is sort of a flag to indicate
+            the DynamoCacher [or some other cacher] should not cache this item, as it&#39;s specific
+            to the current instance/process.  This is normally only set to False if a DirectoryItem
+            is provided from the EnvironmentalProvider [ie: an environmental variable].
+
+        .. todo:: Document other args, for now see individual class variable docs below.
+    &#34;&#34;&#34;
+    # Must have some sort of &#39;value&#39; on the class for pdoc3 to pick up vars.
+
+    directory: Optional[Union[Directory, str]] = None
+    &#34;&#34;&#34; This will always return a non-None directory object. If you give it a str in __init__,
+        converts it to a Directory object for you.
+    &#34;&#34;&#34;
+
+    name: str = None
+    &#34;&#34;&#34; This will always return a non-None name string, in lower-case.
+        Whatever string is passed into this while creating a DirectoryItem object,
+        DirectoryItem will lower-case it.
+
+        You can see the name orginally used for this value by getting
+        `DirectoryItem.original_name`.
+    &#34;&#34;&#34;
+
+    value: DirectoryItemValue = None
+    &#34;&#34;&#34; Value  &#34;&#34;&#34;
+
+    original_name: str = None
+    &#34;&#34;&#34; The original name of the value, before case was changed.
+        If this is not set to anything when `DirectoryItem` is created,
+        it will be set to `self.name`, before DirectoryItem lower-cases `self.name`.
+    &#34;&#34;&#34;
+
+    source: str = None
+
+    ttl: Union[dt.datetime, int] = None
+    &#34;&#34;&#34; If give me an `int`, I&#39;ll convert it to a datetime for you;
+        reading this var will always give you a `None` or a `datetime`.
+    &#34;&#34;&#34;
+
+    cacheable: bool = True
+
+    created_at: Optional[dt.datetime] = field(
+        default_factory=lambda: dt.datetime.now(dt.timezone.utc)
+    )
+    &#34;&#34;&#34; Set at object creation by default to current date/time, you can pass in your own if needed.
+        This happens when the item comes from Dynamo [ie: we store creation date in dynamo].
+        If the item in Dynamo has no creation date, this will be None; this indicates an unknown
+        creation date.
+    &#34;&#34;&#34;
+
+    # These are only used by the dynamo cache table.
+    cache_range_key: str = None
+    &#34;&#34;&#34; If set, this is used for &#39;name&#39; in the dynamo table. The range key contents was changed
+        for the cache table. I left it as &#39;name&#39; so I could have it backwards compatible with
+        older/existing config objects.
+
+        So if `cache_dynamo_range_key` exists, we will map it to &#39;dynamo-table.name&#39;,
+        and `DirectoryItem.name` will be mapped to &#39;dynamo-table.real_name&#39;.
+        Otherwise, `DirectoryItem.name` is mapped to `dynamo-table.name`.
+
+        This will be set for you if you provide only a `cache_concat_directory_paths`
+        and `cache_concat_provider_names`. We will put them together with a `+` between them.
+
+        At some point we may create a global-all-configCacheV2 table and have better names on it.
+    &#34;&#34;&#34;
+    cache_concat_directory_paths: str = None
+    cache_concat_provider_names: str = None
+
+    cache_hash_key: str = None
+    &#34;&#34;&#34; This is used for the `directory` in the Dynamo table. The hash-key contents were changed
+        for the cache dynamo table. I left it as `directory` on the table so it can be backwards
+        compatible with the older Config class.
+
+        This is mapped to dynamo-table.directory, and `DirectoryItem.directory` will be mapped
+        to `dynamo-table.real_directory`.
+
+        At some point we may create a global-all-configCacheV2 table and have better names on it.
+    &#34;&#34;&#34;
+
+    from_cacher: bool = False
+    &#34;&#34;&#34; If True, this item came from the dynamo cache table (or a cacher in general).
+        If False (default): Came from original source.
+    &#34;&#34;&#34;
+
+    @property
+    def supplemental_metadata(self) -&gt; JsonDict:
+        return self._supplemental_info  # noqa: This exists (see __post_init__)
+
+    def add_supplemental_metadata(self, name: str, value):
+        self._supplemental_info[name] = value   # noqa: This exists (see __post_init__)
+
+    # todo:
+    #  Now that we split the libraries, we should import and use `xyn-model.JsonModel`:
+    #  Literally all of the code in json() and __init__() and __repr__ and get some extra features
+    #  [like change tracking, etc].
+    def __post_init__(self):
+        directory = self.directory
+        if directory is None:
+            object.__setattr__(self, &#39;directory&#39;, Directory.from_non_existent())
+        elif isinstance(directory, str):
+            object.__setattr__(self, &#39;directory&#39;, Directory.from_path(directory))
+
+        if not self.original_name:
+            object.__setattr__(self, &#39;original_name&#39;, self.name)
+
+        # todo: May want to have a cached mapping of Names to standard-format [optimization].
+        object.__setattr__(self, &#39;name&#39;, self.name.lower())
+
+        # Use class default values if possible.
+        ttl = self.ttl
+        if ttl is not None and isinstance(ttl, int):
+            ttl = dt.datetime.fromtimestamp(ttl, dt.timezone.utc)
+            object.__setattr__(self, &#39;ttl&#39;, ttl)
+
+        # ensure it&#39;s a bool
+        object.__setattr__(self, &#39;cacheable&#39;, bool(self.cacheable))
+
+        # This won&#39;t effect dataclasses eq/hash/etc, just some supplemental metadata.
+        # This should NEVER effect this objects core-identity.
+        object.__setattr__(self, &#39;_supplemental_info&#39;, {})
+
+        if (
+            not self.cache_range_key and
+            self.cache_concat_directory_paths and
+            self.cache_concat_provider_names
+        ):
+            # Just need a consistent unique key for dynamo, I don&#39;t need to parse it later.
+            cache_range_key = (
+                f&#34;{self.name}|+|{self.cache_concat_directory_paths}|+|&#34;
+                f&#34;{self.cache_concat_provider_names}&#34;
+            )
+            object.__setattr__(self, &#39;cache_range_key&#39;, cache_range_key)
+
+    def __str__(self):
+        &#34;&#34;&#34;
+        Returns a string-representation of self, it will exclude the item value
+        (`DirectoryItem.value`). This is appropriate for logging purposes.
+
+        If you print this via a debugger console, it will include the value by default.
+        &#34;&#34;&#34;
+        return self.__repr__(include_value=False)
+
+    def __repr__(self, include_value=True, include_length=False):
+        &#34;&#34;&#34; Returns a string representation of the item.
+            Args:
+                include_value: If True (default), will include the value in the returned string.
+                    If False: value is excluded.
+
+                    .. important:: This will be `False` if you convert this item to a string
+                        via `DirectoryItem.__str__`.  If you print this object on debugger
+                        console, it will include the value.
+        &#34;&#34;&#34;
+        # todo: Someday if I could use the sdk here.... I could eliminate most or all of this code.
+        desc = f&#34;DirectoryItem(name=&#39;{self.name}&#39;, directory=&#39;{self.directory.path}&#39;&#34;
+
+        value = self.value
+        if include_value:
+            desc += f&#34;, value=&#39;{value}&#39;&#34;
+
+        if self.source:
+            desc += f&#34;, source=&#39;{self.source}&#39;&#34;
+
+        if self.ttl:
+            desc += f&#34;, ttl=&#39;{self.ttl}&#39;&#34;
+
+        desc += &#39;)&#39;
+        return desc
+
+    @classmethod
+    def from_json(cls, json: JsonDict, append_source: str = &#39;&#39;, from_cacher: bool = False):
+        &#34;&#34;&#34;
+        Args:
+            json: Dict from previous call to `json()` in the past.
+                Recreates the same directory item.
+            append_source: If provided, will append to &#39;source&#39; in json the string.
+                If json has no &#39;source&#39; string, append_source will set into self.source.
+            from_cacher: If True, this item came from the dynamo cache table
+                (or a cacher in general).
+                If False (default): Came from original source.
+        &#34;&#34;&#34;
+        # todo: Someday if I could use the sdk here.... I could eliminate most or all of this code.
+        real_name = json.get(&#39;real_name&#39;)
+        cache_range_key = None
+
+        if real_name:
+            name = real_name
+            cache_range_key = json[&#39;name_key&#39;]
+        else:
+            name = json[&#39;name&#39;]
+
+        # If `original_name` is None, then __post_init__ will use `self.name` for it for us.
+        original_name = json.get(&#39;original_name&#39;)
+        real_directory = json.get(&#39;real_directory&#39;)
+        cache_hash_key = None
+
+        if real_directory:
+            directory = real_directory
+            cache_hash_key = json[&#39;app_key&#39;]
+        else:
+            directory = json[&#39;directory&#39;]
+
+        directory = Directory.from_path(directory)
+        if not cache_hash_key:
+            cache_hash_key = directory.path
+
+        value = json.get(&#39;value&#39;, None)
+        ttl = json.get(&#39;ttl&#39;, None)
+        ttl = int(ttl) if ttl else None
+        source = json.get(&#39;source&#39;, None)
+        if append_source:
+            if source is None:
+                source = append_source
+            else:
+                source += append_source
+
+        cache_concat_directory_paths = json.get(&#39;cache_concat_directory_paths&#39;)
+        cache_concat_provider_names = json.get(&#39;cache_concat_provider_names&#39;)
+
+        created_at = json.get(&#39;created_at&#39;, None)
+        created_at = ciso8601.parse_datetime(created_at) if created_at else None
+
+        return DirectoryItem(
+            directory=directory,
+            cache_range_key=cache_range_key,
+            cache_hash_key=cache_hash_key,
+            name=name,
+            original_name=original_name,
+            value=value,
+            source=source,
+            ttl=ttl,
+            created_at=created_at,
+            cache_concat_directory_paths=cache_concat_directory_paths,
+            cache_concat_provider_names=cache_concat_provider_names,
+            from_cacher=from_cacher
+        )
+
+    def json(self, include_value=True) -&gt; JsonDict:
+        &#34;&#34;&#34; Provides a dict that can easily be serialized into JSON.
+            The JSON provided is able to be directly put into a Dynamo Table if desired.
+        &#34;&#34;&#34;
+        # todo: Someday if I could use the sdk here.... I could eliminate most or all of this code.
+
+        cache_range_key = self.cache_range_key
+        cache_hash_key = self.cache_hash_key
+
+        if not cache_range_key or not cache_hash_key:
+            raise ConfigError(
+                f&#34;need to have cache_hash_key ({cache_hash_key}) and &#34;
+                f&#34;cache_range_key ({cache_range_key}) set to create JSON from DirectoryItem&#34;
+                f&#34;{self}.&#34;
+            )
+
+        # See the doc-comments for `DirectoryItem.cache_hash_key` for more details of
+        # why we are mapping `directory/name` to `real_(name/directory)`.
+        response = {
+            &#39;name_key&#39;: cache_range_key,
+            &#39;app_key&#39;: cache_hash_key,
+            &#39;real_name&#39;: self.name,
+            &#39;original_name&#39;: self.original_name,
+            &#39;real_directory&#39;: self.directory.path,
+            &#39;cache_concat_provider_names&#39;: self.cache_concat_provider_names,
+            &#39;cache_concat_directory_paths&#39;: self.cache_concat_directory_paths,
+        }
+
+        if include_value and self.value is not None:
+            response[&#39;value&#39;] = self.value
+
+        if self.ttl:
+            response[&#39;ttl&#39;] = int(self.ttl.timestamp())
+
+        if self.source:
+            response[&#39;source&#39;] = str(self.source)
+
+        if self.created_at:
+            response[&#39;created_at&#39;] = self.created_at.isoformat()
+
+        return response</code></pre>
+</details>
+<div class="desc"><p>An immutable directory item, which associates a name/value pair for a particular directory.
+There is an optional ttl, mostly used with the Dynamo provider, but may be used in the
+future if we decide to start expiring items inside the process [right now we keep any
+values we get inside process for the life-time of the process].</p>
+<p>Create a new director-item.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Will be converted to a str if needed, and lower-cased and then set on self.
+Sets what self.name will return.</dd>
+<dt><strong><code>directory</code></strong></dt>
+<dd>
+<p>.
+If a string will lookup via <code><a title="xcon.directory.Directory.from_path" href="#xcon.directory.Directory.from_path">Directory.from_path()</a>(directory)</code> for you automatically.</p>
+<p>If <code>directory</code> == None, will use <code><a title="xcon.directory.Directory.from_non_existent" href="#xcon.directory.Directory.from_non_existent">Directory.from_non_existent()</a></code> as the directory;
+you can ask directory object if it's non-existent via <code>.is_non_existent</code> property.</p>
+<p>Sets what self.directory will return.</p>
+</dd>
+<dt><strong><code>value</code></strong></dt>
+<dd>Sets self.value to this.</dd>
+<dt><strong><code>source</code></strong></dt>
+<dd>Generally set to the name of the provider, the DynamoCacher sets this to the
+original item's source + directory path.</dd>
+<dt><strong><code>ttl</code></strong></dt>
+<dd>
+<p>Used mainly for dynamo. It might be used internally in the future if we
+decide to start expiring DirectoryItem's internally while a process runs.
+Right now, all DirectoryItem's stay valid the entire length of a process's life-cycle.</p>
+<p>If you pass in an int, it will be converted into a datetime via <code>utcfromtimestamp()</code>;
+this is how it's stored in dynamo.</p>
+</dd>
+</dl>
+<p>cacheable:
+This is not included or retrieved from JSON. This is sort of a flag to indicate
+the DynamoCacher [or some other cacher] should not cache this item, as it's specific
+to the current instance/process.
+This is normally only set to False if a DirectoryItem
+is provided from the EnvironmentalProvider [ie: an environmental variable].</p>
+<div class="admonition todo">
+<p class="admonition-title">TODO</p>
+<p>Document other args, for now see individual class variable docs below.</p>
+</div></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.directory.DirectoryItem.from_json"><code class="name flex">
+<span>def <span class="ident">from_json</span></span>(<span>json: JsonDict, append_source: str = '', from_cacher: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>json</code></strong></dt>
+<dd>Dict from previous call to <code>json()</code> in the past.
+Recreates the same directory item.</dd>
+<dt><strong><code>append_source</code></strong></dt>
+<dd>If provided, will append to 'source' in json the string.
+If json has no 'source' string, append_source will set into self.source.</dd>
+<dt><strong><code>from_cacher</code></strong></dt>
+<dd>If True, this item came from the dynamo cache table
+(or a cacher in general).
+If False (default): Came from original source.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.directory.DirectoryItem.cache_concat_directory_paths"><code class="name">var <span class="ident">cache_concat_directory_paths</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.cache_concat_provider_names"><code class="name">var <span class="ident">cache_concat_provider_names</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.cache_hash_key"><code class="name">var <span class="ident">cache_hash_key</span> : str</code></dt>
+<dd>
+<div class="desc"><p>This is used for the <code>directory</code> in the Dynamo table. The hash-key contents were changed
+for the cache dynamo table. I left it as <code>directory</code> on the table so it can be backwards
+compatible with the older Config class.</p>
+<p>This is mapped to dynamo-table.directory, and <code><a title="xcon.directory.DirectoryItem.directory" href="#xcon.directory.DirectoryItem.directory">DirectoryItem.directory</a></code> will be mapped
+to <code>dynamo-table.real_directory</code>.</p>
+<p>At some point we may create a global-all-configCacheV2 table and have better names on it.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.cache_range_key"><code class="name">var <span class="ident">cache_range_key</span> : str</code></dt>
+<dd>
+<div class="desc"><p>If set, this is used for 'name' in the dynamo table. The range key contents was changed
+for the cache table. I left it as 'name' so I could have it backwards compatible with
+older/existing config objects.</p>
+<p>So if <code>cache_dynamo_range_key</code> exists, we will map it to 'dynamo-table.name',
+and <code><a title="xcon.directory.DirectoryItem.name" href="#xcon.directory.DirectoryItem.name">DirectoryItem.name</a></code> will be mapped to 'dynamo-table.real_name'.
+Otherwise, <code><a title="xcon.directory.DirectoryItem.name" href="#xcon.directory.DirectoryItem.name">DirectoryItem.name</a></code> is mapped to <code>dynamo-table.name</code>.</p>
+<p>This will be set for you if you provide only a <code>cache_concat_directory_paths</code>
+and <code>cache_concat_provider_names</code>. We will put them together with a <code>+</code> between them.</p>
+<p>At some point we may create a global-all-configCacheV2 table and have better names on it.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.cacheable"><code class="name">var <span class="ident">cacheable</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.created_at"><code class="name">var <span class="ident">created_at</span> : datetime.datetime | None</code></dt>
+<dd>
+<div class="desc"><p>Set at object creation by default to current date/time, you can pass in your own if needed.
+This happens when the item comes from Dynamo [ie: we store creation date in dynamo].
+If the item in Dynamo has no creation date, this will be None; this indicates an unknown
+creation date.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.directory"><code class="name">var <span class="ident">directory</span> : <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a> | str | None</code></dt>
+<dd>
+<div class="desc"><p>This will always return a non-None directory object. If you give it a str in <strong>init</strong>,
+converts it to a Directory object for you.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.from_cacher"><code class="name">var <span class="ident">from_cacher</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If True, this item came from the dynamo cache table (or a cacher in general).
+If False (default): Came from original source.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>This will always return a non-None name string, in lower-case.
+Whatever string is passed into this while creating a DirectoryItem object,
+DirectoryItem will lower-case it.</p>
+<p>You can see the name orginally used for this value by getting
+<code><a title="xcon.directory.DirectoryItem.original_name" href="#xcon.directory.DirectoryItem.original_name">DirectoryItem.original_name</a></code>.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.original_name"><code class="name">var <span class="ident">original_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>The original name of the value, before case was changed.
+If this is not set to anything when <code><a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a></code> is created,
+it will be set to <code>self.name</code>, before DirectoryItem lower-cases <code>self.name</code>.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.source"><code class="name">var <span class="ident">source</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.supplemental_metadata"><code class="name">prop <span class="ident">supplemental_metadata</span> : JsonDict</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def supplemental_metadata(self) -&gt; JsonDict:
+    return self._supplemental_info  # noqa: This exists (see __post_init__)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.ttl"><code class="name">var <span class="ident">ttl</span> : datetime.datetime | int</code></dt>
+<dd>
+<div class="desc"><p>If give me an <code>int</code>, I'll convert it to a datetime for you;
+reading this var will always give you a <code>None</code> or a <code>datetime</code>.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.value"><code class="name">var <span class="ident">value</span> : Dict[str, Any] | list | str | int | None</code></dt>
+<dd>
+<div class="desc"><p>Value</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.directory.DirectoryItem.__repr__"><code class="name flex">
+<span>def <span class="ident">__repr__</span></span>(<span>self, include_value=True, include_length=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __repr__(self, include_value=True, include_length=False):
+    &#34;&#34;&#34; Returns a string representation of the item.
+        Args:
+            include_value: If True (default), will include the value in the returned string.
+                If False: value is excluded.
+
+                .. important:: This will be `False` if you convert this item to a string
+                    via `DirectoryItem.__str__`.  If you print this object on debugger
+                    console, it will include the value.
+    &#34;&#34;&#34;
+    # todo: Someday if I could use the sdk here.... I could eliminate most or all of this code.
+    desc = f&#34;DirectoryItem(name=&#39;{self.name}&#39;, directory=&#39;{self.directory.path}&#39;&#34;
+
+    value = self.value
+    if include_value:
+        desc += f&#34;, value=&#39;{value}&#39;&#34;
+
+    if self.source:
+        desc += f&#34;, source=&#39;{self.source}&#39;&#34;
+
+    if self.ttl:
+        desc += f&#34;, ttl=&#39;{self.ttl}&#39;&#34;
+
+    desc += &#39;)&#39;
+    return desc</code></pre>
+</details>
+<div class="desc"><p>Returns a string representation of the item.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>include_value</code></strong></dt>
+<dd>
+<p>If True (default), will include the value in the returned string.
+If False: value is excluded.</p>
+<div class="admonition important">
+<p class="admonition-title">Important:&ensp;This will be <code>False</code> if you convert this item to a string</p>
+<p>via <code><a title="xcon.directory.DirectoryItem.__str__" href="#xcon.directory.DirectoryItem.__str__">DirectoryItem.__str__()</a></code>.
+If you print this object on debugger
+console, it will include the value.</p>
+</div>
+</dd>
+</dl></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.__str__"><code class="name flex">
+<span>def <span class="ident">__str__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __str__(self):
+    &#34;&#34;&#34;
+    Returns a string-representation of self, it will exclude the item value
+    (`DirectoryItem.value`). This is appropriate for logging purposes.
+
+    If you print this via a debugger console, it will include the value by default.
+    &#34;&#34;&#34;
+    return self.__repr__(include_value=False)</code></pre>
+</details>
+<div class="desc"><p>Returns a string-representation of self, it will exclude the item value
+(<code><a title="xcon.directory.DirectoryItem.value" href="#xcon.directory.DirectoryItem.value">DirectoryItem.value</a></code>). This is appropriate for logging purposes.</p>
+<p>If you print this via a debugger console, it will include the value by default.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.add_supplemental_metadata"><code class="name flex">
+<span>def <span class="ident">add_supplemental_metadata</span></span>(<span>self, name: str, value)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_supplemental_metadata(self, name: str, value):
+    self._supplemental_info[name] = value   # noqa: This exists (see __post_init__)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryItem.json"><code class="name flex">
+<span>def <span class="ident">json</span></span>(<span>self, include_value=True) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def json(self, include_value=True) -&gt; JsonDict:
+    &#34;&#34;&#34; Provides a dict that can easily be serialized into JSON.
+        The JSON provided is able to be directly put into a Dynamo Table if desired.
+    &#34;&#34;&#34;
+    # todo: Someday if I could use the sdk here.... I could eliminate most or all of this code.
+
+    cache_range_key = self.cache_range_key
+    cache_hash_key = self.cache_hash_key
+
+    if not cache_range_key or not cache_hash_key:
+        raise ConfigError(
+            f&#34;need to have cache_hash_key ({cache_hash_key}) and &#34;
+            f&#34;cache_range_key ({cache_range_key}) set to create JSON from DirectoryItem&#34;
+            f&#34;{self}.&#34;
+        )
+
+    # See the doc-comments for `DirectoryItem.cache_hash_key` for more details of
+    # why we are mapping `directory/name` to `real_(name/directory)`.
+    response = {
+        &#39;name_key&#39;: cache_range_key,
+        &#39;app_key&#39;: cache_hash_key,
+        &#39;real_name&#39;: self.name,
+        &#39;original_name&#39;: self.original_name,
+        &#39;real_directory&#39;: self.directory.path,
+        &#39;cache_concat_provider_names&#39;: self.cache_concat_provider_names,
+        &#39;cache_concat_directory_paths&#39;: self.cache_concat_directory_paths,
+    }
+
+    if include_value and self.value is not None:
+        response[&#39;value&#39;] = self.value
+
+    if self.ttl:
+        response[&#39;ttl&#39;] = int(self.ttl.timestamp())
+
+    if self.source:
+        response[&#39;source&#39;] = str(self.source)
+
+    if self.created_at:
+        response[&#39;created_at&#39;] = self.created_at.isoformat()
+
+    return response</code></pre>
+</details>
+<div class="desc"><p>Provides a dict that can easily be serialized into JSON.
+The JSON provided is able to be directly put into a Dynamo Table if desired.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.directory.DirectoryListing"><code class="flex name class">
+<span>class <span class="ident">DirectoryListing</span></span>
+<span>(</span><span>directory: <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a> = None,<br>items: Iterable[<a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a>] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DirectoryListing:
+    directory: Directory = None
+    &#34;&#34;&#34; Metadata: used by external parties to keep track of the directory this listing belongs to.
+        This is only for informational purposes, and is not used internally by the DirectoryListing
+        class.
+
+        Defaults to None.
+    &#34;&#34;&#34;
+
+    _items: Dict[str, DirectoryItem]
+
+    def __init__(self, directory: Directory = None, items: Iterable[DirectoryItem] = None):
+        self.directory = directory
+        self._items = {}
+        for item in xloop(items, default_not_iterate=[str]):
+            self.add_item(item)
+
+    def get_any_item(self) -&gt; Optional[DirectoryItem]:
+        if not self._items:
+            return None
+
+        return next(iter(self._items.values()))
+
+    def add_item(self, item: DirectoryItem):
+        self._items[item.name] = item
+
+    def remove_item_with_name(self, name: str):
+        &#34;&#34;&#34;
+        Remove item with name from my directory listing.
+
+        Args:
+            name str: Name of item to remove. If item does not exist, nothing happens.
+
+        &#34;&#34;&#34;
+        self._items.pop(name.lower(), None)
+
+    def get_items_with_different_value(
+        self, items: Iterable[DirectoryItem]
+    ) -&gt; Iterable[DirectoryItem]:
+        &#34;&#34;&#34;
+        Figures out which of the items passed in are either not present or if they are have
+        a different `.value`. It ignores the other properties on DirectoryItem for this comparison.
+
+        This means if name &#39;A&#39; with value &#39;1&#39; currently exists in self, and you pass in an item
+        with name &#39;A&#39; with value &#39;1&#39; via this method, it would not be returned since it&#39;s already
+        present. However, if you pass an item with name of &#39;B&#39; with value &#39;2&#39;, it would be
+        returned because the value is different.
+
+        Keep in mind I return a generator, so if you make changes while I iterate, it will use
+        that new value for comparisons past that point. You can modify self while using the
+        returned generator, but you should not modify passed in `items` while using generator.
+
+        :param items: Items to look at see if they are already present or not.
+        :return: A generator for `items` where it&#39;s `.value` is different from what I already have.
+        &#34;&#34;&#34;
+        map = self._items
+        for item in items:
+            my_item = map.get(item.name)
+            if not my_item or my_item.value != item.value:
+                yield item
+
+    def get_item(self, name: str) -&gt; Optional[DirectoryItem]:
+        &#34;&#34;&#34; Gets a item in a case-insensitive way, returns None if item does not exist in self. &#34;&#34;&#34;
+        return self._items.get(name.lower(), None)
+
+    def item_mapping(self) -&gt; Mapping[str, DirectoryItem]:
+        &#34;&#34;&#34; Read-only mapping of the items name to the item [reminder: names are in lower-case].
+        &#34;&#34;&#34;
+        return MappingProxyType(self._items)</code></pre>
+</details>
+<div class="desc"></div>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.directory.DirectoryListing.directory"><code class="name">var <span class="ident">directory</span> : <a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></code></dt>
+<dd>
+<div class="desc"><p>Metadata: used by external parties to keep track of the directory this listing belongs to.
+This is only for informational purposes, and is not used internally by the DirectoryListing
+class.</p>
+<p>Defaults to None.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.directory.DirectoryListing.add_item"><code class="name flex">
+<span>def <span class="ident">add_item</span></span>(<span>self,<br>item: <a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_item(self, item: DirectoryItem):
+    self._items[item.name] = item</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryListing.get_any_item"><code class="name flex">
+<span>def <span class="ident">get_any_item</span></span>(<span>self) ‑> <a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_any_item(self) -&gt; Optional[DirectoryItem]:
+    if not self._items:
+        return None
+
+    return next(iter(self._items.values()))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.directory.DirectoryListing.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self, name: str) ‑> <a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(self, name: str) -&gt; Optional[DirectoryItem]:
+    &#34;&#34;&#34; Gets a item in a case-insensitive way, returns None if item does not exist in self. &#34;&#34;&#34;
+    return self._items.get(name.lower(), None)</code></pre>
+</details>
+<div class="desc"><p>Gets a item in a case-insensitive way, returns None if item does not exist in self.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryListing.get_items_with_different_value"><code class="name flex">
+<span>def <span class="ident">get_items_with_different_value</span></span>(<span>self,<br>items: Iterable[<a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a>]) ‑> Iterable[<a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_items_with_different_value(
+    self, items: Iterable[DirectoryItem]
+) -&gt; Iterable[DirectoryItem]:
+    &#34;&#34;&#34;
+    Figures out which of the items passed in are either not present or if they are have
+    a different `.value`. It ignores the other properties on DirectoryItem for this comparison.
+
+    This means if name &#39;A&#39; with value &#39;1&#39; currently exists in self, and you pass in an item
+    with name &#39;A&#39; with value &#39;1&#39; via this method, it would not be returned since it&#39;s already
+    present. However, if you pass an item with name of &#39;B&#39; with value &#39;2&#39;, it would be
+    returned because the value is different.
+
+    Keep in mind I return a generator, so if you make changes while I iterate, it will use
+    that new value for comparisons past that point. You can modify self while using the
+    returned generator, but you should not modify passed in `items` while using generator.
+
+    :param items: Items to look at see if they are already present or not.
+    :return: A generator for `items` where it&#39;s `.value` is different from what I already have.
+    &#34;&#34;&#34;
+    map = self._items
+    for item in items:
+        my_item = map.get(item.name)
+        if not my_item or my_item.value != item.value:
+            yield item</code></pre>
+</details>
+<div class="desc"><p>Figures out which of the items passed in are either not present or if they are have
+a different <code>.value</code>. It ignores the other properties on DirectoryItem for this comparison.</p>
+<p>This means if name 'A' with value '1' currently exists in self, and you pass in an item
+with name 'A' with value '1' via this method, it would not be returned since it's already
+present. However, if you pass an item with name of 'B' with value '2', it would be
+returned because the value is different.</p>
+<p>Keep in mind I return a generator, so if you make changes while I iterate, it will use
+that new value for comparisons past that point. You can modify self while using the
+returned generator, but you should not modify passed in <code>items</code> while using generator.</p>
+<p>:param items: Items to look at see if they are already present or not.
+:return: A generator for <code>items</code> where it's <code>.value</code> is different from what I already have.</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryListing.item_mapping"><code class="name flex">
+<span>def <span class="ident">item_mapping</span></span>(<span>self) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def item_mapping(self) -&gt; Mapping[str, DirectoryItem]:
+    &#34;&#34;&#34; Read-only mapping of the items name to the item [reminder: names are in lower-case].
+    &#34;&#34;&#34;
+    return MappingProxyType(self._items)</code></pre>
+</details>
+<div class="desc"><p>Read-only mapping of the items name to the item [reminder: names are in lower-case].</p></div>
+</dd>
+<dt id="xcon.directory.DirectoryListing.remove_item_with_name"><code class="name flex">
+<span>def <span class="ident">remove_item_with_name</span></span>(<span>self, name: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_item_with_name(self, name: str):
+    &#34;&#34;&#34;
+    Remove item with name from my directory listing.
+
+    Args:
+        name str: Name of item to remove. If item does not exist, nothing happens.
+
+    &#34;&#34;&#34;
+    self._items.pop(name.lower(), None)</code></pre>
+</details>
+<div class="desc"><p>Remove item with name from my directory listing.</p>
+<h2 id="args">Args</h2>
+<p>name str: Name of item to remove. If item does not exist, nothing happens.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xcon" href="index.html">xcon</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="xcon.directory.DirectoryItemValue" href="#xcon.directory.DirectoryItemValue">DirectoryItemValue</a></code></li>
+<li><code><a title="xcon.directory.DirectoryOrPath" href="#xcon.directory.DirectoryOrPath">DirectoryOrPath</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xcon.directory.Directory" href="#xcon.directory.Directory">Directory</a></code></h4>
+<ul class="two-column">
+<li><code><a title="xcon.directory.Directory.env" href="#xcon.directory.Directory.env">env</a></code></li>
+<li><code><a title="xcon.directory.Directory.from_components" href="#xcon.directory.Directory.from_components">from_components</a></code></li>
+<li><code><a title="xcon.directory.Directory.from_non_existent" href="#xcon.directory.Directory.from_non_existent">from_non_existent</a></code></li>
+<li><code><a title="xcon.directory.Directory.from_path" href="#xcon.directory.Directory.from_path">from_path</a></code></li>
+<li><code><a title="xcon.directory.Directory.is_export" href="#xcon.directory.Directory.is_export">is_export</a></code></li>
+<li><code><a title="xcon.directory.Directory.is_non_existent" href="#xcon.directory.Directory.is_non_existent">is_non_existent</a></code></li>
+<li><code><a title="xcon.directory.Directory.is_path_format" href="#xcon.directory.Directory.is_path_format">is_path_format</a></code></li>
+<li><code><a title="xcon.directory.Directory.path" href="#xcon.directory.Directory.path">path</a></code></li>
+<li><code><a title="xcon.directory.Directory.resolve" href="#xcon.directory.Directory.resolve">resolve</a></code></li>
+<li><code><a title="xcon.directory.Directory.service" href="#xcon.directory.Directory.service">service</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.directory.DirectoryChain" href="#xcon.directory.DirectoryChain">DirectoryChain</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.directory.DirectoryChain.concatenated_directory_paths" href="#xcon.directory.DirectoryChain.concatenated_directory_paths">concatenated_directory_paths</a></code></li>
+<li><code><a title="xcon.directory.DirectoryChain.directories" href="#xcon.directory.DirectoryChain.directories">directories</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.directory.DirectoryItem" href="#xcon.directory.DirectoryItem">DirectoryItem</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.directory.DirectoryItem.__repr__" href="#xcon.directory.DirectoryItem.__repr__">__repr__</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.__str__" href="#xcon.directory.DirectoryItem.__str__">__str__</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.add_supplemental_metadata" href="#xcon.directory.DirectoryItem.add_supplemental_metadata">add_supplemental_metadata</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.cache_concat_directory_paths" href="#xcon.directory.DirectoryItem.cache_concat_directory_paths">cache_concat_directory_paths</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.cache_concat_provider_names" href="#xcon.directory.DirectoryItem.cache_concat_provider_names">cache_concat_provider_names</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.cache_hash_key" href="#xcon.directory.DirectoryItem.cache_hash_key">cache_hash_key</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.cache_range_key" href="#xcon.directory.DirectoryItem.cache_range_key">cache_range_key</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.cacheable" href="#xcon.directory.DirectoryItem.cacheable">cacheable</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.created_at" href="#xcon.directory.DirectoryItem.created_at">created_at</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.directory" href="#xcon.directory.DirectoryItem.directory">directory</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.from_cacher" href="#xcon.directory.DirectoryItem.from_cacher">from_cacher</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.from_json" href="#xcon.directory.DirectoryItem.from_json">from_json</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.json" href="#xcon.directory.DirectoryItem.json">json</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.name" href="#xcon.directory.DirectoryItem.name">name</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.original_name" href="#xcon.directory.DirectoryItem.original_name">original_name</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.source" href="#xcon.directory.DirectoryItem.source">source</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.supplemental_metadata" href="#xcon.directory.DirectoryItem.supplemental_metadata">supplemental_metadata</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.ttl" href="#xcon.directory.DirectoryItem.ttl">ttl</a></code></li>
+<li><code><a title="xcon.directory.DirectoryItem.value" href="#xcon.directory.DirectoryItem.value">value</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.directory.DirectoryListing" href="#xcon.directory.DirectoryListing">DirectoryListing</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.directory.DirectoryListing.add_item" href="#xcon.directory.DirectoryListing.add_item">add_item</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.directory" href="#xcon.directory.DirectoryListing.directory">directory</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.get_any_item" href="#xcon.directory.DirectoryListing.get_any_item">get_any_item</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.get_item" href="#xcon.directory.DirectoryListing.get_item">get_item</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.get_items_with_different_value" href="#xcon.directory.DirectoryListing.get_items_with_different_value">get_items_with_different_value</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.item_mapping" href="#xcon.directory.DirectoryListing.item_mapping">item_mapping</a></code></li>
+<li><code><a title="xcon.directory.DirectoryListing.remove_item_with_name" href="#xcon.directory.DirectoryListing.remove_item_with_name">remove_item_with_name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

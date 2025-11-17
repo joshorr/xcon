@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xcon.providers.environmental API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xcon.providers.environmental</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xcon.providers.environmental.EnvironmentalProvider"><code class="flex name class">
+<span>class <span class="ident">EnvironmentalProvider</span></span>
+<span>(</span><span>env_vars: Optional[Dict[str, Any]] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EnvironmentalProvider(Provider):
+    &#34;&#34;&#34;
+    Provides config values out of the current processes environmental variables.
+    Pretty strait-forward. Normally this is the first provider in the provider-chain.
+    &#34;&#34;&#34;
+    query_before_cache_if_possible = True
+    needs_directory = False
+    name = &#34;env&#34;
+
+    _log_msg_prefix = &#39;?&#39;
+    &#34;&#34;&#34;
+    `EnvironmentalProvider` lazily makes a snapshot of all current environmental variables
+    at the time that we first need to look up a value. All keys are lower-cased.
+
+    It&#39;s possible to pass in a set of values via `__init__` method if you have an alternate
+    way you want to get/provide the environmental variables, ie:
+
+    &gt;&gt;&gt; my_own_env_provider = EnvironmentalProvider({&#39;some_env_var&#39;: &#39;some-value&#39;})
+    &gt;&gt;&gt; def will_use_custom_env_provider
+    &gt;&gt;&gt;     with my_own_env_provider:
+    ...         assert config.SOME_ENV_VAR == &#39;some-value&#39;
+    &#34;&#34;&#34;
+
+    _user_provided_cache: DirectoryListing = None
+    &#34;&#34;&#34; If user provided the &#39;cache&#39; of names/values, we store it here so it&#39;s permanent
+        and won&#39;t expire like the normal env-var cache will.
+
+        Always call `self.local_cache`, it will do the right thing and return you what you need,
+        a fully-filled out snapshot either from user or from local env-vars.
+    &#34;&#34;&#34;
+
+    @property
+    def local_cache(self) -&gt; DirectoryListing:
+        # Using default dict so I don&#39;t have to worry about allocating the dict&#39;s my self later.
+        if self._user_provided_cache is not None:
+            return self._user_provided_cache
+
+        maker = lambda c: self._create_snapshot(None, c)
+        cacher = InternalLocalProviderCache.grab()
+        return cacher.get_cache_for_provider(provider=self, cache_constructor=maker)
+
+    def __init__(self, env_vars: Optional[Dict[str, Any]] = None):
+        &#34;&#34;&#34; By default we will snapshot `os.environ` the first time I am asked for a value/item.
+            You can override what values I will return if you pass in a value for `env_vars`.
+
+            Should be a dict of environmental variable names to string values.
+         &#34;&#34;&#34;
+        super().__init__()
+        # If we don&#39;t get passed in anything, we will lazily get them from `os.environ`.
+        if env_vars is not None:
+            # We got passed in the explicit values.
+            self._create_snapshot(env_vars)
+
+    def _create_snapshot(
+        self,
+        from_env_dict: Dict[str, Any] = None,
+        internal_cache_provider: InternalLocalProviderCache = None
+    ):
+        &#34;&#34;&#34;
+        Make a snapshot of current environment, lower-casing all variables.
+        Stores in `EnvironmentalProvider._env_vars_snapshot`.
+
+        If you pass in a dict, we will use that to make the snapshot instead.
+
+        .. info:: The other providers use lower-case names for everything, we will likely
+           get queried with lower-case names, so doing in here not only normalizes the
+           case of the env-keys and simplified it, but also makes it a bit more efficient.
+
+        Args:
+            from_env_dict: User provided set of permanent name/values to use for our cache.
+
+                If you pass None (default): we will use `os.environ` instead and cache this in
+                an InternalLocalProviderCache
+
+            internal_cache_provider: If provided, we will use this as the object to store
+                our environmental snapshot on.
+                If not provided, we will get the `InternalLocalProviderCache.grab()`
+                (current instance).
+
+                In either case, we won&#39;t use a `InternalLocalProviderCache` if you pass
+                in a non-None value for `from_env_dict` as that&#39;s permanent.
+        &#34;&#34;&#34;
+
+        # IMPORTANT: DO NOT use `self.local_cache` in this method,
+        #            self.local_cache can call me to create cached snapshot!
+
+        listing = DirectoryListing()
+
+        if from_env_dict is None:
+            # If an internal cacher not provided, get current one.
+            if not internal_cache_provider:
+                internal_cache_provider = InternalLocalProviderCache.grab()
+
+            from_env_dict = os.environ
+            msg_prefix = &#34;Snapshotted os.environ&#34;
+            internal_cache_provider.set_cache_for_provider(
+                provider=self, cache=listing
+            )
+        else:
+            msg_prefix = &#34;Given (User Provided)&#34;
+            self._user_provided_cache = listing
+
+        for k, v in from_env_dict.items():
+            item = DirectoryItem(
+                directory=&#34;/_environmental&#34;, name=k, value=v, cacheable=False,
+                source=self.name
+            )
+            listing.add_item(item)
+
+        self._log_msg_prefix = msg_prefix
+        self._log_about_environmental_snapshot()
+
+    def _log_about_environmental_snapshot(self):
+        &#34;&#34;&#34; Will log out the names of what environmental variables I snapshot,
+            if the snapshot exists (it&#39;s normally lazily Snapshotted first time it&#39;s needed).
+        &#34;&#34;&#34;
+        self.log_about_items(
+            items=self.local_cache.item_mapping().values(),
+            path=&#39;/_environmental&#39;,
+            msg_prefix=self._log_msg_prefix
+        )
+
+    def get_item_without_environ(self, name: str) -&gt; Optional[DirectoryItem]:
+        &#34;&#34;&#34;
+        We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+        in the environmental provider [just names only]. So here is an easy way to
+        run the same logic that we normally do but without needing to pass in the
+        directory_chain, provider_chain, etc like you do in the normal
+        method we usually use: `EnvironmentalProvider.get_item`.
+
+        Args:
+            name (str): We upper case this string for you and look in `os.getenv()` for the value.
+        &#34;&#34;&#34;
+        # Snapshot cache uses lower-case keys, see `EnvironmentalProvider._create_snapshot`.
+        return self.local_cache.get_item(name)
+
+    def get_value_without_environ(self, name: str) -&gt; Optional[str]:
+        &#34;&#34;&#34;
+        We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+        in the environmental provider [just names only]. So here is an easy way to
+        run the same logic that we normally do but without needing to pass in the
+        directory_chain, provider_chain, etc like you do in the normal
+        method we usually use: `EnvironmentalProvider.get_item`.
+
+        Args:
+            name (str): We upper case this string for you and look in `os.getenv()` for the value.
+        &#34;&#34;&#34;
+        # Consider looking for any case, for now only look for upper-case names.
+        item = self.get_item_without_environ(name=name)
+        if item is None:
+            return None
+
+        return item.value
+
+    def get_item(
+            self,
+            name: str,
+            directory: Optional[DirectoryOrPath],
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Directory
+    ) -&gt; Optional[DirectoryItem]:
+        # We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+        # in the environmental provider [just names only].
+        return self.get_item_without_environ(name=name)
+
+    def retrieved_items_map(
+            self, directory: DirectoryOrPath
+    ) -&gt; Mapping[str, DirectoryItem]:
+        &#34;&#34;&#34; We don&#39;t keep track of these [we retrieve them each time from os.getenv].
+            We could also just grab all the environmental vars and return them, but I just don&#39;t
+            think it&#39;s that useful for us in this provider, for now just always return
+            an empty map.
+
+            We also don&#39;t want to cache anything from the environmental provider into the Dynamo
+            cache anyway, so another reason to return an empty dict.
+
+            We don&#39;t want to return None, the ProviderChain uses {} vs None to decide if it should
+            stop looking for more `retrieved_items_map` as a safety mechanism.
+        &#34;&#34;&#34;
+        return {}</code></pre>
+</details>
+<div class="desc"><p>Provides config values out of the current processes environmental variables.
+Pretty strait-forward. Normally this is the first provider in the provider-chain.</p>
+<p>By default we will snapshot <code>os.environ</code> the first time I am asked for a value/item.
+You can override what values I will return if you pass in a value for <code>env_vars</code>.</p>
+<p>Should be a dict of environmental variable names to string values.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></li>
+<li><a title="xinject.dependency.Dependency" href="../../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.is_cacher" href="../provider.html#xcon.provider.Provider.is_cacher">is_cacher</a></code>
+</p>
+<div class="desc inherited"><p>Easy way to figure out if a provider is a <code>ProviderCacher</code> or just a normal provider.
+Should be set to <code>True</code> for provider subclasses that are …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.name" href="../provider.html#xcon.provider.Provider.name">name</a></code>
+</p>
+<div class="desc inherited"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="../directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.needs_directory" href="../provider.html#xcon.provider.Provider.needs_directory">needs_directory</a></code>
+</p>
+<div class="desc inherited"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="../provider.html#xcon.provider.Provider.query_before_cache_if_possible">query_before_cache_if_possible</a></code>
+</p>
+<div class="desc inherited"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll …</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__init_subclass__" href="../../xinject/dependency.html#xcon.provider.Provider.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.grab" href="../../xinject/dependency.html#xcon.provider.Provider.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.proxy" href="../../xinject/dependency.html#xcon.provider.Provider.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.proxy_attribute" href="../../xinject/dependency.html#xcon.provider.Provider.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.local_cache"><code class="name">prop <span class="ident">local_cache</span> : DirectoryListing</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def local_cache(self) -&gt; DirectoryListing:
+    # Using default dict so I don&#39;t have to worry about allocating the dict&#39;s my self later.
+    if self._user_provided_cache is not None:
+        return self._user_provided_cache
+
+    maker = lambda c: self._create_snapshot(None, c)
+    cacher = InternalLocalProviderCache.grab()
+    return cacher.get_cache_for_provider(provider=self, cache_constructor=maker)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.obj" href="../../xinject/dependency.html#xcon.provider.Provider.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__call__" href="../../xinject/dependency.html#xcon.provider.Provider.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__copy__" href="../../xinject/dependency.html#xcon.provider.Provider.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.directory_has_error" href="../provider.html#xcon.provider.Provider.directory_has_error">directory_has_error</a></code>
+</p>
+<div class="desc inherited"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: ProviderChain,<br>environ: Directory) ‑> <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.get_item" href="../provider.html#xcon.provider.Provider.get_item">get_item</a></code>
+</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(
+        self,
+        name: str,
+        directory: Optional[DirectoryOrPath],
+        directory_chain: DirectoryChain,
+        provider_chain: ProviderChain,
+        environ: Directory
+) -&gt; Optional[DirectoryItem]:
+    # We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+    # in the environmental provider [just names only].
+    return self.get_item_without_environ(name=name)</code></pre>
+</details>
+<div class="desc inherited"><p>Grabs a config value for name in directory …</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.get_item_without_environ"><code class="name flex">
+<span>def <span class="ident">get_item_without_environ</span></span>(<span>self, name: str) ‑> <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item_without_environ(self, name: str) -&gt; Optional[DirectoryItem]:
+    &#34;&#34;&#34;
+    We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+    in the environmental provider [just names only]. So here is an easy way to
+    run the same logic that we normally do but without needing to pass in the
+    directory_chain, provider_chain, etc like you do in the normal
+    method we usually use: `EnvironmentalProvider.get_item`.
+
+    Args:
+        name (str): We upper case this string for you and look in `os.getenv()` for the value.
+    &#34;&#34;&#34;
+    # Snapshot cache uses lower-case keys, see `EnvironmentalProvider._create_snapshot`.
+    return self.local_cache.get_item(name)</code></pre>
+</details>
+<div class="desc"><p>We really don't need all the passed in info, since we don't deal with paths
+in the environmental provider [just names only]. So here is an easy way to
+run the same logic that we normally do but without needing to pass in the
+directory_chain, provider_chain, etc like you do in the normal
+method we usually use: <code><a title="xcon.providers.environmental.EnvironmentalProvider.get_item" href="#xcon.providers.environmental.EnvironmentalProvider.get_item">EnvironmentalProvider.get_item()</a></code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>We upper case this string for you and look in <code>os.getenv()</code> for the value.</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="../provider.html#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.get_value" href="../provider.html#xcon.provider.Provider.get_value">get_value</a></code>
+</p>
+<div class="desc inherited"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.get_value_without_environ"><code class="name flex">
+<span>def <span class="ident">get_value_without_environ</span></span>(<span>self, name: str) ‑> str | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_value_without_environ(self, name: str) -&gt; Optional[str]:
+    &#34;&#34;&#34;
+    We really don&#39;t need all the passed in info, since we don&#39;t deal with paths
+    in the environmental provider [just names only]. So here is an easy way to
+    run the same logic that we normally do but without needing to pass in the
+    directory_chain, provider_chain, etc like you do in the normal
+    method we usually use: `EnvironmentalProvider.get_item`.
+
+    Args:
+        name (str): We upper case this string for you and look in `os.getenv()` for the value.
+    &#34;&#34;&#34;
+    # Consider looking for any case, for now only look for upper-case names.
+    item = self.get_item_without_environ(name=name)
+    if item is None:
+        return None
+
+    return item.value</code></pre>
+</details>
+<div class="desc"><p>We really don't need all the passed in info, since we don't deal with paths
+in the environmental provider [just names only]. So here is an easy way to
+run the same logic that we normally do but without needing to pass in the
+directory_chain, provider_chain, etc like you do in the normal
+method we usually use: <code><a title="xcon.providers.environmental.EnvironmentalProvider.get_item" href="#xcon.providers.environmental.EnvironmentalProvider.get_item">EnvironmentalProvider.get_item()</a></code>.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>We upper case this string for you and look in <code>os.getenv()</code> for the value.</dd>
+</dl></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="../provider.html#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.mark_errored_directory" href="../provider.html#xcon.provider.Provider.mark_errored_directory">mark_errored_directory</a></code>
+</p>
+<div class="desc inherited"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.providers.environmental.EnvironmentalProvider.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="../directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieved_items_map(
+        self, directory: DirectoryOrPath
+) -&gt; Mapping[str, DirectoryItem]:
+    &#34;&#34;&#34; We don&#39;t keep track of these [we retrieve them each time from os.getenv].
+        We could also just grab all the environmental vars and return them, but I just don&#39;t
+        think it&#39;s that useful for us in this provider, for now just always return
+        an empty map.
+
+        We also don&#39;t want to cache anything from the environmental provider into the Dynamo
+        cache anyway, so another reason to return an empty dict.
+
+        We don&#39;t want to return None, the ProviderChain uses {} vs None to decide if it should
+        stop looking for more `retrieved_items_map` as a safety mechanism.
+    &#34;&#34;&#34;
+    return {}</code></pre>
+</details>
+<div class="desc"><p>We don't keep track of these [we retrieve them each time from os.getenv].
+We could also just grab all the environmental vars and return them, but I just don't
+think it's that useful for us in this provider, for now just always return
+an empty map.</p>
+<p>We also don't want to cache anything from the environmental provider into the Dynamo
+cache anyway, so another reason to return an empty dict.</p>
+<p>We don't want to return None, the ProviderChain uses {} vs None to decide if it should
+stop looking for more <code>retrieved_items_map</code> as a safety mechanism.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xcon.providers" href="index.html">xcon.providers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xcon.providers.environmental.EnvironmentalProvider" href="#xcon.providers.environmental.EnvironmentalProvider">EnvironmentalProvider</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.__call__" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.__call__">__call__</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.__copy__" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.__init_subclass__" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.directory_has_error" href="../provider.html#xcon.providers.environmental.EnvironmentalProvider.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.get_item" href="#xcon.providers.environmental.EnvironmentalProvider.get_item">get_item</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.get_item_without_environ" href="#xcon.providers.environmental.EnvironmentalProvider.get_item_without_environ">get_item_without_environ</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.get_value" href="../provider.html#xcon.providers.environmental.EnvironmentalProvider.get_value">get_value</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.get_value_without_environ" href="#xcon.providers.environmental.EnvironmentalProvider.get_value_without_environ">get_value_without_environ</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.grab" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.grab">grab</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.is_cacher" href="../provider.html#xcon.providers.environmental.EnvironmentalProvider.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.local_cache" href="#xcon.providers.environmental.EnvironmentalProvider.local_cache">local_cache</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.mark_errored_directory" href="../provider.html#xcon.providers.environmental.EnvironmentalProvider.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.name" href="#xcon.providers.environmental.EnvironmentalProvider.name">name</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.needs_directory" href="#xcon.providers.environmental.EnvironmentalProvider.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.obj" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.obj">obj</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.proxy" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.proxy">proxy</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.proxy_attribute" href="../../xinject/dependency.html#xcon.providers.environmental.EnvironmentalProvider.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.query_before_cache_if_possible" href="#xcon.providers.environmental.EnvironmentalProvider.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.providers.environmental.EnvironmentalProvider.retrieved_items_map" href="#xcon.providers.environmental.EnvironmentalProvider.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
