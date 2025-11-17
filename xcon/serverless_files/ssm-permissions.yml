@@ -21,6 +21,8 @@ Resources:
           - Effect: "Allow"
             Action:
               - "ssm:GetParametersByPath"
+              - "ssm:GetParameter"
+              - "ssm:GetParameters"
               - "kms:Decrypt"
             Resource:
               - Fn::Join:
@@ -47,3 +49,28 @@ Resources:
                     - Ref: "AWS::Region"
                     - Ref: "AWS::AccountId"
                     - "parameter/global/all"
+
+              - Fn::Join:
+                  - ":"
+                  - - "arn:aws:ssm"
+                    - Ref: "AWS::Region"
+                    - Ref: "AWS::AccountId"
+                    - "parameter/${self:service}/${self:provider.stage}/*"
+              - Fn::Join:
+                  - ":"
+                  - - "arn:aws:ssm"
+                    - Ref: "AWS::Region"
+                    - Ref: "AWS::AccountId"
+                    - "parameter/${self:service}/all/*"
+              - Fn::Join:
+                  - ":"
+                  - - "arn:aws:ssm"
+                    - Ref: "AWS::Region"
+                    - Ref: "AWS::AccountId"
+                    - "parameter/global/${self:provider.stage}/*"
+              - Fn::Join:
+                  - ":"
+                  - - "arn:aws:ssm"
+                    - Ref: "AWS::Region"
+                    - Ref: "AWS::AccountId"
+                    - "parameter/global/all/*"
