@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/joshorr/xcon/compare/v1.0.0...v1.1.0) (2025-11-17)
+
+
+### Features
+
+* allow subpaths to be grabbed in ssm. ([796469b](https://github.com/joshorr/xcon/commit/796469b943ee0701d4c9e6a75263eac64c40afec))
+
+
+### Bug Fixes
+
+* don't log out all of the names  retrieved, add that to 'extra', just too much info in there. ([2859370](https://github.com/joshorr/xcon/commit/28593700cdb72aa84a79b1f7a7ef1bbbc286d3b5))
+
 ## [1.0.0](https://github.com/joshorr/xcon/compare/v0.5.0...v1.0.0) (2025-10-25)
 
 
