@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/joshorr/xcon/compare/v1.1.0...v1.1.1) (2026-01-15)
+
+
+### Bug Fixes
+
+* adjusting throttle retry logic. ([d5621d4](https://github.com/joshorr/xcon/commit/d5621d400d04519a92a1110eb4b74e567c46afdf))
+
 ## [1.1.0](https://github.com/joshorr/xcon/compare/v1.0.0...v1.1.0) (2025-11-17)
 
 
