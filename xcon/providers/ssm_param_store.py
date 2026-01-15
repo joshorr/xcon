@@ -57,7 +57,6 @@ class SsmParamStoreProvider(AwsProvider):
             backoff = RandomBackoff(max_attempts=4)
             pages = []
             last_exception: Exception | None = None
-
             while backoff.wait():
                 try:
                     pages_iter = self._get_params_paginator.paginate(
@@ -70,6 +69,7 @@ class SsmParamStoreProvider(AwsProvider):
                     last_exception = None
                     break
                 except ClientError as e:
+                    last_exception = e
                     # Only retry on throttling-related error codes.
                     error_code = ''
                     try:
@@ -77,15 +77,14 @@ class SsmParamStoreProvider(AwsProvider):
                     except Exception:
                         pass
 
-                    if error_code in (
+                    if error_code not in (
                         'ThrottlingException',
                         'ThrottledException',
                     ):
                         raise
-
-            if last_exception is not None and not pages:
-                # Retries exhausted or non-throttle error -> delegate to existing handler
-                raise last_exception from None
+            else:
+                # Retries exhausted-> delegate to existing handler
+                raise Exception('Gave up retrying to get params, we kept getting throttled.') from last_exception
 
             for p in pages:
                 for item_info in p['Parameters']:
