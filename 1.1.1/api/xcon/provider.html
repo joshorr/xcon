@@ -1,0 +1,1969 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xcon.provider API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xcon.provider</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xcon.provider.AwsProvider"><code class="flex name class">
+<span>class <span class="ident">AwsProvider</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AwsProvider(Provider):
+    &#34;&#34;&#34; AwsProvider is the Base class for Aws-associated config providers.
+
+        There is some aws specific error handing that this class helps with among the
+        aws providers.
+
+        This is the Default Doc message, you will want to override this doc-comment in
+        any subclasses.
+    &#34;&#34;&#34;
+    botocore_error_ignored_exception: BotoCoreError = None
+    &#34;&#34;&#34; This means that any attempt to communicat with aws service will probably fail;
+        probable due to a corrupted or missing aws credentials.
+    &#34;&#34;&#34;
+
+    @property
+    def local_cache(self) -&gt; Dict[Directory, DirectoryListing]:
+        cacher = InternalLocalProviderCache.grab()
+        return cacher.get_cache_for_provider(provider=self, cache_constructor=lambda c: dict())</code></pre>
+</details>
+<div class="desc"><p>AwsProvider is the Base class for Aws-associated config providers.</p>
+<p>There is some aws specific error handing that this class helps with among the
+aws providers.</p>
+<p>This is the Default Doc message, you will want to override this doc-comment in
+any subclasses.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></li>
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a></li>
+<li><a title="xcon.providers.dynamo.DynamoProvider" href="providers/dynamo.html#xcon.providers.dynamo.DynamoProvider">DynamoProvider</a></li>
+<li><a title="xcon.providers.secrets_manager.SecretsManagerProvider" href="providers/secrets_manager.html#xcon.providers.secrets_manager.SecretsManagerProvider">SecretsManagerProvider</a></li>
+<li><a title="xcon.providers.ssm_param_store.SsmParamStoreProvider" href="providers/ssm_param_store.html#xcon.providers.ssm_param_store.SsmParamStoreProvider">SsmParamStoreProvider</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.provider.AwsProvider.botocore_error_ignored_exception"><code class="name">var <span class="ident">botocore_error_ignored_exception</span> : botocore.exceptions.BotoCoreError</code></dt>
+<dd>
+<div class="desc"><p>This means that any attempt to communicat with aws service will probably fail;
+probable due to a corrupted or missing aws credentials.</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.is_cacher" href="#xcon.provider.Provider.is_cacher">is_cacher</a></code>
+</p>
+<div class="desc inherited"><p>Easy way to figure out if a provider is a <code><a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a></code> or just a normal provider.
+Should be set to <code>True</code> for provider subclasses that are …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.name" href="#xcon.provider.Provider.name">name</a></code>
+</p>
+<div class="desc inherited"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.needs_directory" href="#xcon.provider.Provider.needs_directory">needs_directory</a></code>
+</p>
+<div class="desc inherited"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">query_before_cache_if_possible</a></code>
+</p>
+<div class="desc inherited"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll …</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.provider.AwsProvider.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__init_subclass__" href="../xinject/dependency.html#xcon.provider.Provider.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.grab" href="../xinject/dependency.html#xcon.provider.Provider.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.proxy" href="../xinject/dependency.html#xcon.provider.Provider.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.proxy_attribute" href="../xinject/dependency.html#xcon.provider.Provider.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.provider.AwsProvider.local_cache"><code class="name">prop <span class="ident">local_cache</span> : Dict[Directory, DirectoryListing]</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def local_cache(self) -&gt; Dict[Directory, DirectoryListing]:
+    cacher = InternalLocalProviderCache.grab()
+    return cacher.get_cache_for_provider(provider=self, cache_constructor=lambda c: dict())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.obj" href="../xinject/dependency.html#xcon.provider.Provider.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.provider.AwsProvider.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__call__" href="../xinject/dependency.html#xcon.provider.Provider.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.__copy__" href="../xinject/dependency.html#xcon.provider.Provider.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.directory_has_error" href="#xcon.provider.Provider.directory_has_error">directory_has_error</a></code>
+</p>
+<div class="desc inherited"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory) ‑> <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.get_item" href="#xcon.provider.Provider.get_item">get_item</a></code>
+</p>
+<div class="desc inherited"><p>Grabs a config value for name in directory …</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.get_value" href="#xcon.provider.Provider.get_value">get_value</a></code>
+</p>
+<div class="desc inherited"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.mark_errored_directory" href="#xcon.provider.Provider.mark_errored_directory">mark_errored_directory</a></code>
+</p>
+<div class="desc inherited"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.AwsProvider.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>] | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code>.<code><a title="xcon.provider.Provider.retrieved_items_map" href="#xcon.provider.Provider.retrieved_items_map">retrieved_items_map</a></code>
+</p>
+<div class="desc inherited"><p>Should return a read-only lower-case item name TO item mapping.
+You can easily get one of these from a DirectoryList object's <code>item_mapping()</code> …</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache"><code class="flex name class">
+<span>class <span class="ident">InternalLocalProviderCache</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InternalLocalProviderCache(Dependency):
+    &#34;&#34;&#34;
+    Used by the providers for a place to store/cache things they retrieve from the systems
+    they provide configuration values from.
+
+    The reason we have a central resource to keep track of the cache now,
+    instead of doing it directly inside the providers like they used to be is
+    so that all providers can have their internal/local cache expire at the same time.
+
+    If the dynamo cache provider expires, and it happens to be something did change in SSM
+    and deleted a key in the dynamo cache table we want to look up the new value in SSM
+    and not version we may have in the internal/local cache.
+
+    If we did not expire everything simultaneously, it could be that the dynamo cache
+    expires before the SSM.  So we end up check the SSM provider and the new value is
+    not looked up because of its internal/local cache.
+
+    Expiring all providers internal/local cached simultaneously avoids this problem,
+    and simplifies the &#39;high-level&#39; conceptual aspect of how the Config and its internal
+    caching works from a usability/user-of-the-library point of view.
+
+    At the moment, the key is id/memory-address of the provider instance.
+    This means a new provider instance would provide a new/blank cache for that object.
+    The old instance, if still used, would still have access to whatever it previously cached.
+    &#34;&#34;&#34;
+    _local_internal_cache = None
+    _time_cache_last_reset = None
+
+    expire_time_delta: dt.timedelta = dt.timedelta(minutes=15)
+    &#34;&#34;&#34;
+    Amount of time before cache expires.
+    You can change this to anything you want at any time,
+    as it&#39;s checked each time a provider retrieves it&#39;s cache.
+    The providers do this every time they are asked for a value.
+
+    In addition to changing this directly
+    (via `InternalLocalProviderCache.grab().expire_time_delta` = ...)
+    you can also override this via an environmental variable:
+
+    `XCON_INTERNAL_CACHE_EXPIRATION_MINUTES`
+
+    If this variable is defined, we will take the value as the number of minutes
+    to wait until we expire/reset our cache.
+
+    Otherwise the default expiration is 15 minutes.
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        super().__init__()
+        from xcon import xcon_settings
+        if minutes := xcon_settings.internal_cache_expiration_minutes:
+            if minutes &gt; 0:
+                self.expire_time_delta = dt.timedelta(minutes=minutes)
+        self.reset_cache()
+
+    def get_cache_for_provider(
+        self, *, provider: Provider, cache_constructor: Callable[[InternalLocalProviderCache], Any]
+    ) -&gt; Any:
+        &#34;&#34;&#34;
+        Given `provider`, we will return a cached object keyed to the `provider` instance.
+
+        If there currently is no cache object for `provider` instance in self,
+        and you provide a `cache_constructor`, we will call the `cache_constructor` and provide
+        a single positional argument we pass `self` (instance of InternalLocalProviderCache) to.
+
+        If you return a non-None value from this constructor, we will store this value
+        as the cache object, keyed under the instance of `provider` and return this same
+        object in the future until the cache is expired or reset.
+
+        Otherwise, if you return None your expected to call `set_cache_for_provider` on
+        the instance of InternalLocalProviderCache we give the constructor callback.
+
+        If we still don&#39;t have a value, and you provided a constructor, we will raise a ValueError.
+        &#34;&#34;&#34;
+        self.expire_cache_if_needed()
+        provider_id = id(provider)
+        cache = self._local_internal_cache.get(provider_id)
+        if cache is None and cache_constructor:
+            cache = cache_constructor(self)
+            if cache is None:
+                cache = self._local_internal_cache.get(provider_id)
+
+            if cache is None:
+                raise ValueError(
+                    f&#34;Provided cache_constructor returned a None value and also did not set &#34;
+                    f&#34;a value either in InternalLocalProviderCache for provider ({provider}).&#34;
+                )
+            self._local_internal_cache[provider_id] = cache
+
+        return cache
+
+    def set_cache_for_provider(self, *, provider: Provider, cache: Any):
+        self.expire_cache_if_needed()
+        self._local_internal_cache[id(provider)] = cache
+
+    def expire_cache_if_needed(self):
+        if self._time_cache_last_reset &lt; dt.datetime.now() - self.expire_time_delta:
+            self.reset_cache()
+
+    def reset_cache(self):
+        self._local_internal_cache = {}
+        self._time_cache_last_reset = dt.datetime.now()</code></pre>
+</details>
+<div class="desc"><p>Used by the providers for a place to store/cache things they retrieve from the systems
+they provide configuration values from.</p>
+<p>The reason we have a central resource to keep track of the cache now,
+instead of doing it directly inside the providers like they used to be is
+so that all providers can have their internal/local cache expire at the same time.</p>
+<p>If the dynamo cache provider expires, and it happens to be something did change in SSM
+and deleted a key in the dynamo cache table we want to look up the new value in SSM
+and not version we may have in the internal/local cache.</p>
+<p>If we did not expire everything simultaneously, it could be that the dynamo cache
+expires before the SSM.
+So we end up check the SSM provider and the new value is
+not looked up because of its internal/local cache.</p>
+<p>Expiring all providers internal/local cached simultaneously avoids this problem,
+and simplifies the 'high-level' conceptual aspect of how the Config and its internal
+caching works from a usability/user-of-the-library point of view.</p>
+<p>At the moment, the key is id/memory-address of the provider instance.
+This means a new provider instance would provide a new/blank cache for that object.
+The old instance, if still used, would still have access to whatever it previously cached.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.provider.InternalLocalProviderCache.expire_time_delta"><code class="name">var <span class="ident">expire_time_delta</span> : datetime.timedelta</code></dt>
+<dd>
+<div class="desc"><p>Amount of time before cache expires.
+You can change this to anything you want at any time,
+as it's checked each time a provider retrieves it's cache.
+The providers do this every time they are asked for a value.</p>
+<p>In addition to changing this directly
+(via <code><a title="xcon.provider.InternalLocalProviderCache.grab" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.grab">Dependency.grab()</a>.expire_time_delta</code> = &hellip;)
+you can also override this via an environmental variable:</p>
+<p><code>XCON_INTERNAL_CACHE_EXPIRATION_MINUTES</code></p>
+<p>If this variable is defined, we will take the value as the number of minutes
+to wait until we expire/reset our cache.</p>
+<p>Otherwise the default expiration is 15 minutes.</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.provider.InternalLocalProviderCache.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.provider.InternalLocalProviderCache.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.provider.InternalLocalProviderCache.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.expire_cache_if_needed"><code class="name flex">
+<span>def <span class="ident">expire_cache_if_needed</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def expire_cache_if_needed(self):
+    if self._time_cache_last_reset &lt; dt.datetime.now() - self.expire_time_delta:
+        self.reset_cache()</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.get_cache_for_provider"><code class="name flex">
+<span>def <span class="ident">get_cache_for_provider</span></span>(<span>self,<br>*,<br>provider: <a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a>,<br>cache_constructor: Callable[[<a title="xcon.provider.InternalLocalProviderCache" href="#xcon.provider.InternalLocalProviderCache">InternalLocalProviderCache</a>], Any]) ‑> Any</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cache_for_provider(
+    self, *, provider: Provider, cache_constructor: Callable[[InternalLocalProviderCache], Any]
+) -&gt; Any:
+    &#34;&#34;&#34;
+    Given `provider`, we will return a cached object keyed to the `provider` instance.
+
+    If there currently is no cache object for `provider` instance in self,
+    and you provide a `cache_constructor`, we will call the `cache_constructor` and provide
+    a single positional argument we pass `self` (instance of InternalLocalProviderCache) to.
+
+    If you return a non-None value from this constructor, we will store this value
+    as the cache object, keyed under the instance of `provider` and return this same
+    object in the future until the cache is expired or reset.
+
+    Otherwise, if you return None your expected to call `set_cache_for_provider` on
+    the instance of InternalLocalProviderCache we give the constructor callback.
+
+    If we still don&#39;t have a value, and you provided a constructor, we will raise a ValueError.
+    &#34;&#34;&#34;
+    self.expire_cache_if_needed()
+    provider_id = id(provider)
+    cache = self._local_internal_cache.get(provider_id)
+    if cache is None and cache_constructor:
+        cache = cache_constructor(self)
+        if cache is None:
+            cache = self._local_internal_cache.get(provider_id)
+
+        if cache is None:
+            raise ValueError(
+                f&#34;Provided cache_constructor returned a None value and also did not set &#34;
+                f&#34;a value either in InternalLocalProviderCache for provider ({provider}).&#34;
+            )
+        self._local_internal_cache[provider_id] = cache
+
+    return cache</code></pre>
+</details>
+<div class="desc"><p>Given <code>provider</code>, we will return a cached object keyed to the <code>provider</code> instance.</p>
+<p>If there currently is no cache object for <code>provider</code> instance in self,
+and you provide a <code>cache_constructor</code>, we will call the <code>cache_constructor</code> and provide
+a single positional argument we pass <code>self</code> (instance of InternalLocalProviderCache) to.</p>
+<p>If you return a non-None value from this constructor, we will store this value
+as the cache object, keyed under the instance of <code>provider</code> and return this same
+object in the future until the cache is expired or reset.</p>
+<p>Otherwise, if you return None your expected to call <code>set_cache_for_provider</code> on
+the instance of InternalLocalProviderCache we give the constructor callback.</p>
+<p>If we still don't have a value, and you provided a constructor, we will raise a ValueError.</p></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.reset_cache"><code class="name flex">
+<span>def <span class="ident">reset_cache</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_cache(self):
+    self._local_internal_cache = {}
+    self._time_cache_last_reset = dt.datetime.now()</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.provider.InternalLocalProviderCache.set_cache_for_provider"><code class="name flex">
+<span>def <span class="ident">set_cache_for_provider</span></span>(<span>self,<br>*,<br>provider: <a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a>,<br>cache: Any)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_cache_for_provider(self, *, provider: Provider, cache: Any):
+    self.expire_cache_if_needed()
+    self._local_internal_cache[id(provider)] = cache</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.provider.Provider"><code class="flex name class">
+<span>class <span class="ident">Provider</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Provider(Dependency):
+    &#34;&#34;&#34;
+    Represents a Provider, which wraps a resource that can be used to store Config values based
+    on a provided directory. It caches these directories so future lookups don&#39;t keep having to
+    fetch them from the Dependency again in the future, while the process is still running.
+
+    Most of the time there is no need for a several of the same provider in the same process/app.
+
+    The providers generally keep a cache of every directory they already looked up, so it&#39;s nice to
+    share that cache with other Child context&#39;s by default via the
+    `xinject.dependency.Dependency` mechanism.
+
+    Config will use the current/active provider when it needs to consult a Provider for values.
+
+    Each provider should be careful that they communicate with any remote service in a thread-safe
+    manner, as Config objects from other threads could use the same Provider instance.
+
+    Most of the time, network clients are not thread-safe to use, examples include:
+
+    - boto clients/resources are also not thread-safe.
+    - Sessions from requests library can&#39;t be used cross-thread.
+
+    For boto, if you use `xboto` to grab the boto client/resource,
+    it will allow you to lazily get a shared object that is guaranteed to only be shared
+    for the current thread.
+
+    This allows boto to reuse connections for things running on the same thread,
+    but `xboto` will lazily create a new client if your on a separate thread.
+    &#34;&#34;&#34;
+
+    name = &#34;?&#34;
+    &#34;&#34;&#34; This is the value that will normally be set to the items
+        `xcon.directory.DirectoryItem.source`, also displayed
+        when logging out the names of providers when something can&#39;t be found.
+    &#34;&#34;&#34;
+
+    is_cacher = False
+    &#34;&#34;&#34; Easy way to figure out if a provider is a `ProviderCacher` or just a normal provider.
+        Should be set to `True` for provider subclasses that are cachers.
+        Defaults to `False`.
+    &#34;&#34;&#34;
+
+    query_before_cache_if_possible = False
+    &#34;&#34;&#34; If True, and this is before any other providers that have this set to False, the
+        cacher will be consulted AFTER that provider(s). In this way I&#39;ll make my best-effort
+        to accommodate this particular request.
+
+        If False, then I guarantee the cacher [if there is one] will be consulted BEFORE
+        this provider is.
+
+        See [Config Overview - Caching](config.html#caching) for more details on how caching
+        works.
+    &#34;&#34;&#34;
+
+    needs_directory = True
+    &#34;&#34;&#34; By default, providers can&#39;t really use a `None` for a directory when calling `get_item()`.
+        If you CAN work with a None directory then set this to False (for example
+        `xcon.providers.environmental.EnvironmentalProvider` uses this).
+
+        A `None` normally means that we could not determine the proper directory to use.
+        This can happen if no SERVICE_NAME and APP_ENV are defined. But some providers don&#39;t
+        really use directories and are ok with getting a `None` query.
+
+        This flag lets Config class know if it should bother to allocate this provider or not based
+        on if it has a directory list or not to work with.
+    &#34;&#34;&#34;
+
+    _errored_directories: Set[Directory]
+    &#34;&#34;&#34; Used to keep track of directories we are excluding. &#34;&#34;&#34;
+
+    # ------------------------------------
+    # --------- Abstract Methods ---------
+
+    @abstractmethod
+    def get_item(
+            self,
+            name: str,
+            directory: Optional[DirectoryOrPath],
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Directory
+    ) -&gt; Optional[DirectoryItem]:
+        &#34;&#34;&#34;
+        Grabs a config value for name in directory.
+
+        The other arg&#39;s are more for the `ProviderCache`. They describe the current environment
+        of the current config lookup.
+
+        Side Note: For and overview of the caching process, see
+        [Config Overview - Caching](../config.html#caching)
+
+        Args:
+            name: Name of the config value, ie: `XYNAPI_BASE_URL`.
+            directory: Directory to lookup value in, this is not really used right now by
+                cacher. But it&#39;s used by the other providers. This cacher acts just like
+                a provider and so accepts the parameter.
+            directory_chain: Current directory chain that is being used to lookup value.
+            provider_chain (xcon.provider.ProviderChain): Current provider chain
+                that is being used to lookup value.
+            environ:
+                This is supposed to have the full service and environment name.
+
+                Example Directory Path: `/hubspot/testing`
+
+        Returns:
+            xcon.directory.DirectoryItem: If we have the item, this is it.
+            None: Otherwise we return None indicating we don&#39;t know about it.
+        &#34;&#34;&#34;
+        raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)
+
+    @abstractmethod
+    def retrieved_items_map(
+            self, directory: DirectoryOrPath
+    ) -&gt; Optional[Mapping[str, DirectoryItem]]:
+        &#34;&#34;&#34; Should return a read-only lower-case item name TO item mapping.
+            You can easily get one of these from a DirectoryList object&#39;s `item_mapping()`.
+
+            If provider has not yet retrieved the listing for the passed-in directory,
+            it should simply pass back None. It&#39;s important to know the difference between
+            a blank retrieval and no-retrieval attempt, so please pass back None in that case!!!
+        &#34;&#34;&#34;
+        raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)
+
+    # ---------------------------------
+    # --------- Other Methods ---------
+
+    def __init__(self):
+        self._errored_directories = set()
+
+    def log_about_items(
+        self, *, items: Iterable[DirectoryItem], path: str, msg_prefix=&#39;Retrieved&#39;
+    ):
+        # We could be called before application has configured it&#39;s logging;
+        # ensure logging has been configured before we log out.
+        # Other-wise log message may never get logged out
+        # (Python defaults to Warning log level).
+
+        # Use cache_range_key if it exists, otherwise use name.
+        # cache_range_key has the name + other uniquely identifying information.
+        names = {f&#39;{v.directory.path}/{v.name}&#39; or v.name for v in items}
+        provider_class = self.__class__.__name__
+        thread_name = threading.current_thread().name
+        extra = dict(
+            msg_prefix=msg_prefix,
+            provider=self.name,
+            provider_class=provider_class,
+            names=names,
+            path=path,
+            thread_name=thread_name,
+        )
+
+        log.info(
+            f&#34;{msg_prefix} values via provider ({self.name}/{provider_class}) &#34;
+            f&#34;for path ({path}), for thread ({thread_name}); see log extra&#39;s for list of all path/names retrieved.&#34;,
+            extra=extra
+        )
+
+    def mark_errored_directory(self, directory: Directory):
+        &#34;&#34;&#34; If a directory has an error, this is called. For informational purposes only. &#34;&#34;&#34;
+        self._errored_directories.add(directory)
+
+    def directory_has_error(self, directory: Directory):
+        &#34;&#34;&#34; If a directory had an error in the past, this returns true.
+            For informational purposes only.
+        &#34;&#34;&#34;
+        return directory in self._errored_directories
+
+    def get_value(
+            self,
+            name: str,
+            directory: Optional[DirectoryOrPath],
+            directory_chain: DirectoryChain,
+            provider_chain: ProviderChain,
+            environ: Directory
+    ):
+        &#34;&#34;&#34; Gets an item&#39;s value for directory from provider. Return None if not found.
+        &#34;&#34;&#34;
+        item = self.get_item(
+            name=name,
+            directory=directory,
+            directory_chain=directory_chain,
+            provider_chain=provider_chain,
+            environ=environ
+        )
+        return item.value if item else None</code></pre>
+</details>
+<div class="desc"><p>Represents a Provider, which wraps a resource that can be used to store Config values based
+on a provided directory. It caches these directories so future lookups don't keep having to
+fetch them from the Dependency again in the future, while the process is still running.</p>
+<p>Most of the time there is no need for a several of the same provider in the same process/app.</p>
+<p>The providers generally keep a cache of every directory they already looked up, so it's nice to
+share that cache with other Child context's by default via the
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code> mechanism.</p>
+<p>Config will use the current/active provider when it needs to consult a Provider for values.</p>
+<p>Each provider should be careful that they communicate with any remote service in a thread-safe
+manner, as Config objects from other threads could use the same Provider instance.</p>
+<p>Most of the time, network clients are not thread-safe to use, examples include:</p>
+<ul>
+<li>boto clients/resources are also not thread-safe.</li>
+<li>Sessions from requests library can't be used cross-thread.</li>
+</ul>
+<p>For boto, if you use <code>xboto</code> to grab the boto client/resource,
+it will allow you to lazily get a shared object that is guaranteed to only be shared
+for the current thread.</p>
+<p>This allows boto to reuse connections for things running on the same thread,
+but <code>xboto</code> will lazily create a new client if your on a separate thread.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></li>
+<li><a title="xcon.providers.environmental.EnvironmentalProvider" href="providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider">EnvironmentalProvider</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.provider.Provider.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<div class="desc"><p>Easy way to figure out if a provider is a <code><a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a></code> or just a normal provider.
+Should be set to <code>True</code> for provider subclasses that are cachers.
+Defaults to <code>False</code>.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers when something can't be found.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<div class="desc"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to False (for example
+<code><a title="xcon.providers.environmental.EnvironmentalProvider" href="providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider">EnvironmentalProvider</a></code> uses this).</p>
+<p>A <code>None</code> normally means that we could not determine the proper directory to use.
+This can happen if no SERVICE_NAME and APP_ENV are defined. But some providers don't
+really use directories and are ok with getting a <code>None</code> query.</p>
+<p>This flag lets Config class know if it should bother to allocate this provider or not based
+on if it has a directory list or not to work with.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<div class="desc"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll make my best-effort
+to accommodate this particular request.</p>
+<p>If False, then I guarantee the cacher [if there is one] will be consulted BEFORE
+this provider is.</p>
+<p>See <a href="config.html#caching">Config Overview - Caching</a> for more details on how caching
+works.</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.provider.Provider.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__init_subclass__" href="../xinject/dependency.html#xinject.dependency.Dependency.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.provider.Provider.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.grab" href="../xinject/dependency.html#xinject.dependency.Dependency.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.provider.Provider.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.provider.Provider.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.proxy_attribute" href="../xinject/dependency.html#xinject.dependency.Dependency.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.provider.Provider.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.obj" href="../xinject/dependency.html#xinject.dependency.Dependency.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.provider.Provider.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__call__" href="../xinject/dependency.html#xinject.dependency.Dependency.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.provider.Provider.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></code>.<code><a title="xinject.dependency.Dependency.__copy__" href="../xinject/dependency.html#xinject.dependency.Dependency.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.provider.Provider.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def directory_has_error(self, directory: Directory):
+    &#34;&#34;&#34; If a directory had an error in the past, this returns true.
+        For informational purposes only.
+    &#34;&#34;&#34;
+    return directory in self._errored_directories</code></pre>
+</details>
+<div class="desc"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory) ‑> <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def get_item(
+        self,
+        name: str,
+        directory: Optional[DirectoryOrPath],
+        directory_chain: DirectoryChain,
+        provider_chain: ProviderChain,
+        environ: Directory
+) -&gt; Optional[DirectoryItem]:
+    &#34;&#34;&#34;
+    Grabs a config value for name in directory.
+
+    The other arg&#39;s are more for the `ProviderCache`. They describe the current environment
+    of the current config lookup.
+
+    Side Note: For and overview of the caching process, see
+    [Config Overview - Caching](../config.html#caching)
+
+    Args:
+        name: Name of the config value, ie: `XYNAPI_BASE_URL`.
+        directory: Directory to lookup value in, this is not really used right now by
+            cacher. But it&#39;s used by the other providers. This cacher acts just like
+            a provider and so accepts the parameter.
+        directory_chain: Current directory chain that is being used to lookup value.
+        provider_chain (xcon.provider.ProviderChain): Current provider chain
+            that is being used to lookup value.
+        environ:
+            This is supposed to have the full service and environment name.
+
+            Example Directory Path: `/hubspot/testing`
+
+    Returns:
+        xcon.directory.DirectoryItem: If we have the item, this is it.
+        None: Otherwise we return None indicating we don&#39;t know about it.
+    &#34;&#34;&#34;
+    raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)</code></pre>
+</details>
+<div class="desc"><p>Grabs a config value for name in directory.</p>
+<p>The other arg's are more for the <code>ProviderCache</code>. They describe the current environment
+of the current config lookup.</p>
+<p>Side Note: For and overview of the caching process, see
+<a href="../config.html#caching">Config Overview - Caching</a></p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name of the config value, ie: <code>XYNAPI_BASE_URL</code>.</dd>
+<dt><strong><code>directory</code></strong></dt>
+<dd>Directory to lookup value in, this is not really used right now by
+cacher. But it's used by the other providers. This cacher acts just like
+a provider and so accepts the parameter.</dd>
+<dt><strong><code>directory_chain</code></strong></dt>
+<dd>Current directory chain that is being used to lookup value.</dd>
+<dt><strong><code>provider_chain</code></strong> :&ensp;<code><a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a></code></dt>
+<dd>Current provider chain
+that is being used to lookup value.</dd>
+</dl>
+<p>environ:
+This is supposed to have the full service and environment name.</p>
+<pre><code>Example Directory Path: `/hubspot/testing`
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a></code></dt>
+<dd>If we have the item, this is it.</dd>
+<dt><code>None</code></dt>
+<dd>Otherwise we return None indicating we don't know about it.</dd>
+</dl></div>
+</dd>
+<dt id="xcon.provider.Provider.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_value(
+        self,
+        name: str,
+        directory: Optional[DirectoryOrPath],
+        directory_chain: DirectoryChain,
+        provider_chain: ProviderChain,
+        environ: Directory
+):
+    &#34;&#34;&#34; Gets an item&#39;s value for directory from provider. Return None if not found.
+    &#34;&#34;&#34;
+    item = self.get_item(
+        name=name,
+        directory=directory,
+        directory_chain=directory_chain,
+        provider_chain=provider_chain,
+        environ=environ
+    )
+    return item.value if item else None</code></pre>
+</details>
+<div class="desc"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.log_about_items"><code class="name flex">
+<span>def <span class="ident">log_about_items</span></span>(<span>self, *, items: Iterable[DirectoryItem], path: str, msg_prefix='Retrieved')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def log_about_items(
+    self, *, items: Iterable[DirectoryItem], path: str, msg_prefix=&#39;Retrieved&#39;
+):
+    # We could be called before application has configured it&#39;s logging;
+    # ensure logging has been configured before we log out.
+    # Other-wise log message may never get logged out
+    # (Python defaults to Warning log level).
+
+    # Use cache_range_key if it exists, otherwise use name.
+    # cache_range_key has the name + other uniquely identifying information.
+    names = {f&#39;{v.directory.path}/{v.name}&#39; or v.name for v in items}
+    provider_class = self.__class__.__name__
+    thread_name = threading.current_thread().name
+    extra = dict(
+        msg_prefix=msg_prefix,
+        provider=self.name,
+        provider_class=provider_class,
+        names=names,
+        path=path,
+        thread_name=thread_name,
+    )
+
+    log.info(
+        f&#34;{msg_prefix} values via provider ({self.name}/{provider_class}) &#34;
+        f&#34;for path ({path}), for thread ({thread_name}); see log extra&#39;s for list of all path/names retrieved.&#34;,
+        extra=extra
+    )</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.provider.Provider.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mark_errored_directory(self, directory: Directory):
+    &#34;&#34;&#34; If a directory has an error, this is called. For informational purposes only. &#34;&#34;&#34;
+    self._errored_directories.add(directory)</code></pre>
+</details>
+<div class="desc"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.Provider.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>] | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def retrieved_items_map(
+        self, directory: DirectoryOrPath
+) -&gt; Optional[Mapping[str, DirectoryItem]]:
+    &#34;&#34;&#34; Should return a read-only lower-case item name TO item mapping.
+        You can easily get one of these from a DirectoryList object&#39;s `item_mapping()`.
+
+        If provider has not yet retrieved the listing for the passed-in directory,
+        it should simply pass back None. It&#39;s important to know the difference between
+        a blank retrieval and no-retrieval attempt, so please pass back None in that case!!!
+    &#34;&#34;&#34;
+    raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)</code></pre>
+</details>
+<div class="desc"><p>Should return a read-only lower-case item name TO item mapping.
+You can easily get one of these from a DirectoryList object's <code>item_mapping()</code>.</p>
+<p>If provider has not yet retrieved the listing for the passed-in directory,
+it should simply pass back None. It's important to know the difference between
+a blank retrieval and no-retrieval attempt, so please pass back None in that case!!!</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.provider.ProviderCacher"><code class="flex name class">
+<span>class <span class="ident">ProviderCacher</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProviderCacher(AwsProvider):
+    # See `Provider.is_cacher` for docs.
+    is_cacher = True
+    &#34;&#34;&#34; This is set to True by default for ProviderCacher&#39;s.
+        See `Provider.is_cacher`.
+    &#34;&#34;&#34;
+
+    @abstractmethod
+    def cache_items(
+            self,
+            items: Iterable[DirectoryItem],
+            provider_chain: ProviderChain,
+            directory_chain: DirectoryChain,
+            environ: Directory
+    ):
+        raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)</code></pre>
+</details>
+<div class="desc"><p>AwsProvider is the Base class for Aws-associated config providers.</p>
+<p>There is some aws specific error handing that this class helps with among the
+aws providers.</p>
+<p>This is the Default Doc message, you will want to override this doc-comment in
+any subclasses.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></li>
+<li><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></li>
+<li><a title="xinject.dependency.Dependency" href="../xinject/dependency.html#xinject.dependency.Dependency">Dependency</a></li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="xcon.providers.dynamo.DynamoCacher" href="providers/dynamo.html#xcon.providers.dynamo.DynamoCacher">DynamoCacher</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="xcon.provider.ProviderCacher.botocore_error_ignored_exception"><code class="name">var <span class="ident">botocore_error_ignored_exception</span> : botocore.exceptions.BotoCoreError</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.botocore_error_ignored_exception" href="#xcon.provider.AwsProvider.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code>
+</p>
+<div class="desc inherited"><p>This means that any attempt to communicat with aws service will probably fail;
+probable due to a corrupted or missing aws credentials.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.is_cacher"><code class="name">var <span class="ident">is_cacher</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.is_cacher" href="#xcon.provider.AwsProvider.is_cacher">is_cacher</a></code>
+</p>
+<div class="desc inherited"><p>Easy way to figure out if a provider is a <code><a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a></code> or just a normal provider.
+Should be set to <code>True</code> for provider subclasses that are …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.name" href="#xcon.provider.AwsProvider.name">name</a></code>
+</p>
+<div class="desc inherited"><p>This is the value that will normally be set to the items
+<code><a title="xcon.directory.DirectoryItem.source" href="directory.html#xcon.directory.DirectoryItem.source">DirectoryItem.source</a></code>, also displayed
+when logging out the names of providers …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.needs_directory"><code class="name">var <span class="ident">needs_directory</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.needs_directory" href="#xcon.provider.AwsProvider.needs_directory">needs_directory</a></code>
+</p>
+<div class="desc inherited"><p>By default, providers can't really use a <code>None</code> for a directory when calling <code>get_item()</code>.
+If you CAN work with a None directory then set this to …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.query_before_cache_if_possible"><code class="name">var <span class="ident">query_before_cache_if_possible</span></code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.query_before_cache_if_possible" href="#xcon.provider.AwsProvider.query_before_cache_if_possible">query_before_cache_if_possible</a></code>
+</p>
+<div class="desc inherited"><p>If True, and this is before any other providers that have this set to False, the
+cacher will be consulted AFTER that provider(s). In this way I'll …</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="xcon.provider.ProviderCacher.__init_subclass__"><code class="name flex">
+<span>def <span class="ident">__init_subclass__</span></span>(<span>thread_sharable=Default,<br>attributes_to_skip_while_copying: Iterable[str] | None = Default,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__init_subclass__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__init_subclass__">__init_subclass__</a></code>
+</p>
+<div class="desc inherited"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>thread_sharable</code></strong></dt>
+<dd>If <code>False</code>: While a dependency is lazily auto-created, we will
+ensure we do it per-thread, and not make it visible …</dd>
+</dl></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.grab"><code class="name flex">
+<span>def <span class="ident">grab</span></span>(<span>) ‑> ~T</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.grab" href="../xinject/dependency.html#xcon.provider.AwsProvider.grab">grab</a></code>
+</p>
+<div class="desc inherited"><p>Gets a potentially shared dependency from the current <code>udpend.context.XContext</code> …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.proxy"><code class="name flex">
+<span>def <span class="ident">proxy</span></span>(<span>) ‑> ~R</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.proxy" href="../xinject/dependency.html#xcon.provider.AwsProvider.proxy">proxy</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current object of <code>cls</code> …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.proxy_attribute"><code class="name flex">
+<span>def <span class="ident">proxy_attribute</span></span>(<span>attribute_name: str) ‑> Any</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.proxy_attribute" href="../xinject/dependency.html#xcon.provider.AwsProvider.proxy_attribute">proxy_attribute</a></code>
+</p>
+<div class="desc inherited"><p>Returns a proxy-object, that when and attribute is asked for, it will
+proxy it to the current attribute value on the current object of <code>cls</code> …</p></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.provider.ProviderCacher.obj"><code class="name">var <span class="ident">obj</span> : Self</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.obj" href="../xinject/dependency.html#xcon.provider.AwsProvider.obj">obj</a></code>
+</p>
+<div class="desc inherited"><p>class property/attribute that will return the current dependency for the subclass
+it's asked on by calling <code>Dependency.grab</code>, passing no extra …</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.provider.ProviderCacher.__call__"><code class="name flex">
+<span>def <span class="ident">__call__</span></span>(<span>self, func)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__call__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__call__">__call__</a></code>
+</p>
+<div class="desc inherited"><p>This makes Resource subclasses have an ability to be used as function decorators
+by default unless this method is overriden to provide some other …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.__copy__"><code class="name flex">
+<span>def <span class="ident">__copy__</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.__copy__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__copy__">__copy__</a></code>
+</p>
+<div class="desc inherited"><p>Basic shallow copy protection
+(I am wondering if I should just remove this default copy code) …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.cache_items"><code class="name flex">
+<span>def <span class="ident">cache_items</span></span>(<span>self,<br>items: Iterable[DirectoryItem],<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>directory_chain: DirectoryChain,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@abstractmethod
+def cache_items(
+        self,
+        items: Iterable[DirectoryItem],
+        provider_chain: ProviderChain,
+        directory_chain: DirectoryChain,
+        environ: Directory
+):
+    raise NotImplementedError(f&#34;Need to implement in ({self}).&#34;)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.directory_has_error"><code class="name flex">
+<span>def <span class="ident">directory_has_error</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.directory_has_error" href="#xcon.provider.AwsProvider.directory_has_error">directory_has_error</a></code>
+</p>
+<div class="desc inherited"><p>If a directory had an error in the past, this returns true.
+For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory) ‑> <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a> | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.get_item" href="#xcon.provider.AwsProvider.get_item">get_item</a></code>
+</p>
+<div class="desc inherited"><p>Grabs a config value for name in directory …</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.get_value"><code class="name flex">
+<span>def <span class="ident">get_value</span></span>(<span>self,<br>name: str,<br>directory: Optional[DirectoryOrPath],<br>directory_chain: DirectoryChain,<br>provider_chain: <a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a>,<br>environ: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.get_value" href="#xcon.provider.AwsProvider.get_value">get_value</a></code>
+</p>
+<div class="desc inherited"><p>Gets an item's value for directory from provider. Return None if not found.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.mark_errored_directory"><code class="name flex">
+<span>def <span class="ident">mark_errored_directory</span></span>(<span>self, directory: Directory)</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.mark_errored_directory" href="#xcon.provider.AwsProvider.mark_errored_directory">mark_errored_directory</a></code>
+</p>
+<div class="desc inherited"><p>If a directory has an error, this is called. For informational purposes only.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderCacher.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>] | None</span>
+</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code>.<code><a title="xcon.provider.AwsProvider.retrieved_items_map" href="#xcon.provider.AwsProvider.retrieved_items_map">retrieved_items_map</a></code>
+</p>
+<div class="desc inherited"><p>Should return a read-only lower-case item name TO item mapping.
+You can easily get one of these from a DirectoryList object's <code>item_mapping()</code> …</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="xcon.provider.ProviderChain"><code class="flex name class">
+<span>class <span class="ident">ProviderChain</span></span>
+<span>(</span><span>providers: Iterable[Union[<a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a>, Type[<a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a>]]],<br>have_any_cachable_providers: bool = True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclasses.dataclass(eq=True, frozen=True)
+class ProviderChain:
+    &#34;&#34;&#34; A prioritized list of providers to consult when getting a value.
+    &#34;&#34;&#34;
+    providers: Iterable[Union[Provider, Type[Provider]]] = dataclasses.field(
+        compare=False, repr=False
+    )
+    &#34;&#34;&#34; This will be a tuple of ordered providers.
+        When you create a ProviderChain, you can give it a class or objects.
+
+        It will convert any class types passed in into a proper object for you automatically
+        via the current context [as a resource].
+    &#34;&#34;&#34;
+
+    concatenated_provider_names: str = dataclasses.field(init=False, compare=True)
+    &#34;&#34;&#34; Concatenated list of all of my provider&#39;s `Provider.name` with a pipe `|` in-between.
+
+        Only includes providers that are cachable.
+        Cachable providers are ones assigned to myself after any providers list first that have
+        `Provider.query_before_cache_if_possible` set to True.
+
+        Starting with the first provider in my list has `Provider.query_before_cache_if_possible`
+        set to False (default) we will consider them cachable.
+
+        Normally, the `xcon.providers.environmental.EnvironmentalProvider` provider
+        is the only non-cacheable provider, and normally it&#39;s listed first.
+
+        This means that we will normally not cache values from this EnvironmentalProvider.
+        If the EnvironmentalProvider happens to be after a cachable provider, we will include
+        it as one of the keys in range-key of the items that gets cached into the Dynamo
+        config cache table.
+
+        This is because finding a value in some other provider before looking at
+        EnvironmentalProvider can effect the results since we would not look in the
+        EnvironmentalProvider in that case. As would finding a value in the environmental
+        provider would prevent looking at other providers.
+
+        Therefore it *might* effect the results. Just to be on safe side we use
+        EnvironmentalProvider as one of the range cache keys in this situations.
+
+        But like I said previously, normally the `EnvironmentalProvider` is the first provider
+        and so is not included in the final `concatenated_provider_names` list.
+    &#34;&#34;&#34;
+
+    have_any_cachable_providers: bool = True
+    &#34;&#34;&#34; If any providers have `Provider.query_before_cache_if_possible` set to `False
+        this will be `True`.
+
+        If **all** providers have `Provider.query_before_cache_if_possible` set to `True`
+        then this will set to `False`.
+    &#34;&#34;&#34;
+
+    def __post_init__(self):
+        providers = list()
+        context = XContext.grab()
+        provider_key_names = []
+        query_before_finished = False
+        for p in xloop(self.providers, default_not_iterate=[str]):
+            # Check to see if any of them are classes [and type&#39;s resources needs to be grabbed].
+            if isclass(p):
+                p = context.dependency(p)
+            providers.append(p)
+
+            if not query_before_finished:
+                if p.query_before_cache_if_possible:
+                    continue
+                query_before_finished = True
+            provider_key_names.append(p.name)
+
+        object.__setattr__(self, &#39;providers&#39;, tuple(providers))
+
+        if not query_before_finished:
+            object.__setattr__(self, &#39;have_any_cachable_providers&#39;, False)
+
+        # Pre-calculate a useful field, a concatenated list of the directory paths.
+        provider_names = &#39;|&#39;.join(provider_key_names)
+        object.__setattr__(self, &#39;concatenated_provider_names&#39;, provider_names)
+
+    def _providers_with_cacher(
+            self,
+            directory_chain: DirectoryChain,
+            cacher: Optional[ProviderCacher] = None,
+            environ: Directory = None
+    ) -&gt; Iterable[Provider]:
+        &#34;&#34;&#34; Generator of providers and cacher, as needed. &#34;&#34;&#34;
+        already_used_cache = False
+        for provider in self.providers:
+            if already_used_cache or provider.query_before_cache_if_possible:
+                yield provider
+                continue
+            already_used_cache = True
+            if cacher:
+                yield cacher
+            yield provider
+
+    def get_item(
+        self,
+        name: str,
+        directory_chain: DirectoryChain,
+        cacher: ProviderCacher = None,
+        environ: Directory = None
+    ) -&gt; DirectoryItem:
+        &#34;&#34;&#34;
+        Goes though passed in directory_chain, querying each provider in `DirectoryChain.providers`
+        for a value. If it finds one, that&#39;s what we will return.  Otherwise None.
+
+        We will check with the passed in cacher at the appropriate time as we go though
+        our own providers via `DirectoryChain.providers`.
+
+        If needed we will tell the cacher before we return to cache the values we find.
+        &#34;&#34;&#34;
+        use_cacher = (cacher and environ)
+        items_cache = {}
+        item = None
+        places_checked = []
+
+        for directory in directory_chain.directories:
+            item = None
+            for provider in self._providers_with_cacher(
+                directory_chain=directory_chain, cacher=cacher, environ=environ
+            ):
+                item = provider.get_item(
+                    name=name, directory=directory,
+                    directory_chain=directory_chain,
+                    provider_chain=self,
+                    environ=environ
+                )
+
+                had_error = provider.directory_has_error(directory)
+                if had_error:
+                    result = &#34;error&#34;
+                elif item and item.directory and item.directory.is_non_existent:
+                    result = &#34;found(cached-as-non-existent)&#34;
+                elif item:
+                    result = &#34;found&#34;
+                else:
+                    result = &#34;not-found&#34;
+
+                places_checked.append(
+                    f&#34;{provider.name}:{directory.path} | result={result}&#34;
+                )
+
+                if item is not None:
+                    break
+
+            if use_cacher and item and not item.cacheable:
+                # Optimization: Don&#39;t spend time looking at what cacher could send if our
+                # value is not cacheable [probably an environmental var].
+                use_cacher = False
+
+            # Priority for items is given to directories order, keep what we&#39;ve already got
+            # over the new stuff from a lower-priority directory.
+            #
+            # We do this so we can cache as much as we can at a time, otherwise we would be
+            # caching with many single items with single requests at a time.
+            #
+            # The other option is to have the app/service that uses us use a batch-writer
+            # for the ConfigDynamoTable, which might be better [so we only write exactly what
+            # we need based on what got looked up].
+            #
+            # todo: [see discussion above]
+            #   Consider if we should batch-write the whole time the program is running
+            #   or if we should collect everything we can based on what we current have
+            #   looked up and writing it to cache [only things that have not been in cache
+            #   previously]. But we would need a way to force-write the current batch when
+            #   we are done [think about it].
+            if use_cacher:
+                items_cache = {
+                    **self.retrieved_items_map(directory=directory),
+                    **items_cache
+                }
+
+            if item:
+                break
+
+        # If we did not find the item, create a &#39;nonExistent&#39; item in it&#39;s place.
+        if not item:
+            item = DirectoryItem(None, name, value=None, source=f&#34;/_nonExistent&#34;)
+
+        item.add_supplemental_metadata(&#34;locations_searched&#34;, places_checked)
+
+        if use_cacher and item.cacheable:
+            items_cache[item.name] = item
+            cacher.cache_items(
+                items_cache.values(),
+                provider_chain=self,
+                directory_chain=directory_chain,
+                environ=environ
+            )
+        return item
+
+    def retrieved_items_map(
+            self, directory: DirectoryOrPath
+    ) -&gt; Mapping[str, DirectoryItem]:
+        &#34;&#34;&#34;
+        Will return a read-only lower-case item name TO item mapping by going through each
+        provider in my chain, starting with the highest priority and calling
+        `retrieved_items_map()` on them and collecting the results into a single dict that I&#39;ll
+        return.
+
+        Keep in mind that if a provider has not retrieved anything yet, I&#39;ll stop and return
+        what I have at that point. These providers can be shared with other provider chains
+        and if a lower-priority provider has retrieved their values before a higher-priority, we
+        could end up with the wrong values.  Since I stop at the first provider that has not
+        retrieved the passed in directory yet, we are protected from that possibility.
+        &#34;&#34;&#34;
+        final_map = {}
+        for provider in self.providers:
+            provider_map = provider.retrieved_items_map(directory)
+            if provider_map is None:
+                # We stop when we encounter a provider that has not retrieved
+                # the directory listing yet [safety mechanism, see doc comment above].
+                break
+            # `final_map` is second, so it overrides the `provider_map` dict.
+            final_map = {**provider_map, **final_map}
+        return final_map</code></pre>
+</details>
+<div class="desc"><p>A prioritized list of providers to consult when getting a value.</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xcon.provider.ProviderChain.concatenated_provider_names"><code class="name">var <span class="ident">concatenated_provider_names</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Concatenated list of all of my provider's <code><a title="xcon.provider.Provider.name" href="#xcon.provider.Provider.name">Provider.name</a></code> with a pipe <code>|</code> in-between.</p>
+<p>Only includes providers that are cachable.
+Cachable providers are ones assigned to myself after any providers list first that have
+<code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">Provider.query_before_cache_if_possible</a></code> set to True.</p>
+<p>Starting with the first provider in my list has <code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">Provider.query_before_cache_if_possible</a></code>
+set to False (default) we will consider them cachable.</p>
+<p>Normally, the <code><a title="xcon.providers.environmental.EnvironmentalProvider" href="providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider">EnvironmentalProvider</a></code> provider
+is the only non-cacheable provider, and normally it's listed first.</p>
+<p>This means that we will normally not cache values from this EnvironmentalProvider.
+If the EnvironmentalProvider happens to be after a cachable provider, we will include
+it as one of the keys in range-key of the items that gets cached into the Dynamo
+config cache table.</p>
+<p>This is because finding a value in some other provider before looking at
+EnvironmentalProvider can effect the results since we would not look in the
+EnvironmentalProvider in that case. As would finding a value in the environmental
+provider would prevent looking at other providers.</p>
+<p>Therefore it <em>might</em> effect the results. Just to be on safe side we use
+EnvironmentalProvider as one of the range cache keys in this situations.</p>
+<p>But like I said previously, normally the <code>EnvironmentalProvider</code> is the first provider
+and so is not included in the final <code>concatenated_provider_names</code> list.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderChain.have_any_cachable_providers"><code class="name">var <span class="ident">have_any_cachable_providers</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>If any providers have <code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">Provider.query_before_cache_if_possible</a></code> set to `False
+this will be <code>True</code>.</p>
+<p>If <strong>all</strong> providers have <code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">Provider.query_before_cache_if_possible</a></code> set to <code>True</code>
+then this will set to <code>False</code>.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderChain.providers"><code class="name">var <span class="ident">providers</span> : Iterable[<a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a> | Type[<a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a>]]</code></dt>
+<dd>
+<div class="desc"><p>This will be a tuple of ordered providers.
+When you create a ProviderChain, you can give it a class or objects.</p>
+<p>It will convert any class types passed in into a proper object for you automatically
+via the current context [as a resource].</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xcon.provider.ProviderChain.get_item"><code class="name flex">
+<span>def <span class="ident">get_item</span></span>(<span>self,<br>name: str,<br>directory_chain: DirectoryChain,<br>cacher: <a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a> = None,<br>environ: Directory = None) ‑> <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_item(
+    self,
+    name: str,
+    directory_chain: DirectoryChain,
+    cacher: ProviderCacher = None,
+    environ: Directory = None
+) -&gt; DirectoryItem:
+    &#34;&#34;&#34;
+    Goes though passed in directory_chain, querying each provider in `DirectoryChain.providers`
+    for a value. If it finds one, that&#39;s what we will return.  Otherwise None.
+
+    We will check with the passed in cacher at the appropriate time as we go though
+    our own providers via `DirectoryChain.providers`.
+
+    If needed we will tell the cacher before we return to cache the values we find.
+    &#34;&#34;&#34;
+    use_cacher = (cacher and environ)
+    items_cache = {}
+    item = None
+    places_checked = []
+
+    for directory in directory_chain.directories:
+        item = None
+        for provider in self._providers_with_cacher(
+            directory_chain=directory_chain, cacher=cacher, environ=environ
+        ):
+            item = provider.get_item(
+                name=name, directory=directory,
+                directory_chain=directory_chain,
+                provider_chain=self,
+                environ=environ
+            )
+
+            had_error = provider.directory_has_error(directory)
+            if had_error:
+                result = &#34;error&#34;
+            elif item and item.directory and item.directory.is_non_existent:
+                result = &#34;found(cached-as-non-existent)&#34;
+            elif item:
+                result = &#34;found&#34;
+            else:
+                result = &#34;not-found&#34;
+
+            places_checked.append(
+                f&#34;{provider.name}:{directory.path} | result={result}&#34;
+            )
+
+            if item is not None:
+                break
+
+        if use_cacher and item and not item.cacheable:
+            # Optimization: Don&#39;t spend time looking at what cacher could send if our
+            # value is not cacheable [probably an environmental var].
+            use_cacher = False
+
+        # Priority for items is given to directories order, keep what we&#39;ve already got
+        # over the new stuff from a lower-priority directory.
+        #
+        # We do this so we can cache as much as we can at a time, otherwise we would be
+        # caching with many single items with single requests at a time.
+        #
+        # The other option is to have the app/service that uses us use a batch-writer
+        # for the ConfigDynamoTable, which might be better [so we only write exactly what
+        # we need based on what got looked up].
+        #
+        # todo: [see discussion above]
+        #   Consider if we should batch-write the whole time the program is running
+        #   or if we should collect everything we can based on what we current have
+        #   looked up and writing it to cache [only things that have not been in cache
+        #   previously]. But we would need a way to force-write the current batch when
+        #   we are done [think about it].
+        if use_cacher:
+            items_cache = {
+                **self.retrieved_items_map(directory=directory),
+                **items_cache
+            }
+
+        if item:
+            break
+
+    # If we did not find the item, create a &#39;nonExistent&#39; item in it&#39;s place.
+    if not item:
+        item = DirectoryItem(None, name, value=None, source=f&#34;/_nonExistent&#34;)
+
+    item.add_supplemental_metadata(&#34;locations_searched&#34;, places_checked)
+
+    if use_cacher and item.cacheable:
+        items_cache[item.name] = item
+        cacher.cache_items(
+            items_cache.values(),
+            provider_chain=self,
+            directory_chain=directory_chain,
+            environ=environ
+        )
+    return item</code></pre>
+</details>
+<div class="desc"><p>Goes though passed in directory_chain, querying each provider in <code>DirectoryChain.providers</code>
+for a value. If it finds one, that's what we will return.
+Otherwise None.</p>
+<p>We will check with the passed in cacher at the appropriate time as we go though
+our own providers via <code>DirectoryChain.providers</code>.</p>
+<p>If needed we will tell the cacher before we return to cache the values we find.</p></div>
+</dd>
+<dt id="xcon.provider.ProviderChain.retrieved_items_map"><code class="name flex">
+<span>def <span class="ident">retrieved_items_map</span></span>(<span>self, directory: DirectoryOrPath) ‑> Mapping[str, <a title="xcon.directory.DirectoryItem" href="directory.html#xcon.directory.DirectoryItem">DirectoryItem</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieved_items_map(
+        self, directory: DirectoryOrPath
+) -&gt; Mapping[str, DirectoryItem]:
+    &#34;&#34;&#34;
+    Will return a read-only lower-case item name TO item mapping by going through each
+    provider in my chain, starting with the highest priority and calling
+    `retrieved_items_map()` on them and collecting the results into a single dict that I&#39;ll
+    return.
+
+    Keep in mind that if a provider has not retrieved anything yet, I&#39;ll stop and return
+    what I have at that point. These providers can be shared with other provider chains
+    and if a lower-priority provider has retrieved their values before a higher-priority, we
+    could end up with the wrong values.  Since I stop at the first provider that has not
+    retrieved the passed in directory yet, we are protected from that possibility.
+    &#34;&#34;&#34;
+    final_map = {}
+    for provider in self.providers:
+        provider_map = provider.retrieved_items_map(directory)
+        if provider_map is None:
+            # We stop when we encounter a provider that has not retrieved
+            # the directory listing yet [safety mechanism, see doc comment above].
+            break
+        # `final_map` is second, so it overrides the `provider_map` dict.
+        final_map = {**provider_map, **final_map}
+    return final_map</code></pre>
+</details>
+<div class="desc"><p>Will return a read-only lower-case item name TO item mapping by going through each
+provider in my chain, starting with the highest priority and calling
+<code>retrieved_items_map()</code> on them and collecting the results into a single dict that I'll
+return.</p>
+<p>Keep in mind that if a provider has not retrieved anything yet, I'll stop and return
+what I have at that point. These providers can be shared with other provider chains
+and if a lower-priority provider has retrieved their values before a higher-priority, we
+could end up with the wrong values.
+Since I stop at the first provider that has not
+retrieved the passed in directory yet, we are protected from that possibility.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xcon" href="index.html">xcon</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xcon.provider.AwsProvider" href="#xcon.provider.AwsProvider">AwsProvider</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.provider.AwsProvider.__call__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__call__">__call__</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.__copy__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.__init_subclass__" href="../xinject/dependency.html#xcon.provider.AwsProvider.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.botocore_error_ignored_exception" href="#xcon.provider.AwsProvider.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.directory_has_error" href="#xcon.provider.AwsProvider.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.get_item" href="#xcon.provider.AwsProvider.get_item">get_item</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.get_value" href="#xcon.provider.AwsProvider.get_value">get_value</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.grab" href="../xinject/dependency.html#xcon.provider.AwsProvider.grab">grab</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.is_cacher" href="#xcon.provider.AwsProvider.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.local_cache" href="#xcon.provider.AwsProvider.local_cache">local_cache</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.mark_errored_directory" href="#xcon.provider.AwsProvider.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.name" href="#xcon.provider.AwsProvider.name">name</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.needs_directory" href="#xcon.provider.AwsProvider.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.obj" href="../xinject/dependency.html#xcon.provider.AwsProvider.obj">obj</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.proxy" href="../xinject/dependency.html#xcon.provider.AwsProvider.proxy">proxy</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.proxy_attribute" href="../xinject/dependency.html#xcon.provider.AwsProvider.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.query_before_cache_if_possible" href="#xcon.provider.AwsProvider.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.provider.AwsProvider.retrieved_items_map" href="#xcon.provider.AwsProvider.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.provider.InternalLocalProviderCache" href="#xcon.provider.InternalLocalProviderCache">InternalLocalProviderCache</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.provider.InternalLocalProviderCache.__call__" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.__call__">__call__</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.__copy__" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.__init_subclass__" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.expire_cache_if_needed" href="#xcon.provider.InternalLocalProviderCache.expire_cache_if_needed">expire_cache_if_needed</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.expire_time_delta" href="#xcon.provider.InternalLocalProviderCache.expire_time_delta">expire_time_delta</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.get_cache_for_provider" href="#xcon.provider.InternalLocalProviderCache.get_cache_for_provider">get_cache_for_provider</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.grab" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.grab">grab</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.obj" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.obj">obj</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.proxy" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.proxy">proxy</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.proxy_attribute" href="../xinject/dependency.html#xcon.provider.InternalLocalProviderCache.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.reset_cache" href="#xcon.provider.InternalLocalProviderCache.reset_cache">reset_cache</a></code></li>
+<li><code><a title="xcon.provider.InternalLocalProviderCache.set_cache_for_provider" href="#xcon.provider.InternalLocalProviderCache.set_cache_for_provider">set_cache_for_provider</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.provider.Provider" href="#xcon.provider.Provider">Provider</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.provider.Provider.__call__" href="../xinject/dependency.html#xcon.provider.Provider.__call__">__call__</a></code></li>
+<li><code><a title="xcon.provider.Provider.__copy__" href="../xinject/dependency.html#xcon.provider.Provider.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.provider.Provider.__init_subclass__" href="../xinject/dependency.html#xcon.provider.Provider.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.provider.Provider.directory_has_error" href="#xcon.provider.Provider.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.provider.Provider.get_item" href="#xcon.provider.Provider.get_item">get_item</a></code></li>
+<li><code><a title="xcon.provider.Provider.get_value" href="#xcon.provider.Provider.get_value">get_value</a></code></li>
+<li><code><a title="xcon.provider.Provider.grab" href="../xinject/dependency.html#xcon.provider.Provider.grab">grab</a></code></li>
+<li><code><a title="xcon.provider.Provider.is_cacher" href="#xcon.provider.Provider.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.provider.Provider.log_about_items" href="#xcon.provider.Provider.log_about_items">log_about_items</a></code></li>
+<li><code><a title="xcon.provider.Provider.mark_errored_directory" href="#xcon.provider.Provider.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.provider.Provider.name" href="#xcon.provider.Provider.name">name</a></code></li>
+<li><code><a title="xcon.provider.Provider.needs_directory" href="#xcon.provider.Provider.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.provider.Provider.obj" href="../xinject/dependency.html#xcon.provider.Provider.obj">obj</a></code></li>
+<li><code><a title="xcon.provider.Provider.proxy" href="../xinject/dependency.html#xcon.provider.Provider.proxy">proxy</a></code></li>
+<li><code><a title="xcon.provider.Provider.proxy_attribute" href="../xinject/dependency.html#xcon.provider.Provider.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.provider.Provider.query_before_cache_if_possible" href="#xcon.provider.Provider.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.provider.Provider.retrieved_items_map" href="#xcon.provider.Provider.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.provider.ProviderCacher" href="#xcon.provider.ProviderCacher">ProviderCacher</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.provider.ProviderCacher.__call__" href="../xinject/dependency.html#xcon.provider.ProviderCacher.__call__">__call__</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.__copy__" href="../xinject/dependency.html#xcon.provider.ProviderCacher.__copy__">__copy__</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.__init_subclass__" href="../xinject/dependency.html#xcon.provider.ProviderCacher.__init_subclass__">__init_subclass__</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.botocore_error_ignored_exception" href="#xcon.provider.ProviderCacher.botocore_error_ignored_exception">botocore_error_ignored_exception</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.cache_items" href="#xcon.provider.ProviderCacher.cache_items">cache_items</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.directory_has_error" href="#xcon.provider.ProviderCacher.directory_has_error">directory_has_error</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.get_item" href="#xcon.provider.ProviderCacher.get_item">get_item</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.get_value" href="#xcon.provider.ProviderCacher.get_value">get_value</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.grab" href="../xinject/dependency.html#xcon.provider.ProviderCacher.grab">grab</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.is_cacher" href="#xcon.provider.ProviderCacher.is_cacher">is_cacher</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.mark_errored_directory" href="#xcon.provider.ProviderCacher.mark_errored_directory">mark_errored_directory</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.name" href="#xcon.provider.ProviderCacher.name">name</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.needs_directory" href="#xcon.provider.ProviderCacher.needs_directory">needs_directory</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.obj" href="../xinject/dependency.html#xcon.provider.ProviderCacher.obj">obj</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.proxy" href="../xinject/dependency.html#xcon.provider.ProviderCacher.proxy">proxy</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.proxy_attribute" href="../xinject/dependency.html#xcon.provider.ProviderCacher.proxy_attribute">proxy_attribute</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.query_before_cache_if_possible" href="#xcon.provider.ProviderCacher.query_before_cache_if_possible">query_before_cache_if_possible</a></code></li>
+<li><code><a title="xcon.provider.ProviderCacher.retrieved_items_map" href="#xcon.provider.ProviderCacher.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="xcon.provider.ProviderChain" href="#xcon.provider.ProviderChain">ProviderChain</a></code></h4>
+<ul class="">
+<li><code><a title="xcon.provider.ProviderChain.concatenated_provider_names" href="#xcon.provider.ProviderChain.concatenated_provider_names">concatenated_provider_names</a></code></li>
+<li><code><a title="xcon.provider.ProviderChain.get_item" href="#xcon.provider.ProviderChain.get_item">get_item</a></code></li>
+<li><code><a title="xcon.provider.ProviderChain.have_any_cachable_providers" href="#xcon.provider.ProviderChain.have_any_cachable_providers">have_any_cachable_providers</a></code></li>
+<li><code><a title="xcon.provider.ProviderChain.providers" href="#xcon.provider.ProviderChain.providers">providers</a></code></li>
+<li><code><a title="xcon.provider.ProviderChain.retrieved_items_map" href="#xcon.provider.ProviderChain.retrieved_items_map">retrieved_items_map</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
