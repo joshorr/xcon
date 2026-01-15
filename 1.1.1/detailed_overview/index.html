@@ -1,0 +1,2199 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../changelog/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Detailed Overview - Docs for xcon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Docs for xcon" class="md-header__button md-logo" aria-label="Docs for xcon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs for xcon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Detailed Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Docs for xcon" class="md-nav__button md-logo" aria-label="Docs for xcon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Docs for xcon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    xcon
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            xcon
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Detailed Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Detailed Overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historical-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical Background
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-environment-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service/Environment Names
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service/Environment Names">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-lookup-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Lookup Order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-directory-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Directory Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Directory Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details / Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details / Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configs-are-cheap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configs are Cheap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-order_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Order
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parent Chain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parent Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-constructed" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it's constructed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider Chain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provider Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Providers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-local-memory-cacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Local Memory Cacher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Local Memory Cacher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-memory-caching-side-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Memory Caching Side Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamocacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoCacher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-default-dynamo-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Default Dynamo Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-cache-non-environmental-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Cache + Non-Environmental Providers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overrides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/xcon/" target="_blank" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historical-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical Background
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-environment-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service/Environment Names
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service/Environment Names">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-lookup-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Lookup Order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-directory-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Directory Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Directory Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exports
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details / Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details / Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configs-are-cheap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configs are Cheap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-order_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Order
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Search Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parent-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parent Chain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parent Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-its-constructed" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it's constructed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provider-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider Chain
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Provider Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Providers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Chain
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-local-memory-cacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal Local Memory Cacher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal Local Memory Cacher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-memory-caching-side-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Memory Caching Side Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamocacher" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoCacher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-default-dynamo-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Default Dynamo Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-cache-non-environmental-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Cache + Non-Environmental Providers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overrides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defaults
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<details class="warning" open="open">
+<summary>Docs not finished and are out of date!</summary>
+<p>This Detailed Overview document is particular out of date, and needs a lot of updating.
+Please take what's in here with a grain of salt, so to speak.
+It will be fixed up soon.</p>
+<p>This is pre-release software, based on another code base and the docs
+have not yet been completely finished/changed to accommodate the changes
+made to clean aspects of it.</p>
+<p>For now, if you see refrences/names to things that don't exist
+or have slightly different names in code, just beware of the situation.</p>
+<p>Thank you for your support while the code base transitions to being open-source!</p>
+</details>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>xcon's goal as a library is to simplify/abstract configuration lookup for our various
+processors and services.</p>
+<h3 id="historical-background">Historical Background<a class="headerlink" href="#historical-background" title="Permanent link">&para;</a></h3>
+<p>When we first started trying to get configuration from SSM dynamically,
+we ran into a few issues.</p>
+<p>We used a 3rd party library that helped us lookup vars based on paths in SSM.</p>
+<p>It was slow because it looked up each config var separately, for each potential path.</p>
+<p>We also got throttled by AWS. If you do to many calls to SSM you can be throttled,
+and you get back an error instead of the configuration value.</p>
+<p>We also wanted to more easily work with other services in the future,
+in a way that did not tie them to the codebase. The idea is we can switch and/or use
+additional services in the future and the rest of the codebase does not have to change.</p>
+<p>We decided back then to write up a Config class to solve all these issues.
+We were able to speed up the queries to the services, and cache things to help prevent throttling,
+and cache the results in dynamo to make it even faster and more resilient against throttling.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<p>We have a few basic/general concepts in xcon that you should be familiar with
+when working with the library.</p>
+<p>Below is a sort of summary / outline of the basic general concepts, with links
+to more details.</p>
+<p>The top level of the below list is the concepts, with some basic info as sub-list items,
+followed by a link to more details.</p>
+<ul>
+<li>Providers<ul>
+<li>There are a number of providers, and we expect to add more as needed over time.</li>
+<li>Each represents a service and/or place that xcon can retrieve config values/info from.<ul>
+<li>Each one can provider some or all of the configuration information that is needed.</li>
+</ul>
+</li>
+<li>example of providers include, but are not limited to:<ul>
+<li>Environmental variables</li>
+<li>AWS Secrets Manager</li>
+<li>AWS SSM param store</li>
+</ul>
+</li>
+<li>For details see:<ul>
+<li><a href="#provider-chain">Provider Chain</a></li>
+<li><a href="#supported-providers">Supported Providers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Directories<ul>
+<li>Basically, paths used with providers to lookup configuration information in.</li>
+<li>example: '/myService/prod/'</li>
+<li>Each path is used with each provider, to ask provider for config values at a specific path.</li>
+<li>Some providers ignore directory paths, such as the environmental variable provider.</li>
+<li>In the service the provider is connecting to, the directory could have any number of keys 
+(config variable name) along with the key's associated value.</li>
+<li>For more info see (Standard Directory Paths)(#standard-directory-paths)</li>
+<li>For details see <a href="#directory-chain">Directory Chain</a></li>
+</ul>
+</li>
+<li>Grabbing Values<ul>
+<li>Simply ask a config object for a value via upper-case attribute:</li>
+<li><code>config.CLIENT_ID</code></li>
+<li>Or use <code>get</code> method <code>xcon.config.Config.get</code>.</li>
+<li>get method lets you pass in a default value, just like <code>dict.get</code>.</li>
+</ul>
+</li>
+<li>Current Config / Resources<ul>
+<li>There is a concept that there is a 'current/active' default config object that can be used
+at any time.</li>
+<li>This is accomplished via xinject library (see <code>xinject</code>).</li>
+<li>You can get the current config object via <code>Config.grab()</code>.</li>
+<li>There is a convenient proxy config object you can use that represents the current Config object.</li>
+<li>The proxy can be used as if it's the current config object.</li>
+<li>Below you see us importing the config proxy and then using it to get a value:</li>
+<li><code>from xcon import config</code></li>
+<li><code>config.get('some_config_var_name')</code></li>
+<li>For details see <a href="#current-config">Current Config</a></li>
+</ul>
+</li>
+<li>Parents<ul>
+<li>When you activate a new Config object, the current one is its parent.</li>
+<li>With the activated one being the 'current' and the old one being a parent.</li>
+<li>You can use <code>with</code> to activate a Config object.</li>
+<li>Here is how you might temporarily change the providers to use by default:<ul>
+<li><code>with Config(providers=[...]):</code></li>
+</ul>
+</li>
+<li>Each Config object knows about their parent.</li>
+<li>Parent is consulted when resolving defaults/overrides.</li>
+<li>There is an app-root Config object that is shared between threads.</li>
+<li>You can turn off this parent-lookup behavior if needed, but by default it's on.</li>
+<li>If desired, you can create a Config object and pass it around instead of using the 'current'.<ul>
+<li>It's usually more convenient to just use the current/default config.</li>
+</ul>
+</li>
+<li>For details see <a href="#parent-chain">Parent Chain</a>.</li>
+</ul>
+</li>
+<li>Overrides<ul>
+<li>Some overrides can happen as part of <code>xcon.config.Config.__init__</code>.</li>
+<li>Such as <code>service</code>, <code>environment</code>, <code>providers</code>, etc.</li>
+<li>You can also change them after Config object is created via attributes.</li>
+<li>For normal configuration values, you can override thoese as well.</li>
+<li><code>config.CLIENT_ID = 'override-client-id-value</code></li>
+<li>Parent config objects are consulted when checking for overrides.</li>
+<li>If there is an overrided, first one found is what it used.</li>
+<li>For details see <a href="#overrides">Overrides</a>.</li>
+</ul>
+</li>
+<li>Caching<ul>
+<li>Dynamo is used to temporarily cache discovered configuration values.</li>
+<li>Table's name is <code>global-all-configCache</code>.</li>
+<li>This makes startup of things like lambdas on average faster, as most of the time the cache will
+tell them everything they need in one request.</li>
+<li>Prevents throttling as we don't have to ask SSM for values as often.</li>
+<li>This was one of the original motivating factors for creating the library.</li>
+<li>Also, lets you see what configuration values are currently resolved for a service.</li>
+<li>Developer and simply look in the table, see what values are being resolved.</li>
+<li>For details see <a href="#caching">Caching</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="service-environment-names">Service/Environment Names<a class="headerlink" href="#service-environment-names" title="Permanent link">&para;</a></h3>
+<p>There are two special variables that <code>xcon.config.Config</code> treats special:</p>
+<ol>
+<li><code>Config.SERVICE_NAME</code><ul>
+<li>Normally comes from an environmental variable <code>SERVICE_NAME</code>.</li>
+<li>This is typically the name of the app.</li>
+<li>We normally <code>camelCase</code> these (see <a class="autorefs autorefs-internal" title="Naming Guidelines" href="#naming-guidelines">Naming Rules</a> for details).</li>
+</ul>
+</li>
+<li><code>Config.APP_ENV</code><ul>
+<li>Normally comes from an environmental variable <code>APP_ENV</code>.</li>
+<li>This is the name of the environment.</li>
+<li>Standard environments:<ul>
+<li>prod</li>
+<li>testing</li>
+<li>dev</li>
+</ul>
+</li>
+<li>An individual developer can use their name, such as <code>joshOrr</code>.</li>
+<li>We normally <code>camelCase</code> these (see <a class="autorefs autorefs-internal" title="Naming Guidelines" href="#naming-guidelines">Naming Rules</a> for details).</li>
+</ul>
+</li>
+</ol>
+<details class="warning" open="open">
+<summary>New projects should set these two ^ variables to an appropriate value</summary>
+<p>either via environmental variable or by setting it directly on the main/current <code>config</code>
+at the very start of the app's
+launch before doing anything else to ensure it's known/used while importing/using other code.</p>
+</details>
+<details class="important" open="open">
+<summary>For these two ^ special values, <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> skips the normal <a href="#provider-chain">Provider Chain</a>.</summary>
+</details>
+<h4 id="search-order">Search Order<a class="headerlink" href="#search-order" title="Permanent link">&para;</a></h4>
+<p>Config will only look in these locations for the special variables
+<code>Config.SERVICE_NAME</code> and <code>Config.APP_ENV</code>:</p>
+<ol>
+<li>First, [Overrides] (including and any overrides in the <a href="#parent-chain">Parent Chain</a>).</li>
+<li>Environmental variables next (directly via <code>os.getenv</code>, NOT the provider).<ul>
+<li><strong>This is how most projects normally do it.</strong></li>
+<li>Even if the <a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a> is <strong>NOT</strong> in the
+  <a href="#provider-chain">Provider Chain</a> we will still look for <code>SERVICE_NAME</code>/<code>APP_ENV</code> in the
+  environmental variables (all other config values would not).</li>
+</ul>
+</li>
+<li><a href="#defaults">Defaults</a> last (including any defaults in the <a href="#parent-chain">Parent Chain</a>).</li>
+</ol>
+<h3 id="quick-examples">Quick Examples<a class="headerlink" href="#quick-examples" title="Permanent link">&para;</a></h3>
+<p>Let's start with a very simple example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Import the default config object, which is an &#39;alias&#39; to the</span>
+<span class="c1"># currently active config object.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+
+<span class="c1"># Get a value from the currently active config object, this special</span>
+<span class="c1"># config object will always lookup the currently active config object</span>
+<span class="c1"># and let you use it as if it was the real object.</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_CONFIG_VALUE</span>
+</code></pre></div></td></tr></table></div>
+<p>This will look up the current <code>xcon.config.Config</code> class and ask it for the
+<code>SOME_CONFIG_VALUE</code> value. It will either give you the value or a None if it does not exist.</p>
+<p>The general idea is: The underlying 'app/service' setup will provide the properly setup 
+ready-to-use <code>xcon.config.Config</code> as a resource (<code>xinject.dependency.Dependency</code>).
+So you can just import this special <code>xcon.config.config</code> variable to easily always
+use current <code>xcon.config.Config.current</code> resource.</p>
+<h3 id="naming-guidelines">Naming Guidelines<a class="headerlink" href="#naming-guidelines" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Config.SERVICE_NAME</code> and <code>Config.APP_ENV</code> values should be named with no spaces but using
+  <code>camelCase</code> to separate any words.</li>
+<li>Alternatively, you can also use under-scores (<code>_</code>) as word separators; but the preference 
+  is <code>camelCase</code>.</li>
+<li>We use the <code>-</code> to separate names from other names in a single string for services that can't
+  use <code>/</code> in a resource name (such as Dynamo table names). So definitely <strong>don't</strong> use <code>-</code> inside
+  the <code>SERVICE_NAME</code>.</li>
+<li>In order to get/set a config value via <code>config.SOME_NAME</code>, the first character must be an upper-case
+  letter. If you need to look up a config value that starts with some other character, use
+  <code>Config.get</code> or <code>Config.set_override</code>.</li>
+<li>Config names are case <strong>insensitive</strong> <ul>
+<li>example: If we want the SERVICE_NAME, you could get the
+  value via <code>config.SERVICE_NAME</code> or <code>config.Service_Name</code>, it would return the same value).</li>
+<li>By convention, we always upper case
+  them in code and generally lower-case them in the various aws providers.</li>
+</ul>
+</li>
+<li>Directory paths are case <strong>sensitive</strong> (see <a href="#standard-directory-paths">Directory Paths</a>);
+  like this: <code>/myCoolService/joshOrrEnv/...</code>.<ul>
+<li>The service name and env name that make up the <code>xcon.directory.Directory.path</code>
+  is case-sensitive. But the part after that for the config name is <strong>NOT</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="standard-lookup-order">Standard Lookup Order<a class="headerlink" href="#standard-lookup-order" title="Permanent link">&para;</a></h3>
+<p>By Default, Config will look at the following locations by default
+(see <a href="#provider-chain">Provider Chain</a> for details):</p>
+<ol>
+<li>Config <a href="#overrides">Overrides</a></li>
+<li>Environmental Variables<ul>
+<li>via <a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a>.</li>
+</ul>
+</li>
+<li>Dynamo flat config cache, Details:<ul>
+<li><a class="autorefs autorefs-internal" href="../#caching">Info About Caching</a></li>
+<li>via <a href="../api/xcon/dynamo.html#xcon.providers.dynamo.DynamoCacher" target="_blank"><code>xcon.providers.dynamo.DynamoCacher</code></a></li>
+</ul>
+</li>
+<li>AWS Secrets Provider via <a href="../api/xcon/providers/secrets_manager.html#xcon.providers.secrets_manager.SecretsManagerProvider" target="_blank"><code>xcon.providers.secrets_manager.SecretsManagerProvider</code></a>.</li>
+<li>AWS SSM Param Store via <a href="../api/xcon/providers/ssm_param_store.html#xcon.providers.ssm_param_store.SsmParamStoreProvider" target="_blank"><code>xcon.providers.ssm_param_store.SsmParamStoreProvider</code></a>.</li>
+<li>Config <a href="#defaults">Defaults</a></li>
+</ol>
+<h2 id="standard-directory-paths">Standard Directory Paths<a class="headerlink" href="#standard-directory-paths" title="Permanent link">&para;</a></h2>
+<p>Most of the providers have a 'path' you can use with them. I call the path up until just
+before the config variable name a directory (see <code>xcon.directory.Directory</code>).</p>
+<p>If no <code>Config.SERVICE_NAME</code> has been provided or is set to <code>None</code>
+(either from a lack of an environmental variable <code>SERVICE_NAME</code>, or via
+<a href="#overrides">override</a> or <a href="#defaults">default</a>) then we can't use paths that need this value.</p>
+<p>At that point, the <code>Default</code> Directories searched are these
+(see <a href="#directory-chain">Directory Chain</a>; changeable via <code>Config.directories</code>):</p>
+<ol>
+<li><code>/global/{APP_ENV}</code></li>
+<li><code>/global</code></li>
+</ol>
+<p>If there is a <code>Config.SERVICE_NAME</code> value available, then we will add two extra directories by
+<code>Default</code> to the <a href="#directory-chain">Directory Chain</a>:</p>
+<ol>
+<li><code>/{APP_NAME}/{APP_ENV}</code></li>
+<li><code>/{APP_NAME}/</code></li>
+<li><code>/global/{APP_ENV}</code></li>
+<li><code>/global/</code></li>
+</ol>
+<p>If the <code>Config.APP_ENV</code> is not configured, it defaults to <code>dev</code> at the moment.</p>
+<p>As soon as something provides the <code>APP_ENV</code> and/or <code>SERVICE_NAME</code> to the config by setting
+it directly as an override or as a default (or if something changes the app environmental 
+variables directly, I dislike doing that for a number of reasons though) it will start 
+immediately using the full directory paths, ie: <code>/{APP_NAME}/{app_env}</code>, etc.</p>
+<p>The <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> class is more dynamic... you can think of it as more of a 'view' or 'lens', so
+<a href="#configs-are-cheap">Configs Are Cheap</a>.</p>
+<p>So this "view" and/or "lens" can now be easily changed.  You can do an override like this:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="n">config</span><span class="o">.</span><span class="n">SERVICE_NAME</span> <span class="o">=</span> <span class="s2">&quot;someServiceName&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Or set a default (if it can't find the value anywhere else):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set_default</span><span class="p">(</span><span class="s2">&quot;service_name&quot;</span><span class="p">,</span> <span class="s2">&quot;someServiceName&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>By default, [overrides] and <a href="#defaults">defaults</a> are inherited from the <a href="#parent-chain">Parent Chain</a>.</p>
+<h3 id="exports">Exports<a class="headerlink" href="#exports" title="Permanent link">&para;</a></h3>
+<details class="note" open="open">
+<summary>This is something we have not really utilized yet</summary>
+<p>Config supports it, but we don't really use this feature anywhere currently.</p>
+</details>
+<p>Services/Apps can export values to other apps/services. The standard location for them are:</p>
+<ul>
+<li><code>/{OtherApp's--&gt;SERVICE_NAME}/export/{APP_ENV}</code></li>
+</ul>
+<p>You can add them via <code>Config.add_export</code> to let a config object search that export path
+last (after all other normal directory paths).</p>
+<h1 id="details-reference">Details / Reference<a class="headerlink" href="#details-reference" title="Permanent link">&para;</a></h1>
+<p>Provides the basic <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> class, which is used to provide a basic interface to get config values.</p>
+<h2 id="configs-are-cheap">Configs are Cheap<a class="headerlink" href="#configs-are-cheap" title="Permanent link">&para;</a></h2>
+<p>Before we continue, I want to emphasize something. <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> is more of a "view" or a "lens" then
+something that directly keeps configuration values.  There are a number of resources that
+Config uses to get configuration values behind the scenes that the Config objects share.
+Because of this Config objects are cheap to create and throw away.</p>
+<p>So if you want to change some aspect of Config's
+configuration, without effecting the rest of the app by changing the main/default/current
+config you can always allocate a Config object anytime you want and just throw it away whenever
+you want.</p>
+<p>Here is a code example that creates a <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> object where the first directory
+checked is <code>/some/dir_path</code> followed by whatever the Default would normally
+be. I then askes it for <code>SOME_NAME</code>. It's prefectly fine to do this, the Config object will
+still be very fast, as the resources it uses behind the scenes stay allocated and will already
+have the value for <code>SOME_NAME</code> if it's been asked for previously.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xsentinels</span><span class="w"> </span><span class="kn">import</span> <span class="n">Default</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_function_is_called_a_lot</span><span class="p">():</span>
+    <span class="n">my_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">directories</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;/some/dir_path&quot;</span><span class="p">,</span> <span class="n">Default</span><span class="p">])</span>
+    <span class="n">the_value_I_want</span> <span class="o">=</span> <span class="n">my_config</span><span class="o">.</span><span class="n">SOME_NAME</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="current-config">Current Config<a class="headerlink" href="#current-config" title="Permanent link">&para;</a></h2>
+<p>The Config class is a xinject, <code>xinject.dependency.Dependency</code>;
+meaning that there is a concept that there is a 'current' or 'default' Config object
+that can always be used.</p>
+<p>You can get it your self easily anywhere asking <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> for it's <code>.grab()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Import Config class</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+
+<span class="c1"># Ask Config class for the current one.</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Most of the time, it's more convenient to use a special ActiveResourceProxy object that you can
+import and use directly. You can use it as if it's the current config object:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+
+<span class="c1"># Use it as if it&#39;s the current/default config object,</span>
+<span class="c1"># it will proxy what you ask it to the real object</span>
+<span class="c1"># and return the result:</span>
+<span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SOME_CONFIG_NAME&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h2>
+<p>We have a list of <code>xcon.provider.Provider</code> that we query, in a priority order.
+We also have a list of <code>xcon.directory.Directory</code> in priority order as well
+(see <a href="#provider-chain">Provider Chain</a> and <a href="#directory-chain">Directory Chain</a>).</p>
+<p>For each directory, we ask each provider for
+that directories value for a particular config-var name.</p>
+<p>You can allocate a new <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a>() object at any time, and by default [unless you pass
+other options into the <strong>init</strong>], it will used a set of shared resources from the
+current context. Due to this, creating a Config object is normally very quick.
+Especially since the config object will lazily setup most of the internal resources
+on demand when it's needed [ie: someone asks for a config var of some sort]. If a previous
+Config object was created in the past, most of these resources will already be setup
+and be fast to retrieve.</p>
+<p>You can use <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> as if the config-var is directly on the object:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">SOME_VAR</span>
+</code></pre></div></td></tr></table></div></p>
+<p>There is also a <code>DefaultConfig</code> object that's pre-created and always available at
+<code>config</code>. You can use it just like a normal Config object; every time
+it's used it will lookup the current config object and direct the retrieval to it.</p>
+<p>Here is an example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_VAR</span>
+</code></pre></div></td></tr></table></div></p>
+<p>This is equivalent of doing <code>Config.current().SOME_VAR</code>. You can call any method
+you want on config that Config supports as well:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SOME_VAR&quot;</span><span class="p">,</span> <span class="s2">&quot;some default value&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="search-order_1">Search Order<a class="headerlink" href="#search-order_1" title="Permanent link">&para;</a></h2>
+<p>Here is the order we check things in when retrieving a value:</p>
+<ol>
+<li><a href="#overrides">Overrides</a> - Value is set directly on <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> or one of Config's parent(s).<ul>
+<li>For more details about parents, see <a href="#parent-chain">Parent Chain</a>.</li>
+</ul>
+</li>
+<li><a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a> first if that provider is
+   configured to be used. We don't cache  things from the envirometnal provider, so it's always
+   consutled before the cache. See topic <a href="#provider-chain">Provider Chain</a> or the
+   <code>xcon.provider.ProviderChain</code> class for more details.</li>
+<li>High-Level flattened cache if it was not disabled (see <a class="autorefs autorefs-internal" href="../#caching">Caching</a>).</li>
+<li>All other <a href="#provider-chain">Providers</a> / <a href="#directory-chain">Directories</a><ul>
+<li>Looked up based first on <a href="#directory-chain">Directory Order</a></li>
+<li>Second by <a href="#provider-chain">Provider Order</a>.</li>
+<li>That is, we go though each provider for the first directory; if value still not found
+   we go though each provider using the second directory, and so on.</li>
+</ul>
+</li>
+<li><a href="#defaults">Defaults</a> - Finally, if value still has not been found we look at the defaults
+    provided to <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> or Config's parent (see <a href="#parent-chain">Parent Chain</a>).</li>
+</ol>
+<h3 id="code-examples">Code Examples<a class="headerlink" href="#code-examples" title="Permanent link">&para;</a></h3>
+<p>Basic, average/normal example:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+
+<span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">APP_ENV</span> <span class="o">==</span> <span class="s2">&quot;testing&quot;</span>
+
+<span class="c1"># provider order is:</span>
+<span class="c1">#    DynamoProvider</span>
+<span class="c1">#    SsmProvider</span>
+
+<span class="c1"># directories to search are:</span>
+<span class="c1">#    &quot;/global/testing&quot;</span>
+<span class="c1">#    &quot;/global&quot;</span>
+
+<span class="c1"># values:</span>
+<span class="c1">#    ssm has: &quot;/global/testing/SOME_NAME&quot; = &quot;SSM-V-1&quot;</span>
+<span class="c1">#    dynamo has: &quot;/global/SOME_NAME&quot; = &quot;Dynamo-V-1&quot;</span>
+
+<span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;SSM-V-1&quot;</span>
+
+<span class="c1"># If we instead have:</span>
+<span class="c1">#    ssm has: &quot;/global/testing/SOME_NAME&quot; = &quot;SSM-V-1&quot;</span>
+<span class="c1">#    dynamo has: &quot;/global/SOME_NAME&quot; = &quot;Dynamo-V-1&quot;</span>
+<span class="c1">#    dynamo has: &quot;/global/testing/SOME_NAME&quot; = &quot;Dynamo-V-2&quot;</span>
+
+<span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;Dynamo-V-2&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Here is an example of setting and using an override:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+
+<span class="c1"># if we have values:</span>
+<span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">=</span> <span class="s2">&quot;some parent value&quot;</span>
+
+<span class="c1"># We get this:</span>
+<span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;some parent value&quot;</span>
+
+<span class="c1"># If instead we have these values:</span>
+<span class="n">config</span><span class="o">.</span><span class="n">SOME_OTHER_NAME</span> <span class="o">=</span> <span class="s2">&quot;parent-other-value&quot;</span>
+
+<span class="k">with</span> <span class="n">Config</span><span class="p">():</span>
+    <span class="c1"># And this:</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">=</span> <span class="s2">&quot;child-value&quot;</span>
+
+    <span class="c1"># We would get this:</span>
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_OTHER_NAME</span> <span class="o">==</span> <span class="s2">&quot;parent-other-value&quot;</span>
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;child-value&quot;</span>
+
+<span class="c1"># Since the child-context is no longer the current one, we revert back to previous:</span>
+<span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;some parent value&quot;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Example of using defaults.</p>
+<p>I am using a more complex example here, to illustrate how parents and defaults work:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">config</span>
+
+<span class="c1"># If we have these defaults in the &#39;parent&#39; config:</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set_default</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SOME_OTHER_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;parent-default-value&quot;</span><span class="p">)</span>
+<span class="n">config</span><span class="o">.</span><span class="n">set_default</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ANOTHER_NAME&quot;</span><span class="p">,</span><span class="s2">&quot;parent-default-another-v&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a new child Config objects with different defaults:</span>
+<span class="k">with</span> <span class="n">Config</span><span class="p">(</span><span class="n">defaults</span><span class="o">=</span><span class="p">{</span>
+    <span class="sa">f</span><span class="s1">&#39;SOME_OTHER_NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;default-other-value&#39;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s1">&#39;SOME_NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;default-value&#39;</span>
+<span class="p">}):</span>
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">APP_ENV</span> <span class="o">==</span> <span class="s2">&quot;testing&quot;</span>
+
+    <span class="c1"># provider-chain has this in order:</span>
+    <span class="c1">#    DynamoProvider</span>
+    <span class="c1">#    SsmProvider</span>
+
+    <span class="c1"># directory-chain contains this in order:</span>
+    <span class="c1">#    &quot;/global/testing&quot;</span>
+    <span class="c1">#    &quot;/global&quot;</span>
+
+    <span class="c1"># values:</span>
+    <span class="c1">#    ssm has: &quot;/global/testing/SOME_NAME&quot; = &quot;SSM-V-1&quot;</span>
+    <span class="c1">#    dynamo has: &quot;/global/SOME_NAME&quot; = &quot;Dynamo-V-1&quot;</span>
+
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_OTHER_NAME</span> <span class="o">==</span> <span class="s2">&quot;default-other-value&quot;</span>
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">SOME_NAME</span> <span class="o">==</span> <span class="s2">&quot;SSM-V-1&quot;</span>
+    <span class="k">assert</span> <span class="n">config</span><span class="o">.</span><span class="n">ANOTHER_NAME</span> <span class="o">==</span> <span class="s2">&quot;parent-default-another-v&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p>Here is an example of modifying the current config to add a directory in it's current
+<a href="#directory-chain">Directory Chain</a>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon.directory</span><span class="w"> </span><span class="kn">import</span> <span class="n">Directory</span>
+
+<span class="c1"># Even if this function is called a lot, what we do with</span>
+<span class="c1"># config should still be fast enough.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_function_is_called_a_lot</span><span class="p">():</span>
+    <span class="n">my_config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+    <span class="n">my_config</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="n">Directory</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;a_service&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;myDevEnv&quot;</span><span class="p">))</span>
+    <span class="n">my_config</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;/some/other/path&quot;</span><span class="p">)</span>
+    <span class="n">the_value_I_want</span> <span class="o">=</span> <span class="n">my_config</span><span class="o">.</span><span class="n">SOME_NAME</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="parent-chain">Parent Chain<a class="headerlink" href="#parent-chain" title="Permanent link">&para;</a></h2>
+<p>There is a concept of a parent-chain with Config.
+When a new Config object is activated as the new current/default Config object,
+the one that was previously the current Config object will now become the first parent.</p>
+<p>A parent can have a parent.  Eventually there will be a 'root' parent that has no parent.
+This will normally be the config object that was first created the application first started.</p>
+<p>Unless another Config object has been activated since the application started,
+the current config object may be the root-config object, and therefore have no parent.</p>
+<p>The parent chain is generally consulted when:</p>
+<ul>
+<li>We are getting the list of providers, directories, getting the cacher, and so on; and we encounter
+  a <code>xsentinels.default.Default</code> value while doing this.We then consult the next parent in the
+  To Resole this <code>Default</code> value, Config consults the current parent-chain.
+  If when reaching the last parent in the chain, we still have a <code>Default</code> value,
+  sensible/default values are constructed and used.</li>
+<li>While getting a configuration value <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> will look for <a class="autorefs autorefs-internal" href="#overrides">Overrides</a>
+  and <a href="#defaults">Defaults</a> in <code>self</code> first, and then the parent chain second.</li>
+</ul>
+<h3 id="how-its-constructed">How it's constructed<a class="headerlink" href="#how-its-constructed" title="Permanent link">&para;</a></h3>
+<p>If the Config object has their <code>use_parent == True</code> (it defaults to True) then it will allow
+the parent-chain to grow past it's self in the past/previously activated Config objects.</p>
+<p>Config is a xinject Dependency.  Dependency uses a <code>xinject.context.XContext</code> object to
+keep track of current and past resources.</p>
+<p>The parent-chain starts with the current config resource (the one in the current XContext).
+If that context has a parent context, we next grab the Config resource from
+that parent context and check it's <code>Config.use_parent</code>. If <code>True</code> we keep doing
+this until we reach a Config object without a parent or a <code>Config.use_parent</code> 
+that is False.</p>
+<p>If the <code>Config.use_parent</code> is <code>False</code> on the Config object that is currently being asked for a
+config value:</p>
+<ul>
+<li>If it does not find it's self in the parent-chain (via XContext) then the parent-chain
+  will be empty at that moment.  This means it will only consult its self and no other Config object.
+  The idea here is the Config object is not a resource in the
+  <code>xinject.context.XContext.parent_chain</code>
+  and so is by its self (ie: alone) and should be isolated in this case.</li>
+<li>If it finds its self, it will allow the parent-chain to grow to the point it finds its
+  self in the XContext parent-chain. The purpose of this behavior is  to allow all the 'child'
+  config objects to be in the parent-chain. If one of these children has the use_parent=False,
+  it will stop at that point and <strong>NOT</strong> have any more child config objects included in the
+  parent-chain.</li>
+</ul>
+<p>As long as the object is still in the context-hierarchy above that child that had
+  use_parent=False it will contain the child objects.</p>
+<p>We take out of the chain any config object that is myself. The only objects in
+the chain are other Config object instances.</p>
+<p>Each config object is consulted until we get an answer that is not a <code>xsentinels.Default</code>;
+once that is found that is what is used.</p>
+<p>Example: If we had two Config object, <code>A</code> and <code>B</code>. And when <code>B</code> was originally constructed,
+directory was left at it's <code>xsentinels.Default</code> value.</p>
+<p>And <code>A</code> is the parent of <code>B</code> at the time <code>B</code> was asked for its directory_chain
+(ie: <code>xcon.config.Config.directory_chain</code>). This would cause <code>B</code> to ask <code>A</code> for their
+directory_chain because <code>A</code> is in <code>B</code>'s parent-chain. The directory_chain from <code>A</code> is what <code>B</code>
+would use for it's list of <code>xcon.directory.Directory</code>'s to look through when resolving
+a configuration value (see <code>Config.get</code>).</p>
+<p>Here is an example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+
+<span class="c1"># This is the current config</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">current</span><span class="p">()</span>
+
+<span class="c1"># We make a new Config, and we DON&#39;T make it &#39;current&#39;.</span>
+<span class="c1"># This means it&#39;s not tied to or inside any XContext [like `A` above is].</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+
+<span class="k">assert</span> <span class="n">B</span><span class="o">.</span><span class="n">directory_chain</span> <span class="o">==</span> <span class="n">A</span><span class="o">.</span><span class="n">directory_chain</span>
+
+<span class="c1"># Import the special config object that always &#39;acts&#39; like the current config</span>
+<span class="c1"># which in this case should be `A`.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="k">assert</span> <span class="n">B</span><span class="o">.</span><span class="n">directory_chain</span> <span class="o">==</span> <span class="n">config</span><span class="o">.</span><span class="n">directory_chain</span>
+</code></pre></div></td></tr></table></div>
+<p>See <a href="#directory-chain">Directory Chain</a> (later) for what a
+<code>xcon.directory.DirectoryChain</code> is.</p>
+<h2 id="provider-chain">Provider Chain<a class="headerlink" href="#provider-chain" title="Permanent link">&para;</a></h2>
+<p><a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> uses an abstract base class <code>xcon.provider.Provider</code> to allow for various
+configuration providers. You can see these providers under the <code>xcon.providers</code> module.</p>
+<p>Each <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> class has an ordered list of these providers in the form of a
+<code>xcon.provider.ProviderChain</code>. This chain is queried when looking for a config value.
+Once a value is found, it will be cached by default [if not disabled] via a
+<a href="../api/xcon/dynamo.html#xcon.providers.dynamo.DynamoCacher" target="_blank"><code>xcon.providers.dynamo.DynamoCacher</code></a>.</p>
+<p>The dynamo cacher will cache values that are
+looked up externally, such as by <a href="../api/xcon/providers/ssm_param_store.html#xcon.providers.ssm_param_store.SsmParamStoreProvider" target="_blank"><code>xcon.providers.ssm_param_store.SsmParamStoreProvider</code></a>,
+for example. If we use a provider such as <a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a>,
+since this found it locally in a process environmental variable it does not cache it.</p>
+<p>The providers are queried in the order they are defined in the <code>Config.provider_chain</code>.
+If you provide a set of providers as part of creating a <code>Config.__init__</code>, the provider_chain
+will be in the order the user provided in the __init__ method.</p>
+<p>By <code>Default</code>, the <code>Config.provider_chain</code> is inherited from the <a href="#parent-chain">Parent Chain</a>.</p>
+<h3 id="supported-providers">Supported Providers<a class="headerlink" href="#supported-providers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a></li>
+<li><a href="../api/xcon/providers/dynamo.html#xcon.providers.dynamo.DynamoProvider" target="_blank"><code>xcon.providers.dynamo.DynamoProvider</code></a></li>
+<li><a href="../api/xcon/providers/dynamo.html#xcon.providers.dynamo.DynamoCacher" target="_blank"><code>xcon.providers.dynamo.DynamoCacher</code></a></li>
+<li><a href="../api/xcon/providers/ssm_param_store.html#xcon.providers.ssm_param_store.SsmParamStoreProvider" target="_blank"><code>xcon.providers.ssm_param_store.SsmParamStoreProvider</code></a></li>
+<li><a href="../api/xcon/providers/secrets_manager.html#xcon.providers.secrets_manager.SecretsManagerProvider" target="_blank"><code>xcon.providers.secrets_manager.SecretsManagerProvider</code></a></li>
+</ul>
+<details class="todo" open="open">
+<summary>Need to document how to setup permissions in a serverless project to provide correct</summary>
+<p>access to the specific providers for ssm/dynamo/etc.
+For now, look at <a href="#permissions">Permissions</a> section for real-works examples of what is needed.</p>
+</details>
+<h2 id="directory-chain">Directory Chain<a class="headerlink" href="#directory-chain" title="Permanent link">&para;</a></h2>
+<p>Some providers have a path/directory concept, where they have various different sets of config
+name/values at a specific path. The path is what we call a specific
+<code>xcon.directory.Directory</code>. We can get the list of directories that will be queried
+via <code>Config.directory_chain</code>. It returns a <code>xcon.directory.DirectoryChain</code> that has
+a list of directories in a specific order.  We search a specific directory on all of our providers
+before searching the next directory.</p>
+<p>By <code>Default</code>, the <code>Config.directory_chain</code> is inherited from the <a href="#parent-chain">Parent Chain</a>.</p>
+<p>For a list of <code>Default</code> directories we normally use, and how they would by used to lookup
+see <a href="#standard-directory-paths">Standard Directory Paths</a>.</p>
+<h2 id="caching-details">Caching Details<a class="headerlink" href="#caching-details" title="Permanent link">&para;</a></h2>
+<p>There are two types of caching in py-xcon:</p>
+<ul>
+<li>Caching in internal/local memory.<ul>
+<li>Providers use the InternalLocalProviderCache to accomplish this.</li>
+<li>InternalLocalProviderCache cache key is per-provider instance.
+  So if a new provider is allocated and made active, it will start out with a blank cache.
+  (the older provider still has access to its cache).</li>
+</ul>
+</li>
+<li>Caching in a special Dynamo cache table.<ul>
+<li>After checking environmental provider (if enabled), normally the DynamoCache table
+  is the next provider that is consulted.  If it has the value, then Config will use that.
+  If it does not, then the other providers are consulted (such as the SSM provider).
+  When the value is determined, it will be cached in the DynamoCache table.</li>
+<li>The DynamoCache table stores a flattened list of all config values, so once we determine
+  a value for something and store it in DynamoCache, it's very fast to ask for and retrieve
+  that value again in the future (even in other instance of a lambda since it's a dynamo table).</li>
+<li>The DynamoCacher provider still uses the InternalLocalProviderCache to store a local copy of
+  the remote/retrieved dynamo table cached values so that it does not have to keep looking
+  up individual values every time it's asked for them.</li>
+</ul>
+</li>
+</ul>
+<h3 id="internal-local-memory-cacher">Internal Local Memory Cacher<a class="headerlink" href="#internal-local-memory-cacher" title="Permanent link">&para;</a></h3>
+<p>The <code>xcon.provider.InternalLocalProviderCache</code> is a resource that is centrally used
+by the other providers (including the DynamoCacher provider) to store what values they have
+retrieved from their service locally, in a sort of local-memory-cache.</p>
+<p>It's important to locally cache the values for at least some amount of time because the providers
+bulk-retrieve values at a particular directory level in bulk (ie: one request to retrieve as many
+values in a particular directory path/location as possible).
+They do this for optimization purposes, it massively speeds up future lookups of configuration
+values since they are already retrieved, and we don't have to make more round-trip requests.</p>
+<p>The cache is centralized so management of when to expire the cache is all in one place,
+and so that the cache for all providers expire simultaneously. This is important,
+and the class doc as more details of why.</p>
+<p>Eventually this internal memory provider cache will expire its cache of values.
+The default is currently 15 minutes from when the first thing is cached locally.</p>
+<p>You can change the amount of time via two ways:</p>
+<ul>
+<li>When an instance of <code>InternalLocalProviderCache</code> is created, it will look for the environmental variable named
+  <code>XCON_INTERNAL_CACHE_EXPIRATION_MINUTES</code> / <a href="../api/xcon/conf.html#xcon.conf.XconSettings.internal_cache_expiration_minutes" target="_blank">XconSettings.internal_cache_expiration_minutes</a>.
+  If it exists and is true-like it's converted into an <code>int</code> and then used as the number of minutes before the cache expires.</li>
+<li>Modifying <code>xcon.provider.InternalLocalProviderCache.expire_time_delta</code>.
+  You can easily modify it by getting the current resource instance and changing the attribute.
+  (via <code>InternalLocalProviderCache.grab().expire_time_delta</code>)<ul>
+<li><code>expire_time_delta</code> is a <code>datetime.timedelta</code> object. You can use whatever time-units
+    you want by allocating a new <code>timedelta</code> object.
+        - Example: <code>timedelta(minutes=5, seconds=10)</code>, for 5 minutes and 10 seconds.</li>
+</ul>
+</li>
+</ul>
+<p>If environmental variable is not set and nothing changes the <code>expire_time_delta</code> directly,
+it defaults to 15 minutes.</p>
+<p>You can always reset the entire cache by calling this method on the current resource instance:
+<code>xcon.provider.InternalLocalProviderCache.reset_cache</code>.</p>
+<h4 id="local-memory-caching-side-notes">Local Memory Caching Side Notes<a class="headerlink" href="#local-memory-caching-side-notes" title="Permanent link">&para;</a></h4>
+<p>There is also an option on <code>xcon.config.Config.get</code> that allows you to ignore the local
+memory cache (as a convenience option).</p>
+<p>Right now it does this by resetting the entire cache for you before lookup.
+But in the future, it may be more precise about what it does and may just retrieve that specific
+value from each provider until it finds
+(vs resetting the cache and bulk retrieving everything all over again).
+Mostly depends on how often we would really need to do this in the future.
+I am guessing it would be rare so the current implementation should be good enough for now.</p>
+<h3 id="dynamocacher">DynamoCacher<a class="headerlink" href="#dynamocacher" title="Permanent link">&para;</a></h3>
+<p>The cache is meant to provide a fast-way to lookup configuration values, and is the main way
+in which fast/scaled-executing processes such as Lambda's will probably get their values.</p>
+<p>The cache has a built-in TTL (time-to-live) after which it will be deleted from the cache.
+In addition, the <a href="../api/xcon/dynamo.html#xcon.providers.dynamo.DynamoCacher" target="_blank"><code>xcon.providers.dynamo.DynamoCacher</code></a> generates a random number and
+subtracts that from the TTL when querying for values. That way it may see things as not in
+the cache sooner then it normally would without that. The purpose behind this is to not flood
+SSM or other configuration services with a bunch of requests at the same time when the cache
+for a number of values are suddenly expired.  This random expiration reduces the chance of
+that happening by isolating the config lookup and cache refresh to hopefully only one Lambda
+instance, (for example) and not all of them at the same time.</p>
+<p>When a CONFIG name/value pair is not in the cache, the we lookup them up in the provider chain,
+get the value and put it into the cache if it's a cacheable value [ie: not an environmental
+variable].</p>
+<p>The cache is a flattened list of all of the configuration values for a specific set of
+<code>xcon.providers</code> and <code>xcon.directory.Directory</code>'s.</p>
+<p>Because the order of the Directories and Providers determine which values we find and ultimately
+cache... the cache's Dynamo hash key is made up of:</p>
+<ul>
+<li><code>Config.APP_ENV</code></li>
+<li><code>Config.SERVICE_NAME</code></li>
+</ul>
+<p>And the range key is made up of:</p>
+<ul>
+<li>Config value name as lower-case (example: <code>xynapi_base_url</code>).</li>
+<li>Each provider name in <code>Config.provider_chain</code>, seprated by <code>|-|</code></li>
+<li><code>Config.directory_chain</code></li>
+</ul>
+<p>AWS permissions are by the dynamo hash key, and that controls what the app can get/set in the cache.</p>
+<p>The dynamo range key is additional unique information. The combination of all of it determins an
+individual cache-key value that can be set/retrieved from the cache.  We do this so that
+if code changes the configuration [directories/providers] on a config object the
+results from the cache will still be accurate.</p>
+<details class="todo" open="open">
+<summary>Need to document how to setup permissions in a serverless project to provide correct</summary>
+<p>access to the specific cache hash-key for the app. For thoese intrested, look at the
+serverless.yml file in the hubspot repo.</p>
+</details>
+<h3 id="disable-default-dynamo-caching">Disable Default Dynamo Caching<a class="headerlink" href="#disable-default-dynamo-caching" title="Permanent link">&para;</a></h3>
+<p>First, let's talk about how to disable caching via environmental variables:</p>
+<ul>
+<li><code>XCON_DISABLE_DEFAULT_CACHER</code>, if 'true':<ul>
+<li>Only by default will the cache will be disabled.</li>
+<li>This only happens while resolving the <code>Default</code> on <code>xcon.config.Config.cacher</code>.</li>
+<li>If you set <code>DynamoCacher</code> directly on <code>xcon.config.Config.cacher</code> via code,
+caching will still be used regardless.</li>
+<li>Using this option disables the cacher without having to also disable the providers,
+this means it will still lookup params from SSM and so on, just not use the cached version.</li>
+</ul>
+</li>
+<li><code>XCON_ONLY_ENV_PROVIDER</code>, if 'true':<ul>
+<li>Regardless of how Config is modified/configured via code, these effects will still happen:<ul>
+<li>The cache will be disabled.</li>
+<li>The only provider that will be used is the EnvironmentalProvider.</li>
+</ul>
+</li>
+<li>See <a href="#disable-cache-non-environmental-providers">Disable Cache + Non-Environmental Providers</a></li>
+</ul>
+</li>
+</ul>
+<p>While developing, it's sometimes nice to always grab the values each time you run something
+and to NOT cache it. But you only want to do this while running it locally,
+you don't want to modify the code it's self to disable caching.</p>
+<p>You can set an environmental variable called <code>XCON_DISABLE_DEFAULT_CACHER</code> to <code>True</code> if you
+want to easily disable caching by default.</p>
+<details class="important" open="open">
+<summary>The code will use <a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a> for this.</summary>
+<p>So if you change this environmental variable WHILE in the middle of running the code
+<a href="../api/xcon/providers/environmental.html#xcon.providers.environmental.EnvironmentalProvider" target="_blank"><code>xcon.providers.environmental.EnvironmentalProvider</code></a> via debugger or other means,
+provider may have already taken its snapshot of the environmental variables and Config
+won't see the change.</p>
+<p>You could of course do a <code>with EnvironmentalProvider():</code> to force
+using a new provider instance and therefore, it will take a new snapshot.
+But it's far easier to just do <code>config.cacher=None</code> while in debugger/code when you want
+to dynamically disable the cacher.</p>
+</details>
+<p>We don't check overrides/Config for this; only settable via an environmental variable.
+This is so you don't have to modify the code to disable cacher by Default,
+and so only accessible via environmental variable.</p>
+<p>BUT if someone passes <code>Config(cacher=DynamoCacher)</code> explicitly we will use that
+regardless of what <code>XCON_DISABLE_DEFAULT_CACHER</code> is set too.
+The <code>XCON_DISABLE_DEFAULT_CACHER</code> will only disable it if <code>cacher=Default</code>
+(which it does by default).</p>
+<p>If you want to permanently disable cacher via code, do the following instead:</p>
+<p>{There is an autouse fixture that will disable the cacher during unit tests,
+as an example real-world use-case in xcon's pytest_plugin module: <code>xcon.pytest_plugin.xcon</code>}</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">config</span>
+
+<span class="c1"># Globally/Permanently:</span>
+<span class="n">config</span><span class="o">.</span><span class="n">cacher</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Temporarily via `with`:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="k">with</span> <span class="n">Config</span><span class="p">(</span><span class="n">cacher</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Temporarily via decorator:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">xcon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="nd">@Config</span><span class="p">(</span><span class="n">cacher</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">some_method</span><span class="p">():</span>
+    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="disable-cache-non-environmental-providers">Disable Cache + Non-Environmental Providers<a class="headerlink" href="#disable-cache-non-environmental-providers" title="Permanent link">&para;</a></h3>
+<p>If you set <code>XCON_ONLY_ENV_PROVIDER</code> as an actual environmental variable, it will disable
+all providers and the cache too.  It needs to be in <code>os.environ</code>, so a real environmental variable.</p>
+<ul>
+<li>XCON_ONLY_ENV_PROVIDER: If 'true', by default Config will only use env-variables.<ul>
+<li>If something has specifically set providers, the won't be used while XCON_ONLY_ENV_PROVIDER is on.</li>
+<li>Cache is also explicitly disabled when XCON_ONLY_ENV_PROVIDER is on, no mater how Config is setup.</li>
+</ul>
+</li>
+</ul>
+<p>As a developer, it's nice sometimes to just 'disable' Config, where it only looks at
+environmental variables (along any normal overrides/defaults set into it, as it normally would).</p>
+<p>The objective with this XCON_ONLY_ENV_PROVIDER is to disable external lookup of any configuration
+variables.  Only rely on what is inside the code/process.</p>
+<p>This can help with debugging, to see if a problem is due to a coding issue or if it's
+some sort of configuration issue.</p>
+<p>Or if there is a special process being run that should only use environmental variables.</p>
+<h2 id="overrides">Overrides<a class="headerlink" href="#overrides" title="Permanent link">&para;</a></h2>
+<p>You can override a value on a <a href="../api/xcon/config.html#xcon.config.Config" target="_blank"><code>Config</code></a> object in two ways:</p>
+<ol>
+<li><code>Config.set_override</code></li>
+<li>Setting it directly as an attribute, ie:</li>
+<li>Setting it directly as an attribute, ie:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>from xcon import config
+config.SOME_CONFIG_NAME = &quot;some config value&quot;
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p>The use cases for this feature can include (but are not limited to):</p>
+<ol>
+<li>Unit-tests, you can override values per-test.</li>
+<li>CLI programs. Any command-line options can be set as overrides into the current config object.
+   This will 'override' the config values with the CLI options provided by user.</li>
+<li>When you need to setup a specific environment for a special process (such as producing docs).</li>
+</ol>
+<p>When you override a config name/value, it will always be returned regardless of any configured
+providers or caching that would normally happen. The value also won't be cached. The override
+is meant only for that config object and any child-config objects.</p>
+<p>This means any child Config object will also see and use this value, overriding any value it
+may normally have returned. This works internally by looking at the <a href="#parent-chain">Parent Chain</a>.
+The first parent found to have an override for a config name
+will be the value used. If us or no parent has it overridden, the Config object will lookup
+the value via the providers/cacher like normal (see [Fundamentals][fundamentals]).</p>
+<p>If you only want to temporarily override a value, you can do something like this:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code>from xcon import config
+
+# Activate a new Config object instance:
+with Config():
+    # Rhe override will only be on the current Config object,
+    # which was the one created in `with` above. 
+    config.OVERRIDE_NAME = &quot;some temporarily overridden value&quot;
+
+    # Execute code here that needs this value.
+    assert config.OVERRIDE_NAME == &quot;some temporarily overridden value&quot;
+
+# &lt;-- At this point, the Config object we created above would no longer be
+#     the active/default one; whatever it was before `with` above is what
+#     it will be now.
+assert config.OVERRIDE_NAME is None
+
+# Override via a decorator; remember: var-names are case-insensative
+@Config(defaults={&#39;override_name&#39;: &#39;default-value&#39;})
+def some_method():
+    # Execute code that needs this value.
+    assert config.OVERRIDE_NAME == &quot;default-value&quot;
+
+# We execute method, it will have a temporary Config object, but it will be
+# thrown away after method is done executing.
+some_method()
+assert config.OVERRIDE_NAME is None
+</code></pre></div></td></tr></table></div></p>
+<p>When unit-testing: There are some pytest plugin autouse fixtures that will automatically
+create a good, blank baseline for Config.  For details see <a href="#unit-tests">Unit Tests</a></p>
+<h2 id="defaults">Defaults<a class="headerlink" href="#defaults" title="Permanent link">&para;</a></h2>
+<p>You can take a look at <code>Config.set_default</code> for more info. In a nut-shell, if some value can't
+be found anywhere else and there is a default set for it, we return the default.  The defaults
+will be inherited from the parent if not first found on child. You can override a default on a
+child config object by simply setting the default on the child.</p>
+<blockquote>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> todo: Put an example in here about how it goes though each directory/provider when finding
+    a value.</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> todo: Move this into xcon, I think this overview would be better suited there
+    since it talks about the other sub-modules, like providers, cacher, etc.</p>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> todo: Document/implement new cache key scheme where the RANGE key has the
+    provider chain + directory chain in it.</p>
+</blockquote>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h2>
+<p>By default, if Config gets a permission denied error from a source of configuration,
+it will log this but then continue on.</p>
+<p>So it should be generally safe to only configure permissions for the path(s) you actually need.
+Config will get what it can and use that.</p>
+<p>Also, if cacher has an error while trying to retreive values from it, it will log a warning and then not try
+again; in general the library only tries to get configuration once and log a single warning if there is an error retrieving it.</p>
+<p>This is to make the library resiant and easy to use with it's default settings.</p>
+<p>You can adjust the settings via the object at <code>from xcon import xcon_settings</code> appropriately,
+so it won't attempt to use cache and/or providers that you have not setup permissions for
+if you want to remove the warnings.</p>
+<details class="warning" open="open">
+<summary>Config will only log a single warning for each unique permission error.</summary>
+<p>If an app does not have permission to a particular directory path on one of the
+provider services in aws; Config will catch that error and log a <strong>warning</strong> the first
+time it encounters that error.  Subsequently, it will remember for that provider + directory
+combination that it had an error and not attempt it again. This is to preserve the performance
+of the system so that it does not get bogged down constantly trying to query inaccessible
+locations. I've tried to limit it to only permission errors and letting other types of
+errors to propagate back to the app [via Exceptions] like you would normally expect.</p>
+</details>
+<details class="important" open="open">
+<summary>Need to complete this section of documentation</summary>
+<p>I'll complete it soon in the near future, for now you can take a look at
+the <code>xcon/serverless_files</code> directory of this project.</p>
+<p>Specifically, look at <code>xcon-resources.js</code> for a way to more easily import the files directly from xcon module.
+Or you can copy the files into your own project and modify them as needed.</p>
+<p>For the cache table setup, look at <code>xcon/serverless_files/config_manager</code> files.</p>
+<p>You can look at these files and figure it out on your own for now.</p>
+<p>Eventually it WILL be documented.</p>
+</details>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    2026-01-15
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "navigation.tracking", "content.code.annotate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
