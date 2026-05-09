@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/joshorr/xcon/compare/v1.1.1...v1.1.2) (2026-05-09)
+
+
+### Bug Fixes
+
+* make documentation links to point to new repo. ([6378420](https://github.com/joshorr/xcon/commit/63784206d6d86206f94bc58c429b747c7c7a8a5c))
+
 ## [1.1.1](https://github.com/joshorr/xcon/compare/v1.1.0...v1.1.1) (2026-01-15)
 
 
