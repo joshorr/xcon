@@ -234,14 +234,14 @@ There is a serverless permission resource template yaml file you can use directo
 and change as needed for your purposes.
 
 - AWS Configuration Store Permissions:
-    - [Param Store](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/ssm-permissions.yml)
-    - [Secrets Manager](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/secrets-permissions.yml)
+    - [Param Store](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/ssm-permissions.yml)
+    - [Secrets Manager](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/secrets-permissions.yml)
 
 If you want to use a dynamo table cache (see [caching](#caching) in next section), use these:
 
 - DynamoDB Cache Table:
-    - [App Permissions](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/config_manager/cache-table.yml)
-    - [Table Definition](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/cache-permissions.yml)
+    - [App Permissions](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/config_manager/cache-table.yml)
+    - [Table Definition](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/cache-permissions.yml)
 
 For more details, see [Permissions](detailed_overview.md#permissions).
 

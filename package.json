@@ -1,10 +1,8 @@
 {
-  "name": "@xyngular/config-manager",
-  "version": "1.0.0",
-  "description": "Config Manager",
-  "repository": "git@github.com:xyngular/config-manager.git",
-  "author": "Xyngular, LLC",
-  "license": "Xyngular",
+  "name": "@joshorr/xcon",
+  "version": "1.1.0",
+  "description": "xcon",
+  "repository": "git@github.com:joshorr/xcon.git",
   "private": true,
   "scripts": {
     "test": "poetry run pytest",
@@ -14,15 +12,6 @@
   "scriptsDescription": {
     "test": "Run unit tests",
     "start": "Start service for local development with offline api"
-  },
-  "repoman": {
-    "projectType": "pyserverless",
-    "project": "config_manager",
-    "sourcedir": "config_manager",
-    "defaultEntrypoint": "'[\"config-manager\"]'",
-    "containerName": "xyngular/config-manager",
-    "version": "1.29.3",
-    "pythonVersion": "3.9"
   },
   "devDependencies": {
     "husky": "^8.0.1",

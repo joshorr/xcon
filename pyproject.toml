@@ -5,7 +5,7 @@ description = "Dynamic configuration retreiver."
 authors = ["Josh Orr <josh@orr.blue>"]
 packages = [{include = "xcon"}]
 readme = "Readme.md"
-repository = "https://github.com/xyngular/py-xcon"
+repository = "https://github.com/joshorr/xcon"
 keywords = ["settings", "configuration", "lazy", "boto", "aws", "secrets manager", "param store", "ssm"]
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
