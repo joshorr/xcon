@@ -30,11 +30,11 @@ at the various directory-levels that are checked.
 
 **More documentation and testing will be coming soon, for a full 1.0.0 release sometime in the next month or so.**
 
-See **[xcon docs](https://xyngular.github.io/py-xcon/latest/)**.
+See **[xcon docs](https://joshorr.github.io/xcon/latest/)**.
 
 # Documentation
 
-**[📄 Detailed Documentation](https://xyngular.github.io/py-xcon/latest/)** | **[🐍 PyPi](https://pypi.org/project/xcon/)**
+**[📄 Detailed Documentation](https://joshorr.github.io/xcon/latest/)** | **[🐍 PyPi](https://pypi.org/project/xcon/)**
 
 
 # Quick Start
@@ -136,7 +136,7 @@ For each directory/path, we go through these providers (second):
     - [Provider Chain](#provider-chain)
     - [Supported Providers](#supported-providers)
 
-** TODO In the order they are specified above (see [Standard Lookup Order](https://xyngular.github.io/py-xcon/latest/detailed_overview/#standard-lookup-order)).
+** TODO In the order they are specified above (see [Standard Lookup Order](https://joshorr.github.io/xcon/latest/detailed_overview/#standard-lookup-order)).
 
 ### Param Store Provider Specifics
 
@@ -174,16 +174,16 @@ There is a serverless permission resource template yaml file you can use directo
 and change as needed for your purposes.
 
 - AWS Configuration Store Permissions:
-    - [Param Store](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/ssm-permissions.yml)
-    - [Secrets Manager](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/secrets-permissions.yml)
+    - [Param Store](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/ssm-permissions.yml)
+    - [Secrets Manager](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/secrets-permissions.yml)
 
 If you want to use a dynamo table cache (see [caching](#caching) in next section), use these:
 
 - DynamoDB Cache Table:
-    - [App Permissions](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/config_manager/cache-table.yml)
-    - [Table Definition](https://github.com/xyngular/py-xcon/blob/main/xcon/serverless_files/cache-permissions.yml)
+    - [App Permissions](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/config_manager/cache-table.yml)
+    - [Table Definition](https://github.com/joshorr/xcon/blob/main/xcon/serverless_files/cache-permissions.yml)
 
-For more details, see [Permissions](https://xyngular.github.io/py-xcon/latest/detailed_overview/#permissions).
+For more details, see [Permissions](https://joshorr.github.io/xcon/latest/detailed_overview/#permissions).
 
 
 ## Caching
