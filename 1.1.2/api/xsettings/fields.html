@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>xsettings.fields API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>xsettings.fields</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="xsettings.fields.generate_setting_fields"><code class="name flex">
+<span>def <span class="ident">generate_setting_fields</span></span>(<span>attrs,<br>parent_fields: Dict[str, <a title="xsettings.fields.SettingsField" href="#xsettings.fields.SettingsField">SettingsField</a>] = None) ‑> Dict[str, <a title="xsettings.fields.SettingsField" href="#xsettings.fields.SettingsField">SettingsField</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_setting_fields(
+        attrs, parent_fields: Dict[str, SettingsField] = None
+) -&gt; Dict[str, SettingsField]:
+    &#34;&#34;&#34;
+    Takes a dict of class attributes and returns a dict of SettingsField.
+    Ignores any attr that is private (starts with &#39;_&#39;) or is a callable or has __get__ defined
+    (Assuming that the __get__ is not of type SettingsClassProperty).
+    Uses attrs.__annotations__ to provide type hints.
+
+    Args:
+        attrs:
+        setting_subclasses_in_mro:
+
+    Returns:
+        Dict[str, SettingsField] -- Note: All returned SettingsFields will always have the
+        following fields defined
+        - field.name (Name of attrs key. Overridden by SettingsField.name)
+        - field.required (Default to True, Overridden by SettingsField.required)
+        - field.type_hint (Uses annotations to define type. If not set then uses default_value
+        type. If not set then defaults to `str`
+        - field.retriever (Uses passed in default_retriever. Overridden by SettingsField.retriever
+        - field.source_name (Name of attrs key)
+
+    &#34;&#34;&#34;
+    if not parent_fields:
+        parent_fields = {}
+
+    annotations = attrs.get(&#34;__annotations__&#34;, None)
+    fields = {k: v for k, v in attrs.items() if _allowed_field(k, v)}
+
+    allowed_field_names = set(fields.keys())
+    if annotations:
+        for key in annotations.keys():
+            if not key.startswith(&#34;_&#34;) and key not in attrs:
+                allowed_field_names.add(key)
+
+    setting_fields: Dict[str, SettingsField] = {}
+    already_merged_parent_for_field = set()
+
+    def merge_field(attr_key, merge_field):
+        if attr_key not in setting_fields:
+            setting_fields[attr_key] = SettingsField(
+                name=attr_key, source_name=attr_key
+            )
+
+        # If we have not merged parent field yet,
+        # then do so first before we merge anything else into new field.
+        #
+        # The objective is to only merge parents into fields that are defined/overriden
+        # on the child-class; we don&#39;t otherwise want the parent-field in the child-class.
+        #
+        # If they are not defined as new field on the child class, we should directly
+        # use the parent field when it&#39;s asked for on child and NOT generate a new child field
+        # for that parent field.
+        if attr_key not in already_merged_parent_for_field:
+            already_merged_parent_for_field.add(attr_key)
+            if p_field := parent_fields.get(attr_key):
+                setting_fields[attr_key].merge(p_field)
+
+        setting_fields[attr_key].merge(merge_field)
+
+    _add_field_default_from_attrs(fields, merge_field)
+    _add_field_typehints_from_annotations(annotations, allowed_field_names, merge_field)
+    _unwrap_typehints(fields, merge_field)
+    _add_field_overrides_from_attrs(fields, merge_field)
+
+    for field in setting_fields.values():
+        # if we have a default_value but no type_hint, use type of default_value as a last-ditch
+        # effort to get a type-hint.
+        if field.type_hint is None and field.default_value is not None:
+            default_value = field.default_value
+            # todo: I would like to put a property/getter in a `SettingsField.fget` attribute.
+            #   would make things simpler, especially if we ever support setter properties.
+            #   and I would not have to worry about this below.
+            if not isinstance(default_value, property) and not hasattr(default_value, &#39;__get__&#39;):
+                field.type_hint = type(field.default_value)
+
+        _assert_retriever_valid(field)
+
+        if field.type_hint in (None, Any, type(None)):
+            raise AssertionError(
+                f&#34;Must have type-hint for field ({field}). This may be because there is a &#34;
+                f&#34;property defined on BaseSettings subclass that has no return type-hint,&#34;
+                f&#34;or type annotation for it somewhere else in the class. &#34;
+                f&#34;Or it could be the type-hint is `Any` or `NoneType` which are also &#34;
+                f&#34;not supported. Or there may be some other reason there is no type hint. &#34;
+                f&#34;&#34;
+                f&#34;If it&#39;s due to using a property-getter, here are two easy ways to specify &#34;
+                f&#34;type-hint for a property-field: &#34;
+                f&#34;&#34;
+                f&#34;1. You can do type annotation via: `some_field: int` somewhere in the class. &#34;
+                f&#34;&#34;
+                f&#34;2. You can specify property return-type via: &#34;
+                f&#34;`@property \\n def some_field() -&gt; int:&#34;
+                f&#34;&#34;
+            )
+
+        unwrapped_results = unwrap_union(field.type_hint)
+        field.type_hint = unwrapped_results.unwrapped_type
+
+        if field.required is None:
+            field.required = not unwrapped_results.is_optional
+
+        # Sanity check/fallback, the above is_optional should be good enough.
+        if field.required is None:
+            field.required = True
+
+    return setting_fields</code></pre>
+</details>
+<div class="desc"><p>Takes a dict of class attributes and returns a dict of SettingsField.
+Ignores any attr that is private (starts with '_') or is a callable or has <strong>get</strong> defined
+(Assuming that the <strong>get</strong> is not of type SettingsClassProperty).
+Uses attrs.<strong>annotations</strong> to provide type hints.</p>
+<h2 id="args">Args</h2>
+<p>attrs:
+setting_subclasses_in_mro:</p>
+<h2 id="returns">Returns</h2>
+<p>Dict[str, SettingsField] &ndash; Note: All returned SettingsFields will always have the
+following fields defined
+- field.name (Name of attrs key. Overridden by SettingsField.name)
+- field.required (Default to True, Overridden by SettingsField.required)
+- field.type_hint (Uses annotations to define type. If not set then uses default_value
+type. If not set then defaults to <code>str</code>
+- field.retriever (Uses passed in default_retriever. Overridden by SettingsField.retriever
+- field.source_name (Name of attrs key)</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="xsettings.fields.SettingsClassProperty"><code class="flex name class">
+<span>class <span class="ident">SettingsClassProperty</span></span>
+<span>(</span><span>fget)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, owner_self, owner_cls) -&gt; T:
+    return self.fget(owner_cls)</code></pre>
+</details>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="xsettings.fields.SettingsConversionError"><code class="flex name class">
+<span>class <span class="ident">SettingsConversionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SettingsConversionError(ValueError, AttributeError):
+    pass</code></pre>
+</details>
+<div class="desc"><p>Inappropriate argument value (of correct type).</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.ValueError</li>
+<li>builtins.AttributeError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="xsettings.fields.SettingsField"><code class="flex name class">
+<span>class <span class="ident">SettingsField</span></span>
+<span>(</span><span>name: str = None,<br>source_class: Type[BaseSettings] = None,<br>source_name: str = None,<br>required: bool = None,<br>converter: Callable = None,<br>type_hint: Type = None,<br>retriever: SettingsRetrieverProtocol = None,<br>default_value: Any = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclasses.dataclass
+class SettingsField:
+    name: str = None
+    &#34;&#34;&#34; Defaults to the attribute name, but you can override this to provide an alternate name
+        to lookup the value with.
+
+        Example Use Case:
+
+        For plain BaseSettings classes, name is not really used.
+        But it can be useful in custom/special retrievers.
+
+        An example of such a one is ConfigSettings/ConfigRetriever.
+
+        `xyn_config.config.ConfigSettings` uses a ConfigRetriever, which will use this name
+        field attribute to retrieve a named values from`xyn_config.config.Config`.
+
+        So you can override the name to tell ConfigSettings what name to use to retrieve value
+        with.  Allows you to have an attribute name on your ConfigSettings class that
+        is different then the one used to retrieve the values.
+    &#34;&#34;&#34;
+
+    source_class: &#39;Type[BaseSettings]&#39; = None
+    &#34;&#34;&#34;
+    For debug purposes only. Will be set when the class level SettingsField is created. It is a
+    way to get back to the source BaseSettings class.
+
+    It&#39;s positioned just after `name` so it&#39;s printed earlier in a log-line.
+    &#34;&#34;&#34;
+
+    source_name: str = dataclasses.field(default=None)
+    &#34;&#34;&#34;
+    For debug purposes only. Will be overwritten when the class level SettingsField is created.
+    It will be set to the name of the attribute on the settings class where it originated.
+
+    It&#39;s positioned just after `source_class` so it&#39;s printed earlier in a log-line.
+    &#34;&#34;&#34;
+
+    required: bool = None
+    &#34;&#34;&#34;
+    By default settings are required, if a None would be returned we instead raise an exception.
+    If `required` is set to False, a None will be returned instead of raising an exception.
+
+    This here in the dataclass defaults to None so we can detect if user has set this or not.
+    When fields are finalized into a BaseSettings subclass, and this is still a None,
+    we will determine the `required` value like so:
+
+    if field-type-hint is wrapped in an Optional, ie: `Optional[str]`,
+    we will set `required = False`.
+
+    If a field-type-hint is a Union with a None, ie: `Union[str, None]`,
+    we will set `required = False`.
+
+    Otherwise (the default), we will set `required = True`.
+    &#34;&#34;&#34;
+
+    converter: Callable = None
+    &#34;&#34;&#34;Set from property.type_hint or from type(property.default_value) if type_hint is not
+    specified. Used to convert retrieved values to a desired type. Only called if the retrieved
+    value is not of type `type_hint`
+
+    IE:
+    &gt;&gt;&gt; if not isinstance(value, type_hint):
+    &gt;&gt;&gt;    value = field.converter(value)
+    &#34;&#34;&#34;
+
+    type_hint: Type = None
+    &#34;&#34;&#34; Set from property.type_hint or from type(property.default_value) if type_hint is not
+    specified. Used to determine if the converter should be called or not. If not set then the
+    converter will always be called.
+    &#34;&#34;&#34;
+
+    retriever: &#39;SettingsRetrieverProtocol&#39; = None
+    &#34;&#34;&#34;
+    Retriever callable to use to retrieve settings from some source.
+
+    Can be any callable that follows the `xsettings.retriever.SettingsRetrieverProtocol` calling
+    interface.
+
+    System will try this retriever first (if set to something),
+    before trying other retrievers such as instance-retrievers
+    `xsettings.settings.BaseSettings.add_instance_retrievers`
+    or default-retrievers `xsettings.settings.BaseSettings.__init_subclass__`.
+
+    See those links for more details (such as how dependency-chain and mro parents are resolved
+    when looking for other retrievers).
+
+    Example:
+
+    &gt;&gt;&gt; class MySettings(default_retriever=MyRetriever())
+    ...     my_field: str  # &lt;-- will use `MyRetriever` instance for it&#39;s retriever
+    &#34;&#34;&#34;
+
+    default_value: Any = None
+    &#34;&#34;&#34;
+    This field settings defaults to whatever is assigned to the class-attribute:
+
+    ```python
+    class MySettings(BaseSettings):
+         my_attribute_with_default_value: str = &#34;some-default-value&#34;
+    ```
+
+    The default_value is a fall-back value that is used as a last-restort if the setting is
+    not set to anything and/or can&#39;t be retrieved.
+
+    Used by `xsettings.retriever.SettingsRetrieverProtocol` and it&#39;s subclasses
+    (such as ConfigRetriever from xyn-config).
+
+    The default value can also be a property object
+    (such as forward-reference from another BaseSettings class).
+
+    If it&#39;s a property object, we will ask the object for it&#39;s property value and
+    use that for the default-value when needed.
+    &#34;&#34;&#34;
+
+    @property
+    def getter(self):
+        &#34;&#34;&#34;
+        Like the built-in `@property` of python, except you can also place a SettingsField and set
+        any field-options you like, so it lets you make a SettingsField with custom options that
+        also has a property attached.
+
+        We place your function into a `property` object, and then place property object
+        into the `SettingsField.retreiver` for you.
+
+        Basically, used to easily set a retreiver property function on self via the standard
+        property decorator syntax.
+
+        See the [README&#39;s/Main-Module&#39;s Properties](./#properties) section for more details.
+        But in summary, it works like normal python properties
+        except that we currently put the property function into the `retreiver`
+        SettingsField attribute instead of `fget`
+        (normal Python `property` objects use the `fget` attribute to store the property function).
+
+        Again, I would encourage you to read the [Properties](./#properties) section for
+        more details.
+
+        Property setters are currently unsupported (see Properties section/link above for
+        more details on why). It&#39;s something we could support in the future if we wanted.
+
+        For now, when someone sets a value on a property getter, we will store that as the
+        settings field value and return that in the future
+        (ie: overriding the retriever property method with a set value).
+
+        You can define a property like normal, and Settings will create a default SettingsField
+        object for it like you would expect.
+
+        But, if you NEED to customize the Field object, this is where the `.getter` on
+        SettingsField becomes handy.
+
+        &gt;&gt;&gt; class MySettings(BaseSettings):
+        ...
+        ...    # You can easily setup a field like normal, and then use getter to setup
+        ...    # the getter function for the field.
+        ...
+        ...    my_field: str = SettingsField(required=False)
+        ...
+        ...    @my_field.getter
+        ...    def my_field(self):
+        ...         return &#39;some value&#39;
+        ...
+        ...   # If you don&#39;t need any customization on the SettingsField,
+        ...   # You can also just simply define a property like normal:
+        ...   @property
+        ...   def non_custom_field(self) -&gt; int:
+        ...       return 42
+        &#34;&#34;&#34;
+
+        # We return a function, that is called by Python for us.
+        # Python provides the original function as an argument.
+        # Whatever we return from this internal method is what is left on
+        # the class afterwards. In this case, the original SettingsField (self).
+        def wrap_property_getter_func(func):
+            wrapped_property = property(fget=func)
+            self.retriever = _PropertyRetriever(wrapped_property)
+            return self
+
+        return wrap_property_getter_func
+
+    def merge(self, override: &#34;SettingsField&#34;):
+        if not override:
+            # Nothing to merge in with...
+            return
+
+        self.required = override.required
+        if override.name:
+            self.name = override.name
+        if override.converter:
+            self.converter = override.converter
+        if override.type_hint:
+            self.type_hint = override.type_hint
+        if override.retriever:
+            self.retriever = override.retriever
+
+        if override.default_value is not None:
+            # Copy default value in case it&#39;s a mutable object, like a dict.
+            self.default_value = copy(override.default_value)
+        return self
+
+    def retrieve_value(self, *, settings: &#39;BaseSettings&#39;):
+        &#34;&#34;&#34;Convenience method for getting the value from the retriever.&#34;&#34;&#34;
+        return self.retriever(self, settings=settings)
+
+    def convert_value(self, value):
+        &#34;&#34;&#34;
+        Controls converting a value.
+
+        To find a converter, we check these in order, first one found is what we use:
+
+        1. We first check `self.converter`.
+        2. Next, `xsettings.default_converters.DEFAULT_CONVERTERS`.
+        3. Finally, we fall-back to using the type-hint (ie: `int(value)` or `str(value)`).
+
+        Args:
+            value: Value to be converted.
+                Conversion is skipped if:
+
+                - value is `None`.
+                - `SettingsField.converter` is `None`.
+                - value is of type `SettingsField.type_hint`.
+
+                An error will be raised of conversion results in a `None` value and
+                `SettingsField.required` is True.
+
+        Returns: Converted Value
+        &#34;&#34;&#34;
+        original_value = value
+
+        # Check for a user-provided converter....
+        converter = self.converter
+
+        if not converter:
+            converter = DEFAULT_CONVERTERS.get(self.type_hint, None)
+
+            # If the value is still `Default`, we &#39;default&#39; the value to `None`,
+            # as our default converters or using the type-hint directly don&#39;t really
+            # deal with `Default`.
+            #
+            # BUT we will let a user-provided converter get the `Default` value, so it
+            # can decide on its own what to do with it.
+            if value is Default:
+                value = None
+
+        if not converter:
+            converter = self._get_default_converter()
+
+        if converter and value is not None:
+            hint = self._get_base_typehint()
+            if not hint or not isinstance(value, hint):
+                try:
+                    value = converter(value)
+                except Exception as e:
+                    raise SettingsConversionError(
+                        f&#39;While attempting to convert value ({original_value}) &#39;
+                        f&#39;via converter ({self.converter}), for field ({self}); &#39;
+                        f&#39;we got an error ({e}).&#39;
+                    )
+
+        # If the value is still `Default` at this point, we default it to `None`.
+        if value is Default:
+            value = None
+
+        if value is None and original_value is not None and self.required:
+            raise SettingsConversionError(
+                f&#39;After converting value ({original_value}) &#39;
+                f&#39;via converter ({self.converter}), we got back a `None` value &#39;
+                f&#39;for a required field ({self}).&#39;
+            )
+        return value
+
+    def _get_default_converter(self) -&gt; Callable:
+        hint = self.type_hint
+        if isinstance(hint, typing_inspect.typingGenericAlias):
+            # Only produce error if the type does not match and so system attempts to use
+            # the default converter.
+            def generic_converter_error(x):
+                # todo: support looking at generic arg(s), converting any that need it and then
+                #   putting result into generic type; and if it&#39;s a generic Sequence,
+                #   use a List or Tuple, and so on...
+                raise SettingsConversionError(
+                    f&#34;Unsupported: Can&#39;t convert value {x} into a generic type &#34;
+                    f&#34;(future feature).&#34;
+                )
+            return generic_converter_error
+
+        # By default, convert using the type-hint;
+        # ie: If `int` was type-hint, then it could do `int(value)` to get an `int` out of `value`.
+        return hint
+
+    def _get_base_typehint(self):
+        hint = self.type_hint
+        if not hint:
+            return None
+
+        origin = typing_inspect.get_origin(hint)
+        if origin is None:
+            return hint
+        return origin</code></pre>
+</details>
+<div class="desc"><p>SettingsField(name: str = None, source_class: 'Type[BaseSettings]' = None, source_name: str = None, required: bool = None, converter: Callable = None, type_hint: Type = None, retriever: 'SettingsRetrieverProtocol' = None, default_value: Any = None)</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="xsettings.fields.SettingsField.converter"><code class="name">var <span class="ident">converter</span> : Callable</code></dt>
+<dd>
+<div class="desc"><p>Set from property.type_hint or from type(property.default_value) if type_hint is not
+specified. Used to convert retrieved values to a desired type. Only called if the retrieved
+value is not of type <code>type_hint</code></p>
+<p>IE:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; if not isinstance(value, type_hint):
+&gt;&gt;&gt;    value = field.converter(value)
+</code></pre></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.default_value"><code class="name">var <span class="ident">default_value</span> : Any</code></dt>
+<dd>
+<div class="desc"><p>This field settings defaults to whatever is assigned to the class-attribute:</p>
+<pre><code class="language-python">class MySettings(BaseSettings):
+     my_attribute_with_default_value: str = &quot;some-default-value&quot;
+</code></pre>
+<p>The default_value is a fall-back value that is used as a last-restort if the setting is
+not set to anything and/or can't be retrieved.</p>
+<p>Used by <code>xsettings.retriever.SettingsRetrieverProtocol</code> and it's subclasses
+(such as ConfigRetriever from xyn-config).</p>
+<p>The default value can also be a property object
+(such as forward-reference from another BaseSettings class).</p>
+<p>If it's a property object, we will ask the object for it's property value and
+use that for the default-value when needed.</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.getter"><code class="name">prop <span class="ident">getter</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def getter(self):
+    &#34;&#34;&#34;
+    Like the built-in `@property` of python, except you can also place a SettingsField and set
+    any field-options you like, so it lets you make a SettingsField with custom options that
+    also has a property attached.
+
+    We place your function into a `property` object, and then place property object
+    into the `SettingsField.retreiver` for you.
+
+    Basically, used to easily set a retreiver property function on self via the standard
+    property decorator syntax.
+
+    See the [README&#39;s/Main-Module&#39;s Properties](./#properties) section for more details.
+    But in summary, it works like normal python properties
+    except that we currently put the property function into the `retreiver`
+    SettingsField attribute instead of `fget`
+    (normal Python `property` objects use the `fget` attribute to store the property function).
+
+    Again, I would encourage you to read the [Properties](./#properties) section for
+    more details.
+
+    Property setters are currently unsupported (see Properties section/link above for
+    more details on why). It&#39;s something we could support in the future if we wanted.
+
+    For now, when someone sets a value on a property getter, we will store that as the
+    settings field value and return that in the future
+    (ie: overriding the retriever property method with a set value).
+
+    You can define a property like normal, and Settings will create a default SettingsField
+    object for it like you would expect.
+
+    But, if you NEED to customize the Field object, this is where the `.getter` on
+    SettingsField becomes handy.
+
+    &gt;&gt;&gt; class MySettings(BaseSettings):
+    ...
+    ...    # You can easily setup a field like normal, and then use getter to setup
+    ...    # the getter function for the field.
+    ...
+    ...    my_field: str = SettingsField(required=False)
+    ...
+    ...    @my_field.getter
+    ...    def my_field(self):
+    ...         return &#39;some value&#39;
+    ...
+    ...   # If you don&#39;t need any customization on the SettingsField,
+    ...   # You can also just simply define a property like normal:
+    ...   @property
+    ...   def non_custom_field(self) -&gt; int:
+    ...       return 42
+    &#34;&#34;&#34;
+
+    # We return a function, that is called by Python for us.
+    # Python provides the original function as an argument.
+    # Whatever we return from this internal method is what is left on
+    # the class afterwards. In this case, the original SettingsField (self).
+    def wrap_property_getter_func(func):
+        wrapped_property = property(fget=func)
+        self.retriever = _PropertyRetriever(wrapped_property)
+        return self
+
+    return wrap_property_getter_func</code></pre>
+</details>
+<div class="desc"><p>Like the built-in <code>@property</code> of python, except you can also place a SettingsField and set
+any field-options you like, so it lets you make a SettingsField with custom options that
+also has a property attached.</p>
+<p>We place your function into a <code>property</code> object, and then place property object
+into the <code>SettingsField.retreiver</code> for you.</p>
+<p>Basically, used to easily set a retreiver property function on self via the standard
+property decorator syntax.</p>
+<p>See the <a href="./#properties">README's/Main-Module's Properties</a> section for more details.
+But in summary, it works like normal python properties
+except that we currently put the property function into the <code>retreiver</code>
+SettingsField attribute instead of <code>fget</code>
+(normal Python <code>property</code> objects use the <code>fget</code> attribute to store the property function).</p>
+<p>Again, I would encourage you to read the <a href="./#properties">Properties</a> section for
+more details.</p>
+<p>Property setters are currently unsupported (see Properties section/link above for
+more details on why). It's something we could support in the future if we wanted.</p>
+<p>For now, when someone sets a value on a property getter, we will store that as the
+settings field value and return that in the future
+(ie: overriding the retriever property method with a set value).</p>
+<p>You can define a property like normal, and Settings will create a default SettingsField
+object for it like you would expect.</p>
+<p>But, if you NEED to customize the Field object, this is where the <code>.getter</code> on
+SettingsField becomes handy.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(BaseSettings):
+...
+...    # You can easily setup a field like normal, and then use getter to setup
+...    # the getter function for the field.
+...
+...    my_field: str = SettingsField(required=False)
+...
+...    @my_field.getter
+...    def my_field(self):
+...         return 'some value'
+...
+...   # If you don't need any customization on the SettingsField,
+...   # You can also just simply define a property like normal:
+...   @property
+...   def non_custom_field(self) -&gt; int:
+...       return 42
+</code></pre></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Defaults to the attribute name, but you can override this to provide an alternate name
+to lookup the value with.</p>
+<p>Example Use Case:</p>
+<p>For plain BaseSettings classes, name is not really used.
+But it can be useful in custom/special retrievers.</p>
+<p>An example of such a one is ConfigSettings/ConfigRetriever.</p>
+<p><code>xyn_config.config.ConfigSettings</code> uses a ConfigRetriever, which will use this name
+field attribute to retrieve a named values from<code>xyn_config.config.Config</code>.</p>
+<p>So you can override the name to tell ConfigSettings what name to use to retrieve value
+with.
+Allows you to have an attribute name on your ConfigSettings class that
+is different then the one used to retrieve the values.</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.required"><code class="name">var <span class="ident">required</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>By default settings are required, if a None would be returned we instead raise an exception.
+If <code>required</code> is set to False, a None will be returned instead of raising an exception.</p>
+<p>This here in the dataclass defaults to None so we can detect if user has set this or not.
+When fields are finalized into a BaseSettings subclass, and this is still a None,
+we will determine the <code>required</code> value like so:</p>
+<p>if field-type-hint is wrapped in an Optional, ie: <code>Optional[str]</code>,
+we will set <code>required = False</code>.</p>
+<p>If a field-type-hint is a Union with a None, ie: <code>Union[str, None]</code>,
+we will set <code>required = False</code>.</p>
+<p>Otherwise (the default), we will set <code>required = True</code>.</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.retriever"><code class="name">var <span class="ident">retriever</span> : SettingsRetrieverProtocol</code></dt>
+<dd>
+<div class="desc"><p>Retriever callable to use to retrieve settings from some source.</p>
+<p>Can be any callable that follows the <code>xsettings.retriever.SettingsRetrieverProtocol</code> calling
+interface.</p>
+<p>System will try this retriever first (if set to something),
+before trying other retrievers such as instance-retrievers
+<code><a title="xsettings.settings.BaseSettings.add_instance_retrievers" href="settings.html#xsettings.settings.BaseSettings.add_instance_retrievers">BaseSettings.add_instance_retrievers()</a></code>
+or default-retrievers <code><a title="xsettings.settings.BaseSettings.__init_subclass__" href="../xinject/dependency.html#xsettings.settings.BaseSettings.__init_subclass__">Dependency.__init_subclass__()</a></code>.</p>
+<p>See those links for more details (such as how dependency-chain and mro parents are resolved
+when looking for other retrievers).</p>
+<p>Example:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; class MySettings(default_retriever=MyRetriever())
+...     my_field: str  # &lt;-- will use &lt;code&gt;MyRetriever&lt;/code&gt; instance for it's retriever
+</code></pre></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.source_class"><code class="name">var <span class="ident">source_class</span> : Type[BaseSettings]</code></dt>
+<dd>
+<div class="desc"><p>For debug purposes only. Will be set when the class level SettingsField is created. It is a
+way to get back to the source BaseSettings class.</p>
+<p>It's positioned just after <code>name</code> so it's printed earlier in a log-line.</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.source_name"><code class="name">var <span class="ident">source_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>For debug purposes only. Will be overwritten when the class level SettingsField is created.
+It will be set to the name of the attribute on the settings class where it originated.</p>
+<p>It's positioned just after <code>source_class</code> so it's printed earlier in a log-line.</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.type_hint"><code class="name">var <span class="ident">type_hint</span> : Type</code></dt>
+<dd>
+<div class="desc"><p>Set from property.type_hint or from type(property.default_value) if type_hint is not
+specified. Used to determine if the converter should be called or not. If not set then the
+converter will always be called.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="xsettings.fields.SettingsField.convert_value"><code class="name flex">
+<span>def <span class="ident">convert_value</span></span>(<span>self, value)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_value(self, value):
+    &#34;&#34;&#34;
+    Controls converting a value.
+
+    To find a converter, we check these in order, first one found is what we use:
+
+    1. We first check `self.converter`.
+    2. Next, `xsettings.default_converters.DEFAULT_CONVERTERS`.
+    3. Finally, we fall-back to using the type-hint (ie: `int(value)` or `str(value)`).
+
+    Args:
+        value: Value to be converted.
+            Conversion is skipped if:
+
+            - value is `None`.
+            - `SettingsField.converter` is `None`.
+            - value is of type `SettingsField.type_hint`.
+
+            An error will be raised of conversion results in a `None` value and
+            `SettingsField.required` is True.
+
+    Returns: Converted Value
+    &#34;&#34;&#34;
+    original_value = value
+
+    # Check for a user-provided converter....
+    converter = self.converter
+
+    if not converter:
+        converter = DEFAULT_CONVERTERS.get(self.type_hint, None)
+
+        # If the value is still `Default`, we &#39;default&#39; the value to `None`,
+        # as our default converters or using the type-hint directly don&#39;t really
+        # deal with `Default`.
+        #
+        # BUT we will let a user-provided converter get the `Default` value, so it
+        # can decide on its own what to do with it.
+        if value is Default:
+            value = None
+
+    if not converter:
+        converter = self._get_default_converter()
+
+    if converter and value is not None:
+        hint = self._get_base_typehint()
+        if not hint or not isinstance(value, hint):
+            try:
+                value = converter(value)
+            except Exception as e:
+                raise SettingsConversionError(
+                    f&#39;While attempting to convert value ({original_value}) &#39;
+                    f&#39;via converter ({self.converter}), for field ({self}); &#39;
+                    f&#39;we got an error ({e}).&#39;
+                )
+
+    # If the value is still `Default` at this point, we default it to `None`.
+    if value is Default:
+        value = None
+
+    if value is None and original_value is not None and self.required:
+        raise SettingsConversionError(
+            f&#39;After converting value ({original_value}) &#39;
+            f&#39;via converter ({self.converter}), we got back a `None` value &#39;
+            f&#39;for a required field ({self}).&#39;
+        )
+    return value</code></pre>
+</details>
+<div class="desc"><p>Controls converting a value.</p>
+<p>To find a converter, we check these in order, first one found is what we use:</p>
+<ol>
+<li>We first check <code>self.converter</code>.</li>
+<li>Next, <code><a title="xsettings.default_converters.DEFAULT_CONVERTERS" href="default_converters.html#xsettings.default_converters.DEFAULT_CONVERTERS">DEFAULT_CONVERTERS</a></code>.</li>
+<li>Finally, we fall-back to using the type-hint (ie: <code>int(value)</code> or <code>str(value)</code>).</li>
+</ol>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>value</code></strong></dt>
+<dd>
+<p>Value to be converted.
+Conversion is skipped if:</p>
+<ul>
+<li>value is <code>None</code>.</li>
+<li><code><a title="xsettings.fields.SettingsField.converter" href="#xsettings.fields.SettingsField.converter">SettingsField.converter</a></code> is <code>None</code>.</li>
+<li>value is of type <code><a title="xsettings.fields.SettingsField.type_hint" href="#xsettings.fields.SettingsField.type_hint">SettingsField.type_hint</a></code>.</li>
+</ul>
+<p>An error will be raised of conversion results in a <code>None</code> value and
+<code><a title="xsettings.fields.SettingsField.required" href="#xsettings.fields.SettingsField.required">SettingsField.required</a></code> is True.</p>
+</dd>
+</dl>
+<p>Returns: Converted Value</p></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.merge"><code class="name flex">
+<span>def <span class="ident">merge</span></span>(<span>self,<br>override: <a title="xsettings.fields.SettingsField" href="#xsettings.fields.SettingsField">SettingsField</a>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def merge(self, override: &#34;SettingsField&#34;):
+    if not override:
+        # Nothing to merge in with...
+        return
+
+    self.required = override.required
+    if override.name:
+        self.name = override.name
+    if override.converter:
+        self.converter = override.converter
+    if override.type_hint:
+        self.type_hint = override.type_hint
+    if override.retriever:
+        self.retriever = override.retriever
+
+    if override.default_value is not None:
+        # Copy default value in case it&#39;s a mutable object, like a dict.
+        self.default_value = copy(override.default_value)
+    return self</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="xsettings.fields.SettingsField.retrieve_value"><code class="name flex">
+<span>def <span class="ident">retrieve_value</span></span>(<span>self, *, settings: BaseSettings)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrieve_value(self, *, settings: &#39;BaseSettings&#39;):
+    &#34;&#34;&#34;Convenience method for getting the value from the retriever.&#34;&#34;&#34;
+    return self.retriever(self, settings=settings)</code></pre>
+</details>
+<div class="desc"><p>Convenience method for getting the value from the retriever.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="xsettings" href="index.html">xsettings</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="xsettings.fields.generate_setting_fields" href="#xsettings.fields.generate_setting_fields">generate_setting_fields</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="xsettings.fields.SettingsClassProperty" href="#xsettings.fields.SettingsClassProperty">SettingsClassProperty</a></code></h4>
+</li>
+<li>
+<h4><code><a title="xsettings.fields.SettingsConversionError" href="#xsettings.fields.SettingsConversionError">SettingsConversionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="xsettings.fields.SettingsField" href="#xsettings.fields.SettingsField">SettingsField</a></code></h4>
+<ul class="two-column">
+<li><code><a title="xsettings.fields.SettingsField.convert_value" href="#xsettings.fields.SettingsField.convert_value">convert_value</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.converter" href="#xsettings.fields.SettingsField.converter">converter</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.default_value" href="#xsettings.fields.SettingsField.default_value">default_value</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.getter" href="#xsettings.fields.SettingsField.getter">getter</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.merge" href="#xsettings.fields.SettingsField.merge">merge</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.name" href="#xsettings.fields.SettingsField.name">name</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.required" href="#xsettings.fields.SettingsField.required">required</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.retrieve_value" href="#xsettings.fields.SettingsField.retrieve_value">retrieve_value</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.retriever" href="#xsettings.fields.SettingsField.retriever">retriever</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.source_class" href="#xsettings.fields.SettingsField.source_class">source_class</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.source_name" href="#xsettings.fields.SettingsField.source_name">source_name</a></code></li>
+<li><code><a title="xsettings.fields.SettingsField.type_hint" href="#xsettings.fields.SettingsField.type_hint">type_hint</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
