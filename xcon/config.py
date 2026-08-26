@@ -98,7 +98,12 @@ def _check_proper_cacher_or_raise_error(cacher):
     )
 
 
-class Config(Dependency):
+class Config(
+    Dependency,
+
+    # We should preserve any changes/settings on global-scoped `Config` between unit-test runs.
+    remove_between_unittests=False
+):
     """
     Lets you easily get configuration values from various sources.
 
