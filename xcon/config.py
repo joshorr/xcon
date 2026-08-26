@@ -102,7 +102,7 @@ class Config(
     Dependency,
 
     # We should preserve any changes/settings on global-scoped `Config` between unit-test runs.
-    remove_between_unittests=False
+    remove_between_unittests=True
 ):
     """
     Lets you easily get configuration values from various sources.
