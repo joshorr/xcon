@@ -62,15 +62,15 @@ wheels = [
 
 [[package]]
 name = "boto3-stubs"
-version = "1.43.80"
+version = "1.43.81"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore-stubs" },
     { name = "types-s3transfer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/87/49/98752732c734596a44154f08c3617fccf99c87a06b137d1cb434b48154ce/boto3_stubs-1.43.80.tar.gz", hash = "sha256:e13442baaaa68ae1f8ec4ecd19c232e9d3e0b5991640f1bcb6c7ac2c385a3b7b", size = 104585, upload-time = "2026-08-25T20:59:05.535Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/31/09/36b6dbb9fc7f7e01fdd16d133b06eada9cfd5157e966263c3c01c01bf878/boto3_stubs-1.43.81.tar.gz", hash = "sha256:13c96e2b0e5fe0b796fc14615a49e1c57433db3944f30c482db19b01487365fb", size = 104580, upload-time = "2026-08-26T22:11:25.448Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/02/c17d4f8105c08927b6eec1a4679ba7b6813377f2e8f50966b48c530d1b5d/boto3_stubs-1.43.80-py3-none-any.whl", hash = "sha256:d0a2d98cafd8828a1cab6e348a8414d0dc665f46a3cc798679746e8c040409ef", size = 71511, upload-time = "2026-08-25T20:59:01.253Z" },
+    { url = "https://files.pythonhosted.org/packages/88/71/abdc7baf1f1eff5538f836ffa7c018c17bbffc6496dcbce544c26e8834c0/boto3_stubs-1.43.81-py3-none-any.whl", hash = "sha256:e3520511204797873d81062870d031f01280949408dfe9e97b23eb7091f55b4d", size = 71513, upload-time = "2026-08-26T22:11:22.855Z" },
 ]
 
 [package.optional-dependencies]
@@ -684,11 +684,11 @@ wheels = [
 
 [[package]]
 name = "mypy-boto3-ec2"
-version = "1.43.80"
+version = "1.43.81"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/31/9a/ddb9c6e82a791d36729ac2630257c4d76c41a8dfdac8426ff5935f46b0a4/mypy_boto3_ec2-1.43.80.tar.gz", hash = "sha256:53b0e2cb5bd6966ccca1000df9dcd1cde15d9b8059e4614b54235a9757f4961e", size = 464578, upload-time = "2026-08-25T20:58:40.091Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e7/01/c351041cfbe3e593fc817d4ef4e66be57e53ba528cd6457d5b1c76698d73/mypy_boto3_ec2-1.43.81.tar.gz", hash = "sha256:e7623507521f96c29a781b0f7134d1174081c03646c89cec1b988e4ec1c081b8", size = 464632, upload-time = "2026-08-26T22:11:16.985Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c8/d7/7498899367c5c8e0a046a0045db4d1c62d9e57f2825f75356b512eb4d32b/mypy_boto3_ec2-1.43.80-py3-none-any.whl", hash = "sha256:28fd277f10bf8e8724861f27c8e7ee391f6639ef669b9daba4c5410b92a96fad", size = 452892, upload-time = "2026-08-25T20:58:33.298Z" },
+    { url = "https://files.pythonhosted.org/packages/1c/e6/e19c0b47c4c826fd0f14ea6fb55c647ae72be5fb36bfc34d7c2c9f2e8f3b/mypy_boto3_ec2-1.43.81-py3-none-any.whl", hash = "sha256:56089009f88cf0ddbedfcbe36fb6540928e784c71e991498f4d3095dc9c6ff06", size = 452887, upload-time = "2026-08-26T22:11:13.13Z" },
 ]
 
 [[package]]
@@ -1194,7 +1194,7 @@ requires-dist = [
     { name = "ciso8601", specifier = ">=2.3.1,<3" },
     { name = "xbool", specifier = ">=1.1.0,<2" },
     { name = "xboto", specifier = ">=1.1.1,<2" },
-    { name = "xinject", specifier = ">=1.4.1,<2" },
+    { name = "xinject", specifier = ">=1.11.0,<2" },
     { name = "xloop", specifier = ">=1.1.0,<2" },
     { name = "xsentinels", specifier = ">=1.2.2,<2" },
     { name = "xsettings", specifier = ">=1.4.0,<2" },
@@ -1222,14 +1222,14 @@ dev = [
 
 [[package]]
 name = "xinject"
-version = "1.10.1"
+version = "1.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "xsentinels" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/43/dd/de0dca9107b86c2c67f40c753fcc1a550442f7d8e161cd96c542e1c5b164/xinject-1.10.1.tar.gz", hash = "sha256:050106e897260814184799a6efcaaaec8425daf331efd1a1edcb05a3de59ace1", size = 34013, upload-time = "2026-06-17T17:07:33.113Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/67/973cf670201f63244e88ac515cfead39b364b103ce42b4412d3afaf58d52/xinject-1.11.0.tar.gz", hash = "sha256:31294ff3f327a98dffcb5a2dd04dca0202b2a6c0ff2f57697bba558a52ddf592", size = 39590, upload-time = "2026-08-26T22:46:08.547Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d4/70/262d8173667e2ea19348fbb38e543c51dd724d28f63c49e1068796536979/xinject-1.10.1-py3-none-any.whl", hash = "sha256:100fdcb1524abbb83f24ed6e895a5071d884cf779c39b70aa07728f459ec544b", size = 36635, upload-time = "2026-06-17T17:07:33.856Z" },
+    { url = "https://files.pythonhosted.org/packages/85/7e/e5ff7384e8df68db2f86b9c1a3ca0805b4b0f450ac2c2ed46ca05ec1ac92/xinject-1.11.0-py3-none-any.whl", hash = "sha256:8454bafa08e7e4ea7907141c9fdc6e447caaf5d58325ce6039c751504cdb7db2", size = 42833, upload-time = "2026-08-26T22:46:07.633Z" },
 ]
 
 [[package]]
