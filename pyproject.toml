@@ -1,46 +1,75 @@
-[tool.poetry]
+[project]
 name = "xcon"
 version = "1.1.2"
 description = "Dynamic configuration retreiver."
-authors = ["Josh Orr <josh@orr.blue>"]
-packages = [{include = "xcon"}]
+authors = [{ name = "Josh Orr", email = "josh@orr.blue" }]
+requires-python = ">=3.14,<4"
 readme = "Readme.md"
-repository = "https://github.com/joshorr/xcon"
-keywords = ["settings", "configuration", "lazy", "boto", "aws", "secrets manager", "param store", "ssm"]
+keywords = [
+    "settings",
+    "configuration",
+    "lazy",
+    "boto",
+    "aws",
+    "secrets manager",
+    "param store",
+    "ssm",
+]
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "License :: OSI Approved :: The Unlicense (Unlicense)"
+    "License :: OSI Approved :: The Unlicense (Unlicense)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "xbool>=1.1.0,<2",
+    "xloop>=1.1.0,<2",
+    "xsentinels>=1.2.2,<2",
+    "xinject>=1.11.0,<2",
+    "xboto>=1.1.1,<2",
+    "xsettings>=1.4.0,<2",
+    "ciso8601>=2.3.1,<3",
 ]
 
+[project.urls]
+Repository = "https://github.com/joshorr/xcon"
 
+[project.entry-points.pytest11]
+xcon_pytest_plugin = "xcon.pytest_plugin"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-xbool = "^1.1.0"
-xloop = "^1.1.0"
-xsentinels = "^1.2.2"
-xinject = "^1.4.1"
-xboto = "^1.1.1"
-xsettings = "^1.4.0"
-ciso8601 = "^2.3.1"
+[dependency-groups]
+dev = [
+    "pytest-ordering",
+    "tomlkit>=0,<1",
+    "pdoc3",
+    "black",
+    "moto",
+    "boto3-stubs[essential]",
+    "mkdocstrings[python]>=0,<1",
+    "mkdocs-autorefs>=1,<2",
+    "mkdocs-git-revision-date-plugin>=0,<1",
+    "mkdocs>=1.4.2,<2",
+    "mkdocs-material>=9.0.12,<10",
+    "pytest>=9,<10",
+    "mike>=2,<3",
+    "pytest-mock>=3.10.0,<4",
+    "pytest-order>=1.0.1,<2",
+    "pytest-pycodestyle>=2.3.1,<3",
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest-ordering = "^0.6"
-tomlkit = "^0"
-pdoc3 = "*"
-black = {version = "*", allow-prereleases = true}
-moto = {version = "*", extras = ["dynamodb2", "ssm", "secretsmanager"] }
-boto3-stubs = { extras = ["essential"], version = "*" }
-mkdocstrings = { extras = ["python"], version = "^0" }
-mkdocs-autorefs = "^1"
-mkdocs-git-revision-date-plugin = "^0"
-mkdocs = "^1.4.2"
-mkdocs-material = "^9.0.12"
-pytest = "^8"
-mike = "^2"
-pytest-mock = "^3.10.0"
-pytest-order = "^1.0.1"
-pytest-pycodestyle = "^2.3.1"
+[tool.uv]
+default-groups = "all"
+
+[tool.uv.build-backend]
+module-name = ["xcon"]
+module-root = ""
+
+[build-system]
+requires = ["uv_build>=0.11.23,<0.12.0"]
+build-backend = "uv_build"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -54,9 +83,6 @@ addopts = "--verbose --pycodestyle"
 testpaths = ["tests", "xcon"]
 python_files = "tests.py test_*.py *_tests.py tests/*"
 norecursedirs = "lib/* tests/scripts .serverless .eggs dist/* node_modules"
-
-[tool.poetry.plugins]
-pytest11 = { xcon_pytest_plugin = "xcon.pytest_plugin"}
 
 [tool.custom.xpublish]
 extra-module-docs = ['xsentinels', 'xloop', 'xinject', 'xbool', 'xsettings']
@@ -84,8 +110,3 @@ exclude = '''
                      # the root of the project
 )
 '''
-
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
