@@ -1293,10 +1293,10 @@ class Config(
                 supplemental_msg = f"non-existence entry was found in cacher; "
 
             xlog.debug(
-                "Config not found ({config_var_name}); "
+                f"Config not found ({item.name}); "
                 f"{supplemental_msg}"
-                "in directories ({directories}), "
-                "for providers ({providers}); extra metadata ({meta}); "
+                f"in directories ({directories}), "
+                f"for providers ({providers}); extra metadata ({item.supplemental_metadata}); "
                 f"env_only_enabled({env_only_enabled}).",
                 extra=dict(
                     config_var_name=original_name,
