@@ -217,8 +217,8 @@ class AwsProvider(Provider):
         any subclasses.
     """
     botocore_error_ignored_exception: BotoCoreError = None
-    """ This means that any attempt to communicat with aws service will probably fail;
-        probable due to a corrupted or missing aws credentials.
+    """ This means that any attempt to communicate with aws service will probably fail;
+        probably due to a corrupted or missing aws credentials.
     """
 
     @property

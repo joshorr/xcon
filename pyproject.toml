@@ -3,7 +3,7 @@ name = "xcon"
 version = "1.1.0"
 description = "Dynamic configuration retreiver."
 authors = [{ name = "Josh Orr", email = "josh@orr.blue" }]
-requires-python = ">=3.11,<4"
+requires-python = ">=3.14,<4"
 readme = "Readme.md"
 keywords = [
     "settings",
@@ -42,18 +42,18 @@ xcon_pytest_plugin = "xcon.pytest_plugin"
 
 [dependency-groups]
 dev = [
-    "pytest-ordering>=0.6,<0.7",
+    "pytest-ordering",
     "tomlkit>=0,<1",
     "pdoc3",
     "black",
-    "moto[dynamodb2, ssm, secretsmanager]",
+    "moto",
     "boto3-stubs[essential]",
     "mkdocstrings[python]>=0,<1",
     "mkdocs-autorefs>=1,<2",
     "mkdocs-git-revision-date-plugin>=0,<1",
     "mkdocs>=1.4.2,<2",
     "mkdocs-material>=9.0.12,<10",
-    "pytest>=8,<9",
+    "pytest>=9,<10",
     "mike>=2,<3",
     "pytest-mock>=3.10.0,<4",
     "pytest-order>=1.0.1,<2",
