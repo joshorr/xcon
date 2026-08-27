@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/joshorr/xcon/compare/v1.1.2...v1.2.0) (2026-08-26)
+
+
+### Features
+
+* upgrade to use python 3.14 ([c0d3ccf](https://github.com/joshorr/xcon/commit/c0d3ccf9c3f1dcebf10b3af5d507dabb409e2d3f))
+
+
+### Bug Fixes
+
+* adapt to new xinject versions. ([9af8301](https://github.com/joshorr/xcon/commit/9af8301631b430386fbc33b0a42b66acf892b46b))
+* I put the wrong value on, making it the correct one. ([567ceb5](https://github.com/joshorr/xcon/commit/567ceb55f2250eb21aabade1577e20f00602569d))
+* These were intended to be formatted into log. ([cd74b7c](https://github.com/joshorr/xcon/commit/cd74b7c28201bfde2b5a4fd7564119fdcef70b59))
+
 ## [1.1.2](https://github.com/joshorr/xcon/compare/v1.1.1...v1.1.2) (2026-05-09)
 
 

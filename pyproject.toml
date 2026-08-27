@@ -1,6 +1,6 @@
 [project]
 name = "xcon"
-version = "1.1.2"
+version = "1.2.0"
 description = "Dynamic configuration retreiver."
 authors = [{ name = "Josh Orr", email = "josh@orr.blue" }]
 requires-python = ">=3.14,<4"
