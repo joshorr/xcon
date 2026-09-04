@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/joshorr/xcon/compare/v1.2.0...v1.2.1) (2026-09-04)
+
+
+### Bug Fixes
+
+* we are supposed to preserve config between unit tests. ([a9f0dff](https://github.com/joshorr/xcon/commit/a9f0dffa710960bba17757240a527571c3034d9c))
+* we are supposed to preserve config between unit tests. ([4b10b96](https://github.com/joshorr/xcon/commit/4b10b963b3ae210e3f5a56ab61608001c4306ff8))
+
 ## [1.2.0](https://github.com/joshorr/xcon/compare/v1.1.2...v1.2.0) (2026-08-26)
 
 
